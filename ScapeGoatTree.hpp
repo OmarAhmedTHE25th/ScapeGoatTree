@@ -1,0 +1,13 @@
+//
+// Created by DELL on 10/25/2025.
+//
+
+#ifndef SCAPEGOATTREE_SCAPEGOATTREE_HPP
+#define SCAPEGOATTREE_SCAPEGOATTREE_HPP
+
+
+class ScapeGoatTree {
+};
+
+
+#endif //SCAPEGOATTREE_SCAPEGOATTREE_HPP
