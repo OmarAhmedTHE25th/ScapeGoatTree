@@ -9,14 +9,14 @@
 
 class ScapeGoatTree {
 private:
-    Node* root;   // Root node of the tree
+    Node* root{};   // Root node of the tree
 
 public:
     ScapeGoatTree();        
     Node* getRoot() const;  // get the root pointer
 
     // Inserts a new value into the tree 
-    Node* insert(int value);
+    void insert(int value);
 };
 
 
