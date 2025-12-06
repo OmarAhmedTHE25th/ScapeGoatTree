@@ -5,8 +5,18 @@
 #ifndef SCAPEGOATTREE_SCAPEGOATTREE_HPP
 #define SCAPEGOATTREE_SCAPEGOATTREE_HPP
 
+#include "Node.hpp"
 
 class ScapeGoatTree {
+private:
+    Node* root;   // Root node of the tree
+
+public:
+    ScapeGoatTree();        
+    Node* getRoot() const;  // get the root pointer
+
+    // Inserts a new value into the tree 
+    Node* insert(int value);
 };
 
 
