@@ -8,15 +8,24 @@
 #include "Node.hpp"
 
 class ScapeGoatTree {
-private:
-    Node* root{};   // Root node of the tree
+    // Root node of the tree
+    static int findH(const Node* node);
+    static int countN(const Node* node);
+    static Node* findTraitor(Node* node);
+    Node* rebuildTree(int start,int end) const;
+    void inorderTraversal(const Node *node, int &i);
+    static void postorderTraversal(Node* node);
+    Node* root{};
+    int array[100]{};
+    int nNodes{};
 
 public:
-    ScapeGoatTree();        
-    Node* getRoot() const;  // get the root pointer
-
+    ScapeGoatTree();
     // Inserts a new value into the tree 
     void insert(int value);
+    ~ScapeGoatTree(){postorderTraversal(root);}
+
+
 };
 
 
