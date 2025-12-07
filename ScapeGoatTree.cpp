@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iostream>
 #include <cmath>
+#include <queue>
 using namespace std;
 // Constructor starts with an empty tree
 ScapeGoatTree::ScapeGoatTree()
@@ -22,15 +23,12 @@ void ScapeGoatTree::insert(int value) {
     int  depth = 0;
     while (current != nullptr) {
         parent = current;              // Set parent to the current node before moving on
-
+        depth++;
         if (value < current->value) {
             current = current->left;
-            depth++;
-
         }
         else if (value > current->value) {
             current = current->right;
-            depth++;
         }
         else {
             return;
@@ -39,25 +37,30 @@ void ScapeGoatTree::insert(int value) {
 
     // Make the new node and set its parent
     const auto newNode = new Node(value, parent);
-    int i =0;
     // connect the new node to the parent (left/right)
-    if (value < parent->value) {
+    if (value < parent->value)
         parent->left = newNode;
-        nNodes++;
-    } else {
+    else
         parent->right = newNode;
-        nNodes++;
-    }
+
+    nNodes++;
+
+
     int threshold = static_cast<int>(log(nNodes) / log(1.5));
-    if (depth>threshold) {
-        Node* goat = findTraitor(newNode);
+    if (depth+1>threshold) {
+        Node* goat = findTraitor(newNode->parent);
         if (goat == nullptr) return;
+        int i = 0;
+        std::fill_n(array, nNodes, 0); // clear it
         inorderTraversal(goat,i);
-        Node* balanced = rebuildTree(0,i-1);
-        balanced->parent=goat->parent;
+        int size = i; // size of subtree
+        Node* balanced = rebuildTree(0, size - 1,goat->parent);
         if (!goat->parent) root = balanced;
         else if (goat == goat->parent->left) goat->parent->left = balanced;
         else goat->parent->right = balanced;
+        if (goat->left)  goat->left->parent = nullptr;
+        if (goat->right) goat->right->parent = nullptr;
+
         postorderTraversal(goat);
     }
 }
@@ -73,24 +76,24 @@ int ScapeGoatTree::countN(const Node *node) {
     return 1 + countN(node->left) + countN(node->right);
 }
 Node *ScapeGoatTree::findTraitor(Node *node) {
-    if (!node)return nullptr;
-    int size = countN(node);
-    int leftSize = countN(node->left);
-    int rightSize =  size - leftSize - 1;
-    if (leftSize > (0.6666666)*size ||rightSize > (0.6666666)*size) {
-        return node;
+     while (node != nullptr) {
+        int left = countN(node->left);
+        int right = countN(node->right);
+        int size = left + right + 1;
+
+        if (left > (2.0/3.0) * size || right > (2.0/3.0) * size)
+            return node;
+
+        node = node->parent;
     }
-  return findTraitor(node->parent);
+    return nullptr;
 }
-Node* ScapeGoatTree::rebuildTree(const int start, const int end) const {
+Node* ScapeGoatTree::rebuildTree(const int start, const int end,Node* parent_node)  {
     if (start>end)return  nullptr;
     int mid =(start+end)/2;
-    Node* Nroot = new Node(array[mid]);
-    Nroot->left = nullptr;
-    Nroot->right = nullptr;
-    Nroot->parent = nullptr;
-    Nroot->left = rebuildTree(start, mid-1);
-    Nroot->right = rebuildTree(mid+1,end);
+    Node* Nroot = new Node(array[mid],parent_node);
+    Nroot->left = rebuildTree(start, mid-1,Nroot);
+    Nroot->right = rebuildTree(mid+1,end,Nroot);
     if (Nroot->left) Nroot->left->parent = Nroot;
     if (Nroot->right)Nroot->right->parent=Nroot;
     return Nroot;
@@ -112,3 +115,23 @@ void ScapeGoatTree::postorderTraversal(Node *node) {
 
 
 
+void ScapeGoatTree::isBalanced() const {
+    double n = countN(root);
+    if (n == 0) {
+        std::cout << "Tree empty. Of course it's balanced 😎\n";
+        return ;
+    }
+
+    int height = findH(root);
+    double bound = log(n) / log(1.5);
+
+    std::cout << "Node count: " << n << "\n";
+    std::cout << "Height: " << height << "\n";
+    std::cout << "Height bound: " << bound << "\n";
+
+    if (height <= bound) {
+        std::cout << ":D Tree is balanced.\n";
+        return ;
+    }
+    std::cout << "~_~ Tree is NOT balanced. A scapegoat must be sacrificed!\n";
+}

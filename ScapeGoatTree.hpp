@@ -12,12 +12,14 @@ class ScapeGoatTree {
     static int findH(const Node* node);
     static int countN(const Node* node);
     static Node* findTraitor(Node* node);
-    Node* rebuildTree(int start,int end) const;
+    Node* rebuildTree(int start,int end,Node* parent_node);
     void inorderTraversal(const Node *node, int &i);
     static void postorderTraversal(Node* node);
+
     Node* root{};
     int array[100]{};
     int nNodes{};
+
 
 public:
     ScapeGoatTree();
@@ -25,6 +27,7 @@ public:
     void insert(int value);
     ~ScapeGoatTree(){postorderTraversal(root);}
 
+    void isBalanced() const;
 
 };
 
