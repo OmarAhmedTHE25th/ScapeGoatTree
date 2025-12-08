@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <iostream>
 #include <cmath>
-#include <queue>
 using namespace std;
 // Constructor starts with an empty tree
 ScapeGoatTree::ScapeGoatTree()
