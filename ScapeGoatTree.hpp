@@ -26,7 +26,7 @@ public:
     // Inserts a new value into the tree 
     void insert(int value);
     ~ScapeGoatTree(){postorderTraversal(root);}
-
+    void deleteValue(int value);
     void isBalanced() const;
 
 };
