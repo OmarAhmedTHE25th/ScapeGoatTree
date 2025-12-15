@@ -134,3 +134,79 @@ void ScapeGoatTree::isBalanced() const {
     }
     std::cout << "~_~ Tree is NOT balanced. A scapegoat must be sacrificed!\n";
 }
+void ScapeGoatTree::deleteValue(int value) {
+ 
+    Node* node = root;
+    Node* parent = nullptr;
+   
+    // Step 1: Search for the node
+    while (node != nullptr && node->value != value) {
+        parent = node;
+        if (value < node->value)
+            node = node->left;
+        else
+            node = node->right;
+    }
+
+    // Value not found
+    if (!node) return;
+
+    //Deletion cases
+
+    // Case 1: Leaf node
+    if (!node->left && !node->right) {
+        if (!parent) {
+            root = nullptr;
+        }
+        else if (parent->left == node) {
+            parent->left = nullptr;
+        }
+        else {
+            parent->right = nullptr;
+        }
+        delete node;
+    }
+
+    // Case 2: One child
+    else if (!node->left || !node->right) {
+        Node* child = nullptr;
+        if (node->left != nullptr)
+            child = node->left;
+        else
+            child = node->right;
+
+        child->parent = parent;
+
+        if (!parent) {
+            root = child;
+        }
+        else if (parent->left == node) {
+            parent->left = child;
+        }
+        else {
+            parent->right = child;
+        }
+
+        delete node;
+    }
+
+    // Case 3: Two children
+    else {
+        // Find inorder successor (smallest in right subtree)
+        Node* suc = node->right;
+        while (suc->left != nullptr)
+            suc = suc->left;
+
+        int sucValue = suc->value;
+
+        // Delete successor
+        deleteValue(sucValue);
+
+        // Replace value
+        node->value = sucValue;
+        return;
+    }
+
+    //Update node count
+    nNodes--;
+}
