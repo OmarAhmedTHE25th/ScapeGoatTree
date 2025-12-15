@@ -14,8 +14,8 @@ class ScapeGoatTree {
     static Node* findTraitor(Node* node);
     Node* rebuildTree(int start,int end,Node* parent_node);
     void inorderTraversal(const Node *node, int &i);
-    static void postorderTraversal(Node* node);
-
+    static void postorderTraversal(const Node* node);
+     void preorderTraversal(const Node* node);
     Node* root{};
     int array[100]{};
     int nNodes{};
@@ -27,9 +27,19 @@ public:
     void insert(int value);
     void deleteValue(int value);
     ~ScapeGoatTree(){postorderTraversal(root);}
-
     void isBalanced() const;
-
+    ScapeGoatTree(const ScapeGoatTree &Otree);
+    ScapeGoatTree operator+(const ScapeGoatTree &goat_tree) const;
+    ScapeGoatTree& operator=(const ScapeGoatTree& Otree);
+    [[nodiscard]] bool search(int key) const;
+    bool operator[](int value) const;
+    bool operator==(const ScapeGoatTree &tree) const;
+    bool operator!=(const ScapeGoatTree &tree) const;
+    bool operator!() const;
+    void operator-(int value);
+    void operator+(int value);
+    void operator-=(int value);
+    void operator+=(int value);
 };
 
 

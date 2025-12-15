@@ -2,13 +2,13 @@
 #include <algorithm>
 #include <iostream>
 #include <cmath>
+
+
 using namespace std;
 // Constructor starts with an empty tree
-ScapeGoatTree::ScapeGoatTree()
-= default;
-
+ScapeGoatTree::ScapeGoatTree()= default;
 // This function puts the new node in the tree and sets its parent.
-void ScapeGoatTree::insert(int value) {
+void ScapeGoatTree::insert(const int value) {
 
     // tree is empty so the new node becomes the root
     if (root == nullptr) {
@@ -63,82 +63,11 @@ void ScapeGoatTree::insert(int value) {
         postorderTraversal(goat);
     }
 }
+void ScapeGoatTree::deleteValue(const int value) {
 
-int ScapeGoatTree::findH(const Node *node) {
-    if (!node)return 0;
-    const int rightH = findH(node->right);
-    const int leftH = findH(node->left);
-    return max(leftH,rightH)+1;
-}
-int ScapeGoatTree::countN(const Node *node) {
-    if (!node)return 0;
-    return 1 + countN(node->left) + countN(node->right);
-}
-Node *ScapeGoatTree::findTraitor(Node *node) {
-     while (node != nullptr) {
-        int left = countN(node->left);
-        int right = countN(node->right);
-        int size = left + right + 1;
-
-        if (left > (2.0/3.0) * size || right > (2.0/3.0) * size)
-            return node;
-
-        node = node->parent;
-    }
-    return nullptr;
-}
-Node* ScapeGoatTree::rebuildTree(const int start, const int end,Node* parent_node)  {
-    if (start>end)return  nullptr;
-    int mid =(start+end)/2;
-    Node* Nroot = new Node(array[mid],parent_node);
-    Nroot->left = rebuildTree(start, mid-1,Nroot);
-    Nroot->right = rebuildTree(mid+1,end,Nroot);
-    if (Nroot->left) Nroot->left->parent = Nroot;
-    if (Nroot->right)Nroot->right->parent=Nroot;
-    return Nroot;
-}
-void ScapeGoatTree::inorderTraversal(const Node *node,int &i) {
-    if (!node)return;
-    inorderTraversal(node->left,i);
-    array[i++]= node->value;
-    inorderTraversal(node->right,i);
-}
-void ScapeGoatTree::postorderTraversal(Node *node) {
-    if (!node)return;
-    postorderTraversal(node->left);
-    postorderTraversal(node->right);
-    delete node;
-}
-
-
-
-
-
-void ScapeGoatTree::isBalanced() const {
-    double n = countN(root);
-    if (n == 0) {
-        std::cout << "Tree empty. Of course it's balanced 😎\n";
-        return ;
-    }
-
-    int height = findH(root);
-    double bound = log(n) / log(1.5);
-
-    std::cout << "Node count: " << n << "\n";
-    std::cout << "Height: " << height << "\n";
-    std::cout << "Height bound: " << bound << "\n";
-
-    if (height <= bound) {
-        std::cout << ":D Tree is balanced.\n";
-        return ;
-    }
-    std::cout << "~_~ Tree is NOT balanced. A scapegoat must be sacrificed!\n";
-}
-void ScapeGoatTree::deleteValue(int value) {
- 
     Node* node = root;
     Node* parent = nullptr;
-   
+
     // Step 1: Search for the node
     while (node != nullptr && node->value != value) {
         parent = node;
@@ -210,3 +139,139 @@ void ScapeGoatTree::deleteValue(int value) {
     //Update node count
     nNodes--;
 }
+int ScapeGoatTree::findH(const Node *node) {
+    if (!node)return 0;
+    const int rightH = findH(node->right);
+    const int leftH = findH(node->left);
+    return max(leftH,rightH)+1;
+}
+int ScapeGoatTree::countN(const Node *node) {
+    if (!node)return 0;
+    return 1 + countN(node->left) + countN(node->right);
+}
+Node *ScapeGoatTree::findTraitor(Node *node) {
+     while (node != nullptr) {
+        int left = countN(node->left);
+        int right = countN(node->right);
+        int size = left + right + 1;
+
+        if (left > (2.0/3.0) * size || right > (2.0/3.0) * size)
+            return node;
+
+        node = node->parent;
+    }
+    return nullptr;
+}
+Node* ScapeGoatTree::rebuildTree(const int start, const int end,Node* parent_node)  {
+    if (start>end)return  nullptr;
+    int mid =(start+end)/2;
+    Node* Nroot = new Node(array[mid],parent_node);
+    Nroot->left = rebuildTree(start, mid-1,Nroot);
+    Nroot->right = rebuildTree(mid+1,end,Nroot);
+    if (Nroot->left) Nroot->left->parent = Nroot;
+    if (Nroot->right)Nroot->right->parent=Nroot;
+    return Nroot;
+}
+void ScapeGoatTree::inorderTraversal(const Node *node,int &i) {
+    if (!node)return;
+    inorderTraversal(node->left,i);
+    array[i++]= node->value;
+    inorderTraversal(node->right,i);
+}
+void ScapeGoatTree::postorderTraversal(const Node *node) {
+    if (!node)return;
+    postorderTraversal(node->left);
+    postorderTraversal(node->right);
+    delete node;
+}
+void ScapeGoatTree::preorderTraversal(const Node *node) {
+    if (!node)return;
+    insert(node->value);
+    preorderTraversal(node->left);
+    preorderTraversal(node->right);
+}
+void ScapeGoatTree::isBalanced() const {
+    double n = countN(root);
+    if (n == 0) {
+        std::cout << "Tree empty. Of course it's balanced 😎\n";
+        return ;
+    }
+
+    int height = findH(root);
+    double bound = log(n) / log(1.5);
+
+    std::cout << "Node count: " << n << "\n";
+    std::cout << "Height: " << height << "\n";
+    std::cout << "Height bound: " << bound << "\n";
+
+    if (height <= bound) {
+        std::cout << ":D Tree is balanced.\n";
+        return ;
+    }
+    std::cout << "~_~ Tree is NOT balanced. A scapegoat must be sacrificed!\n";
+}
+ScapeGoatTree::ScapeGoatTree(const ScapeGoatTree &Otree) {
+    if (!Otree.root)return;
+    preorderTraversal(Otree.root);
+}
+ScapeGoatTree ScapeGoatTree::operator+(const ScapeGoatTree& goat_tree ) const {
+    ScapeGoatTree newTree;
+    newTree.preorderTraversal(root);
+    newTree.preorderTraversal(goat_tree.root);
+    return newTree;
+}
+ScapeGoatTree& ScapeGoatTree::operator=(const ScapeGoatTree &Otree) {
+    if (this == &Otree) return *this;
+
+    postorderTraversal(root);
+    root = nullptr;
+    nNodes = 0;
+    std::fill_n(array, 100, 0);
+
+    if (Otree.root) {
+        preorderTraversal(Otree.root);
+    }
+    return *this;
+}
+void ScapeGoatTree::operator+(const int value) {
+    insert(value);
+}
+bool ScapeGoatTree::search(const int key) const {
+    Node* current=root;
+    while (current != nullptr) {
+
+        if (key < current->value) {
+            current = current->left;
+        }
+        else if (key > current->value) {
+            current = current->right;
+        }
+       if (key==current->value)return true;
+    }
+    return false;
+}
+bool ScapeGoatTree::operator[](const int value) const {
+    return search(value);
+}
+bool ScapeGoatTree::operator==(const ScapeGoatTree &tree) const {
+    if (nNodes != tree.nNodes)return false;
+    for (int i = 0; i < nNodes; i++)if (array[i]!=tree.array[i])return false;
+    return true;
+}
+bool ScapeGoatTree::operator!=(const ScapeGoatTree &tree) const {
+    return this != &tree;
+}
+bool ScapeGoatTree::operator!() const {
+    if (root)return true;
+    return  false;
+}
+void ScapeGoatTree::operator-(const int value) {
+    deleteValue(value);
+}
+void ScapeGoatTree::operator-=(const int value) {
+    deleteValue(value);
+}
+void ScapeGoatTree::operator+=(const int value) {
+    insert(value);
+}
+
