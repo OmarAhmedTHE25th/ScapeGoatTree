@@ -25,6 +25,7 @@ public:
     ScapeGoatTree();
     // Inserts a new value into the tree 
     void insert(int value);
+    void ScapeGoatTree::deleteValue(int value)
     ~ScapeGoatTree(){postorderTraversal(root);}
 
     void isBalanced() const;
