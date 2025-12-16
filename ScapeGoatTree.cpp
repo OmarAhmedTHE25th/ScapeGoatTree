@@ -1,7 +1,7 @@
 #include "ScapeGoatTree.hpp"
 #include <algorithm>
-#include <iostream>
 #include <cmath>
+#include <sstream>
 
 
 using namespace std;
@@ -126,7 +126,7 @@ void ScapeGoatTree::deleteValue(const int value) {
         while (suc->left != nullptr)
             suc = suc->left;
 
-        int sucValue = suc->value;
+        const int sucValue = suc->value;
 
         // Delete successor
         deleteValue(sucValue);
@@ -190,26 +190,35 @@ void ScapeGoatTree::preorderTraversal(const Node *node) {
     preorderTraversal(node->left);
     preorderTraversal(node->right);
 }
-void ScapeGoatTree::isBalanced() const {
-    double n = countN(root);
-    if (n == 0) {
-        std::cout << "Tree empty. Of course it's balanced 😎\n";
-        return ;
+
+
+std::string ScapeGoatTree::isBalanced() const {
+        std::ostringstream out;
+
+        double n = countN(root);
+        if (n == 0) {
+            out << "Tree empty. Of course it's balanced 😎";
+            return out.str();
+        }
+
+        int height = findH(root);
+        double bound = log(n) / log(1.5);
+
+        out << "Node count: " << n << "\n";
+        out << "Height: " << height << "\n";
+        out << "Height bound: " << bound << "\n\n";
+
+        if (height <= bound)
+            out << ":D Tree is balanced -- congratulations. It's not a Linked List.";
+        else
+            out << "~_~ Tree is NOT balanced. A scapegoat must be sacrificed.";
+
+        return out.str();
     }
 
-    int height = findH(root);
-    double bound = log(n) / log(1.5);
 
-    std::cout << "Node count: " << n << "\n";
-    std::cout << "Height: " << height << "\n";
-    std::cout << "Height bound: " << bound << "\n";
 
-    if (height <= bound) {
-        std::cout << ":D Tree is balanced.\n";
-        return ;
-    }
-    std::cout << "~_~ Tree is NOT balanced. A scapegoat must be sacrificed!\n";
-}
+
 ScapeGoatTree::ScapeGoatTree(const ScapeGoatTree &Otree) {
     if (!Otree.root)return;
     preorderTraversal(Otree.root);
@@ -239,14 +248,14 @@ void ScapeGoatTree::operator+(const int value) {
 bool ScapeGoatTree::search(const int key) const {
     Node* current=root;
     while (current != nullptr) {
-
+        if (key==current->value)return true;
         if (key < current->value) {
             current = current->left;
         }
         else if (key > current->value) {
             current = current->right;
         }
-       if (key==current->value)return true;
+
     }
     return false;
 }
@@ -275,3 +284,55 @@ void ScapeGoatTree::operator+=(const int value) {
     insert(value);
 }
 
+// For display
+// Pre-Order helper
+void ScapeGoatTree::displayPreOrder(const Node* node) {
+    if (!node) return;
+    displayBuffer += std::to_string(node->value) + " ";
+    displayPreOrder(node->left);
+    displayPreOrder(node->right);
+}
+
+// Public
+void ScapeGoatTree::displayPreOrder() {
+    displayBuffer.clear();
+    if (!root) {
+        displayBuffer = "Tree is empty.";
+        return;
+    }
+    displayPreOrder(root);
+}
+void ScapeGoatTree::displayInOrder(const Node* node) {
+    if (!node) return;
+    displayInOrder(node->left);
+    displayBuffer += std::to_string(node->value) + " ";
+    displayInOrder(node->right);
+}
+
+void ScapeGoatTree::displayInOrder() {
+    displayBuffer.clear();
+    if (!root) {
+        displayBuffer = "Tree is empty.";
+        return;
+    }
+    displayInOrder(root);
+}
+
+void ScapeGoatTree::displayPostOrder(const Node* node) {
+    if (!node) return;
+    displayPostOrder(node->left);
+    displayPostOrder(node->right);
+    displayBuffer += std::to_string(node->value) + " ";
+}
+
+void ScapeGoatTree::displayPostOrder()  {
+    displayBuffer.clear();
+    if (!root) {
+        displayBuffer = "Tree is empty.";
+        return;
+    }
+    displayPostOrder(root);
+}
+   std::string& ScapeGoatTree::getDisplayBuffer() const {
+    return displayBuffer;
+}
