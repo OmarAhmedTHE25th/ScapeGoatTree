@@ -6,9 +6,9 @@
 // - Documentation        https://dearimgui.com/docs (same as your local docs/ folder).
 // - Introduction, links and more at the top of imgui.cpp
 
-#include "C:\Users\DELL\CLionProjects\tree\imgui\imgui.h"
-#include "C:\Users\DELL\CLionProjects\tree\imgui\backends\imgui_impl_win32.h"
-#include "C:\Users\DELL\CLionProjects\tree\imgui\backends\imgui_impl_dx11.h"
+#include "imgui.h"
+#include "imgui_impl_win32.h"
+#include "imgui_impl_dx11.h"
 #include <d3d11.h>
 #include <tchar.h>
 #include "ScapeGoatTree.hpp"
@@ -94,14 +94,11 @@ int main(int, char**)
 
     // ScapeGoatTree state
     ScapeGoatTree tree;
-    static char inputValue[32] = "";
-    static char searchValue[32] = "";
-    static char deleteValue[32] = "";
-    static char resultMsg[128] = "";
+
 
     // Main loop
     bool done = false;
-    while (!done)
+    while (true)
     {
         // Poll and handle messages (inputs, window resize, etc.)
         // See the WndProc() function below for our to dispatch events to the Win32 backend.
@@ -139,12 +136,11 @@ int main(int, char**)
         ImGui::NewFrame();
 
 
-        // Make window fill the entire viewport
+
         ImGuiViewport* viewport = ImGui::GetMainViewport();
         ImGui::SetNextWindowPos(viewport->Pos);
         ImGui::SetNextWindowSize(viewport->Size);
 
-        // No decorations, no padding, no moving
         ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
         ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(10, 10));
@@ -158,10 +154,10 @@ int main(int, char**)
             ImGuiWindowFlags_NoCollapse
         );
 
-
-        static char insertBuf[32] = "";
-        static char searchBuf[32] = "";
-        static char deleteBuf[32] = "";
+//----------------------------------------------------------------------------------------------------------------------
+        static char insertBuf[32]{};
+        static char searchBuf[32]{};
+        static char deleteBuf[32]{};
         static char status[128] = "Ready";
         static std::string output = "Ready.";
         ImGui::Text("Insert");
@@ -170,7 +166,7 @@ int main(int, char**)
         ImGui::SameLine();
         if (ImGui::Button("Insert"))
         {
-            int v = atoi(insertBuf);
+            int v = static_cast<int>(strtol(insertBuf, nullptr, 10));
             tree.insert(v);
             snprintf(status, 128, "Inserted %d", v);
             insertBuf[0] = '\0';
@@ -183,7 +179,7 @@ int main(int, char**)
         ImGui::InputText("", searchBuf, 32);
         ImGui::SameLine();
         if (ImGui::Button("Search")) {
-            int v = atoi(searchBuf);
+            int v = static_cast<int>(strtol(searchBuf, nullptr, 10));
             bool found = tree.search(v);
             output = std::to_string(v) + (found ? " FOUND in tree." : " NOT FOUND in tree.");
 
@@ -198,7 +194,7 @@ int main(int, char**)
         ImGui::SameLine();
         if (ImGui::Button("Delete"))
         {
-            int v = atoi(deleteBuf);
+            int v = static_cast<int>(strtol(deleteBuf, nullptr, 10));
             tree.deleteValue(v);
             snprintf(status, 128, "Deleted %d", v);
         }
@@ -242,7 +238,7 @@ int main(int, char**)
         ImGui::TextWrapped("%s", output.c_str());
 
         ImGui::EndChild();
-
+//----------------------------------------------------------------------------------------------------------------------
 
         ImGui::End();
         ImGui::PopStyleVar(3);
@@ -295,7 +291,7 @@ bool CreateDeviceD3D(HWND hWnd)
     UINT createDeviceFlags = 0;
     //createDeviceFlags |= D3D11_CREATE_DEVICE_DEBUG;
     D3D_FEATURE_LEVEL featureLevel;
-    const D3D_FEATURE_LEVEL featureLevelArray[2] = { D3D_FEATURE_LEVEL_11_0, D3D_FEATURE_LEVEL_10_0, };
+    constexpr D3D_FEATURE_LEVEL featureLevelArray[2] = { D3D_FEATURE_LEVEL_11_0, D3D_FEATURE_LEVEL_10_0, };
     HRESULT res = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, createDeviceFlags, featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &g_pSwapChain, &g_pd3dDevice, &featureLevel, &g_pd3dDeviceContext);
     if (res == DXGI_ERROR_UNSUPPORTED) // Try high-performance WARP software driver if hardware is not available.
         res = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_WARP, nullptr, createDeviceFlags, featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &g_pSwapChain, &g_pd3dDevice, &featureLevel, &g_pd3dDeviceContext);
@@ -345,8 +341,8 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     case WM_SIZE:
         if (wParam == SIZE_MINIMIZED)
             return 0;
-        g_ResizeWidth = (UINT)LOWORD(lParam); // Queue resize
-        g_ResizeHeight = (UINT)HIWORD(lParam);
+        g_ResizeWidth = static_cast<UINT>(LOWORD(lParam)); // Queue resize
+        g_ResizeHeight = static_cast<UINT>(HIWORD(lParam));
         return 0;
     case WM_SYSCOMMAND:
         if ((wParam & 0xfff0) == SC_KEYMENU) // Disable ALT application menu
@@ -355,6 +351,7 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         ::PostQuitMessage(0);
         return 0;
+    default: ;
     }
     return ::DefWindowProcW(hWnd, msg, wParam, lParam);
 }
