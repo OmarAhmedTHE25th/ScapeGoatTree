@@ -4,18 +4,18 @@
 
 #ifndef SCAPEGOATTREE_NODE_HPP
 #define SCAPEGOATTREE_NODE_HPP
-
+template<typename T>
 
 class Node {
-public:
-    int value;     // stored value
+    mutable T value;     // stored value
     Node* left;    // left child pointer
     Node* right;   // right child pointer
     Node* parent;  // parent pointer
-
     // constructor
-    Node(int v, Node* parentPtr = nullptr)
+    explicit Node(int v, Node* parentPtr = nullptr)
         : value(v), left(nullptr), right(nullptr), parent(parentPtr) {}
+    template<typename>
+    friend class ScapeGoatTree;
 };
 
 

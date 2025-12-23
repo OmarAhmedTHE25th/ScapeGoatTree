@@ -9,14 +9,15 @@
 #include <string>
 
 #include "Node.hpp"
-
+template<typename T>
 class ScapeGoatTree {
+    using Node = ::Node<T>;
     // Root node of the tree
     static int findH(const Node* node);
     static int countN(const Node* node);
     static Node* findTraitor(Node* node);
     Node* rebuildTree(int start,int end,Node* parent_node);
-    void inorderTraversal(const Node *node, int &i);
+    void inorderTraversal(const Node*node, int &i);
     static void postorderTraversal(const Node* node);
     void preorderTraversal(const Node* node);
     void displayPreOrder(const Node* node); // for display
@@ -24,22 +25,22 @@ class ScapeGoatTree {
     void  displayPostOrder(const Node* node) ; // for display
     mutable std::string displayBuffer;
     Node* root{};
-    int array[100]{};
     int nNodes{};
+    int threshold = static_cast<int>(log(nNodes) / log(1.5));
+    int size=100;
+    T* array = new int[size]{};
 
 public:
 
     ScapeGoatTree();
-    // Inserts a new value into the tree 
-    void insert(int value);
-    void deleteValue(int value);
-    ~ScapeGoatTree(){postorderTraversal(root);}
-
+    void insert(T value);
+    void deleteValue(T value);
+    ~ScapeGoatTree(){postorderTraversal(root);delete[] array;}
     std::string isBalanced() const;
     std::string& getDisplayBuffer() const;
     ScapeGoatTree(const ScapeGoatTree &Otree);
-    ScapeGoatTree operator+(const ScapeGoatTree &goat_tree) const;
-    ScapeGoatTree& operator=(const ScapeGoatTree& Otree);
+    ScapeGoatTree operator+(const ScapeGoatTree &other) const;
+    ScapeGoatTree& operator=(const ScapeGoatTree& other);
     [[nodiscard]] bool search(int key) const;
     void displayPreOrder(); // for display
     void displayInOrder() ; // for display
@@ -53,6 +54,4 @@ public:
     void operator-=(int value);
     void operator+=(int value);
 };
-
-
 #endif //SCAPEGOATTREE_SCAPEGOATTREE_HPP
