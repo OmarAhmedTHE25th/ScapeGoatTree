@@ -93,7 +93,7 @@ int main(int, char**)
 
 
     // ScapeGoatTree state
-    ScapeGoatTree tree;
+    ScapeGoatTree<int> tree;
 
 
     // Main loop
