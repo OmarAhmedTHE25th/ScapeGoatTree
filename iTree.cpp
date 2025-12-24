@@ -21,119 +21,181 @@ void ITree::printMenu() {
     cout << "[14] Exit\n";
     cout << "> ";
 }
-void ITree::handleInsert(ScapeGoatTree<int>& tree) {
-    int value;
+void ITree::handleInsert(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
+    ElemenType value;
     cout << "Enter value to insert: ";
     cin >> value;
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input.\n";
+        return;;
+    }
     tree.insert(value);
     cout << "Inserted " << value << endl;
 }
 
-void ITree::handleDelete(ScapeGoatTree<int>& tree) {
-    int value;
+void ITree::handleDelete(ScapeGoatTree<ElemenType>& A,ScapeGoatTree<ElemenType>& B) {
+   auto& tree = selectTree(A,B);
+    ElemenType value;
     cout << "Enter value to delete: ";
     cin >> value;
-    tree.deleteValue(value);
-    cout << "Deleted " << value << endl;
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input.\n";
+        return;;
+    }
+   if ( tree.deleteValue(value))cout << "Deleted " << value << endl;
+    cout << "Value Doesnt Exist\n";
 }
 
-void ITree::handleSearch(const ScapeGoatTree<int>& tree) {
-    int value;
+void ITree::handleSearch(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    const auto& tree = selectTree(A, B);
+    ElemenType value;
     cout << "Enter value to search: ";
     cin >> value;
-    cout << (tree.search(value)
-        ? to_string(value) + " FOUND in tree\n"
-        : to_string(value) + " NOT FOUND in tree\n");
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input.\n";
+        return;;
+    }
+    (tree.search(value)
+        ? cout <<  value << " FOUND in tree\n"
+        :  cout << value << " NOT FOUND in tree\n");
 }
-void ITree::handleDisplayInOrder(ScapeGoatTree<int>& tree) {
+void ITree::handleDisplayInOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
     tree.displayInOrder();
     cout << "In-Order Traversal:\n";
     cout << tree.getDisplayBuffer() << endl;
 }
 
-void ITree::handleDisplayPreOrder(ScapeGoatTree<int>& tree) {
+void ITree::handleDisplayPreOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
     tree.displayPreOrder();
     cout << "Pre-Order Traversal:\n";
     cout << tree.getDisplayBuffer() << endl;
 }
 
-void ITree::handleDisplayPostOrder(ScapeGoatTree<int>& tree) {
+void ITree::handleDisplayPostOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
     tree.displayPostOrder();
     cout << "Post-Order Traversal:\n";
     cout << tree.getDisplayBuffer() << endl;
 }
 
-void ITree::handleBalance(const ScapeGoatTree<int>& tree) {
+void ITree::handleBalance(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    const auto& tree = selectTree(A, B);
     cout << tree.isBalanced() << endl;
 }
-void ITree::handleOperatorInsert(ScapeGoatTree<int>& tree) {
-    int value;
+void ITree::handleOperatorInsert(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
+    ElemenType value;
     cout << "Enter value to insert using += : ";
     cin >> value;
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input.\n";
+        return;;
+    }
     tree += value;
     cout << "Inserted using operator+= : " << value << endl;
 }
-void ITree::handleOperatorDelete(ScapeGoatTree<int>& tree) {
-    int value;
+void ITree::handleOperatorDelete(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
+    ElemenType value;
     cout << "Enter value to delete using operators: ";
     cin >> value;
-    tree - value;
-    tree -= value;
-    cout << "Deleted using operator- and operator-=\n";
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input.\n";
+        return;;
+    }
+    if (tree - value)cout << "Deleted using operator- and operator-=\n";
+    cout << "Value Doesnt Exist\n";
 }
-void ITree::handleOperatorSearch(const ScapeGoatTree<int>& tree) {
-    int value;
+void ITree::handleOperatorSearch(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
+    ElemenType value;
     cout << "Enter value to search using operator[]: ";
     cin >> value;
+    if (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input.\n";
+        return;;
+    }
     cout << (tree[value]
         ? "FOUND using operator[]\n"
         : "NOT FOUND using operator[]\n");
 }
-void ITree::handleOperatorEmpty(const ScapeGoatTree<int>& tree) {
+void ITree::handleOperatorEmpty(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
     cout << (!tree
         ? "Tree is EMPTY (operator!)\n"
         : "Tree is NOT empty (operator!)\n");
 }
-void ITree::handleOperatorMerge() {
-    ScapeGoatTree<int> t1, t2;
-
-    t1.insert(10);
-    t1.insert(5);
-    t1.insert(20);
-
-    t2.insert(15);
-    t2.insert(3);
-    t2.insert(25);
-
+void ITree::handleOperatorMerge(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
     cout << "Tree 1: ";
-    t1.displayInOrder();
-    cout << t1.getDisplayBuffer() << endl;
+    A.displayInOrder();
+    cout << A.getDisplayBuffer() << endl;
 
     cout << "Tree 2: ";
-    t2.displayInOrder();
-    cout << t2.getDisplayBuffer() << endl;
+    B.displayInOrder();
+    cout << B.getDisplayBuffer() << endl;
 
-    ScapeGoatTree<int> merged = t1 + t2;
+    ScapeGoatTree<ElemenType> merged = A + B;
 
     cout << "Merged Tree: ";
     merged.displayInOrder();
     cout << merged.getDisplayBuffer() << endl;
 }
-void ITree::handleOperatorCompare(const ScapeGoatTree<int>& tree) {
-    ScapeGoatTree<int> other = tree;
 
-    cout << (tree == other
+void ITree::handleOperatorCompare(const ScapeGoatTree<ElemenType> &A, const ScapeGoatTree<ElemenType> &B) {
+    cout << (A == B
         ? "Trees are EQUAL (operator==)\n"
         : "Trees are NOT equal\n");
 
-    other.insert(999);
-
-    cout << (tree != other
+    cout << (A != B
         ? "Trees are NOT equal after modification (operator!=)\n"
         : "Trees are still equal\n");
 }
+
+ScapeGoatTree<ElemenType>& ITree::selectTree(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    int choice;
+    while (true) {
+    cout << "Choose tree:\n";
+    cout << "[1] Tree A\n";
+    cout << "[2] Tree B\n";
+    cout << "> ";
+    cin >> choice;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input.\n";
+            continue;
+        }
+
+        switch (choice) {
+            case 1:
+                return A;
+            case 2:
+                return B;
+            default:
+                cout << "Invalid choice.\n";
+        }
+    }
+
+}
+
 void ITree::TreeUI() {
-    ScapeGoatTree<int> tree;
+    ScapeGoatTree<ElemenType> tree;
+    ScapeGoatTree<ElemenType> otherTree;
     int op;
 
     cout << "========================================\n";
@@ -157,19 +219,19 @@ void ITree::TreeUI() {
         }
 
         switch (op) {
-            case 1: handleInsert(tree); break;
-            case 2: handleDelete(tree); break;
-            case 3: handleSearch(tree); break;
-            case 4: handleDisplayInOrder(tree); break;
-            case 5: handleDisplayPreOrder(tree); break;
-            case 6: handleDisplayPostOrder(tree); break;
-            case 7: handleBalance(tree); break;
-            case 8: handleOperatorInsert(tree); break;
-            case 9: handleOperatorDelete(tree); break;
-            case 10: handleOperatorSearch(tree); break;
-            case 11: handleOperatorEmpty(tree); break;
-            case 12: handleOperatorMerge(); break;
-            case 13: handleOperatorCompare(tree); break;
+            case 1: handleInsert(tree,otherTree); break;
+            case 2: handleDelete(tree, otherTree); break;
+            case 3: handleSearch(tree, otherTree); break;
+            case 4: handleDisplayInOrder(tree, otherTree); break;
+            case 5: handleDisplayPreOrder(tree, otherTree); break;
+            case 6: handleDisplayPostOrder(tree, otherTree); break;
+            case 7: handleBalance(tree, otherTree); break;
+            case 8: handleOperatorInsert(tree, otherTree); break;
+            case 9: handleOperatorDelete(tree, otherTree); break;
+            case 10: handleOperatorSearch(tree, otherTree); break;
+            case 11: handleOperatorEmpty(tree, otherTree); break;
+            case 12: handleOperatorMerge(tree, otherTree); break;
+            case 13: handleOperatorCompare(tree, otherTree); break;
             default:
                 cout << "Invalid operation number.\n";
         }

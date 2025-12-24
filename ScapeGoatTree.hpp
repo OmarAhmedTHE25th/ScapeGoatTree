@@ -12,7 +12,7 @@
 using namespace std;
 template<typename T>
 class ScapeGoatTree {
-    using Node = ::Node<T>;
+    using Node = Node<T>;
     // Root node of the tree
     static int findH(const Node* node);
     static int countN(const Node* node);
@@ -35,7 +35,7 @@ public:
 
     ScapeGoatTree();
     void insert(T value);
-    void deleteValue(T value);
+    bool deleteValue(T value);
     ~ScapeGoatTree(){postorderTraversal(root);delete[] array;}
     string isBalanced() const;
     string& getDisplayBuffer() const;
@@ -50,9 +50,9 @@ public:
     bool operator==(const ScapeGoatTree &tree) const;
     bool operator!=(const ScapeGoatTree &tree) const;
     bool operator!() const;
-    void operator-(T value);
+    bool operator-(T value);
     void operator+(T value);
-    void operator-=(T value);
+    bool operator-=(T value);
     void operator+=(T value);
 };
 #endif //SCAPEGOATTREE_SCAPEGOATTREE_HPP
@@ -135,7 +135,7 @@ void ScapeGoatTree<T>::insert(T value) {
 // =====================
 
 template<typename T>
-void ScapeGoatTree<T>::deleteValue(T value) {
+bool ScapeGoatTree<T>::deleteValue(T value) {
     Node* node = root;
     Node* parent = nullptr;
 
@@ -149,7 +149,7 @@ void ScapeGoatTree<T>::deleteValue(T value) {
     }
 
     // Value not found
-    if (!node) return;
+    if (!node) return false;
 
     // Deletion cases
 
@@ -210,7 +210,7 @@ void ScapeGoatTree<T>::deleteValue(T value) {
         while (suc->left != nullptr)
             suc = suc->left;
 
-        const int sucValue = suc->value;
+        const T sucValue = suc->value;
 
         // Delete successor
         deleteValue(sucValue);
@@ -223,12 +223,12 @@ void ScapeGoatTree<T>::deleteValue(T value) {
             inorderTraversal(root, i);
             root = rebuildTree(0, nNodes, root);
         }
-        return;
+
     }
 
     // Update node count
     nNodes--;
-
+    return true;
 }
 
 // =====================
@@ -395,13 +395,13 @@ template<typename T>
 void ScapeGoatTree<T>::operator+(T value) { insert(value); }
 
 template<typename T>
-void ScapeGoatTree<T>::operator-(T value) { deleteValue(value); }
+bool ScapeGoatTree<T>::operator-(T value) {return  deleteValue(value); }
 
 template<typename T>
 void ScapeGoatTree<T>::operator+=(T value) { insert(value); }
 
 template<typename T>
-void ScapeGoatTree<T>::operator-=(T value) { deleteValue(value); }
+bool ScapeGoatTree<T>::operator-=(T value) { return deleteValue(value); }
 
 template<typename T>
 bool ScapeGoatTree<T>::operator[](T value) const {
