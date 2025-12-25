@@ -5,7 +5,7 @@
 #ifndef TREE_SCAPEGOATTREE_TPP
 #define TREE_SCAPEGOATTREE_TPP
 #include "ScapeGoatTree.hpp"
-
+#include "queue.hpp"
 //==================================IMPLEMENTATION========================================================
 
 // =====================
@@ -256,7 +256,7 @@ void ScapeGoatTree<T>::preorderTraversal(const Node* node) {
 
 // =====================
 // Display (internal)
-// =====================
+// =====================1
 
 template<typename T>
 void ScapeGoatTree<T>::displayPreOrder(const Node* node) {
@@ -316,6 +316,43 @@ void ScapeGoatTree<T>::displayPostOrder() {
 template<typename T>
 std::string& ScapeGoatTree<T>::getDisplayBuffer() const {
     return displayBuffer;
+}
+
+template<typename T>
+void ScapeGoatTree<T>::displayLevels() {
+    displayBuffer.clear();
+    if (!root){displayBuffer = "Tree is Empty.";return;}
+    Queue<Node*> q;
+    q.push(root);
+    q.push(nullptr);
+    int i =0;
+    displayBuffer += "Level 0: ";
+    while (!q.isEmpty()) {
+        Node* curr = q.front();
+        q.pop();
+
+        if (!curr) {
+            displayBuffer += "\n";
+            if (!q.isEmpty()) {
+                i++;
+                displayBuffer += "Level " + to_string(i) + ": ";
+                q.push(nullptr);
+            }
+            continue;
+        }
+
+        std::ostringstream oss;
+        oss << curr->value;
+        displayBuffer += oss.str() + " ";
+
+
+        if (curr->left)
+            q.push(curr->left);
+        if (curr->right)
+            q.push(curr->right);
+
+    }
+    displayBuffer+="\n";
 }
 
 // =====================

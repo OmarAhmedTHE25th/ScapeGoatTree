@@ -9,6 +9,8 @@
 #include <string>
 #include  <iostream>
 #include "Node.hpp"
+#include <cmath>
+
 using namespace std;
 template<typename T>
 class ScapeGoatTree {
@@ -47,6 +49,7 @@ public:
     void displayPreOrder(); // for display
     void displayInOrder() ; // for display
     void displayPostOrder() ; // for display
+    void displayLevels(); // for display
     bool operator[](T value) const;
     bool operator==(const ScapeGoatTree &tree) const;
     bool operator!=(const ScapeGoatTree &tree) const;
@@ -56,4 +59,6 @@ public:
     bool operator-=(T value);
     void operator+=(T value);
 };
+#include "scapegoatTree.tpp"
+
 #endif //SCAPEGOATTREE_SCAPEGOATTREE_HPP

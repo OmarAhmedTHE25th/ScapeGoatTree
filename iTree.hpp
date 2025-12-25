@@ -20,6 +20,7 @@ class ITree {
     static void handleDisplayPreOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
     static void handleDisplayPostOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
     static void handleBalance(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+    static void handleDisplayLevels(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
 
     // Operator showcase
     static void handleOperatorInsert(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);

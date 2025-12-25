@@ -11,14 +11,15 @@ void ITree::printMenu() {
     cout << "[4] Display In-Order\n";
     cout << "[5] Display Pre-Order\n";
     cout << "[6] Display Post-Order\n";
-    cout << "[7] Check Balance / Stats\n";
-    cout << "[8] Operator: Insert (+=)\n";
-    cout << "[9] Operator: Delete (-, -=)\n";
-    cout << "[10] Operator: Search ([])\n";
-    cout << "[11] Operator: Empty Check (!)\n";
-    cout << "[12] Operator: Merge Trees (+)\n";
-    cout << "[13] Operator: Compare Trees (==, !=)\n";
-    cout << "[14] Exit\n";
+    cout << "[7] Display Level-Order\n";
+    cout << "[8] Check Balance / Stats\n";
+    cout << "[9] Operator: Insert (+=)\n";
+    cout << "[10] Operator: Delete (-, -=)\n";
+    cout << "[11] Operator: Search ([])\n";
+    cout << "[12] Operator: Empty Check (!)\n";
+    cout << "[13] Operator: Merge Trees (+)\n";
+    cout << "[14] Operator: Compare Trees (==, !=)\n";
+    cout << "[15] Exit\n";
     cout << "> ";
 }
 void ITree::handleInsert(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
@@ -30,7 +31,7 @@ void ITree::handleInsert(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType>
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Invalid input.\n";
-        return;;
+        return;
     }
     tree.insert(value);
     cout << "Inserted " << value << endl;
@@ -85,6 +86,13 @@ void ITree::handleDisplayPostOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<E
     tree.displayPostOrder();
     cout << "Post-Order Traversal:\n";
     cout << tree.getDisplayBuffer() << endl;
+}
+
+void ITree::handleDisplayLevels(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A,B);
+    tree.displayLevels();
+    cout << "Level-Order Traversal:\n";
+    cout << tree.getDisplayBuffer();
 }
 
 void ITree::handleBalance(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
@@ -213,7 +221,7 @@ void ITree::TreeUI() {
             continue;
         }
 
-        if (op == 14) {
+        if (op == 15) {
             cout << "Exiting... Goodbye!\n";
             break;
         }
@@ -225,13 +233,14 @@ void ITree::TreeUI() {
             case 4: handleDisplayInOrder(tree, otherTree); break;
             case 5: handleDisplayPreOrder(tree, otherTree); break;
             case 6: handleDisplayPostOrder(tree, otherTree); break;
-            case 7: handleBalance(tree, otherTree); break;
-            case 8: handleOperatorInsert(tree, otherTree); break;
-            case 9: handleOperatorDelete(tree, otherTree); break;
-            case 10: handleOperatorSearch(tree, otherTree); break;
-            case 11: handleOperatorEmpty(tree, otherTree); break;
-            case 12: handleOperatorMerge(tree, otherTree); break;
-            case 13: handleOperatorCompare(tree, otherTree); break;
+            case 7: handleDisplayLevels(tree,otherTree); break;
+            case 8: handleBalance(tree, otherTree); break;
+            case 9: handleOperatorInsert(tree, otherTree); break;
+            case 10: handleOperatorDelete(tree, otherTree); break;
+            case 11: handleOperatorSearch(tree, otherTree); break;
+            case 12: handleOperatorEmpty(tree, otherTree); break;
+            case 13: handleOperatorMerge(tree, otherTree); break;
+            case 14: handleOperatorCompare(tree, otherTree); break;
             default:
                 cout << "Invalid operation number.\n";
         }
