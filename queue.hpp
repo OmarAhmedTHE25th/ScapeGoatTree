@@ -19,7 +19,7 @@ class Queue {
     QNode<T>* tail{};
     int nNodes{};
 public:
-    ~Queue() {  // ADD THIS
+    ~Queue() {  
         while (!isEmpty()) pop();
     }
     void push(T value);
@@ -31,4 +31,5 @@ public:
 };
 
 #include "queue.tpp"
+
 #endif //TREE_QUEUE_HPP
