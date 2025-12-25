@@ -324,35 +324,25 @@ void ScapeGoatTree<T>::displayLevels() {
     if (!root){displayBuffer = "Tree is Empty.";return;}
     Queue<Node*> q;
     q.push(root);
-    q.push(nullptr);
-    int i =0;
-    displayBuffer += "Level 0: ";
+    int level =0;
+
     while (!q.isEmpty()) {
-        Node* curr = q.front();
-        q.pop();
+        displayBuffer += "Level " + to_string(level++) + ": ";
+        const int nodesAtLevel = q.size();
+        for (int i = 0; i < nodesAtLevel; i++) {
+            Node* curr = q.front();
+            q.pop();
 
-        if (!curr) {
-            displayBuffer += "\n";
-            if (!q.isEmpty()) {
-                i++;
-                displayBuffer += "Level " + to_string(i) + ": ";
-                q.push(nullptr);
-            }
-            continue;
+            std::ostringstream oss;
+            oss << curr->value;
+            displayBuffer += oss.str() + " ";
+
+            if (curr->left)  q.push(curr->left);
+            if (curr->right) q.push(curr->right);
         }
-
-        std::ostringstream oss;
-        oss << curr->value;
-        displayBuffer += oss.str() + " ";
-
-
-        if (curr->left)
-            q.push(curr->left);
-        if (curr->right)
-            q.push(curr->right);
+        displayBuffer += "\n";
 
     }
-    displayBuffer+="\n";
 }
 
 // =====================

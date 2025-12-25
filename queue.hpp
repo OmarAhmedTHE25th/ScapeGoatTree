@@ -17,11 +17,13 @@ template<typename T>
 class Queue {
     QNode<T>* head{};
     QNode<T>* tail{};
+    int nNodes{};
 public:
     void push(T value);
     void pop();
     [[nodiscard]] bool isEmpty() const;
     T front();
+    int size() const;
 
 };
 

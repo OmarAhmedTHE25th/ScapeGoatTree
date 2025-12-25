@@ -17,12 +17,14 @@ void Queue<T>::push(T value) {
         auto newNode = new QNode<T>(value);
         head = newNode;
         tail = head;
+        nNodes++;
         return;
     }
     QNode<T>* last = tail;
     auto newNode = new QNode<T>(value);
    last->next = newNode;
     tail = newNode;
+    nNodes++;
 }
 
 template<typename T>
@@ -32,6 +34,7 @@ void Queue<T>::pop() {
     head = curr->next;
     delete curr;
     if (!head) tail = nullptr;
+    nNodes--;
 }
 
 template<typename T>
@@ -43,6 +46,11 @@ template<typename T>
 T Queue<T>::front() {
     if (!head) return T{};
     return head->value;
+}
+
+template<typename T>
+int Queue<T>::size() const {
+    return nNodes;
 }
 
 
