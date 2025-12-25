@@ -21,6 +21,16 @@ ScapeGoatTree<T>::ScapeGoatTree(const ScapeGoatTree &Otree) {
     preorderTraversal(Otree.root);
 }
 
+template<typename T>
+ScapeGoatTree<T>::ScapeGoatTree(ScapeGoatTree &&other) noexcept
+    : displayBuffer(std::move(other.displayBuffer)), root(other.root), nNodes(other.nNodes), size(other.size), array(other.array), max_nodes(other.max_nodes) {
+    other.root = nullptr;
+    other.nNodes = 0;
+    other.size = 0;
+    other.array = nullptr;
+    other.max_nodes = 0;
+}
+
 // =====================
 // Insert
 // =====================
@@ -30,6 +40,7 @@ void ScapeGoatTree<T>::insert(T value) {
     if (!root) {
         root = new Node(value, nullptr);
         nNodes++;
+        if (nNodes > max_nodes) max_nodes = nNodes;
         return;
     }
 
@@ -55,7 +66,7 @@ void ScapeGoatTree<T>::insert(T value) {
         parent->right = newNode;
 
     nNodes++;
-
+    if (nNodes > max_nodes) max_nodes = nNodes;
     if (nNodes >= size) {
         size *= 2;
         T* newArr = new T[size]{};
@@ -115,10 +126,11 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
         }
         delete node;
 
-        if (nNodes < getThreshold()) {
+        if (nNodes < 0.5 * max_nodes) {  // α = 0.5 for deletion
             int i = 0;
             inorderTraversal(root, i);
-            root = rebuildTree(0, nNodes, root);
+            root = rebuildTree(0, nNodes - 1, nullptr);
+            max_nodes = nNodes;
         }
     }
 
@@ -145,10 +157,11 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
 
         delete node;
 
-        if (nNodes < getThreshold()) {
+        if (nNodes < 0.5 * max_nodes) {
             int i = 0;
             inorderTraversal(root, i);
-            root = rebuildTree(0, nNodes, root);
+            root = rebuildTree(0, nNodes - 1, nullptr);
+            max_nodes = nNodes;
         }
     }
 
@@ -167,10 +180,11 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
         // Replace value
         node->value = sucValue;
 
-        if (nNodes < getThreshold()) {
+        if (nNodes < 0.5 * max_nodes) {  // α = 0.5 for deletion
             int i = 0;
             inorderTraversal(root, i);
-            root = rebuildTree(0, nNodes, root);
+            root = rebuildTree(0, nNodes - 1, nullptr);
+            max_nodes = nNodes;
         }
 
     }
@@ -363,8 +377,33 @@ ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(const ScapeGoatTree& other) {
     postorderTraversal(root);
     root = nullptr;
     nNodes = 0;
-    if (other.root) preorderTraversal(other.root);
+    max_nodes = 0;
     delete[] array;
+    size = other.size;
+    array = new T[size]{};
+    if (other.root) preorderTraversal(other.root);
+    return *this;
+}
+
+template<typename T>
+ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(ScapeGoatTree&& other) noexcept {
+    if (this == &other) return *this;
+    postorderTraversal(root);
+    delete[] array;
+
+    root = other.root;
+    nNodes = other.nNodes;
+    size = other.size;
+    array = other.array;
+    max_nodes = other.max_nodes;
+    displayBuffer = std::move(other.displayBuffer);
+
+    other.root = nullptr;
+    other.nNodes = 0;
+    other.size = 0;
+    other.array = nullptr;
+    other.max_nodes = 0;
+
     return *this;
 }
 

@@ -1,7 +1,23 @@
 //
 // Created by DELL on 10/25/2025.
 //
-
+/**
+ * ScapeGoat Tree Implementation
+ *
+ * A self-balancing BST that maintains balance through periodic rebuilding.
+ *
+ * Key Properties:
+ * - α-weight-balanced: No node's subtree is heavier than α × parent's subtree
+ * - α = 2/3 for this implementation
+ * - Height bound: h ≤ log₁.₅(n) where n = number of nodes
+ *
+ * Time Complexity:
+ * - Insert: O(log n) amortized, O(n) worst case during rebuild
+ * - Delete: O(log n) amortized, O(n) worst case during rebuild
+ * - Search: O(log n) worst case (tree stays balanced)
+ *
+ * Space Complexity: O(n) for tree + O(n) temporary array during rebuild
+ */
 #ifndef SCAPEGOATTREE_SCAPEGOATTREE_HPP
 #define SCAPEGOATTREE_SCAPEGOATTREE_HPP
 
@@ -33,7 +49,7 @@ class ScapeGoatTree {
     int nNodes{};
     int size=100;
     T* array = new T[size]{};
-
+    int max_nodes = 0;
 public:
 
     ScapeGoatTree();
@@ -43,8 +59,10 @@ public:
     string isBalanced() const;
     string& getDisplayBuffer() const;
     ScapeGoatTree(const ScapeGoatTree &Otree);
+    ScapeGoatTree(ScapeGoatTree&& other) noexcept;
     ScapeGoatTree operator+(const ScapeGoatTree &other) const;
     ScapeGoatTree& operator=(const ScapeGoatTree& other);
+    ScapeGoatTree& operator=(ScapeGoatTree&& other) noexcept;
     [[nodiscard]] bool search(T key) const;
     void displayPreOrder(); // for display
     void displayInOrder() ; // for display

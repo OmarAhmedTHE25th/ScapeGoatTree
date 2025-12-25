@@ -19,11 +19,14 @@ class Queue {
     QNode<T>* tail{};
     int nNodes{};
 public:
+    ~Queue() {  // ADD THIS
+        while (!isEmpty()) pop();
+    }
     void push(T value);
     void pop();
     [[nodiscard]] bool isEmpty() const;
     T front();
-    int size() const;
+    [[nodiscard]] int size() const;
 
 };
 
