@@ -3,8 +3,14 @@ project(ScapeGoatTree)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(ScapeGoatTree TreeDriver.cpp
-        ScapeGoatTree.cpp
-        ScapeGoatTree.hpp
-        Node.cpp
-        Node.hpp)
+add_executable(ScapeGoatTree
+    TreeDriver.cpp
+    ScapeGoatTree.cpp
+    ScapeGoatTree.hpp
+    Node.cpp
+    Node.hpp
+    iTree.cpp
+    iTree.hpp
+    queue.hpp
+    queue.tpp
+)
