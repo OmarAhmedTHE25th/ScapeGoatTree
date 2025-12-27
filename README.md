@@ -1,77 +1,119 @@
-# ScapeGoatTree
+# 🐐 ScapeGoat Tree (with GUI)
 
-A simple C++ implementation of a ScapeGoat Tree — a self‑balancing binary search tree that rebuilds subtrees to maintain balance when necessary. This repo contains a compact implementation intended for learning, experimentation, and small projects.
+A Windows-based C++ implementation of a **ScapeGoat Tree**, featuring both a real-time **ImGui + DirectX 11 GUI visualizer** and a **console fallback mode**.
 
+---
 
-## Features
-- Basic ScapeGoat Tree operations: insert, remove, search
-- Tree traversal utilities (inorder / preorder / postorder) for debugging and demonstration
-- Small, easy-to-read C++ codebase using CMake for build management
+## ✨ Features
 
-## Repository layout
-- CMakeLists.txt — CMake build configuration
-- Node.hpp / Node.cpp — Node class / struct for tree nodes
-- ScapeGoatTree.hpp / ScapeGoatTree.cpp — ScapeGoatTree implementation (insert, remove, search, balancing)
-- TreeDriver.cpp — example driver / simple CLI demonstrating usage
-- .idea/ — IDE config files (can be ignored)
+- Self-balancing BST using rebuild-based rebalancing
+- GUI tree visualization (ImGui + DirectX 11)
+- Terminal mode available inside the GUI
+- Tree operations:
+  - Insert (single + batch)
+  - Delete (single + batch)
+  - Search / Find
+  - Traversals:
+    - In-order, Pre-order, Post-order, Level-order
+- Operator overload support:
+  ```cpp
+  tree + 10;
+  tree - 5;
+  if (tree == otherTree) ...
+  ```
 
-## Build instructions
+---
 
-Prerequisites:
-- A C++ compiler supporting C++11 (or later)
-- CMake (recommended 3.10+)
+## 🧰 Requirements
 
-From the repository root:
+| Component | Minimum |
+|---|---|
+| OS | **Windows 10/11** |
+| Compiler | Modern C++ (C++17+) |
+| Build Tool | **CMake 3.20+** |
+| Graphics | **DirectX 11** |
+
+---
+
+## 📁 Project Structure
+
+```
+ScapeGoat-Tree-GUI/
+│
+├── CMakeLists.txt
+├── CPP/ or root/
+│   ├── TreeDriver.cpp
+│   ├── iTree.cpp
+│   ├── iTree.hpp
+│   ├── ScapeGoatTree.hpp
+│   └── Node.hpp
+│
+└── imgui/  (ImGui library files)
+```
+
+---
+
+## 🛠 Build Instructions
 
 ```bash
-# create a build directory and compile
 cmake -S . -B build
 cmake --build build --config Release
-
-# or using the traditional flow:
-# mkdir -p build && cd build
-# cmake ..
-# cmake --build .
 ```
 
-After build, run the example binary (name depends on CMakeLists; if the executable is `TreeDriver`):
+---
+
+## ▶️ Run Instructions
+
+After building, run the executable from:
+
+```
+build/Release/tree.exe
+```
+
+Or directly from terminal:
 
 ```bash
-./build/TreeDriver
+./build/Release/tree.exe
 ```
 
+---
 
-## Example usage
+## 🖥 Modes
 
-Typical operations the driver demonstrates:
+- **GUI Mode:** launches automatically
+- **Console Mode:** triggered by clicking:
+  ```
+  Run Tree in Console
+  ```
+  (Closes GUI, switches to terminal)
 
-- Insert keys into the tree
-- Search for a key (returns found/not found)
-- Remove a key
-- Print inorder traversal (will print keys in sorted order)
+---
 
-A minimal example (pseudo-interaction):
+## 🧪 Example Usage
 
-```text
-> Insert 20
-> Insert 10
-> Insert 30
-> Find 10   -> found
-> Remove 20
+Insert values:
+
+```cpp
+tree + 5;
+tree + 10;
+tree + 3;
 ```
 
+Search:
 
+```cpp
+tree.find(10);
+```
 
-## API (what to expect)
+---
 
-ScapeGoatTree class (ScapeGoatTree.hpp / ScapeGoatTree.cpp)
-- insert(key) — insert a key into the tree
-- remove(key) — remove a key from the tree (if present)
-- find(key) / contains(key) — test for key presence
-- inorderTraversal(callback) — visit nodes in sorted order
-- size() — number of nodes in the tree
-- clear() — remove all nodes
+## 🏅 Badges
 
-Node class/struct (Node.hpp / Node.cpp)
-- Stores key (templated or concrete int/string depending on implementation)
-- left and right child pointers
+![Windows Only](https://img.shields.io/badge/OS-Windows-blue?style=flat-square)
+![CMake](https://img.shields.io/badge/Built%20with-CMake-brightgreen?style=flat-square)
+![C++17](https://img.shields.io/badge/C++-17-orange?style=flat-square)
+![Balanced BST](https://img.shields.io/badge/Tree-Balanced%20BST-purple?style=flat-square)
+
+---
+No goats were harmed during the making of this project.
+
