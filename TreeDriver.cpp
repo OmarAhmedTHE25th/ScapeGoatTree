@@ -15,7 +15,9 @@ static IDXGISwapChain*          g_pSwapChain = nullptr;
 static ID3D11RenderTargetView*  g_mainRenderTargetView = nullptr;
 static UINT                     g_ResizeWidth = 0, g_ResizeHeight = 0;
 static bool                     g_SwapChainOccluded = false;
-
+static ImVec2 g_WindowPos = ImVec2(200, 200);
+static ImVec2 g_WindowVel = ImVec2(4.0f, 3.5f);
+static ImVec2 g_WindowSize = ImVec2(300, 120);
 // ========================
 // Forward declarations
 // ========================
@@ -119,7 +121,38 @@ int main(int, char**)
         ImGui_ImplDX11_NewFrame();
         ImGui_ImplWin32_NewFrame();
         ImGui::NewFrame();
-        ImGui::Begin("ScapeGoat Tree");
+        ImGuiIO& io = ImGui::GetIO();
+
+        // Only move if NOT interacting
+        bool interacting =
+            ImGui::IsWindowHovered(ImGuiHoveredFlags_AnyWindow) ||
+            ImGui::IsAnyItemActive() ||
+            io.MouseDown[0];
+
+        if (!interacting)
+        {
+            g_WindowPos.x += g_WindowVel.x;
+            g_WindowPos.y += g_WindowVel.y;
+
+            if (g_WindowPos.x <= 0 || g_WindowPos.x + g_WindowSize.x >= io.DisplaySize.x)
+                g_WindowVel.x *= -1;
+
+            if (g_WindowPos.y <= 0 || g_WindowPos.y + g_WindowSize.y >= io.DisplaySize.y)
+                g_WindowVel.y *= -1;
+        }
+
+        ImGui::SetNextWindowPos(g_WindowPos, ImGuiCond_Always);
+        ImGui::SetNextWindowSize(g_WindowSize, ImGuiCond_Always);
+
+
+        ImGui::Begin(
+            "ScapeGoat Tree",
+            nullptr,
+            ImGuiWindowFlags_NoResize |
+            ImGuiWindowFlags_NoMove |
+            ImGuiWindowFlags_NoCollapse
+        );
+
 
         if (ImGui::Button("Run Tree in Console"))
         {
