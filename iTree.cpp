@@ -22,6 +22,17 @@ void printHeader(const std::string& title) {
     cout << CYAN << "+======================================+" << RESET << "\n";
 }
 
+bool validateCinLine()
+{
+    if (std::cin.fail() || std::cin.peek() != '\n')
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        printError("ERROR: Invalid input.");
+        return false;
+    }
+    return true;
+}
 
 /* ===================== Menu ===================== */
 
@@ -65,12 +76,7 @@ ScapeGoatTree<ElemenType>& ITree::selectTree(ScapeGoatTree<ElemenType>& A, Scape
         cout << "> ";
         cin >> choice;
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            printError("ERROR: Invalid input.");
-            continue;
-        }
+     if (!validateCinLine())continue;
 
         if (choice == 1) return A;
         if (choice == 2) return B;
@@ -88,12 +94,7 @@ void ITree::handleInsert(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType>
     cout << "Enter value to insert: ";
     cin >> value;
 
-    if (cin.fail()) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        printError("ERROR: Invalid input.");
-        return;
-    }
+    if (!validateCinLine())return;
 
     tree.insert(value);
     printSuccess("SUCCESS: Inserted " + to_string(value));
@@ -106,10 +107,7 @@ void ITree::handleInsertBatch(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<Elemen
     while (true) {
         cout << "Enter stop value: ";
         cin >> stop;
-        if (!cin.fail()) break;
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        printError("ERROR: Invalid input.");
+        if (validateCinLine())break;
     }
 
     cout << "Enter values:\n";
@@ -125,12 +123,7 @@ void ITree::handleDelete(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType>
     cout << "Enter value to delete: ";
     cin >> value;
 
-    if (cin.fail()) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        printError("ERROR: Invalid input.");
-        return;
-    }
+    if (!validateCinLine())return;
 
     if (tree.deleteValue(value))
         printSuccess("SUCCESS: Deleted " + to_string(value));
@@ -145,14 +138,10 @@ void ITree::handleDeleteBatch(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<Elemen
     while (true) {
         cout << "Enter stop value: ";
         cin >> stop;
-        if (!cin.fail()) break;
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        printError("ERROR: Invalid input.");
+        if (validateCinLine())break;
     }
 
     cout << "Enter values:\n";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     tree.deleteBatch(cin, stop);
     printSuccess("SUCCESS: Batch deletion complete.");
 }
@@ -164,12 +153,7 @@ void ITree::handleSearch(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType>
     cout << "Enter value to search: ";
     cin >> value;
 
-    if (cin.fail()) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        printError("ERROR: Invalid input.");
-        return;
-    }
+    if (!validateCinLine())return;
 
     if (tree.search(value))
         printSuccess("RESULT: FOUND");
@@ -222,12 +206,7 @@ void ITree::handleOperatorInsert(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<Ele
     cout << "Enter value: ";
     cin >> value;
 
-    if (cin.fail()) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        printError("ERROR: Invalid input.");
-        return;
-    }
+    if (!validateCinLine())return;
 
     tree += value;
     printSuccess("SUCCESS: Inserted using +=");
@@ -240,12 +219,7 @@ void ITree::handleOperatorDelete(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<Ele
     cout << "Enter value: ";
     cin >> value;
 
-    if (cin.fail()) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        printError("ERROR: Invalid input.");
-        return;
-    }
+    if (!validateCinLine())return;
 
     if (tree - value)
         printSuccess("SUCCESS: Deleted using operator");
@@ -260,12 +234,7 @@ void ITree::handleOperatorSearch(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<Ele
     cout << "Enter value: ";
     cin >> value;
 
-    if (cin.fail()) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        printError("ERROR: Invalid input.");
-        return;
-    }
+    if (!validateCinLine())return;
 
     if (tree[value])
         printSuccess("FOUND");
@@ -314,12 +283,7 @@ void ITree::TreeUI() {
         cout << "Select an operation: ";
         cin >> op;
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            printError("ERROR: Invalid input.");
-            continue;
-        }
+        if (!validateCinLine())continue;
 
         if (op == 17) {
             printInfo("\nExiting...");
@@ -348,4 +312,3 @@ void ITree::TreeUI() {
         }
     }
 }
-
