@@ -59,6 +59,9 @@ public:
     ~ScapeGoatTree(){postorderTraversal(root);delete[] array;}
     std::string isBalanced() const;
     std::string& getDisplayBuffer() const;
+
+    const ScapeGoatTree<T>::Node * getRoot();
+
     ScapeGoatTree(const ScapeGoatTree &Otree);
     ScapeGoatTree(ScapeGoatTree&& other) noexcept;
     ScapeGoatTree operator+(const ScapeGoatTree &other) const;

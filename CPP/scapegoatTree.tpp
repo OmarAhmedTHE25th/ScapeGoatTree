@@ -267,6 +267,7 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
     return nullptr;
 }
 
+
 template<typename T>
 ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int end, Node* parent_node) {
     if (start > end) return nullptr;
@@ -277,6 +278,11 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int
     if (Nroot->left) Nroot->left->parent = Nroot;
     if (Nroot->right) Nroot->right->parent = Nroot;
     return Nroot;
+}
+
+template<typename T>
+const ScapeGoatTree<T>::Node *ScapeGoatTree<T>::getRoot() {
+    return root;
 }
 
 // =====================
