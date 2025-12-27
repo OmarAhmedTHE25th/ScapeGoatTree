@@ -27,9 +27,8 @@ void printHeader(const std::string& title) {
 
 
 void ITree::printMenu() {
-    cout << CYAN << "+--------------------------------------+\n" << RESET;
     cout << CYAN << "| " << GREEN << "MAIN MENU" << CYAN << "                            |\n" << RESET;
-    cout << CYAN << "+--------------------------------------+\n" << RESET;
+    cout << CYAN << "+======================================+" << RESET << "\n";
 
     cout << CYAN << "| " << WHITE << "1 - Insert                          " << CYAN << " |\n" << RESET;
     cout << CYAN << "| " << WHITE << "2 - Insert Batch                    " << CYAN << " |\n" << RESET;
@@ -349,3 +348,4 @@ void ITree::TreeUI() {
         }
     }
 }
+
