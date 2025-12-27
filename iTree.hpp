@@ -13,8 +13,9 @@ class ITree {
     static void printMenu();
 
     static void handleInsert(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+    static void handleInsertBatch(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+    static void handleDeleteBatch(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
     static void handleDelete(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-
     static void handleSearch(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
     static void handleDisplayInOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
     static void handleDisplayPreOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);

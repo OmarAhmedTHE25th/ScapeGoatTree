@@ -20,10 +20,21 @@ ScapeGoatTree<T>::ScapeGoatTree(const ScapeGoatTree &Otree) {
     if (!Otree.root) return;
     preorderTraversal(Otree.root);
 }
-
+/* Move constructor (noexcept)
+ * Purpose:
+ *  - "Steal" internal resources from `other` to perform a cheap move.
+ *  - Transfer ownership of pointer data (root, array) and bookkeeping
+ *    fields (nNodes, size, max_nodes, displayBuffer) and leave `other`
+ *    in a valid empty state.
+ */
 template<typename T>
 ScapeGoatTree<T>::ScapeGoatTree(ScapeGoatTree &&other) noexcept
-    : displayBuffer(std::move(other.displayBuffer)), root(other.root), nNodes(other.nNodes), size(other.size), array(other.array), max_nodes(other.max_nodes) {
+    : displayBuffer(std::move(other.displayBuffer)),
+root(other.root),
+nNodes(other.nNodes),
+size(other.size),
+array(other.array),
+max_nodes(other.max_nodes) {
     other.root = nullptr;
     other.nNodes = 0;
     other.size = 0;
@@ -77,9 +88,11 @@ void ScapeGoatTree<T>::insert(T value) {
     }
 
     if (depth + 1 > getThreshold()) {
+        //find the scapegoat  node
         Node* goat = findTraitor(newNode->parent);
         if (goat == nullptr) return;
         int i = 0;
+        //flatten the tree into a sorted array
         inorderTraversal(goat, i);
         const int sub_size = i; // size of subtree
         Node* balanced = rebuildTree(0, sub_size- 1, goat->parent);
@@ -89,6 +102,32 @@ void ScapeGoatTree<T>::insert(T value) {
         postorderTraversal(goat);
     }
 }
+
+template<typename T>
+void ScapeGoatTree<T>::insertBatch(std::istream& in, const T& stopValue) {
+    T value;
+
+    while (true) {
+        std::cout << "> ";
+        if (!(in >> value) || value == stopValue)
+            break;
+
+        insert(value);
+    }
+}
+template<typename T>
+void ScapeGoatTree<T>::deleteBatch(std::istream& in, const T& stopValue) {
+    T value;
+    while (true) {
+        std::cout << "> ";
+        if (!(in >> value) || value == stopValue)
+            break;
+
+        deleteValue(value);
+    }
+}
+
+
 
 // =====================
 // Delete
@@ -214,7 +253,7 @@ int ScapeGoatTree<T>::countN(const Node *node) {
 }
 
 template<typename T>
- ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
+ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
     while (node != nullptr) {
         const int left = countN(node->left);
         const int right = countN(node->right);
@@ -229,7 +268,7 @@ template<typename T>
 }
 
 template<typename T>
- ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int end, Node* parent_node) {
+ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int end, Node* parent_node) {
     if (start > end) return nullptr;
     int mid = (start + end) / 2;
     Node* Nroot = new Node(array[mid], parent_node);
@@ -341,7 +380,7 @@ void ScapeGoatTree<T>::displayLevels() {
     int level =0;
 
     while (!q.isEmpty()) {
-        displayBuffer += "Level " + to_string(level++) + ": ";
+        displayBuffer += "Level " + std::to_string(level++) + ": ";
         const int nodesAtLevel = q.size();
         for (int i = 0; i < nodesAtLevel; i++) {
             Node* curr = q.front();
@@ -477,12 +516,10 @@ bool ScapeGoatTree<T>::search(const T key) const {
     Node* current = root;
     while (current != nullptr) {
         if (key == current->value) return true;
-        if (key < current->value) {
-            current = current->left;
-        }
-        else if (key > current->value) {
-            current = current->right;
-        }
+        if (key < current->value) current = current->left;
+
+        else if (key > current->value) current = current->right;
+
     }
     return false;
 }
