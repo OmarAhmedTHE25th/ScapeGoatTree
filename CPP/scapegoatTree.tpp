@@ -116,31 +116,6 @@ void ScapeGoatTree<T>::deleteBatch(const Vector<T>& values) {
     }
 }
 
-template<typename T>
-void ScapeGoatTree<T>::insertBatch(std::istream& in, const T& stopValue) {
-    T value;
-
-    while (true) {
-        std::cout << "> ";
-        if (!(in >> value) || value == stopValue)
-            break;
-
-        insert(value);
-    }
-}
-template<typename T>
-void ScapeGoatTree<T>::deleteBatch(std::istream& in, const T& stopValue) {
-    T value;
-    while (true) {
-        std::cout << "> ";
-        if (!(in >> value) || value == stopValue)
-            break;
-
-        deleteValue(value);
-    }
-}
-
-
 
 // =====================
 // Delete

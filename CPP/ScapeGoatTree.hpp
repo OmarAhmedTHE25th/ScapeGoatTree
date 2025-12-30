@@ -58,11 +58,10 @@ public:
     ScapeGoatTree();
     void insert(T value);
     void insertBatch(const Vector<T> &values);
-    void insertBatch(std::istream& in, const T& stopValue);
     bool deleteValue(T value);
-    void deleteBatch(std::istream &in, const T &stopValue);
     void deleteBatch(const Vector<T> &values);
     ~ScapeGoatTree(){postorderTraversal(root);delete[] array;}
+    void clear() const {~ScapeGoatTree();}
     std::string isBalanced() const;
     std::string& getDisplayBuffer() const;
 

@@ -8,25 +8,17 @@
 #include "string"
 using namespace std;
 typedef int ElemenType;
+enum opcodes {INSERT, DELETE_op, SEARCH, DISPLAY_INORDER, DISPLAY_PREORDER, DISPLAY_POSTORDER, DISPLAY_LEVELS};
+
 class ITree {
 
     static void printMenu();
 
-    static void handleInsert(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleInsertBatch(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleDeleteBatch(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleDelete(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleSearch(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleDisplayInOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleDisplayPreOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleDisplayPostOrder(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+    static  void handleBatches(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op);
+    static void handleOperations(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op);
+    static void handleDisplay(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op);
     static void handleBalance(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleDisplayLevels(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-
-    // Operator showcase
-    static void handleOperatorInsert(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleOperatorDelete(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleOperatorSearch(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+    static void handleCoreOperators(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op);
     static void handleOperatorEmpty(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
     static void handleOperatorMerge(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
     static void handleOperatorCompare(const ScapeGoatTree<ElemenType> &A, const ScapeGoatTree<ElemenType> &B);

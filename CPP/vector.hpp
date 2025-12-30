@@ -9,7 +9,7 @@ class Vector {
 
 public:
     ~Vector() { delete[] data; }
-
+    Vector()=default;
     // Disable copying to prevent crashes
     Vector(const Vector&)=delete;
     [[nodiscard]] unsigned int size() const { return _size; }
@@ -26,6 +26,5 @@ public:
     }
     T& operator[](unsigned int index) { return data[index]; }
     const T& operator[](unsigned int index) const { return data[index]; }
-    T operator[](int i) const { return data[i]; }
 };
 #endif

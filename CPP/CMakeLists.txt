@@ -14,7 +14,6 @@ execute_process(
 find_package(pybind11 REQUIRED PATHS ${pybind11_DIR} NO_DEFAULT_PATH)
 
 # 2. CREATE THE PYTHON MODULE (This is what creates the .pyd file)
-# The name 'scapegoat_tree_py' must match your PYBIND11_MODULE name
 pybind11_add_module(scapegoat_tree_py ../bindings.cpp)
 target_link_libraries(scapegoat_tree_py PRIVATE pybind11::module)
 target_include_directories(scapegoat_tree_py PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
@@ -33,7 +32,6 @@ add_executable(tree
         Node.hpp
         vector.hpp
         vector.hpp
-        # Note: We removed ../bindings.cpp from here because it belongs to the module
 )
 
 target_link_libraries(tree PRIVATE
