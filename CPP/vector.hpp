@@ -12,7 +12,11 @@ public:
     Vector()=default;
     // Disable copying to prevent crashes
     Vector(const Vector&)=delete;
-    [[nodiscard]] unsigned int size() const { return _size; }
+Vector(const Vector&) = delete;
+Vector& operator=(const Vector&) = delete;
+Vector(Vector&&) = delete;
+Vector& operator=(Vector&&) = delete;
+    [[nodiscard]] unsigned int size() const { return nElements; }
     void push_back(const T& value) {
        if (nElements >= _size) {
            _size *= 2;
