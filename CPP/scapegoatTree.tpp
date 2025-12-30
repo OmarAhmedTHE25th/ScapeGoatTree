@@ -78,14 +78,6 @@ void ScapeGoatTree<T>::insert(T value) {
 
     nNodes++;
     if (nNodes > max_nodes) max_nodes = nNodes;
-    if (nNodes >= size) {
-        size *= 2;
-        T* newArr = new T[size]{};
-        for (int i = 0; i < nNodes; ++i)
-            newArr[i] = array[i];
-        delete[] array;
-        array = newArr;
-    }
 
     if (depth + 1 > getThreshold()) {
         //find the scapegoat  node
@@ -279,7 +271,7 @@ const ScapeGoatTree<T>::Node *ScapeGoatTree<T>::getRoot() {
 
 template<typename T>
 void ScapeGoatTree<T>::inorderTraversal(const Node* node, int& i) {
-    if (!node) return;
+if (!node) return;
     inorderTraversal(node->left, i);
     array[i++] = node->value;
     inorderTraversal(node->right, i);
@@ -459,12 +451,23 @@ bool ScapeGoatTree<T>::operator[](T value) const {
 
 template<typename T>
 bool ScapeGoatTree<T>::operator==(const ScapeGoatTree& tree) const {
-    if (nNodes != tree.nNodes) return false;
-    for (int i = 0; i < nNodes; ++i)
-        if (array[i] != tree.array[i]) return false;
-    return true;
+    return areTreesEqual(root, tree.root);
 }
-
+template<typename T>
+bool ScapeGoatTree<T>::areTreesEqual(const Node* n1, const Node* n2) const {
+    // Both null = equal
+    if (!n1 && !n2) return true;
+    
+    // One null, one not = unequal
+    if (!n1 || !n2) return false;
+    
+    // Values differ = unequal
+    if (n1->value != n2->value) return false;
+    
+    // Recursively check subtrees (in-order comparison)
+    return areTreesEqual(n1->left, n2->left) && 
+           areTreesEqual(n1->right, n2->right);
+}
 template<typename T>
 bool ScapeGoatTree<T>::operator!=(const ScapeGoatTree& tree) const {
     return !(*this == tree);
