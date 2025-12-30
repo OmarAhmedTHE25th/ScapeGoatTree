@@ -83,6 +83,11 @@ void ScapeGoatTree<T>::insert(T value) {
         //find the scapegoat  node
         Node* goat = findTraitor(newNode->parent);
         if (goat == nullptr) return;
+        if (nNodes> size) {
+            delete[] array;
+            size = NNodes * 2;  // Give some headroom
+            array = new T[size];
+        }
         int i = 0;
         //flatten the tree into a sorted array
         inorderTraversal(goat, i);
@@ -144,13 +149,8 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
             parent->right = nullptr;
         }
         delete node;
-
-        if (nNodes < 0.5 * max_nodes) {  // α = 0.5 for deletion
-            int i = 0;
-            inorderTraversal(root, i);
-            root = rebuildTree(0, nNodes - 1, nullptr);
-            max_nodes = nNodes;
-        }
+       DeletionRebuild();
+    
     }
 
     // Case 2: One child
@@ -175,13 +175,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
         }
 
         delete node;
-
-        if (nNodes < 0.5 * max_nodes) {
-            int i = 0;
-            inorderTraversal(root, i);
-            root = rebuildTree(0, nNodes - 1, nullptr);
-            max_nodes = nNodes;
-        }
+DeletionRebuild();        
     }
 
     // Case 3: Two children
@@ -199,13 +193,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
         // Replace value
         node->value = sucValue;
 
-        if (nNodes < 0.5 * max_nodes) {  // α = 0.5 for deletion
-            int i = 0;
-            inorderTraversal(root, i);
-            root = rebuildTree(0, nNodes - 1, nullptr);
-            max_nodes = nNodes;
-        }
-
+DeletionRebuild();
     }
 
     // Update node count
@@ -259,7 +247,20 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int
     if (Nroot->right) Nroot->right->parent = Nroot;
     return Nroot;
 }
-
+template<typename T>
+void ScapeGoatTree<T>::DeletionRebuild{
+if (nNodes > size) {
+        delete[] array;
+        size = nNodes * 2;
+        array = new T[size];
+    }
+        if (nNodes < 0.5 * max_nodes) {  // α = 0.5 for deletion
+            int i = 0;
+            inorderTraversal(root, i);
+            root = rebuildTree(0, nNodes - 1, nullptr);
+            max_nodes = nNodes;
+        }
+        }
 template<typename T>
 const ScapeGoatTree<T>::Node *ScapeGoatTree<T>::getRoot() {
     return root;
