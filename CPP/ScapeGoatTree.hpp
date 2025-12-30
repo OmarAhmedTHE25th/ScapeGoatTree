@@ -26,7 +26,6 @@
 #include  <iostream>
 #include "Node.hpp"
 #include <cmath>
-#include <vector>
 
 #include "vector.hpp"
 
@@ -60,8 +59,12 @@ public:
     void insertBatch(const Vector<T> &values);
     bool deleteValue(T value);
     void deleteBatch(const Vector<T> &values);
-    ~ScapeGoatTree(){postorderTraversal(root);delete[] array;}
-    void clear() const {~ScapeGoatTree();}
+    ~ScapeGoatTree(){postorderTraversal(root);delete[] array;root = nullptr;
+    nNodes = 0;
+    max_nodes = 0;}
+    void clear() const {postorderTraversal(root);delete[] array;root = nullptr;
+    nNodes = 0;
+    max_nodes = 0;}
     std::string isBalanced() const;
     std::string& getDisplayBuffer() const;
 
