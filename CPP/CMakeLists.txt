@@ -31,6 +31,8 @@ add_executable(tree
         ../imgui/imgui_impl_win32.cpp
         ../imgui/imgui_impl_dx11.cpp
         Node.hpp
+        vector.hpp
+        vector.hpp
         # Note: We removed ../bindings.cpp from here because it belongs to the module
 )
 

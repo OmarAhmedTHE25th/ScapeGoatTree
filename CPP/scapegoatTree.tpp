@@ -102,6 +102,19 @@ void ScapeGoatTree<T>::insert(T value) {
         postorderTraversal(goat);
     }
 }
+template<typename T>
+    void ScapeGoatTree<T>::insertBatch(const Vector<T>& values) {
+    for (int i = 0; i < values.size(); i++) {
+        insert(values[i]);
+    }
+}
+
+template<typename T>
+void ScapeGoatTree<T>::deleteBatch(const Vector<T>& values) {
+    for (int i = 0; i < values.size(); i++) {
+        deleteValue(values[i]);
+    }
+}
 
 template<typename T>
 void ScapeGoatTree<T>::insertBatch(std::istream& in, const T& stopValue) {

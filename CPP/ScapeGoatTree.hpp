@@ -26,6 +26,10 @@
 #include  <iostream>
 #include "Node.hpp"
 #include <cmath>
+#include <vector>
+
+#include "vector.hpp"
+
 
 template<typename T>
 class ScapeGoatTree {
@@ -53,15 +57,16 @@ public:
 
     ScapeGoatTree();
     void insert(T value);
+    void insertBatch(const Vector<T> &values);
     void insertBatch(std::istream& in, const T& stopValue);
     bool deleteValue(T value);
     void deleteBatch(std::istream &in, const T &stopValue);
+    void deleteBatch(const Vector<T> &values);
     ~ScapeGoatTree(){postorderTraversal(root);delete[] array;}
     std::string isBalanced() const;
     std::string& getDisplayBuffer() const;
 
-    const ScapeGoatTree<T>::Node * getRoot();
-
+    const Node * getRoot();
     ScapeGoatTree(const ScapeGoatTree &Otree);
     ScapeGoatTree(ScapeGoatTree&& other) noexcept;
     ScapeGoatTree operator+(const ScapeGoatTree &other) const;

@@ -1,6 +1,5 @@
-import tkinter as tk
-from tkinter import messagebox
 import sys
+import tkinter as tk
 
 # --- SETUP: Point to your C++ Build Folder ---
 # Update this path if it changed!
@@ -9,6 +8,7 @@ sys.path.append(r'C:\Users\DELL\CLionProjects\ScapeGoatTree\CPP\cmake-build-debu
 try:
     import scapegoat_tree_py
 except ImportError as e:
+    scapegoat_tree_py = None
     print(f"CRITICAL ERROR: Could not load C++ module.\n{e}")
     sys.exit(1)
 
@@ -61,12 +61,15 @@ class ScapeGoatGUI:
         # Row 0: Basic Ops
         btn_opts = {'width': 12, 'pady': 2}
         tk.Button(self.ops_frame, text="Insert", command=self.cmd_insert, bg="lightgreen", **btn_opts).grid(row=0, column=0, padx=5, pady=2)
-        tk.Button(self.ops_frame, text="Delete", command=self.cmd_delete, bg="lightcoral", **btn_opts).grid(row=0, column=1, padx=5, pady=2)
-        tk.Button(self.ops_frame, text="Search", command=self.cmd_search, bg="gold", **btn_opts).grid(row=0, column=2, padx=5, pady=2)
+        tk.Button(self.ops_frame, text="Insert Batch", command=self.cmd_insertbatch, bg="lightgreen", **btn_opts).grid(row=0, column=1, padx=5, pady=2)
+        tk.Button(self.ops_frame, text="Delete", command=self.cmd_delete, bg="lightcoral", **btn_opts).grid(row=0, column=2, padx=5, pady=2)
+        tk.Button(self.ops_frame, text="Delete Batch", command=self.cmd_deletebatch, bg="lightcoral", **btn_opts).grid(row=0, column=3, padx=5, pady=2)
+        tk.Button(self.ops_frame, text="Search", command=self.cmd_search, bg="gold", **btn_opts).grid(row=0, column=4, padx=5, pady=2)
 
         # Row 1: Displays
         tk.Button(self.ops_frame, text="Show In-Order", command=lambda: self.cmd_show("in"), **btn_opts).grid(row=1, column=0, padx=5, pady=2)
         tk.Button(self.ops_frame, text="Show Pre-Order", command=lambda: self.cmd_show("pre"), **btn_opts).grid(row=1, column=1, padx=5, pady=2)
+        tk.Button(self.ops_frame, text = "Show Post-Order", command=lambda: self.cmd_show("post"), **btn_opts).grid(row=1, column=3, padx=5, pady=2)
         tk.Button(self.ops_frame, text="Show Levels", command=lambda: self.cmd_show("levels"), **btn_opts).grid(row=1, column=2, padx=5, pady=2)
 
         # Row 2: Maintenance
@@ -92,8 +95,10 @@ class ScapeGoatGUI:
         return self.treeA if self.selected_tree_var.get() == "A" else self.treeB
 
     def log(self, msg):
+        self.log_text.config(state=tk.NORMAL)
         self.log_text.insert(tk.END, "> " + msg + "\n")
         self.log_text.see(tk.END)
+        self.log_text.config(state=tk.DISABLED)
 
     def refresh_ui(self):
         self.draw_tree()
@@ -111,6 +116,39 @@ class ScapeGoatGUI:
             self.log(f"Inserted {val} into Tree {self.selected_tree_var.get()}")
             self.entry_val.delete(0, tk.END)
             self.draw_tree()
+
+    def cmd_insertbatch(self):
+            raw_val = self.entry_val.get()
+            try:
+                # Convert "10 20 30" into [10, 20, 30]
+                batch_values = [int(x) for x in raw_val.split()]
+
+                if batch_values:
+                    self.get_active_tree().insert_batch(batch_values)
+                    self.log(f"Inserted batch {batch_values} into Tree {self.selected_tree_var.get()}")
+                    self.entry_val.delete(0, tk.END)
+                    self.draw_tree()
+                else:
+                    self.log("Error: Batch input is empty")
+            except ValueError:
+                self.log("Error: Batch must be numbers separated by spaces")
+
+    def cmd_deletebatch(self):
+            raw_val = self.entry_val.get()
+            try:
+                batch_values = [int(x) for x in raw_val.split()]
+
+                if batch_values:
+                    self.get_active_tree().delete_batch(batch_values)
+                    self.log(f"Deleted batch {batch_values} from Tree {self.selected_tree_var.get()}")
+                    self.entry_val.delete(0, tk.END)
+                    self.draw_tree()
+                else:
+                    self.log("Error: Batch input is empty")
+            except ValueError:
+                self.log("Error: Batch must be numbers separated by spaces")
+
+
 
     def cmd_delete(self):
         val = self.get_val()
@@ -136,6 +174,7 @@ class ScapeGoatGUI:
         res = ""
         if mode == "in": res = tree.get_inorder()
         elif mode == "pre": res = tree.get_preorder()
+        elif mode == "post": res = tree.get_postorder()
         elif mode == "levels": res = tree.get_levels()
 
         self.log(f"--- {mode} ({name}) ---\n{res}")

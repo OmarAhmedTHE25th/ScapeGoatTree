@@ -8,9 +8,9 @@ const string RED    = "\033[31m";
 const string GREEN  = "\033[32m";
 const string CYAN   = "\033[36m";
 const string RESET  = "\033[0m";
- string WHITE = "\033[37m";
- string  BLUE  =  "\033[34m";
- string  MAGENTA= "\033[35m";
+string WHITE = "\033[37m";
+string  BLUE  =  "\033[34m";
+string  MAGENTA= "\033[35m";
 void printError(const string& msg)   { cout << RED << msg << RESET << "\n"; }
 void printSuccess(const string& msg) { cout << GREEN << msg << RESET << "\n\n"; }
 void printInfo(const string& msg)    { cout << CYAN << msg << RESET << "\n"; }
@@ -58,8 +58,7 @@ void ITree::printMenu() {
     cout << CYAN << "| " << WHITE << "15 - Operator Merge (+)             " << CYAN << " |\n" << RESET;
     cout << CYAN << "| " << WHITE << "16 - Operator Compare (==, !=)      " << CYAN << " |\n" << RESET;
     cout << CYAN << "| " << RED   << "17 - Exit                           " << CYAN << " |\n" << RESET;
-
-    cout << CYAN << "+--------------------------------------+\n" << RESET;
+    cout << CYAN << "+======================================+" << RESET << "\n";
     cout << "Select an option (1-17)\n";
     cout << "> ";
 }
