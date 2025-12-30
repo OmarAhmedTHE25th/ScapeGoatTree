@@ -26,7 +26,6 @@
 #include  <iostream>
 #include "Node.hpp"
 #include <cmath>
-
 #include "vector.hpp"
 
 
@@ -45,7 +44,8 @@ class ScapeGoatTree {
     void displayInOrder(const Node* node); // for display
     void  displayPostOrder(const Node* node) ; // for display
     int getThreshold() const {return static_cast<int>(log(nNodes) / log(1.5));}
-
+    void DeletionRebuild();
+    bool areTreesEqual(const Node* n1, const Node* n2) const;
     mutable std::string displayBuffer;
     Node* root{};
     int nNodes{};
