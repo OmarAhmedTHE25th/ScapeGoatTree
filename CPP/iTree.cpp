@@ -106,11 +106,11 @@ void ITree::handleBatches(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType
         if (value == stop) break;
         values.push_back(value);
     }
-    if (op==INSERT) {
+    if (op==opcodes::INSERT) {
         tree.insertBatch(values);
         printSuccess("SUCCESS: Batch insertion complete.");
     }
-    if (op==DELETE_op){
+    if (op==opcodes::DELETEOP){
         tree.deleteBatch(values);
         printSuccess("SUCCESS: Batch Deletion complete.");
     }
@@ -123,18 +123,18 @@ void ITree::handleOperations(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenT
     cin >> value;
     if (!validateCinLine())return;
     switch (op) {
-        case INSERT:
+        case opcodes::INSERT:
         {    tree.insert(value);
             printSuccess("SUCCESS: Inserted " + to_string(value));
         }            break;
-        case DELETE_op: {
+        case opcodes::DELETEOP: {
             if (tree.deleteValue(value))
                 printSuccess("SUCCESS: Deleted " + to_string(value));
             else
                 printInfo("INFO: Value does not exist.");
         }
             break;
-        case SEARCH: {
+        case opcodes::SEARCH: {
             if (tree.search(value))
                 printSuccess("RESULT: FOUND");
             else
@@ -148,25 +148,25 @@ void ITree::handleDisplay(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType
     auto& tree = selectTree(A, B);
     switch (op)
         {
-        case DISPLAY_INORDER: {
+        case opcodes::DISPLAY_INORDER: {
             tree.displayInOrder();
             printInfo("\n--- In-Order Traversal ---");
             cout << tree.getDisplayBuffer() << "\n";
         }
             break;
-        case DISPLAY_PREORDER: {
+        case opcodes::DISPLAY_PREORDER: {
             tree.displayPreOrder();
             printInfo("\n--- Pre-Order Traversal ---");
             cout << tree.getDisplayBuffer() << "\n";
         }
             break;
-        case DISPLAY_POSTORDER: {
+        case opcodes::DISPLAY_POSTORDER: {
             tree.displayPostOrder();
             printInfo("\n--- Post-Order Traversal ---");
             cout << tree.getDisplayBuffer() << "\n";
         }
         break;
-        case DISPLAY_LEVELS: {
+        case opcodes::DISPLAY_LEVELS: {
             tree.displayLevels();
             printInfo("\n--- Level-Order Traversal ---");
             cout << tree.getDisplayBuffer() << "\n";
@@ -219,17 +219,17 @@ void ITree::handleCoreOperators(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<Elem
 
     if (!validateCinLine())return;
     switch (op) {
-        case INSERT:{
+        case opcodes::INSERT:{
             tree + value;
             printSuccess("SUCCESS: Inserted " + to_string(value) + " using operator +");
         }break;
-        case DELETE_op:{
+        case opcodes::DELETEOP:{
             if (tree - value)
                 printSuccess("SUCCESS: Deleted " + to_string(value) + " using operator -");
             else
                 printInfo("INFO: Value does not exist.");
         } break;
-        case SEARCH:{
+        case opcodes::SEARCH:{
             if (tree[value])
                 printSuccess("RESULT: FOUND using operator []");
             else
@@ -241,43 +241,83 @@ void ITree::handleCoreOperators(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<Elem
 
 
 /* ===================== Main UI ===================== */
+// Add this inside the class or just above it
+typedef void (*MenuHandler)(ScapeGoatTree<ElemenType>&, ScapeGoatTree<ElemenType>&, opcodes);
+
+struct MenuItem {
+    string name;
+    opcodes opcode;
+    MenuHandler func;
+};
 void ITree::TreeUI() {
     ScapeGoatTree<ElemenType> treeA;
     ScapeGoatTree<ElemenType> treeB;
-    int op;
+
+    MenuItem menu[] = {
+        {"Insert",              opcodes::INSERT,           handleOperations},
+        {"Insert Batch",        opcodes::INSERT,           handleBatches},
+        {"Delete",              opcodes::DELETEOP,           handleOperations},
+        {"Delete Batch",        opcodes::DELETEOP,           handleBatches},
+        {"Search",              opcodes::SEARCH,           handleOperations},
+        {"Display In-Order",    opcodes::DISPLAY_INORDER,  handleDisplay},
+        {"Display Pre-Order",   opcodes::DISPLAY_PREORDER, handleDisplay},
+        {"Display Post-Order",  opcodes::DISPLAY_POSTORDER,handleDisplay},
+        {"Display Level-Order", opcodes::DISPLAY_LEVELS,   handleDisplay},
+        {"Check Balance",       opcodes::BALANCE,          [](auto& A, auto& B, auto op){ handleBalance(A, B); }},
+        {"Operator Insert",     opcodes::INSERT,           handleCoreOperators},
+        {"Operator Delete",     opcodes::DELETEOP,           handleCoreOperators},
+        {"Operator Search",     opcodes::SEARCH,           handleCoreOperators},
+        {"Operator Empty",      opcodes::EMPTY,            [](auto& A, auto& B, auto op){ handleOperatorEmpty(A, B); }},
+        {"Operator Merge",      opcodes::MERGE,            [](auto& A, auto& B, auto op){ handleOperatorMerge(A, B); }},
+        {"Operator Compare",    opcodes::COMPARE,          [](auto& A, auto& B, auto op){ handleOperatorCompare(A, B); }}
+    };
+
+    constexpr int menuSize = std::size(menu);
 
     while (true) {
+        constexpr int TOTAL_WIDTH = 40;
         printHeader("ScapeGoat Tree Interface");
-        printMenu();
+
+        for (int i = 0; i < menuSize; ++i) {
+            // 1. Prepare the text components
+            string prefix = "| " + to_string(i + 1) + " - ";
+            string name = menu[i].name;
+
+            // 2. Calculate spaces needed (Total 40 - prefix - name - 1 for closing pipe)
+            int currentLen = prefix.length() + name.length();
+            int spacesNeeded = (TOTAL_WIDTH - 1) - currentLen;
+
+            // 3. Print with colors
+            cout << CYAN << "| " << WHITE << (i + 1) << " - " << name; // Cyan border, White text
+            for(int s = 0; s < spacesNeeded; ++s) cout << " ";        // Padding
+            cout << CYAN << "|" << RESET << "\n";                    // Cyan closing border
+        }
+
+        // Handle the Exit line
+        string exitPrefix = "| " + to_string(menuSize + 1) + " - ";
+        string exitName = "Exit";
+        int exitSpaces = (TOTAL_WIDTH - 1) - (exitPrefix.length() + exitName.length());
+
+        cout << CYAN << "| " << RED << (menuSize + 1) << " - Exit";
+        for(int s = 0; s < exitSpaces; ++s) cout << " ";
+        cout << CYAN << "|" << RESET << "\n";
+
+        cout << CYAN << "+======================================+" << RESET << "\n";
         cout << "Select an operation: ";
+
+        int op;
         cin >> op;
 
-        if (!validateCinLine())continue;
-
-        if (op == 17) {
+        if (!validateCinLine()) continue;
+        if (op == menuSize + 1) {
             printInfo("\nExiting...");
             break;
         }
 
-        switch (op) {
-            case 1: handleOperations(treeA, treeB, INSERT); break;
-            case 2: handleBatches(treeA, treeB,INSERT); break;
-            case 3: handleOperations(treeA, treeB,DELETE_op); break;
-            case 4: handleBatches(treeA, treeB,DELETE_op); break;
-            case 5: handleOperations(treeA, treeB,SEARCH); break;
-            case 6: handleDisplay(treeA, treeB,DISPLAY_INORDER); break;
-            case 7: handleDisplay(treeA, treeB,DISPLAY_PREORDER); break;
-            case 8: handleDisplay(treeA, treeB,DISPLAY_POSTORDER); break;
-            case 9: handleDisplay(treeA, treeB,DISPLAY_LEVELS); break;
-            case 10: handleBalance(treeA, treeB); break;
-            case 11: handleCoreOperators(treeA, treeB,INSERT); break;
-            case 12: handleCoreOperators(treeA, treeB,DELETE_op); break;
-            case 13: handleCoreOperators(treeA, treeB,SEARCH); break;
-            case 14: handleOperatorEmpty(treeA, treeB); break;
-            case 15: handleOperatorMerge(treeA, treeB); break;
-            case 16: handleOperatorCompare(treeA, treeB); break;
-            default:
-                printError("ERROR: Invalid operation.");
+        if (op >= 1 && op <= menuSize) {
+            menu[op - 1].func(treeA, treeB, menu[op - 1].opcode);
+        } else {
+            printError("ERROR: Invalid operation.");
         }
     }
 }
