@@ -8,7 +8,7 @@ template<typename T>
 
 class Node {
 public:
-    mutable T value;     // stored value
+    T value;     // stored value
     Node* left;    // left child pointer
     Node* right;   // right child pointer
     Node* parent;  // parent pointer
