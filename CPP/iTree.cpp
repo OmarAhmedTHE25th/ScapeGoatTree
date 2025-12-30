@@ -241,7 +241,7 @@ void ITree::handleCoreOperators(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<Elem
 
 
 /* ===================== Main UI ===================== */
-// Add this inside the class or just above it
+
 typedef void (*MenuHandler)(ScapeGoatTree<ElemenType>&, ScapeGoatTree<ElemenType>&, opcodes);
 
 struct MenuItem {
@@ -253,7 +253,7 @@ void ITree::TreeUI() {
     ScapeGoatTree<ElemenType> treeA;
     ScapeGoatTree<ElemenType> treeB;
 
-    MenuItem menu[] = {
+    const MenuItem menu[] = {
         {"Insert",              opcodes::INSERT,           handleOperations},
         {"Insert Batch",        opcodes::INSERT,           handleBatches},
         {"Delete",              opcodes::DELETEOP,           handleOperations},
