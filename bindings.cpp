@@ -4,7 +4,7 @@
 #include "ScapeGoatTree.hpp"
 
 namespace py = pybind11;
-typedef int Type;
+typedef long long Type;
 PYBIND11_MODULE(scapegoat_tree_py, m) {
     // 1. Bind Node
     py::class_<Node<Type>>(m, "Node")
@@ -32,6 +32,7 @@ PYBIND11_MODULE(scapegoat_tree_py, m) {
         .def("delete_value", &ScapeGoatTree<Type>::deleteValue)
         .def("search", &ScapeGoatTree<Type>::search)
         .def("get_root", &ScapeGoatTree<Type>::getRoot, py::return_value_policy::reference_internal)
+        .def("clear", &ScapeGoatTree<Type>::clear)
 
 
         .def(py::self + py::self)

@@ -167,6 +167,14 @@ class ScapeGoatGUI:
             self.log(f"Search {val}: {res}")
             if found:
                 self.draw_tree(highlight_val=val)
+    def cmd_clear(self):
+        if self.selected_tree_var.get() == "A":
+            self.treeA = scapegoat_tree_py.ScapeGoatTree()
+        else:
+            self.treeB = scapegoat_tree_py.ScapeGoatTree()
+        self.draw_tree()
+        self.log(f"Tree {self.selected_tree_var.get()} Cleared.")
+        self.log(f"Tree {self.selected_tree_var.get()} Cleared.")
 
     def cmd_show(self, mode):
         tree = self.get_active_tree()
@@ -184,14 +192,7 @@ class ScapeGoatGUI:
         # Clean up the string for the log box
         self.log(f"--- Balance ({self.selected_tree_var.get()}) ---\n{res}")
 
-    def cmd_clear(self):
-        # We replace the tree object with a new one
-        if self.selected_tree_var.get() == "A":
-            self.treeA = scapegoat_tree_py.ScapeGoatTree()
-        else:
-            self.treeB = scapegoat_tree_py.ScapeGoatTree()
-        self.draw_tree()
-        self.log(f"Tree {self.selected_tree_var.get()} Cleared.")
+
 
     def cmd_merge(self):
         # USES C++ OPERATOR+

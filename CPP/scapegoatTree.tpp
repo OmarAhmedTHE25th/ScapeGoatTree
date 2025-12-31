@@ -60,10 +60,9 @@ void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
     Node* goat = findTraitor(newNode->parent);
     if (goat == nullptr) return;
     if (nNodes> size) {
-        T* temp = new T[nNodes * 2];  // Allocate
-        delete[] array;                // delete
-        array = temp;                  // assign
+        delete[] array;
         size = nNodes * 2;
+        array = new T[size];
     }
     int i = 0;
     //flatten the tree into a sorted array
@@ -163,8 +162,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
             parent->right = nullptr;
         }
         delete node;
-       DeletionRebuild();
-    
+        std::cout << "Deleting: " << value << '\n';
     }
 
     // Case 2: One child
@@ -189,7 +187,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
         }
 
         delete node;
-DeletionRebuild();        
+        std::cout << "Deleting: " << value << '\n';
     }
 
     // Case 3: Two children
@@ -200,25 +198,23 @@ DeletionRebuild();
             suc = suc->left;
 
 
-        // Replace value
-        node->value = suc->value;
-        // Delete successor
-        Node* sucParent = suc->parent;
-        Node* sucRight = suc->right;
+        T successorValue = suc->value;
+        deleteValue(successorValue);
+        node->value = successorValue;
 
-        if (sucRight) sucRight->parent = sucParent;
-
-        if (sucParent->left == suc)
-            sucParent->left = sucRight;
-        else
-            sucParent->right = sucRight;
 
         delete suc;
-        DeletionRebuild();
+        std::cout << "Deleting: " << value << '\n';
     }
 
     // Update node count
     nNodes--;
+    if (nNodes == 0) {
+        root = nullptr;
+        max_nodes = 0;
+    } else {
+        DeletionRebuild();
+    }
     return true;
 }
 
@@ -264,8 +260,6 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int
     Node* Nroot = new Node(array[mid], parent_node);
     Nroot->left = rebuildTree(start, mid - 1, Nroot);
     Nroot->right = rebuildTree(mid + 1, end, Nroot);
-    if (Nroot->left) Nroot->left->parent = Nroot;
-    if (Nroot->right) Nroot->right->parent = Nroot;
     return Nroot;
 }
 template<typename T>
@@ -275,10 +269,12 @@ if (nNodes > size) {
         size = nNodes * 2;
         array = new T[size];
     }
-        if (nNodes < 0.5 * max_nodes) {  // α = 0.5 for deletion
+        if (nNodes < 0.5 * max_nodes&& nNodes > 0) {  // α = 0.5 for deletion
             int i = 0;
             inorderTraversal(root, i);
+           Node* oldroot = root;
             root = rebuildTree(0, nNodes - 1, nullptr);
+            postorderTraversal(oldroot);
             max_nodes = nNodes;
         }
         }
@@ -378,7 +374,6 @@ template<typename T>
 std::string& ScapeGoatTree<T>::getDisplayBuffer() const {
     return displayBuffer;
 }
-
 template<typename T>
 void ScapeGoatTree<T>::displayLevels() {
     displayBuffer.clear();
