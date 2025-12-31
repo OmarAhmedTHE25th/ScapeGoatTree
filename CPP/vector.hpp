@@ -12,7 +12,6 @@ public:
     Vector()=default;
     // Disable copying to prevent crashes
     Vector(const Vector&)=delete;
-Vector(const Vector&) = delete;
 Vector& operator=(const Vector&) = delete;
 Vector(Vector&&) = delete;
 Vector& operator=(Vector&&) = delete;

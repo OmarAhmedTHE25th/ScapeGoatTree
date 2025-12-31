@@ -20,7 +20,7 @@ ScapeGoatTree<T>::ScapeGoatTree(const ScapeGoatTree &Otree) {
     if (!Otree.root) return;
     preorderTraversal(Otree.root);
 }
-/* Move constructor (noexcept)
+/* Move constructor
  * Purpose:
  *  - "Steal" internal resources from `other` to perform a cheap move.
  *  - Transfer ownership of pointer data (root, array) and bookkeeping
@@ -85,7 +85,7 @@ void ScapeGoatTree<T>::insert(T value) {
         if (goat == nullptr) return;
         if (nNodes> size) {
             delete[] array;
-            size = NNodes * 2;  // Give some headroom
+            size = nNodes * 2;  // Give some headroom
             array = new T[size];
         }
         int i = 0;
@@ -248,7 +248,7 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int
     return Nroot;
 }
 template<typename T>
-void ScapeGoatTree<T>::DeletionRebuild{
+void ScapeGoatTree<T>::DeletionRebuild(){
 if (nNodes > size) {
         delete[] array;
         size = nNodes * 2;

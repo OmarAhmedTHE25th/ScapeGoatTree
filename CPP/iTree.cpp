@@ -33,34 +33,6 @@ bool validateCinLine()
     return true;
 }
 
-/* ===================== Menu ===================== */
-
-
-void ITree::printMenu() {
-    cout << CYAN << "| " << GREEN << "MAIN MENU" << CYAN << "                            |\n" << RESET;
-    cout << CYAN << "+======================================+" << RESET << "\n";
-int i =0;
-    cout << CYAN << "| " << WHITE<<++i << " - Insert                          " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Insert Batch                    " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Delete                          " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Delete Batch                    " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Search                          " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Display In-Order                " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Display Pre-Order               " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Display Post-Order              " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Display Level-Order             " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Check Balance / Stats          " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Operator Insert (+=)           " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Operator Delete (-, -=)        " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Operator Search ([])           " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Operator Empty (!)             " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Operator Merge (+)             " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << WHITE<<++i << " - Operator Compare (==, !=)      " << CYAN << " |\n" << RESET;
-    cout << CYAN << "| " << RED<<++i  << " - Exit                           " << CYAN << " |\n" << RESET;
-    cout << CYAN << "+======================================+" << RESET << "\n";
-    cout << "Select an option (1-17)\n";
-    cout << "> ";
-}
 
 
 
@@ -267,7 +239,7 @@ void ITree::TreeUI() {
         {"Operator Insert",     opcodes::INSERT,           handleCoreOperators},
         {"Operator Delete",     opcodes::DELETEOP,           handleCoreOperators},
         {"Operator Search",     opcodes::SEARCH,           handleCoreOperators},
-        {"Operator Empty",      opcodes::EMPTY,            [](auto& A, auto& B, auto op){ handleOperatorEmpty(A, B); }},
+        {"Operator Empty",      opcodes::EMPTY,            [](auto& A, auto& B, auto){ handleOperatorEmpty(A, B); }},
         {"Operator Merge",      opcodes::MERGE,            [](auto& A, auto& B, auto op){ handleOperatorMerge(A, B); }},
         {"Operator Compare",    opcodes::COMPARE,          [](auto& A, auto& B, auto op){ handleOperatorCompare(A, B); }}
     };

@@ -12,8 +12,6 @@ typedef int ElemenType;
 enum class opcodes {INSERT, DELETEOP, SEARCH, DISPLAY_INORDER, DISPLAY_PREORDER, DISPLAY_POSTORDER, DISPLAY_LEVELS,EXIT,BALANCE,COMPARE,MERGE,EMPTY,BATCH_INSERT,BATCH_DELETE};
 
 class ITree {
-public:
-    static void printMenu();
     static  void handleBatches(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op);
     static void handleOperations(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op);
     static void handleDisplay(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op);
@@ -23,6 +21,7 @@ public:
     static void handleOperatorMerge(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
     static void handleOperatorCompare(const ScapeGoatTree<ElemenType> &A, const ScapeGoatTree<ElemenType> &B);
     static ScapeGoatTree<ElemenType>& selectTree(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+public:
     static void TreeUI();
 
 };

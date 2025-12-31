@@ -62,12 +62,11 @@ public:
     ~ScapeGoatTree(){postorderTraversal(root);delete[] array;root = nullptr;
     nNodes = 0;
     max_nodes = 0;}
-    void clear() const {postorderTraversal(root);delete[] array;root = nullptr;
+    void clear() {postorderTraversal(root);delete[] array;root = nullptr;
     nNodes = 0;
     max_nodes = 0;}
     std::string isBalanced() const;
     std::string& getDisplayBuffer() const;
-
     const Node * getRoot();
     ScapeGoatTree(const ScapeGoatTree &Otree);
     ScapeGoatTree(ScapeGoatTree&& other) noexcept;
