@@ -28,11 +28,10 @@
 #include <cmath>
 #include "vector.hpp"
 
-
+using std::string;
 template<typename T>
 class ScapeGoatTree {
     using Node = Node<T>;
-    // Root node of the tree
     static int findH(const Node* node);
     static int countN(const Node* node);
     static Node* findTraitor(Node* node);
@@ -40,14 +39,14 @@ class ScapeGoatTree {
     void inorderTraversal(const Node*node, int &i);
     static void postorderTraversal(const Node* node);
     void preorderTraversal(const Node* node);
-    void displayPreOrder(const Node* node); // for display
-    void displayInOrder(const Node* node); // for display
-    void  displayPostOrder(const Node* node) ; // for display
+    void displayPreOrder(const Node* node);
+    void displayInOrder(const Node* node);
+    void  displayPostOrder(const Node* node) ;
     int getThreshold() const {return static_cast<int>(log(nNodes) / log(1.5));}
     void DeletionRebuild();
     bool areTreesEqual(const Node* n1, const Node* n2) const;
     void restructure_subtree(Node *newNode);
-    mutable std::string displayBuffer;
+    mutable string displayBuffer;
     Node* root{};
     int nNodes{};
     int size=100;
@@ -60,24 +59,22 @@ public:
     void insertBatch( Vector<T> &values);
     bool deleteValue(T value);
     void deleteBatch( Vector<T> &values);
-    ~ScapeGoatTree(){postorderTraversal(root);delete[] array;root = nullptr;nNodes = 0;max_nodes = 0;}
-    void clear() {postorderTraversal(root);delete[] array;root = nullptr;nNodes = 0;max_nodes = 0;}
-    std::string isBalanced() const;
-    std::string& getDisplayBuffer() const;
-    const Node * getRoot();
+    [[nodiscard]] bool search(const T & key) const;
+    void clear();
+    string isBalanced() const;
+    string& getDisplayBuffer() const;
+    const Node* getRoot();
     ScapeGoatTree(const ScapeGoatTree &Otree);
     ScapeGoatTree(ScapeGoatTree&& other) noexcept;
-
-
-    ScapeGoatTree operator+(const ScapeGoatTree &other) const;
-    ScapeGoatTree& operator=(const ScapeGoatTree& other);
-    ScapeGoatTree& operator=(ScapeGoatTree&& other) noexcept;
-    [[nodiscard]] bool search(const T & key) const;
+    ~ScapeGoatTree();
     void displayPreOrder(); // for display
     void displayInOrder() ; // for display
     void displayPostOrder() ; // for display
     void displayLevels(); // for display
     bool operator[](T value) const;
+    ScapeGoatTree operator+(const ScapeGoatTree &other) const;
+    ScapeGoatTree& operator=(const ScapeGoatTree& other);
+    ScapeGoatTree& operator=(ScapeGoatTree&& other) noexcept;
     ScapeGoatTree &operator=(int value);
     bool operator==(const ScapeGoatTree &tree) const;
     bool operator!=(const ScapeGoatTree &tree) const;

@@ -20,6 +20,14 @@ ScapeGoatTree<T>::ScapeGoatTree(const ScapeGoatTree &Otree) {
     if (!Otree.root) return;
     preorderTraversal(Otree.root);
 }
+template<typename T>
+ScapeGoatTree<T>::~ScapeGoatTree() {
+    postorderTraversal(root);
+    delete[] array;
+    root = nullptr;
+    nNodes = 0;
+    max_nodes = 0;
+}
 /* Move constructor
  * Purpose:
  *  - "Steal" internal resources from `other` to perform a cheap move.
@@ -398,6 +406,8 @@ void ScapeGoatTree<T>::displayLevels() {
     }
 }
 
+
+
 // =====================
 // Operators
 // =====================
@@ -541,8 +551,14 @@ bool ScapeGoatTree<T>::search(const T& key) const {
     return false;
 }
 
-
-
+template<typename T>
+void ScapeGoatTree<T>::clear() {
+    postorderTraversal(root);
+    delete[] array;
+    root = nullptr;
+    nNodes = 0;
+    max_nodes = 0;
+}
 
 
 #endif //TREE_SCAPEGOATTREE_TPP
