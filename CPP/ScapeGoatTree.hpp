@@ -78,13 +78,14 @@ public:
     void displayPostOrder() ; // for display
     void displayLevels(); // for display
     bool operator[](T value) const;
+    ScapeGoatTree &operator=(int value);
     bool operator==(const ScapeGoatTree &tree) const;
     bool operator!=(const ScapeGoatTree &tree) const;
     bool operator!() const;
-    bool operator-(T& value);
-    void operator+(T& value);
-    bool operator-=(T& value);
-    void operator+=(T& value);
+    bool operator-(const T& value);
+    void operator+(const T& value);
+    bool operator-=(const T& value);
+    void operator+=(const T& value);
 };
 #include "scapegoatTree.tpp"
 

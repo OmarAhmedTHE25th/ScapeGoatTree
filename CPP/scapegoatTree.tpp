@@ -447,22 +447,28 @@ ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(ScapeGoatTree&& other) noexcept {
 }
 
 template<typename T>
-void ScapeGoatTree<T>::operator+(T& value) { insert(value); }
+void ScapeGoatTree<T>::operator+(const T& value) { insert(value); }
 
 template<typename T>
-bool ScapeGoatTree<T>::operator-(T& value) {return  deleteValue(value); }
+bool ScapeGoatTree<T>::operator-(const T& value) {return  deleteValue(value); }
 
 template<typename T>
-void ScapeGoatTree<T>::operator+=(T& value) { insert(value); }
+void ScapeGoatTree<T>::operator+=(const T& value) { insert(value); }
 
 template<typename T>
-bool ScapeGoatTree<T>::operator-=(T& value) { return deleteValue(value); }
+bool ScapeGoatTree<T>::operator-=(const T& value) { return deleteValue(value); }
 
 template<typename T>
 bool ScapeGoatTree<T>::operator[](T value) const {
     return search(value);
 }
-
+template<typename T>
+ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(const int value) {
+    if (value == 0) {
+        clear();
+    }
+    return *this;
+}
 template<typename T>
 bool ScapeGoatTree<T>::operator==(const ScapeGoatTree& tree) const {
     return areTreesEqual(root, tree.root);

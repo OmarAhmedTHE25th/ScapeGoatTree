@@ -182,7 +182,7 @@ void ITree::handleOperatorCompare(const ScapeGoatTree<ElemenType>& A, const Scap
         printError("Trees are NOT equal");
 }
 
-void ITree::handleCoreOperators(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op) {
+void ITree::handleCoreOperators(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, const opcodes op) {
     auto& tree = selectTree(A, B);
     ElemenType value;
 
@@ -207,10 +207,16 @@ void ITree::handleCoreOperators(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<Elem
             else
                 printError("RESULT: NOT FOUND using operator []");
         } break;
+
         default: ;
     }
     }
 
+void ITree::handleClear(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
+    tree = 0;
+    printSuccess("SUCCESS: Tree cleared using operator = 0");
+}
 
 /* ===================== Main UI ===================== */
 
@@ -235,13 +241,14 @@ void ITree::TreeUI() {
         {"Display Pre-Order",   opcodes::DISPLAY_PREORDER, handleDisplay},
         {"Display Post-Order",  opcodes::DISPLAY_POSTORDER,handleDisplay},
         {"Display Level-Order", opcodes::DISPLAY_LEVELS,   handleDisplay},
-        {"Check Balance",       opcodes::BALANCE,          [](auto& A, auto& B, auto op){ handleBalance(A, B); }},
+        {"Check Balance",       opcodes::BALANCE,          [](auto& A, auto& B, auto ){ handleBalance(A, B); }},
         {"Operator Insert",     opcodes::INSERT,           handleCoreOperators},
         {"Operator Delete",     opcodes::DELETEOP,           handleCoreOperators},
         {"Operator Search",     opcodes::SEARCH,           handleCoreOperators},
         {"Operator Empty",      opcodes::EMPTY,            [](auto& A, auto& B, auto){ handleOperatorEmpty(A, B); }},
-        {"Operator Merge",      opcodes::MERGE,            [](auto& A, auto& B, auto op){ handleOperatorMerge(A, B); }},
-        {"Operator Compare",    opcodes::COMPARE,          [](auto& A, auto& B, auto op){ handleOperatorCompare(A, B); }}
+        {"Operator Merge",      opcodes::MERGE,            [](auto& A, auto& B, auto){ handleOperatorMerge(A, B); }},
+        {"Operator Compare",    opcodes::COMPARE,          [](auto& A, auto& B, auto){ handleOperatorCompare(A, B); }},
+        {"Operator Clear",      opcodes::CLEAR,            [](auto& A, auto& B, auto ){handleClear(A,B);}}
     };
 
     constexpr int menuSize = std::size(menu);
