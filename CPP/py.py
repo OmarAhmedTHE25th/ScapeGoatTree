@@ -174,7 +174,7 @@ class ScapeGoatGUI:
             self.treeB = scapegoat_tree_py.ScapeGoatTree()
         self.draw_tree()
         self.log(f"Tree {self.selected_tree_var.get()} Cleared.")
-        self.log(f"Tree {self.selected_tree_var.get()} Cleared.")
+
 
     def cmd_show(self, mode):
         tree = self.get_active_tree()
