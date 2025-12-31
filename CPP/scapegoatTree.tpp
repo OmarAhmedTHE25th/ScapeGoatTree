@@ -84,9 +84,10 @@ void ScapeGoatTree<T>::insert(T value) {
         Node* goat = findTraitor(newNode->parent);
         if (goat == nullptr) return;
         if (nNodes> size) {
-            delete[] array;
-            size = nNodes * 2;  // Give some headroom
-            array = new T[size];
+            T* temp = new T[nNodes * 2];  // Allocate
+            delete[] array;                // delete
+            array = temp;                  // assign
+            size = nNodes * 2;
         }
         int i = 0;
         //flatten the tree into a sorted array
@@ -185,15 +186,22 @@ DeletionRebuild();
         while (suc->left != nullptr)
             suc = suc->left;
 
-        const T sucValue = suc->value;
-
-        // Delete successor
-        deleteValue(sucValue);
 
         // Replace value
-        node->value = sucValue;
+        node->value = suc->value;
+        // Delete successor
+        Node* sucParent = suc->parent;
+        Node* sucRight = suc->right;
 
-DeletionRebuild();
+        if (sucRight) sucRight->parent = sucParent;
+
+        if (sucParent->left == suc)
+            sucParent->left = sucRight;
+        else
+            sucParent->right = sucRight;
+
+        delete suc;
+        DeletionRebuild();
     }
 
     // Update node count
