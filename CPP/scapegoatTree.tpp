@@ -46,6 +46,28 @@ max_nodes(other.max_nodes) {
 // Insert
 // =====================
 
+template <typename T>
+void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
+    //find the scapegoat  node
+    Node* goat = findTraitor(newNode->parent);
+    if (goat == nullptr) return;
+    if (nNodes> size) {
+        T* temp = new T[nNodes * 2];  // Allocate
+        delete[] array;                // delete
+        array = temp;                  // assign
+        size = nNodes * 2;
+    }
+    int i = 0;
+    //flatten the tree into a sorted array
+    inorderTraversal(goat, i);
+    const int sub_size = i; // size of subtree
+    Node* balanced = rebuildTree(0, sub_size- 1, goat->parent);
+    if (!goat->parent) root = balanced;
+    else if (goat == goat->parent->left) goat->parent->left = balanced;
+    else goat->parent->right = balanced;
+    postorderTraversal(goat);
+}
+
 template<typename T>
 void ScapeGoatTree<T>::insert(T value) {
     if (!root) {
@@ -80,24 +102,7 @@ void ScapeGoatTree<T>::insert(T value) {
     if (nNodes > max_nodes) max_nodes = nNodes;
 
     if (depth + 1 > getThreshold()) {
-        //find the scapegoat  node
-        Node* goat = findTraitor(newNode->parent);
-        if (goat == nullptr) return;
-        if (nNodes> size) {
-            T* temp = new T[nNodes * 2];  // Allocate
-            delete[] array;                // delete
-            array = temp;                  // assign
-            size = nNodes * 2;
-        }
-        int i = 0;
-        //flatten the tree into a sorted array
-        inorderTraversal(goat, i);
-        const int sub_size = i; // size of subtree
-        Node* balanced = rebuildTree(0, sub_size- 1, goat->parent);
-        if (!goat->parent) root = balanced;
-        else if (goat == goat->parent->left) goat->parent->left = balanced;
-        else goat->parent->right = balanced;
-        postorderTraversal(goat);
+        restructure_subtree(newNode);
     }
 }
 template<typename T>

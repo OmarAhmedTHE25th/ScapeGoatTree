@@ -46,6 +46,7 @@ class ScapeGoatTree {
     int getThreshold() const {return static_cast<int>(log(nNodes) / log(1.5));}
     void DeletionRebuild();
     bool areTreesEqual(const Node* n1, const Node* n2) const;
+    void restructure_subtree(Node *newNode);
     mutable std::string displayBuffer;
     Node* root{};
     int nNodes{};
@@ -70,6 +71,8 @@ public:
     const Node * getRoot();
     ScapeGoatTree(const ScapeGoatTree &Otree);
     ScapeGoatTree(ScapeGoatTree&& other) noexcept;
+
+
     ScapeGoatTree operator+(const ScapeGoatTree &other) const;
     ScapeGoatTree& operator=(const ScapeGoatTree& other);
     ScapeGoatTree& operator=(ScapeGoatTree&& other) noexcept;
