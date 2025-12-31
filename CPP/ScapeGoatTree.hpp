@@ -57,15 +57,11 @@ public:
 
     ScapeGoatTree();
     void insert(T value);
-    void insertBatch(const Vector<T> &values);
+    void insertBatch( Vector<T> &values);
     bool deleteValue(T value);
-    void deleteBatch(const Vector<T> &values);
-    ~ScapeGoatTree(){postorderTraversal(root);delete[] array;root = nullptr;
-    nNodes = 0;
-    max_nodes = 0;}
-    void clear() {postorderTraversal(root);delete[] array;root = nullptr;
-    nNodes = 0;
-    max_nodes = 0;}
+    void deleteBatch( Vector<T> &values);
+    ~ScapeGoatTree(){postorderTraversal(root);delete[] array;root = nullptr;nNodes = 0;max_nodes = 0;}
+    void clear() {postorderTraversal(root);delete[] array;root = nullptr;nNodes = 0;max_nodes = 0;}
     std::string isBalanced() const;
     std::string& getDisplayBuffer() const;
     const Node * getRoot();
@@ -76,7 +72,7 @@ public:
     ScapeGoatTree operator+(const ScapeGoatTree &other) const;
     ScapeGoatTree& operator=(const ScapeGoatTree& other);
     ScapeGoatTree& operator=(ScapeGoatTree&& other) noexcept;
-    [[nodiscard]] bool search(T key) const;
+    [[nodiscard]] bool search(const T & key) const;
     void displayPreOrder(); // for display
     void displayInOrder() ; // for display
     void displayPostOrder() ; // for display
@@ -85,10 +81,10 @@ public:
     bool operator==(const ScapeGoatTree &tree) const;
     bool operator!=(const ScapeGoatTree &tree) const;
     bool operator!() const;
-    bool operator-(T value);
-    void operator+(T value);
-    bool operator-=(T value);
-    void operator+=(T value);
+    bool operator-(T& value);
+    void operator+(T& value);
+    bool operator-=(T& value);
+    void operator+=(T& value);
 };
 #include "scapegoatTree.tpp"
 

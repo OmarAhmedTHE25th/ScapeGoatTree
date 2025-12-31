@@ -106,14 +106,14 @@ void ScapeGoatTree<T>::insert(T value) {
     }
 }
 template<typename T>
-    void ScapeGoatTree<T>::insertBatch(const Vector<T>& values) {
+    void ScapeGoatTree<T>::insertBatch(Vector<T>& values) {
     for (int i = 0; i < values.size(); i++) {
         insert(values[i]);
     }
 }
 
 template<typename T>
-void ScapeGoatTree<T>::deleteBatch(const Vector<T>& values) {
+void ScapeGoatTree<T>::deleteBatch( Vector<T>& values) {
     for (int i = 0; i < values.size(); i++) {
         deleteValue(values[i]);
     }
@@ -403,7 +403,7 @@ void ScapeGoatTree<T>::displayLevels() {
 // =====================
 
 template<typename T>
-ScapeGoatTree<T> ScapeGoatTree<T>::operator+(const ScapeGoatTree& other) const {
+ScapeGoatTree<T> ScapeGoatTree<T>::operator+(const ScapeGoatTree& other)const  {
     ScapeGoatTree result;
     result.preorderTraversal(root);
     result.preorderTraversal(other.root);
@@ -447,16 +447,16 @@ ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(ScapeGoatTree&& other) noexcept {
 }
 
 template<typename T>
-void ScapeGoatTree<T>::operator+(T value) { insert(value); }
+void ScapeGoatTree<T>::operator+(T& value) { insert(value); }
 
 template<typename T>
-bool ScapeGoatTree<T>::operator-(T value) {return  deleteValue(value); }
+bool ScapeGoatTree<T>::operator-(T& value) {return  deleteValue(value); }
 
 template<typename T>
-void ScapeGoatTree<T>::operator+=(T value) { insert(value); }
+void ScapeGoatTree<T>::operator+=(T& value) { insert(value); }
 
 template<typename T>
-bool ScapeGoatTree<T>::operator-=(T value) { return deleteValue(value); }
+bool ScapeGoatTree<T>::operator-=(T& value) { return deleteValue(value); }
 
 template<typename T>
 bool ScapeGoatTree<T>::operator[](T value) const {
@@ -523,7 +523,7 @@ std::string ScapeGoatTree<T>::isBalanced() const {
 }
 
 template<typename T>
-bool ScapeGoatTree<T>::search(const T key) const {
+bool ScapeGoatTree<T>::search(const T& key) const {
     Node* current = root;
     while (current != nullptr) {
         if (key == current->value) return true;
