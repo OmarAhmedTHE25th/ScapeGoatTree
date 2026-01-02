@@ -6,6 +6,7 @@
 #define TREE_SCAPEGOATTREE_TPP
 #include "ScapeGoatTree.hpp"
 #include "queue.hpp"
+#include "sstream"
 //==================================IMPLEMENTATION========================================================
 
 // =====================
