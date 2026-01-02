@@ -28,29 +28,27 @@
 #include <cmath>
 #include "vector.hpp"
 
-using std::string;
 template<typename T>
 class ScapeGoatTree {
     using Node = Node<T>;
     static int findH(const Node* node);
     static int countN(const Node* node);
     static Node* findTraitor(Node* node);
-    Node* rebuildTree(int start,int end,Node* parent_node);
-    void inorderTraversal(const Node*node, int &i);
+    Node* rebuildTree(int start,int end,Node* parent_node,T* array);
+    void inorderTraversal(const Node*node, int &i,T* array);
     static void postorderTraversal(const Node* node);
     void preorderTraversal(const Node* node);
     void displayPreOrder(const Node* node);
     void displayInOrder(const Node* node);
     void  displayPostOrder(const Node* node) ;
-    int getThreshold() const {return static_cast<int>(log(nNodes) / log(1.5));}
+    [[nodiscard]] int getThreshold() const {return static_cast<int>(log(nNodes) / log(1.5));}
     void DeletionRebuild();
     bool areTreesEqual(const Node* n1, const Node* n2) const;
     void restructure_subtree(Node *newNode);
-    mutable string displayBuffer;
+    std::string displayBuffer;
     Node* root{};
     int nNodes{};
-    int size=100;
-    T* array = new T[size]{};
+
     int max_nodes = 0;
 public:
 
@@ -61,8 +59,8 @@ public:
     void deleteBatch( Vector<T> &values);
     [[nodiscard]] bool search(const T & key) const;
     void clear();
-    string isBalanced() const;
-    string& getDisplayBuffer() const;
+    [[nodiscard]] std::string isBalanced() const;
+   [[nodiscard]] std::string getDisplayBuffer() const;
     const Node* getRoot();
     ScapeGoatTree(const ScapeGoatTree &Otree);
     ScapeGoatTree(ScapeGoatTree&& other) noexcept;
@@ -79,7 +77,6 @@ public:
     bool operator==(const ScapeGoatTree &tree) const;
     bool operator!=(const ScapeGoatTree &tree) const;
     bool operator!() const;
-    bool operator-(const T& value);
     void operator+(const T& value);
     bool operator-=(const T& value);
     void operator+=(const T& value);

@@ -23,7 +23,6 @@ ScapeGoatTree<T>::ScapeGoatTree(const ScapeGoatTree &Otree) {
 template<typename T>
 ScapeGoatTree<T>::~ScapeGoatTree() {
     postorderTraversal(root);
-    delete[] array;
     root = nullptr;
     nNodes = 0;
     max_nodes = 0;
@@ -40,13 +39,9 @@ ScapeGoatTree<T>::ScapeGoatTree(ScapeGoatTree &&other) noexcept
     : displayBuffer(std::move(other.displayBuffer)),
 root(other.root),
 nNodes(other.nNodes),
-size(other.size),
-array(other.array),
 max_nodes(other.max_nodes) {
     other.root = nullptr;
     other.nNodes = 0;
-    other.size = 0;
-    other.array = nullptr;
     other.max_nodes = 0;
 }
 
@@ -59,20 +54,19 @@ void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
     //find the scapegoat  node
     Node* goat = findTraitor(newNode->parent);
     if (goat == nullptr) return;
-    if (nNodes> size) {
-        delete[] array;
-        size = nNodes * 2;
-        array = new T[size];
-    }
+    int subtree_size = countN(goat);
+    T* temp_array = new T[subtree_size];
+
     int i = 0;
     //flatten the tree into a sorted array
-    inorderTraversal(goat, i);
+    inorderTraversal(goat, i, temp_array);
     const int sub_size = i; // size of subtree
-    Node* balanced = rebuildTree(0, sub_size- 1, goat->parent);
+    Node* balanced = rebuildTree(0, sub_size- 1, goat->parent, temp_array);
     if (!goat->parent) root = balanced;
     else if (goat == goat->parent->left) goat->parent->left = balanced;
     else goat->parent->right = balanced;
     postorderTraversal(goat);
+    delete[] temp_array;
 }
 
 template<typename T>
@@ -254,7 +248,7 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
 
 
 template<typename T>
-ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int end, Node* parent_node) {
+ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int end, Node* parent_node,T* array) {
     if (start > end) return nullptr;
     int mid = (start + end) / 2;
     Node* Nroot = new Node(array[mid], parent_node);
@@ -264,17 +258,14 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int
 }
 template<typename T>
 void ScapeGoatTree<T>::DeletionRebuild(){
-if (nNodes > size) {
-        delete[] array;
-        size = nNodes * 2;
-        array = new T[size];
-    }
         if (nNodes < 0.5 * max_nodes&& nNodes > 0) {  // α = 0.5 for deletion
+            T* temp_array = new T[nNodes];
             int i = 0;
-            inorderTraversal(root, i);
-           Node* oldroot = root;
-            root = rebuildTree(0, nNodes - 1, nullptr);
-            postorderTraversal(oldroot);
+            inorderTraversal(root, i, temp_array);
+           const Node* oldRoot = root;
+            root = rebuildTree(0, nNodes - 1, nullptr, temp_array);
+            delete[] temp_array;
+            postorderTraversal(oldRoot);
             max_nodes = nNodes;
         }
         }
@@ -288,7 +279,7 @@ const ScapeGoatTree<T>::Node *ScapeGoatTree<T>::getRoot() {
 // =====================
 
 template<typename T>
-void ScapeGoatTree<T>::inorderTraversal(const Node* node, int& i) {
+void ScapeGoatTree<T>::inorderTraversal(const Node* node, int& i, T* array) {
 if (!node) return;
     inorderTraversal(node->left, i);
     array[i++] = node->value;
@@ -371,7 +362,7 @@ void ScapeGoatTree<T>::displayPostOrder() {
 }
 
 template<typename T>
-std::string& ScapeGoatTree<T>::getDisplayBuffer() const {
+std::string ScapeGoatTree<T>::getDisplayBuffer() const {
     return displayBuffer;
 }
 template<typename T>
@@ -422,9 +413,6 @@ ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(const ScapeGoatTree& other) {
     root = nullptr;
     nNodes = 0;
     max_nodes = 0;
-    delete[] array;
-    size = other.size;
-    array = new T[size]{};
     if (other.root) preorderTraversal(other.root);
     return *this;
 }
@@ -433,19 +421,13 @@ template<typename T>
 ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(ScapeGoatTree&& other) noexcept {
     if (this == &other) return *this;
     postorderTraversal(root);
-    delete[] array;
-
     root = other.root;
     nNodes = other.nNodes;
-    size = other.size;
-    array = other.array;
     max_nodes = other.max_nodes;
     displayBuffer = std::move(other.displayBuffer);
 
     other.root = nullptr;
     other.nNodes = 0;
-    other.size = 0;
-    other.array = nullptr;
     other.max_nodes = 0;
 
     return *this;
@@ -453,9 +435,6 @@ ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(ScapeGoatTree&& other) noexcept {
 
 template<typename T>
 void ScapeGoatTree<T>::operator+(const T& value) { insert(value); }
-
-template<typename T>
-bool ScapeGoatTree<T>::operator-(const T& value) {return  deleteValue(value); }
 
 template<typename T>
 void ScapeGoatTree<T>::operator+=(const T& value) { insert(value); }
@@ -549,7 +528,6 @@ bool ScapeGoatTree<T>::search(const T& key) const {
 template<typename T>
 void ScapeGoatTree<T>::clear() {
     postorderTraversal(root);
-    delete[] array;
     root = nullptr;
     nNodes = 0;
     max_nodes = 0;
