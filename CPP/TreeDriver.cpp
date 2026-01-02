@@ -31,6 +31,9 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 // ========================
 // MAIN
 // ========================
+/**
+ * Entry point for the ImGui-based visualizer application.
+ */
 int main(int, char**)
 {
     ImGui_ImplWin32_EnableDpiAwareness();

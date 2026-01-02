@@ -12,7 +12,10 @@ public:
     Node* left;    // left child pointer
     Node* right;   // right child pointer
     Node* parent;  // parent pointer
-    // constructor
+
+    /**
+     * Initializes a node with a value and an optional parent pointer.
+     */
     explicit Node(T& v, Node* parentPtr = nullptr)
         : value(v), left(nullptr), right(nullptr), parent(parentPtr) {}
     template<typename>

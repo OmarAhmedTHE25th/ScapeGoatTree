@@ -11,6 +11,9 @@
 
 #include "queue.hpp"
 
+/**
+ * Adds a new value to the back of the queue.
+ */
 template<typename T>
 void Queue<T>::push(T value) {
     if (!head) {
@@ -27,6 +30,9 @@ void Queue<T>::push(T value) {
     nNodes++;
 }
 
+/**
+ * Removes the front element from the queue.
+ */
 template<typename T>
 void Queue<T>::pop() {
     if (!head)return;
@@ -37,17 +43,26 @@ void Queue<T>::pop() {
     nNodes--;
 }
 
+/**
+ * Checks if the queue is empty.
+ */
 template<typename T>
 bool Queue<T>::isEmpty() const {
     return !head;
 }
 
+/**
+ * Returns the value of the front element without removing it.
+ */
 template<typename T>
 T Queue<T>::front() {
     if (!head) return T{};
     return head->value;
 }
 
+/**
+ * Returns the current number of elements in the queue.
+ */
 template<typename T>
 int Queue<T>::size() const {
     return nNodes;

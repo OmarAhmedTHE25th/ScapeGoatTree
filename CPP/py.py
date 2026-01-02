@@ -1,8 +1,7 @@
 import sys
 import tkinter as tk
 
-# --- SETUP: Point to your C++ Build Folder ---
-# Update this path if it changed!
+
 sys.path.append(r'C:\Users\DELL\CLionProjects\ScapeGoatTree\CPP\cmake-build-debug')
 
 try:

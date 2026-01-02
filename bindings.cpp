@@ -5,6 +5,9 @@
 
 namespace py = pybind11;
 typedef long long Type;
+/**
+ * Pybind11 module for exposing the ScapeGoatTree implementation to Python.
+ */
 PYBIND11_MODULE(scapegoat_tree_py, m) {
     // 1. Bind Node
     py::class_<Node<Type>>(m, "Node")

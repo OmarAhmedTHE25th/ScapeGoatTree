@@ -30,19 +30,74 @@
 template<typename T>
 class ScapeGoatTree {
     using Node = Node<T>;
+    /**
+     * Calculates the height of a given node in the tree.
+     */
     static int findH(const Node* node);
+
+    /**
+     * Counts the total number of nodes in the subtree rooted at the given node.
+     */
     static int countN(const Node* node);
+
+    /**
+     * Finds the highest node that violates the alpha-weight-balance property.
+     */
     static Node* findTraitor(Node* node);
+
+    /**
+     * Recursively rebuilds a balanced BST from a sorted array of values.
+     */
     Node* rebuildTree(int start,int end,Node* parent_node,T* array);
+
+    /**
+     * Performs an in-order traversal to populate a sorted array with node values.
+     */
     void inorderTraversal(const Node*node, int &i,T* array) const;
+
+    /**
+     * Recursively deletes all nodes in the subtree using post-order traversal.
+     */
     static void postorderTraversal(const Node* node);
+
+    /**
+     * Performs a pre-order traversal for internal processing.
+     */
     void preorderTraversal(const Node* node);
+
+    /**
+     * Formats the tree in pre-order and stores the result in the display buffer.
+     */
     void displayPreOrder(const Node* node);
+
+    /**
+     * Formats the tree in in-order and stores the result in the display buffer.
+     */
     void displayInOrder(const Node* node);
+
+    /**
+     * Formats the tree in post-order and stores the result in the display buffer.
+     */
     void  displayPostOrder(const Node* node) ;
+
+    /**
+     * Calculates the maximum allowed height before a rebuild is triggered.
+     */
     [[nodiscard]] int getThreshold() const {return static_cast<int>(log(nNodes) / log(1.5));}
+
+    /**
+     * Checks if a rebuild is needed after a deletion and performs it if necessary.
+     */
     void DeletionRebuild();
+
+    /**
+     * Compares two subtrees for structural and value equality.
+     */
     bool areTreesEqual(const Node* n1, const Node* n2) const;
+
+    /**
+     * Initiates a subtree rebuild starting from the scapegoat node.
+     */
     void restructure_subtree(Node *newNode);
     std::string displayBuffer;
     Node* root{};
@@ -51,34 +106,149 @@ class ScapeGoatTree {
     int max_nodes = 0;
 public:
 
+    /**
+     * Default constructor for an empty Scapegoat Tree.
+     */
     ScapeGoatTree();
+
+    /**
+     * Inserts a new value into the tree and maintains balance if needed.
+     */
     void insert(T value);
+
+    /**
+     * Inserts multiple values from a Vector into the tree.
+     */
     void insertBatch( const Vector<T> &values);
+
+    /**
+     * Removes a value from the tree and maintains balance if needed.
+     */
     bool deleteValue(T value);
+
+    /**
+     * Removes multiple values from a Vector from the tree.
+     */
     void deleteBatch(const Vector<T> &values);
+
+    /**
+     * Searches for a specific value in the tree.
+     */
     [[nodiscard]] bool search(const T & key) const;
+
+    /**
+     * Removes all nodes from the tree and resets its state.
+     */
     void clear();
+
+    /**
+     * Returns a string report indicating if the tree is currently balanced.
+     */
     [[nodiscard]] std::string isBalanced() const;
+
+    /**
+     * Returns the contents of the display buffer.
+     */
    [[nodiscard]] std::string getDisplayBuffer() const;
+
+    /**
+     * Returns a pointer to the root node of the tree.
+     */
     const Node* getRoot();
+
+    /**
+     * Copy constructor for deep copying another ScapeGoatTree.
+     */
     ScapeGoatTree(const ScapeGoatTree &Otree);
+
+    /**
+     * Move constructor for transferring ownership from another ScapeGoatTree.
+     */
     ScapeGoatTree(ScapeGoatTree&& other) noexcept;
+
+    /**
+     * Destructor that cleans up all nodes in the tree.
+     */
     ~ScapeGoatTree();
+
+    /**
+     * Updates the display buffer with a pre-order traversal representation.
+     */
     void displayPreOrder(); // for display
+
+    /**
+     * Updates the display buffer with an in-order traversal representation.
+     */
     void displayInOrder() ; // for display
+
+    /**
+     * Updates the display buffer with a post-order traversal representation.
+     */
     void displayPostOrder() ; // for display
+
+    /**
+     * Updates the display buffer with a level-order traversal representation.
+     */
     void displayLevels(); // for display
+
+    /**
+     * Overloaded subscript operator to search for a value in the tree.
+     */
     bool operator[](T value) const;
+
+    /**
+     * Creates a new tree containing elements from both trees.
+     */
     ScapeGoatTree operator+(const ScapeGoatTree &other) const;
+
+    /**
+     * Assignment operator for deep copying.
+     */
     ScapeGoatTree& operator=(const ScapeGoatTree& other);
+
+    /**
+     * Move assignment operator.
+     */
     ScapeGoatTree& operator=(ScapeGoatTree&& other) noexcept;
+
+    /**
+     * Clears the current tree and initializes it with a single value.
+     */
     ScapeGoatTree &operator=(int value);
+
+    /**
+     * Checks if two trees are equal.
+     */
     bool operator==(const ScapeGoatTree &tree) const;
+
+    /**
+     * Checks if two trees are not equal.
+     */
     bool operator!=(const ScapeGoatTree &tree) const;
+
+    /**
+     * Checks if the tree is empty.
+     */
     bool operator!() const;
+
+    /**
+     * Overloaded plus operator for inserting a value.
+     */
     void operator+(const T& value);
+
+    /**
+     * Overloaded minus operator for deleting a value.
+     */
     bool operator-(const T& value);
+
+    /**
+     * Overloaded subtraction assignment operator for deleting a value.
+     */
     bool operator-=(const T& value);
+
+    /**
+     * Overloaded addition assignment operator for inserting a value.
+     */
     void operator+=(const T& value);
 };
 #include "scapegoatTree.tpp"

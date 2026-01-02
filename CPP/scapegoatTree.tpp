@@ -13,25 +13,30 @@
 // Constructors
 // =====================
 
+/**
+ * Default constructor for an empty Scapegoat Tree.
+ */
 template<typename T>
 ScapeGoatTree<T>::ScapeGoatTree() = default;
 
+/**
+ * Copy constructor for deep copying another ScapeGoatTree.
+ */
 template<typename T>
 ScapeGoatTree<T>::ScapeGoatTree(const ScapeGoatTree &Otree) {
     if (!Otree.root) return;
     preorderTraversal(Otree.root);
 }
+/**
+ * Destructor that cleans up all nodes in the tree.
+ */
 template<typename T>
 ScapeGoatTree<T>::~ScapeGoatTree() {
     postorderTraversal(root);
     max_nodes = 0;
 }
-/* Move constructor
- * Purpose:
- *  - "Steal" internal resources from `other` to perform a cheap move.
- *  - Transfer ownership of pointer data (root, array) and bookkeeping
- *    fields (nNodes, size, max_nodes, displayBuffer) and leave `other`
- *    in a valid empty state.
+/**
+ * Move constructor for transferring ownership from another ScapeGoatTree.
  */
 template<typename T>
 ScapeGoatTree<T>::ScapeGoatTree(ScapeGoatTree &&other) noexcept
@@ -48,6 +53,9 @@ max_nodes(other.max_nodes) {
 // Insert
 // =====================
 
+/**
+ * Initiates a subtree rebuild starting from the scapegoat node.
+ */
 template <typename T>
 void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
     //find the scapegoat  node
@@ -68,6 +76,9 @@ void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
     delete[] temp_array;
 }
 
+/**
+ * Inserts a new value into the tree and maintains balance if needed.
+ */
 template<typename T>
 void ScapeGoatTree<T>::insert(T value) {
     if (!root) {
@@ -105,6 +116,9 @@ void ScapeGoatTree<T>::insert(T value) {
         restructure_subtree(newNode);
     }
 }
+/**
+ * Inserts multiple values from a Vector into the tree.
+ */
 template<typename T>
     void ScapeGoatTree<T>::insertBatch(const Vector<T>& values) {
     for (int i = 0; i < values.size(); i++) {
@@ -112,6 +126,9 @@ template<typename T>
     }
 }
 
+/**
+ * Removes multiple values from a Vector from the tree.
+ */
 template<typename T>
 void ScapeGoatTree<T>::deleteBatch(const  Vector<T>& values) {
     for (int i = 0; i < values.size(); i++) {
@@ -124,6 +141,9 @@ void ScapeGoatTree<T>::deleteBatch(const  Vector<T>& values) {
 // Delete
 // =====================
 
+/**
+ * Removes a value from the tree and maintains balance if needed.
+ */
 template<typename T>
 bool ScapeGoatTree<T>::deleteValue(T value) {
     Node* node = root;
@@ -210,6 +230,9 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
 // Utility / Static helpers
 // =====================
 
+/**
+ * Calculates the height of a given node in the tree.
+ */
 template<typename T>
 int ScapeGoatTree<T>::findH(const Node *node) {
     if (!node) return -1;
@@ -219,12 +242,18 @@ int ScapeGoatTree<T>::findH(const Node *node) {
     return maximum + 1;
 }
 
+/**
+ * Counts the total number of nodes in the subtree rooted at the given node.
+ */
 template<typename T>
 int ScapeGoatTree<T>::countN(const Node *node) {
     if (!node) return 0;
     return 1 + countN(node->left) + countN(node->right);
 }
 
+/**
+ * Finds the highest node that violates the alpha-weight-balance property.
+ */
 template<typename T>
 ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
     while (node != nullptr) {
@@ -241,6 +270,9 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
 }
 
 
+/**
+ * Recursively rebuilds a balanced BST from a sorted array of values.
+ */
 template<typename T>
 ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int end, Node* parent_node,T* array) {
     if (start > end) return nullptr;
@@ -250,6 +282,9 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int
     Nroot->right = rebuildTree(mid + 1, end, Nroot, array);
     return Nroot;
 }
+/**
+ * Checks if a rebuild is needed after a deletion and performs it if necessary.
+ */
 template<typename T>
 void ScapeGoatTree<T>::DeletionRebuild(){
         if (nNodes < 0.5 * max_nodes&& nNodes > 0) {  // α = 0.5 for deletion
@@ -263,6 +298,9 @@ void ScapeGoatTree<T>::DeletionRebuild(){
             max_nodes = nNodes;
         }
         }
+/**
+ * Returns a pointer to the root node of the tree.
+ */
 template<typename T>
 const ScapeGoatTree<T>::Node *ScapeGoatTree<T>::getRoot() {
     return root;
@@ -272,6 +310,9 @@ const ScapeGoatTree<T>::Node *ScapeGoatTree<T>::getRoot() {
 // Traversals
 // =====================
 
+/**
+ * Performs an in-order traversal to populate a sorted array with node values.
+ */
 template<typename T>
 void ScapeGoatTree<T>::inorderTraversal(const Node* node, int& i, T* array) const {
 if (!node) return;
@@ -280,6 +321,9 @@ if (!node) return;
     inorderTraversal(node->right, i,array);
 }
 
+/**
+ * Recursively deletes all nodes in the subtree using post-order traversal.
+ */
 template<typename T>
 void ScapeGoatTree<T>::postorderTraversal(const Node* node) {
     if (!node) return;
@@ -288,6 +332,9 @@ void ScapeGoatTree<T>::postorderTraversal(const Node* node) {
     delete node;
 }
 
+/**
+ * Performs a pre-order traversal for internal processing.
+ */
 template<typename T>
 void ScapeGoatTree<T>::preorderTraversal(const Node* node) {
     if (!node) return;
@@ -300,6 +347,9 @@ void ScapeGoatTree<T>::preorderTraversal(const Node* node) {
 // Display (internal)
 // =====================1
 
+/**
+ * Formats the tree in pre-order and stores the result in the display buffer.
+ */
 template<typename T>
 void ScapeGoatTree<T>::displayPreOrder(const Node* node) {
     if (!node) return;
@@ -310,6 +360,9 @@ void ScapeGoatTree<T>::displayPreOrder(const Node* node) {
     displayPreOrder(node->right);
 }
 
+/**
+ * Formats the tree in in-order and stores the result in the display buffer.
+ */
 template<typename T>
 void ScapeGoatTree<T>::displayInOrder(const Node* node) {
     if (!node) return;
@@ -320,6 +373,9 @@ void ScapeGoatTree<T>::displayInOrder(const Node* node) {
     displayInOrder(node->right);
 }
 
+/**
+ * Formats the tree in post-order and stores the result in the display buffer.
+ */
 template<typename T>
 void ScapeGoatTree<T>::displayPostOrder(const Node* node) {
     if (!node) return;
@@ -334,6 +390,9 @@ void ScapeGoatTree<T>::displayPostOrder(const Node* node) {
 // Display (public)
 // =====================
 
+/**
+ * Updates the display buffer with a pre-order traversal representation.
+ */
 template<typename T>
 void ScapeGoatTree<T>::displayPreOrder() {
     displayBuffer.clear();
@@ -341,6 +400,9 @@ void ScapeGoatTree<T>::displayPreOrder() {
     displayPreOrder(root);
 }
 
+/**
+ * Updates the display buffer with an in-order traversal representation.
+ */
 template<typename T>
 void ScapeGoatTree<T>::displayInOrder() {
     displayBuffer.clear();
@@ -348,6 +410,9 @@ void ScapeGoatTree<T>::displayInOrder() {
     displayInOrder(root);
 }
 
+/**
+ * Updates the display buffer with a post-order traversal representation.
+ */
 template<typename T>
 void ScapeGoatTree<T>::displayPostOrder() {
     displayBuffer.clear();
@@ -355,10 +420,16 @@ void ScapeGoatTree<T>::displayPostOrder() {
     displayPostOrder(root);
 }
 
+/**
+ * Returns the contents of the display buffer.
+ */
 template<typename T>
 std::string ScapeGoatTree<T>::getDisplayBuffer() const {
     return displayBuffer;
 }
+/**
+ * Updates the display buffer with a level-order traversal representation.
+ */
 template<typename T>
 void ScapeGoatTree<T>::displayLevels() {
     displayBuffer.clear();
@@ -392,6 +463,9 @@ void ScapeGoatTree<T>::displayLevels() {
 // Operators
 // =====================
 
+/**
+ * Creates a new tree containing elements from both trees using linear merge.
+ */
 template<typename T>
 ScapeGoatTree<T> ScapeGoatTree<T>::operator+(const ScapeGoatTree& other)const  {
     ScapeGoatTree result;
@@ -417,7 +491,7 @@ ScapeGoatTree<T> ScapeGoatTree<T>::operator+(const ScapeGoatTree& other)const  {
     while (idx2 < other.nNodes) temp_array[idx++] = other_array[idx2++];
 
     //Rebuild  (O(N+M))
-    result.root = rebuildTree(0, idx - 1, nullptr, temp_array);
+    result.root = result.rebuildTree(0, idx - 1, nullptr, temp_array);
     result.nNodes = idx;
     result.max_nodes = idx;
     delete[] temp_array;
@@ -426,6 +500,9 @@ ScapeGoatTree<T> ScapeGoatTree<T>::operator+(const ScapeGoatTree& other)const  {
     return result;
 }
 
+/**
+ * Assignment operator for deep copying another tree.
+ */
 template<typename T>
 ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(const ScapeGoatTree& other) {
     if (this == &other) return *this;
@@ -437,6 +514,9 @@ ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(const ScapeGoatTree& other) {
     return *this;
 }
 
+/**
+ * Move assignment operator for transferring ownership.
+ */
 template<typename T>
 ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(ScapeGoatTree&& other) noexcept {
     if (this == &other) return *this;
@@ -453,19 +533,34 @@ ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(ScapeGoatTree&& other) noexcept {
     return *this;
 }
 
+/**
+ * Overloaded plus operator for inserting a value.
+ */
 template<typename T>
 void ScapeGoatTree<T>::operator+(const T& value) { insert(value); }
 
+/**
+ * Overloaded addition assignment operator for inserting a value.
+ */
 template<typename T>
 void ScapeGoatTree<T>::operator+=(const T& value) { insert(value); }
 
+/**
+ * Overloaded subtraction assignment operator for deleting a value.
+ */
 template<typename T>
 bool ScapeGoatTree<T>::operator-=(const T& value) { return deleteValue(value); }
 
+/**
+ * Overloaded subscript operator to search for a value in the tree.
+ */
 template<typename T>
 bool ScapeGoatTree<T>::operator[](T value) const {
     return search(value);
 }
+/**
+ * Clears the current tree if the assigned value is 0.
+ */
 template<typename T>
 ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(const int value) {
     if (value == 0) {
@@ -473,10 +568,16 @@ ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(const int value) {
     }
     return *this;
 }
+/**
+ * Checks if two trees are equal by comparing their structures and values.
+ */
 template<typename T>
 bool ScapeGoatTree<T>::operator==(const ScapeGoatTree& tree) const {
     return areTreesEqual(root, tree.root);
 }
+/**
+ * Compares two subtrees for structural and value equality.
+ */
 template<typename T>
 bool ScapeGoatTree<T>::areTreesEqual(const Node* n1, const Node* n2) const {
     // Both null = equal
@@ -492,16 +593,25 @@ bool ScapeGoatTree<T>::areTreesEqual(const Node* n1, const Node* n2) const {
     return areTreesEqual(n1->left, n2->left) && 
            areTreesEqual(n1->right, n2->right);
 }
+/**
+ * Checks if two trees are not equal.
+ */
 template<typename T>
 bool ScapeGoatTree<T>::operator!=(const ScapeGoatTree& tree) const {
     return !(*this == tree);
 }
 
+/**
+ * Checks if the tree is empty.
+ */
 template<typename T>
 bool ScapeGoatTree<T>::operator!() const {
     return root == nullptr;
 }
 
+/**
+ * Overloaded minus operator for deleting a value.
+ */
 template<typename T>
 bool ScapeGoatTree<T>::operator-(const T &value) {
    return  deleteValue(value);
@@ -511,6 +621,9 @@ bool ScapeGoatTree<T>::operator-(const T &value) {
 // Balance / Search
 // =====================
 
+/**
+ * Returns a string report indicating if the tree is currently balanced.
+ */
 template<typename T>
 std::string ScapeGoatTree<T>::isBalanced() const {
     std::ostringstream out;
@@ -537,6 +650,9 @@ std::string ScapeGoatTree<T>::isBalanced() const {
     return out.str();
 }
 
+/**
+ * Searches for a specific value in the tree.
+ */
 template<typename T>
 bool ScapeGoatTree<T>::search(const T& key) const {
     Node* current = root;
@@ -550,6 +666,9 @@ bool ScapeGoatTree<T>::search(const T& key) const {
     return false;
 }
 
+/**
+ * Removes all nodes from the tree and resets its state.
+ */
 template<typename T>
 void ScapeGoatTree<T>::clear() {
     postorderTraversal(root);

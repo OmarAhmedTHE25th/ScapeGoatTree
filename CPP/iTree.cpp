@@ -37,6 +37,9 @@ bool validateCinLine()
 
 
 /* ===================== Tree Selection ===================== */
+/**
+ * Prompts the user to select one of the two available trees (Tree A or Tree B).
+ */
 ScapeGoatTree<ElemenType>& ITree::selectTree(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType>& B) {
     int choice;
     while (true) {
@@ -58,6 +61,9 @@ ScapeGoatTree<ElemenType>& ITree::selectTree(ScapeGoatTree<ElemenType>& A, Scape
 /* ===================== Handlers ===================== */
 
 
+/**
+ * Handles batch insertion and deletion operations.
+ */
 void ITree::handleBatches(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType>& B, const opcodes op) {
     auto& tree = selectTree(A, B);
     ElemenType stop;
@@ -87,6 +93,9 @@ void ITree::handleBatches(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType
         printSuccess("SUCCESS: Batch Deletion complete.");
     }
 }
+/**
+ * Handles standard tree operations like search.
+ */
 void ITree::handleOperations(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType>& B, const opcodes op) {
      auto& tree = selectTree(A, B);
     ElemenType value;
@@ -116,6 +125,9 @@ void ITree::handleOperations(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenT
     }
 }
 /* ===================== Display ===================== */
+/**
+ * Handles display operations for the trees.
+ */
 void ITree::handleDisplay(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B,const opcodes op) {
     auto& tree = selectTree(A, B);
     switch (op)
@@ -149,16 +161,25 @@ void ITree::handleDisplay(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType
 }
 
 /* ===================== Operators ===================== */
+/**
+ * Handles checking and reporting the balance status of the trees.
+ */
 void ITree::handleBalance(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType>& B) {
     const auto& tree = selectTree(A, B);
     cout <<tree.isBalanced() << "\n";
 }
+/**
+ * Handles checking if the trees are empty.
+ */
 void ITree::handleOperatorEmpty(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType>& B) {
     const auto& tree = selectTree(A, B);
     if (!tree) printInfo("Tree is EMPTY");
     else printInfo("Tree is NOT empty");
 }
 
+/**
+ * Handles merging two trees together using the + operator.
+ */
 void ITree::handleOperatorMerge(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType>& B) {
     printInfo("\nTree A:");
     A.displayInOrder();
@@ -175,6 +196,9 @@ void ITree::handleOperatorMerge(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<Elem
     cout << merged.getDisplayBuffer() << "\n";
 }
 
+/**
+ * Handles comparing two trees for equality using the == operator.
+ */
 void ITree::handleOperatorCompare(const ScapeGoatTree<ElemenType>& A, const ScapeGoatTree<ElemenType>& B) {
     if (A == B)
         printSuccess("Trees are EQUAL");
@@ -182,6 +206,9 @@ void ITree::handleOperatorCompare(const ScapeGoatTree<ElemenType>& A, const Scap
         printError("Trees are NOT equal");
 }
 
+/**
+ * Handles core operators like insertion and deletion using overloaded + and - operators.
+ */
 void ITree::handleCoreOperators(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, const opcodes op) {
     auto& tree = selectTree(A, B);
     ElemenType value;
@@ -212,6 +239,9 @@ void ITree::handleCoreOperators(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<Elem
     }
     }
 
+/**
+ * Handles clearing the contents of a selected tree.
+ */
 void ITree::handleClear(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
     auto& tree = selectTree(A, B);
     tree = 0;
@@ -227,6 +257,9 @@ struct MenuItem {
     opcodes opcode;
     MenuHandler func;
 };
+/**
+ * Launches the terminal-based user interface for interacting with the trees.
+ */
 void ITree::TreeUI() {
     ScapeGoatTree<ElemenType> treeA;
     ScapeGoatTree<ElemenType> treeB;

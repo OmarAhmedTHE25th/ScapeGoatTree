@@ -19,13 +19,36 @@ class Queue {
     QNode<T>* tail{};
     int nNodes{};
 public:
+    /**
+     * Destroys the queue and releases memory by popping all elements.
+     */
     ~Queue() {  
         while (!isEmpty()) pop();
     }
+
+    /**
+     * Adds a new value to the back of the queue.
+     */
     void push(T value);
+
+    /**
+     * Removes the front element from the queue.
+     */
     void pop();
+
+    /**
+     * Checks if the queue is empty.
+     */
     [[nodiscard]] bool isEmpty() const;
+
+    /**
+     * Returns the value of the front element without removing it.
+     */
     T front();
+
+    /**
+     * Returns the current number of elements in the queue.
+     */
     [[nodiscard]] int size() const;
 
 };
