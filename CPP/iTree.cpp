@@ -251,7 +251,7 @@ void ITree::handleClear(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> 
 /* ===================== Main UI ===================== */
 
 typedef void (*MenuHandler)(ScapeGoatTree<ElemenType>&, ScapeGoatTree<ElemenType>&, opcodes);
-
+typedef const unsigned long long Long;
 struct MenuItem {
     string name;
     opcodes opcode;
@@ -296,8 +296,8 @@ void ITree::TreeUI() {
             string name = menu[i].name;
 
             // 2. Calculate spaces needed (Total 40 - prefix - name - 1 for closing pipe)
-            int currentLen = prefix.length() + name.length();
-            int spacesNeeded = (TOTAL_WIDTH - 1) - currentLen;
+            Long currentLen = prefix.length() + name.length();
+            Long spacesNeeded = (TOTAL_WIDTH - 1) - currentLen;
 
             // 3. Print with colors
             cout << CYAN << "| " << WHITE << (i + 1) << " - " << name; // Cyan border, White text
@@ -308,7 +308,7 @@ void ITree::TreeUI() {
         // Handle the Exit line
         string exitPrefix = "| " + to_string(menuSize + 1) + " - ";
         string exitName = "Exit";
-        int exitSpaces = (TOTAL_WIDTH - 1) - (exitPrefix.length() + exitName.length());
+        Long exitSpaces = (TOTAL_WIDTH - 1) - (exitPrefix.length() + exitName.length());
 
         cout << CYAN << "| " << RED << (menuSize + 1) << " - Exit";
         for(int s = 0; s < exitSpaces; ++s) cout << " ";

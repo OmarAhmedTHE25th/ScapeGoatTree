@@ -4,7 +4,6 @@
 
 #ifndef TREE_SCAPEGOATTREE_TPP
 #define TREE_SCAPEGOATTREE_TPP
-#include "ScapeGoatTree.hpp"
 #include "queue.hpp"
 #include "sstream"
 //==================================IMPLEMENTATION========================================================
@@ -628,7 +627,7 @@ template<typename T>
 std::string ScapeGoatTree<T>::isBalanced() const {
     std::ostringstream out;
 
-    double n = countN(root);
+    const double n = countN(root);
     if (n == 0) {
         out << "Tree empty. Of course it's balanced ";
         return out.str();
@@ -672,8 +671,6 @@ bool ScapeGoatTree<T>::search(const T& key) const {
 template<typename T>
 void ScapeGoatTree<T>::clear() {
     postorderTraversal(root);
-    root = nullptr;
-    nNodes = 0;
     max_nodes = 0;
 }
 
