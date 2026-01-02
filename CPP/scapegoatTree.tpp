@@ -169,18 +169,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     // Value not found
     if (!node) return false;
 
-    // Case 3: Two children
-    if (node->left && node->right) {
-        // Find inorder successor (smallest in right subtree)
-        Node* suc = node->right;
-        while (suc->left != nullptr)
-            suc = suc->left;
 
-        T successorValue = suc->value;
-        deleteValue(successorValue);
-        node->value = successorValue;
-        return true;
-    }
 
     // Case 1 & 2: Leaf or one child
     // Decrement size for all nodes on the path
@@ -206,7 +195,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     }
 
     // Case 2: One child
-    else {
+    else if(node->left && !node->right || !node->left && node->right) {
         Node* child = nullptr;
 
         if (node->left != nullptr)
@@ -227,6 +216,18 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
         }
 
         delete node;
+    }
+    // Case 3: Two children
+    else if (node->left && node->right) {
+        // Find inorder successor (smallest in right subtree)
+        Node* suc = node->right;
+        while (suc->left != nullptr)
+            suc = suc->left;
+
+        T successorValue = suc->value;
+        deleteValue(successorValue);
+        node->value = successorValue;
+        return true;
     }
 
     // Update node count
