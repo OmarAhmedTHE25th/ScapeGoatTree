@@ -20,7 +20,7 @@ The Scapegoat Tree maintains $O(\log n)$ search time without storing distinct ba
 ### Time Complexity
 * **Search:** $O(\log n)$ worst-case. The tree is strictly height-bound.
 * **Insert:** $O(\log n)$ amortized. While a single insertion may trigger an $O(n)$ partial rebuild, these events are rare enough that the average cost remains logarithmic.
-**Delete:** $O(\log n)$ amortized. Deletions are lazy: the node is removed, but the tree is only rebuilt if the node count drops below $\frac{1}{2} M$, where $M$ is the maximum number of nodes.
+* **Delete:** $O(\log n)$ amortized. Deletions are lazy: the node is removed, but the tree is only rebuilt if the node count drops below $\frac{1}{2} M$, where $M$ is the maximum number of nodes.
 * **Traversals:** $O(n)$. The Level-Order traversal utilizes a custom $O(n)$ Queue implementation.
 
 ### Space Complexity
