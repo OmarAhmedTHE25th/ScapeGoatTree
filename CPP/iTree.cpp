@@ -133,27 +133,23 @@ void ITree::handleDisplay(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType
     switch (op)
         {
         case opcodes::DISPLAY_INORDER: {
-            tree.displayInOrder();
             printInfo("\n--- In-Order Traversal ---");
-            cout << tree.getDisplayBuffer() << "\n";
+            cout << tree.displayInOrder() << "\n";
         }
             break;
         case opcodes::DISPLAY_PREORDER: {
-            tree.displayPreOrder();
             printInfo("\n--- Pre-Order Traversal ---");
-            cout << tree.getDisplayBuffer() << "\n";
+            cout << tree.displayPreOrder() << "\n";
         }
             break;
         case opcodes::DISPLAY_POSTORDER: {
-            tree.displayPostOrder();
             printInfo("\n--- Post-Order Traversal ---");
-            cout << tree.getDisplayBuffer() << "\n";
+            cout << tree.displayPostOrder() << "\n";
         }
         break;
         case opcodes::DISPLAY_LEVELS: {
-            tree.displayLevels();
             printInfo("\n--- Level-Order Traversal ---");
-            cout << tree.getDisplayBuffer() << "\n";
+            cout << tree.displayLevels() << "\n";
         }
             default: ;
         }
@@ -182,18 +178,15 @@ void ITree::handleOperatorEmpty(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<Elem
  */
 void ITree::handleOperatorMerge(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenType>& B) {
     printInfo("\nTree A:");
-    A.displayInOrder();
-    cout << A.getDisplayBuffer() << "\n";
+    cout << A.displayInOrder() << "\n";
 
     printInfo("Tree B:");
-    B.displayInOrder();
-    cout << B.getDisplayBuffer() << "\n";
+    cout << B.displayInOrder() << "\n";
 
     ScapeGoatTree<ElemenType> merged = A + B;
 
     printInfo("Merged Tree:");
-    merged.displayInOrder();
-    cout << merged.getDisplayBuffer() << "\n";
+    cout << merged.displayInOrder() << "\n";
 }
 
 /**

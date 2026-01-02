@@ -66,19 +66,19 @@ class ScapeGoatTree {
     void preorderTraversal(const Node* node);
 
     /**
-     * Formats the tree in pre-order and stores the result in the display buffer.
+     * Formats the tree in pre-order.
      */
-    void displayPreOrder(const Node* node);
+    void displayPreOrder(const Node* node, std::ostream& os);
 
     /**
-     * Formats the tree in in-order and stores the result in the display buffer.
+     * Formats the tree in in-order.
      */
-    void displayInOrder(const Node* node);
+    void displayInOrder(const Node* node, std::ostream& os);
 
     /**
-     * Formats the tree in post-order and stores the result in the display buffer.
+     * Formats the tree in post-order.
      */
-    void  displayPostOrder(const Node* node) ;
+    void displayPostOrder(const Node* node, std::ostream& os);
 
     /**
      * Calculates the maximum allowed height before a rebuild is triggered.
@@ -99,7 +99,6 @@ class ScapeGoatTree {
      * Initiates a subtree rebuild starting from the scapegoat node.
      */
     void restructure_subtree(Node *newNode);
-    std::string displayBuffer;
     Node* root{};
     int nNodes{};
 
@@ -146,10 +145,6 @@ public:
      */
     [[nodiscard]] std::string isBalanced() const;
 
-    /**
-     * Returns the contents of the display buffer.
-     */
-   [[nodiscard]] std::string getDisplayBuffer() const;
 
     /**
      * Returns a pointer to the root node of the tree.
@@ -172,24 +167,24 @@ public:
     ~ScapeGoatTree();
 
     /**
-     * Updates the display buffer with a pre-order traversal representation.
+     * Returns a string representing the tree in pre-order traversal.
      */
-    void displayPreOrder(); // for display
+    std::string displayPreOrder(); // for display
 
     /**
-     * Updates the display buffer with an in-order traversal representation.
+     * Returns a string representing the tree in in-order traversal.
      */
-    void displayInOrder() ; // for display
+    std::string displayInOrder() ; // for display
 
     /**
-     * Updates the display buffer with a post-order traversal representation.
+     * Returns a string representing the tree in post-order traversal.
      */
-    void displayPostOrder() ; // for display
+    std::string displayPostOrder() ; // for display
 
     /**
-     * Updates the display buffer with a level-order traversal representation.
+     * Returns a string representing the tree in level-order traversal.
      */
-    void displayLevels(); // for display
+    std::string displayLevels(); // for display
 
     /**
      * Overloaded subscript operator to search for a value in the tree.

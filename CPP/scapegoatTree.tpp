@@ -39,8 +39,7 @@ ScapeGoatTree<T>::~ScapeGoatTree() {
  */
 template<typename T>
 ScapeGoatTree<T>::ScapeGoatTree(ScapeGoatTree &&other) noexcept
-    : displayBuffer(std::move(other.displayBuffer)),
-root(other.root),
+    : root(other.root),
 nNodes(other.nNodes),
 max_nodes(other.max_nodes) {
     other.root = nullptr;
@@ -364,42 +363,36 @@ void ScapeGoatTree<T>::preorderTraversal(const Node* node) {
 // =====================1
 
 /**
- * Formats the tree in pre-order and stores the result in the display buffer.
+ * Formats the tree in pre-order.
  */
 template<typename T>
-void ScapeGoatTree<T>::displayPreOrder(const Node* node) {
+void ScapeGoatTree<T>::displayPreOrder(const Node* node, std::ostream& os) {
     if (!node) return;
-    std::ostringstream value;
-    value << node->value;
-    displayBuffer += value.str() + " ";
-    displayPreOrder(node->left);
-    displayPreOrder(node->right);
+    os << node->value << " ";
+    displayPreOrder(node->left, os);
+    displayPreOrder(node->right, os);
 }
 
 /**
- * Formats the tree in in-order and stores the result in the display buffer.
+ * Formats the tree in in-order.
  */
 template<typename T>
-void ScapeGoatTree<T>::displayInOrder(const Node* node) {
+void ScapeGoatTree<T>::displayInOrder(const Node* node, std::ostream& os) {
     if (!node) return;
-    displayInOrder(node->left);
-    std::ostringstream value;
-    value << node->value;
-    displayBuffer += value.str() + " ";
-    displayInOrder(node->right);
+    displayInOrder(node->left, os);
+    os << node->value << " ";
+    displayInOrder(node->right, os);
 }
 
 /**
- * Formats the tree in post-order and stores the result in the display buffer.
+ * Formats the tree in post-order.
  */
 template<typename T>
-void ScapeGoatTree<T>::displayPostOrder(const Node* node) {
+void ScapeGoatTree<T>::displayPostOrder(const Node* node, std::ostream& os) {
     if (!node) return;
-    displayPostOrder(node->left);
-    displayPostOrder(node->right);
-    std::ostringstream value;
-    value << node->value;
-    displayBuffer += value.str() + " ";
+    displayPostOrder(node->left, os);
+    displayPostOrder(node->right, os);
+    os << node->value << " ";
 }
 
 // =====================
@@ -407,55 +400,51 @@ void ScapeGoatTree<T>::displayPostOrder(const Node* node) {
 // =====================
 
 /**
- * Updates the display buffer with a pre-order traversal representation.
+ * Returns a string representing the tree in pre-order traversal.
  */
 template<typename T>
-void ScapeGoatTree<T>::displayPreOrder() {
-    displayBuffer.clear();
-    if (!root) { displayBuffer = "Tree is empty."; return; }
-    displayPreOrder(root);
+std::string ScapeGoatTree<T>::displayPreOrder() {
+    if (!root) return "Tree is empty.";
+    std::ostringstream oss;
+    displayPreOrder(root, oss);
+    return oss.str();
 }
 
 /**
- * Updates the display buffer with an in-order traversal representation.
+ * Returns a string representing the tree in in-order traversal.
  */
 template<typename T>
-void ScapeGoatTree<T>::displayInOrder() {
-    displayBuffer.clear();
-    if (!root) { displayBuffer = "Tree is empty."; return; }
-    displayInOrder(root);
+std::string ScapeGoatTree<T>::displayInOrder() {
+    if (!root) return "Tree is empty.";
+    std::ostringstream oss;
+    displayInOrder(root, oss);
+    return oss.str();
 }
 
 /**
- * Updates the display buffer with a post-order traversal representation.
+ * Returns a string representing the tree in post-order traversal.
  */
 template<typename T>
-void ScapeGoatTree<T>::displayPostOrder() {
-    displayBuffer.clear();
-    if (!root) { displayBuffer = "Tree is empty."; return; }
-    displayPostOrder(root);
+std::string ScapeGoatTree<T>::displayPostOrder() {
+    if (!root) return "Tree is empty.";
+    std::ostringstream oss;
+    displayPostOrder(root, oss);
+    return oss.str();
 }
 
 /**
- * Returns the contents of the display buffer.
+ * Returns a string representing the tree in level-order traversal.
  */
 template<typename T>
-std::string ScapeGoatTree<T>::getDisplayBuffer() const {
-    return displayBuffer;
-}
-/**
- * Updates the display buffer with a level-order traversal representation.
- */
-template<typename T>
-void ScapeGoatTree<T>::displayLevels() {
-    displayBuffer.clear();
-    if (!root){displayBuffer = "Tree is Empty.";return;}
+std::string ScapeGoatTree<T>::displayLevels() {
+    if (!root) return "Tree is Empty.";
+    std::string result;
     Queue<Node*> q;
     q.push(root);
     int level =0;
 
     while (!q.isEmpty()) {
-        displayBuffer += "Level " + std::to_string(level++) + ": ";
+        result += "Level " + std::to_string(level++) + ": ";
         const int nodesAtLevel = q.size();
         for (int i = 0; i < nodesAtLevel; i++) {
             Node* curr = q.front();
@@ -463,14 +452,14 @@ void ScapeGoatTree<T>::displayLevels() {
 
             std::ostringstream oss;
             oss << curr->value;
-            displayBuffer += oss.str() + " ";
+            result += oss.str() + " ";
 
             if (curr->left)  q.push(curr->left);
             if (curr->right) q.push(curr->right);
         }
-        displayBuffer += "\n";
-
+        result += "\n";
     }
+    return result;
 }
 
 
@@ -538,7 +527,6 @@ ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(ScapeGoatTree&& other) noexcept {
     root = other.root;
     nNodes = other.nNodes;
     max_nodes = other.max_nodes;
-    displayBuffer = std::move(other.displayBuffer);
 
     other.root = nullptr;
     other.nNodes = 0;

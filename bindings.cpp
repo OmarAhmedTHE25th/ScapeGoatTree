@@ -48,9 +48,9 @@ PYBIND11_MODULE(scapegoat_tree_py, m) {
 
         // Reporting & Displays
         .def("get_balance_report", &ScapeGoatTree<Type>::isBalanced)
-        .def("get_inorder", [](ScapeGoatTree<Type> &t) { t.displayInOrder(); return t.getDisplayBuffer(); })
-        .def("get_preorder", [](ScapeGoatTree<Type> &t) { t.displayPreOrder(); return t.getDisplayBuffer(); })
-        .def("get_postorder", [](ScapeGoatTree<Type> &t) { t.displayPostOrder(); return t.getDisplayBuffer(); })
-        .def("get_levels", [](ScapeGoatTree<Type> &t) { t.displayLevels(); return t.getDisplayBuffer(); });
+        .def("get_inorder", [](ScapeGoatTree<Type> &t) { return t.displayInOrder(); })
+        .def("get_preorder", [](ScapeGoatTree<Type> &t) { return t.displayPreOrder(); })
+        .def("get_postorder", [](ScapeGoatTree<Type> &t) { return t.displayPostOrder(); })
+        .def("get_levels", &ScapeGoatTree<Type>::displayLevels);
 
 }
