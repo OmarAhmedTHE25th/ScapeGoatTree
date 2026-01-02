@@ -398,14 +398,28 @@ ScapeGoatTree<T> ScapeGoatTree<T>::operator+(const ScapeGoatTree& other)const  {
     T* other_array = new T[other.nNodes];
     int i = 0;
     inorderTraversal(root, i, array);
-    i = 0;
-    other.inorderTraversal(other.root, i, other_array);
-    for (int j = 0; j < nNodes; j++) {
-        result.insert(array[j]);
+    int i2 = 0;
+    other.inorderTraversal(other.root, i2, other_array);
+    T* temp_array = new T[nNodes + other.nNodes];
+    int idx = 0, idx1 = 0, idx2 = 0;
+
+    // Linear Merge (O(N+M)) to keep the array sorted
+    while (idx1 < nNodes && idx2 < other.nNodes) {
+        if (array[idx1] < other_array[idx2]) temp_array[idx++] = array[idx1++];
+        else if (array[idx1] > other_array[idx2]) temp_array[idx++] = other_array[idx2++];
+        else { // duplicates
+            temp_array[idx++] = array[idx1++];
+            idx2++;
+        }
     }
-    for (int j = 0; j < other.nNodes; j++) {
-        result.insert(other_array[j]);
-    }
+    while (idx1 < nNodes) temp_array[idx++] = array[idx1++];
+    while (idx2 < other.nNodes) temp_array[idx++] = other_array[idx2++];
+
+    //Rebuild  (O(N+M))
+    result.root = rebuildTree(0, idx - 1, nullptr, temp_array);
+    result.nNodes = idx;
+    result.max_nodes = idx;
+    delete[] temp_array;
     delete[] array;
     delete[] other_array;
     return result;
