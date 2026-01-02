@@ -1,0 +1,43 @@
+# Ignore compiled object files
+*.o
+*.obj
+
+# Executables generated from scratch code
+*.exe
+*.out
+a.out
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled static libraries
+*.a
+*.lib
+
+# Temporary files
+*.tmp
+*.temp
+
+# CMake cache and build files (if CMake is used for scratch testing)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+# Ignore executable files
+
+# Ignore IDE stuff
+.vscode/
+*.iml
+.idea/
+
+# Ignore Java class files
+*.class
+
+# Ignore build folders
+build/
+bin/
