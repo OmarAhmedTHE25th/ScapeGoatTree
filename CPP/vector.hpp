@@ -3,6 +3,7 @@
 
 template <typename T>
 class Vector {
+public:
     unsigned int _size = 50;
     int nElements = 0;
     T* data = new T[_size]{};
@@ -24,7 +25,7 @@ class Vector {
     const T& operator[](unsigned int index) const { return data[index]; }
     template <typename>
     friend class ScapeGoatTree;
-public:
+
     Vector(const Vector&)=delete;
     Vector& operator=(const Vector&) = delete;
     Vector(Vector&&) = delete;

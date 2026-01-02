@@ -245,8 +245,8 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int
     if (start > end) return nullptr;
     int mid = (start + end) / 2;
     Node* Nroot = new Node(array[mid], parent_node);
-    Nroot->left = rebuildTree(start, mid - 1, Nroot);
-    Nroot->right = rebuildTree(mid + 1, end, Nroot);
+    Nroot->left = rebuildTree(start, mid - 1, Nroot, array);
+    Nroot->right = rebuildTree(mid + 1, end, Nroot, array);
     return Nroot;
 }
 template<typename T>
@@ -272,11 +272,11 @@ const ScapeGoatTree<T>::Node *ScapeGoatTree<T>::getRoot() {
 // =====================
 
 template<typename T>
-void ScapeGoatTree<T>::inorderTraversal(const Node* node, int& i, T* array) {
+void ScapeGoatTree<T>::inorderTraversal(const Node* node, int& i, T* array) const {
 if (!node) return;
-    inorderTraversal(node->left, i);
+    inorderTraversal(node->left, i,array);
     array[i++] = node->value;
-    inorderTraversal(node->right, i);
+    inorderTraversal(node->right, i,array);
 }
 
 template<typename T>
@@ -394,8 +394,20 @@ void ScapeGoatTree<T>::displayLevels() {
 template<typename T>
 ScapeGoatTree<T> ScapeGoatTree<T>::operator+(const ScapeGoatTree& other)const  {
     ScapeGoatTree result;
-    result.preorderTraversal(root);
-    result.preorderTraversal(other.root);
+    T* array = new T[nNodes];
+    T* other_array = new T[other.nNodes];
+    int i = 0;
+    inorderTraversal(root, i, array);
+    i = 0;
+    other.inorderTraversal(other.root, i, other_array);
+    for (int j = 0; j < nNodes; j++) {
+        result.insert(array[j]);
+    }
+    for (int j = 0; j < other.nNodes; j++) {
+        result.insert(other_array[j]);
+    }
+    delete[] array;
+    delete[] other_array;
     return result;
 }
 
@@ -473,6 +485,11 @@ bool ScapeGoatTree<T>::operator!=(const ScapeGoatTree& tree) const {
 template<typename T>
 bool ScapeGoatTree<T>::operator!() const {
     return root == nullptr;
+}
+
+template<typename T>
+bool ScapeGoatTree<T>::operator-(const T &value) {
+   return  deleteValue(value);
 }
 
 // =====================

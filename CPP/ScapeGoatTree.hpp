@@ -35,7 +35,7 @@ class ScapeGoatTree {
     static int countN(const Node* node);
     static Node* findTraitor(Node* node);
     Node* rebuildTree(int start,int end,Node* parent_node,T* array);
-    void inorderTraversal(const Node*node, int &i,T* array);
+    void inorderTraversal(const Node*node, int &i,T* array) const;
     static void postorderTraversal(const Node* node);
     void preorderTraversal(const Node* node);
     void displayPreOrder(const Node* node);
@@ -78,6 +78,7 @@ public:
     bool operator!=(const ScapeGoatTree &tree) const;
     bool operator!() const;
     void operator+(const T& value);
+    bool operator-(const T& value);
     bool operator-=(const T& value);
     void operator+=(const T& value);
 };
