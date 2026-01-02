@@ -14,7 +14,7 @@ execute_process(
 find_package(pybind11 REQUIRED PATHS ${pybind11_DIR} NO_DEFAULT_PATH)
 
 # 2. CREATE THE PYTHON MODULE (This is what creates the .pyd file)
-pybind11_add_module(scapegoat_tree_py ../bindings.cpp)
+pybind11_add_module(scapegoat_tree_py bindings.cpp)
 target_link_libraries(scapegoat_tree_py PRIVATE pybind11::module)
 target_include_directories(scapegoat_tree_py PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -31,10 +31,13 @@ add_executable(tree
         ../imgui/imgui_impl_dx11.cpp
         Node.hpp
         vector.hpp
-        vector.hpp
 )
 
 target_link_libraries(tree PRIVATE
         pybind11::module
         d3d11 dxgi d3dcompiler dwmapi
 )
+
+# 4. UNIT TESTS
+add_executable(unit_tests tests.cpp)
+target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
