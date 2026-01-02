@@ -26,57 +26,60 @@
 #include  <iostream>
 #include "Node.hpp"
 #include <cmath>
+#include "vector.hpp"
 
 template<typename T>
 class ScapeGoatTree {
     using Node = Node<T>;
-    // Root node of the tree
     static int findH(const Node* node);
     static int countN(const Node* node);
     static Node* findTraitor(Node* node);
-    Node* rebuildTree(int start,int end,Node* parent_node);
-    void inorderTraversal(const Node*node, int &i);
+    Node* rebuildTree(int start,int end,Node* parent_node,T* array);
+    void inorderTraversal(const Node*node, int &i,T* array);
     static void postorderTraversal(const Node* node);
     void preorderTraversal(const Node* node);
-    void displayPreOrder(const Node* node); // for display
-    void displayInOrder(const Node* node); // for display
-    void  displayPostOrder(const Node* node) ; // for display
-    int getThreshold() const {return static_cast<int>(log(nNodes) / log(1.5));}
-
-    mutable std::string displayBuffer;
+    void displayPreOrder(const Node* node);
+    void displayInOrder(const Node* node);
+    void  displayPostOrder(const Node* node) ;
+    [[nodiscard]] int getThreshold() const {return static_cast<int>(log(nNodes) / log(1.5));}
+    void DeletionRebuild();
+    bool areTreesEqual(const Node* n1, const Node* n2) const;
+    void restructure_subtree(Node *newNode);
+    std::string displayBuffer;
     Node* root{};
     int nNodes{};
-    int size=100;
-    T* array = new T[size]{};
+
     int max_nodes = 0;
 public:
 
     ScapeGoatTree();
     void insert(T value);
-    void insertBatch(std::istream& in, const T& stopValue);
+    void insertBatch( Vector<T> &values);
     bool deleteValue(T value);
-    void deleteBatch(std::istream &in, const T &stopValue);
-    ~ScapeGoatTree(){postorderTraversal(root);delete[] array;}
-    std::string isBalanced() const;
-    std::string& getDisplayBuffer() const;
+    void deleteBatch( Vector<T> &values);
+    [[nodiscard]] bool search(const T & key) const;
+    void clear();
+    [[nodiscard]] std::string isBalanced() const;
+   [[nodiscard]] std::string getDisplayBuffer() const;
+    const Node* getRoot();
     ScapeGoatTree(const ScapeGoatTree &Otree);
     ScapeGoatTree(ScapeGoatTree&& other) noexcept;
-    ScapeGoatTree operator+(const ScapeGoatTree &other) const;
-    ScapeGoatTree& operator=(const ScapeGoatTree& other);
-    ScapeGoatTree& operator=(ScapeGoatTree&& other) noexcept;
-    [[nodiscard]] bool search(T key) const;
+    ~ScapeGoatTree();
     void displayPreOrder(); // for display
     void displayInOrder() ; // for display
     void displayPostOrder() ; // for display
     void displayLevels(); // for display
     bool operator[](T value) const;
+    ScapeGoatTree operator+(const ScapeGoatTree &other) const;
+    ScapeGoatTree& operator=(const ScapeGoatTree& other);
+    ScapeGoatTree& operator=(ScapeGoatTree&& other) noexcept;
+    ScapeGoatTree &operator=(int value);
     bool operator==(const ScapeGoatTree &tree) const;
     bool operator!=(const ScapeGoatTree &tree) const;
     bool operator!() const;
-    bool operator-(T value);
-    void operator+(T value);
-    bool operator-=(T value);
-    void operator+=(T value);
+    void operator+(const T& value);
+    bool operator-=(const T& value);
+    void operator+=(const T& value);
 };
 #include "scapegoatTree.tpp"
 

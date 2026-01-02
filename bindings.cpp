@@ -1,0 +1,53 @@
+#include <pybind11/pybind11.h>
+#include <pybind11/operators.h> // <--- NEEDED FOR + and ==
+#include <pybind11/stl.h>
+#include "ScapeGoatTree.hpp"
+
+namespace py = pybind11;
+typedef long long Type;
+PYBIND11_MODULE(scapegoat_tree_py, m) {
+    // 1. Bind Node
+    py::class_<Node<Type>>(m, "Node")
+        .def_readonly("value", &Node<Type>::value)
+        .def_readonly("left", &Node<Type>::left)
+        .def_readonly("right", &Node<Type>::right);
+
+    // 2. Bind ScapeGoatTree
+    py::class_<ScapeGoatTree<Type>>(m, "ScapeGoatTree")
+        .def(py::init<>())
+        .def(py::init<const ScapeGoatTree<Type>&>()) // Copy constructor
+
+        // standard ops
+        .def("insert", &ScapeGoatTree<Type>::insert)
+    .def("insert_batch", [](ScapeGoatTree<Type> &self, const std::vector<Type> &values) {
+            Vector<Type> customVec;
+            for (const auto &v : values) customVec.push_back(v);
+            self.insertBatch(customVec);
+        }, py::arg("values"))
+        .def("delete_batch", [](ScapeGoatTree<Type> &self, const std::vector<Type> &values) {
+            Vector<Type> customVec;
+            for (const auto &v : values) customVec.push_back(v);
+            self.deleteBatch(customVec);
+        }, py::arg("values"))
+        .def("delete_value", &ScapeGoatTree<Type>::deleteValue)
+        .def("search", &ScapeGoatTree<Type>::search)
+        .def("get_root", &ScapeGoatTree<Type>::getRoot, py::return_value_policy::reference_internal)
+        .def("clear", &ScapeGoatTree<Type>::clear)
+
+
+        .def(py::self + py::self)
+        .def(py::self == py::self)
+
+
+        .def("is_empty", [](const ScapeGoatTree<Type>& t) {
+            return !t;
+        })
+
+        // Reporting & Displays
+        .def("get_balance_report", &ScapeGoatTree<Type>::isBalanced)
+        .def("get_inorder", [](ScapeGoatTree<Type> &t) { t.displayInOrder(); return t.getDisplayBuffer(); })
+        .def("get_preorder", [](ScapeGoatTree<Type> &t) { t.displayPreOrder(); return t.getDisplayBuffer(); })
+        .def("get_postorder", [](ScapeGoatTree<Type> &t) { t.displayPostOrder(); return t.getDisplayBuffer(); })
+        .def("get_levels", [](ScapeGoatTree<Type> &t) { t.displayLevels(); return t.getDisplayBuffer(); });
+
+}

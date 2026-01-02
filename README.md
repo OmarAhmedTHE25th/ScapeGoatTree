@@ -1,119 +1,130 @@
-# 🐐 ScapeGoat Tree (with GUI)
+# Scapegoat Tree Implementation (C++ & Python)
 
-A Windows-based C++ implementation of a **ScapeGoat Tree**, featuring both a real-time **ImGui + DirectX 11 GUI visualizer** and a **console fallback mode**.
+A robust implementation of a **Scapegoat Tree**, a self-balancing Binary Search Tree (BST), written in C++ with Python bindings.
 
----
+This project was built with a specific constraint: **Minimal STL usage**. Apart from `std::string` and `iostream`, custom container implementations (Vector, Queue) are used to manage memory and tree operations.
 
-## ✨ Features
+## 📝 Features
 
-- Self-balancing BST using rebuild-based rebalancing
-- GUI tree visualization (ImGui + DirectX 11)
-- Terminal mode available inside the GUI
-- Tree operations:
-  - Insert (single + batch)
-  - Delete (single + batch)
-  - Search / Find
-  - Traversals:
-    - In-order, Pre-order, Post-order, Level-order
-- Operator overload support:
-  ```cpp
-  tree + 10;
-  tree - 5;
-  if (tree == otherTree) ...
-  ```
+* **-Weight-Balanced:** Uses  to maintain height balance ().
+* **Custom Containers:** Includes hand-written `Vector` and `Queue` classes to replace standard STL containers.
+* **Python Bindings:** Fully exposed API using `pybind11` for seamless integration with Python scripts and UIs.
+* **Batch Operations:** Support for inserting and deleting values in batch for efficiency.
+* **Tree Traversal & Visualization:** Built-in methods for In-Order, Pre-Order, Post-Order, and Level-Order traversals, returned as buffered strings.
+* **Balance Reporting:** Detailed `isBalanced()` report checking height vs. theoretical bounds.
 
----
+## 🛠️ Prerequisites
 
-## 🧰 Requirements
+* **C++ Compiler:** (GCC, Clang, or MSVC) supporting C++11 or later.
+* **CMake:** For building the project.
+* **Python 3.x:** Required for using the bindings.
+* **Pybind11:** Required to compile the Python module.
 
-| Component | Minimum |
-|---|---|
-| OS | **Windows 10/11** |
-| Compiler | Modern C++ (C++17+) |
-| Build Tool | **CMake 3.20+** |
-| Graphics | **DirectX 11** |
+## 📂 Project Structure
 
----
+* **Core C++ Logic**
+* `ScapeGoatTree.hpp` / `.tpp`: Main tree implementation.
+* `Node.hpp`: Tree node structure.
+* `vector.hpp`: Custom dynamic array implementation.
+* `queue.hpp` / `.tpp`: Custom queue implementation for level-order traversal.
 
-## 📁 Project Structure
 
-```
-ScapeGoat-Tree-GUI/
-│
-├── CMakeLists.txt
-├── CPP/ or root/
-│   ├── TreeDriver.cpp
-│   ├── iTree.cpp
-│   ├── iTree.hpp
-│   ├── ScapeGoatTree.hpp
-│   └── Node.hpp
-│
-└── imgui/  (ImGui library files)
-```
+* **Bindings**
+* `bindings.cpp`: Pybind11 glue code exposing the C++ class to Python.
 
----
 
-## 🛠 Build Instructions
+
+## 🚀 Build Instructions
+
+This project uses CMake. To build the shared library (Python extension):
 
 ```bash
-cmake -S . -B build
-cmake --build build --config Release
-```
-
----
-
-## ▶️ Run Instructions
-
-After building, run the executable from:
+mkdir build
+cd build
+cmake ..
+make
 
 ```
-build/Release/tree.exe
+
+*Note: On Windows, the output file will be something like `scapegoat_tree_py.cp3x-win_amd64.pyd`. On Linux/Mac, it will be a `.so` file.*
+
+## 💻 Usage
+
+### 1. Python (via Bindings)
+
+Once built, ensure the generated `.pyd` or `.so` file is in your Python path.
+
+```python
+import scapegoat_tree_py as sgt
+
+# Initialize the tree
+tree = sgt.ScapeGoatTree()
+
+# Insert specific values
+tree.insert(50)
+tree.insert(30)
+tree.insert(70)
+
+# Batch operations
+tree.insert_batch([20, 40, 60, 80])
+
+# Check balance
+print(tree.get_balance_report())
+
+# Display traversals
+print("In-Order:", tree.get_inorder())
+print("Level-Order:\n", tree.get_levels())
+
+# Search
+if tree.search(40):
+    print("Found 40!")
+
+# Delete
+tree.delete_value(20)
+print("After deletion:", tree.get_inorder())
+
 ```
 
-Or directly from terminal:
-
-```bash
-./build/Release/tree.exe
-```
-
----
-
-## 🖥 Modes
-
-- **GUI Mode:** launches automatically
-- **Console Mode:** triggered by clicking:
-  ```
-  Run Tree in Console
-  ```
-  (Closes GUI, switches to terminal)
-
----
-
-## 🧪 Example Usage
-
-Insert values:
+### 2. C++ (Direct Usage)
 
 ```cpp
-tree + 5;
-tree + 10;
-tree + 3;
+#include "ScapeGoatTree.hpp"
+#include <iostream>
+
+int main() {
+    ScapeGoatTree<int> tree;
+    
+    // Insertions
+    tree.insert(100);
+    tree.insert(50);
+    tree.insert(150);
+    
+    // Check if balanced
+    std::cout << tree.isBalanced() << std::endl;
+    
+    // Display
+    tree.displayInOrder();
+    std::cout << tree.getDisplayBuffer() << std::endl;
+    
+    // Custom Operators
+    tree + 200;       // Insert 200
+    tree - 50;        // Delete 50
+    
+    return 0;
+}
+
 ```
 
-Search:
+## ⚠️ Implementation Notes
 
-```cpp
-tree.find(10);
-```
+* **Memory Management:** This implementation manually manages memory for nodes and auxiliary arrays.
+* **Mutable Display Buffer:** The `get_inorder` (and similar) methods update an internal string buffer. The string is returned by reference in C++ (and value in Python) to minimize overhead during frequent UI updates.
+* **Operator Overloading:** * `tree + value`: Insert
+* `tree -= value`: Delete
+* `tree[value]`: Search (returns bool)
 
----
 
-## 🏅 Badges
 
-![Windows Only](https://img.shields.io/badge/OS-Windows-blue?style=flat-square)
-![CMake](https://img.shields.io/badge/Built%20with-CMake-brightgreen?style=flat-square)
-![C++17](https://img.shields.io/badge/C++-17-orange?style=flat-square)
-![Balanced BST](https://img.shields.io/badge/Tree-Balanced%20BST-purple?style=flat-square)
+## 📄 License
 
----
-No goats were harmed during the making of this project.
-
+This project is open-source. Feel free to use and modify.
