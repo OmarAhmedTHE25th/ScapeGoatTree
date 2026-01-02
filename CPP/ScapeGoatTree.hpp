@@ -21,7 +21,6 @@
 #ifndef SCAPEGOATTREE_SCAPEGOATTREE_HPP
 #define SCAPEGOATTREE_SCAPEGOATTREE_HPP
 
-#include <sstream>
 #include <string>
 #include  <iostream>
 #include "Node.hpp"
@@ -54,9 +53,9 @@ public:
 
     ScapeGoatTree();
     void insert(T value);
-    void insertBatch( Vector<T> &values);
+    void insertBatch( const Vector<T> &values);
     bool deleteValue(T value);
-    void deleteBatch( Vector<T> &values);
+    void deleteBatch(const Vector<T> &values);
     [[nodiscard]] bool search(const T & key) const;
     void clear();
     [[nodiscard]] std::string isBalanced() const;

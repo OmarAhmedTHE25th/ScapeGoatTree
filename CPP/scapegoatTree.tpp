@@ -105,14 +105,14 @@ void ScapeGoatTree<T>::insert(T value) {
     }
 }
 template<typename T>
-    void ScapeGoatTree<T>::insertBatch(Vector<T>& values) {
+    void ScapeGoatTree<T>::insertBatch(const Vector<T>& values) {
     for (int i = 0; i < values.size(); i++) {
         insert(values[i]);
     }
 }
 
 template<typename T>
-void ScapeGoatTree<T>::deleteBatch( Vector<T>& values) {
+void ScapeGoatTree<T>::deleteBatch(const  Vector<T>& values) {
     for (int i = 0; i < values.size(); i++) {
         deleteValue(values[i]);
     }
