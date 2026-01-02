@@ -62,6 +62,7 @@ class ITree {
      * Handles clearing the contents of the trees.
      */
     static  void handleClear(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+    static void handleUndo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
 public:
     /**
      * Launches the terminal-based user interface for interacting with the trees.

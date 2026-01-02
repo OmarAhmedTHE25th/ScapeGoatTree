@@ -240,6 +240,11 @@ void ITree::handleClear(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> 
     tree = 0;
     printSuccess("SUCCESS: Tree cleared using operator = 0");
 }
+void ITree::handleUndo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
+    tree.undo();
+    printSuccess("SUCCESS: Undo complete.");
+}
 
 /* ===================== Main UI ===================== */
 
@@ -274,7 +279,8 @@ void ITree::TreeUI() {
         {"Operator Empty",      opcodes::EMPTY,            [](auto& A, auto& B, auto){ handleOperatorEmpty(A, B); }},
         {"Operator Merge",      opcodes::MERGE,            [](auto& A, auto& B, auto){ handleOperatorMerge(A, B); }},
         {"Operator Compare",    opcodes::COMPARE,          [](auto& A, auto& B, auto){ handleOperatorCompare(A, B); }},
-        {"Operator Clear",      opcodes::CLEAR,            [](auto& A, auto& B, auto ){handleClear(A,B);}}
+        {"Operator Clear",      opcodes::CLEAR,            [](auto& A, auto& B, auto ){handleClear(A,B);}},
+        {"Undo",                opcodes::EMPTY,            [](auto& A, auto& B, auto ){handleUndo(A,B);}}
     };
 
     constexpr int menuSize = std::size(menu);

@@ -17,7 +17,7 @@ public:
     /**
      * Initializes a node with a value and an optional parent pointer.
      */
-    explicit Node(T& v, Node* parentPtr = nullptr)
+    explicit Node(const T& v, Node* parentPtr = nullptr)
         : value(v), parent(parentPtr){}
     template<typename>
     friend class ScapeGoatTree;

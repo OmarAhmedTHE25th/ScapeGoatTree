@@ -64,6 +64,7 @@ class ScapeGoatGUI:
         tk.Button(self.ops_frame, text="Delete", command=self.cmd_delete, bg="lightcoral", **btn_opts).grid(row=0, column=2, padx=5, pady=2)
         tk.Button(self.ops_frame, text="Delete Batch", command=self.cmd_deletebatch, bg="lightcoral", **btn_opts).grid(row=0, column=3, padx=5, pady=2)
         tk.Button(self.ops_frame, text="Search", command=self.cmd_search, bg="gold", **btn_opts).grid(row=0, column=4, padx=5, pady=2)
+        tk.Button(self.ops_frame, text="Undo", command=self.cmd_undo, bg="orange", **btn_opts).grid(row=0, column=5, padx=5, pady=2)
 
         # Row 1: Displays
         tk.Button(self.ops_frame, text="Show In-Order", command=lambda: self.cmd_show("in"), **btn_opts).grid(row=1, column=0, padx=5, pady=2)
@@ -166,6 +167,12 @@ class ScapeGoatGUI:
             self.log(f"Search {val}: {res}")
             if found:
                 self.draw_tree(highlight_val=val)
+
+    def cmd_undo(self):
+        self.get_active_tree().undo()
+        self.log(f"Undo performed on Tree {self.selected_tree_var.get()}")
+        self.draw_tree()
+
     def cmd_clear(self):
         if self.selected_tree_var.get() == "A":
             self.treeA = scapegoat_tree_py.ScapeGoatTree()

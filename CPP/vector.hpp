@@ -37,7 +37,29 @@ public:
        }
        data[nElements++] = value;
     }
+    /**
+      * Removes and returns the last element.
+      * Throws std::out_of_range if the vector is empty.
+      * Shrinks internal storage when usage falls to 1/4 of capacity (min capacity 50).
+      */
+    T pop_back() {
+        if (nElements == 0) {
+            throw std::out_of_range("pop_back on empty Vector");
+        }
+        --nElements;
+        T value = std::move(data[nElements]);
 
+        // Shrink when underutilized, keep minimum capacity of 50
+        if (nElements > 0 && static_cast<unsigned int>(nElements) <= _size / 4 && _size > 50) {
+            _size = 50u > _size ? 50u : _size;
+            T* newData = new T[_size]{};
+            for (unsigned int i = 0; i < nElements; ++i)
+                newData[i] = data[i];
+            delete[] data;
+            data = newData;
+        }
+        return value;
+    }
     /**
      * Provides access to the element at the specified index.
      */

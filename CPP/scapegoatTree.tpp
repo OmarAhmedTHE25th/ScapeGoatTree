@@ -7,7 +7,6 @@
 #include "queue.hpp"
 #include "sstream"
 //==================================IMPLEMENTATION========================================================
-
 // =====================
 // Constructors
 // =====================
@@ -79,6 +78,9 @@ void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
  */
 template<typename T>
 void ScapeGoatTree<T>::insert(T value) {
+    if (!isUndoing) {
+        commandStack.push({OpType::Insert, value});
+    }
     if (!root) {
         root = new Node(value, nullptr);
         nNodes++;
@@ -107,10 +109,12 @@ void ScapeGoatTree<T>::insert(T value) {
                 else current = current->right;
             }
             --parent->size;
+            if (!isUndoing) {
+                commandStack.pop();
+            }
             return;
         }
     }
-
     Node* newNode = new Node(value, parent);
     if (value < parent->value)
         parent->left = newNode;
@@ -129,9 +133,11 @@ void ScapeGoatTree<T>::insert(T value) {
  */
 template<typename T>
     void ScapeGoatTree<T>::insertBatch(const Vector<T>& values) {
+    if (!isUndoing) commandStack.push({OpType::BatchStart, T()});
     for (int i = 0; i < values.size(); i++) {
         insert(values[i]);
     }
+    if (!isUndoing) commandStack.push({OpType::BatchEnd, T()});
 }
 
 /**
@@ -139,9 +145,11 @@ template<typename T>
  */
 template<typename T>
 void ScapeGoatTree<T>::deleteBatch(const  Vector<T>& values) {
+    if (!isUndoing) commandStack.push({OpType::BatchStart, T()});
     for (int i = 0; i < values.size(); i++) {
         deleteValue(values[i]);
     }
+    if (!isUndoing) commandStack.push({OpType::BatchEnd, T()});
 }
 
 
@@ -169,7 +177,9 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     // Value not found
     if (!node) return false;
 
-
+    if (!isUndoing) {
+        commandStack.push({OpType::Delete, value});
+    }
 
     // Case 1 & 2: Leaf or one child
     // Decrement size for all nodes on the path
@@ -225,6 +235,9 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
             suc = suc->left;
 
         T successorValue = suc->value;
+        if (!isUndoing) {
+            commandStack.pop();
+        }
         deleteValue(successorValue);
         node->value = successorValue;
         return true;
@@ -680,5 +693,29 @@ void ScapeGoatTree<T>::clear() {
     max_nodes = 0;
 }
 
+template<typename T>
+void ScapeGoatTree<T>::undo() {
+        if (commandStack.isEmpty()) return;
+        isUndoing = true;
 
+        if (Command<T> cmd = commandStack.pop(); cmd.type == OpType::BatchEnd) {
+            // Revert everything until we hit BatchStart
+            while (!commandStack.isEmpty()) {
+                Command<T> batchCmd = commandStack.pop();
+                if (batchCmd.type == OpType::BatchStart) break;
+                
+                if (batchCmd.type == OpType::Insert) deleteValue(batchCmd.value);
+                else if (batchCmd.type == OpType::Delete) insert(batchCmd.value);
+            }
+        } else {
+            // Normal single-item undo
+            if (cmd.type == OpType::Insert) {
+                deleteValue(cmd.value);
+            } else if (cmd.type == OpType::Delete) {
+                insert(cmd.value);
+            }
+        }
+        
+        isUndoing = false;
+    }
 #endif //TREE_SCAPEGOATTREE_TPP

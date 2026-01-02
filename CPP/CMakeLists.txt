@@ -31,6 +31,7 @@ add_executable(tree
         ../imgui/imgui_impl_dx11.cpp
         Node.hpp
         vector.hpp
+        stack.hpp
 )
 
 target_link_libraries(tree PRIVATE

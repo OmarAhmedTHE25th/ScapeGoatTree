@@ -26,6 +26,14 @@
 #include "Node.hpp"
 #include <cmath>
 #include "vector.hpp"
+#include "stack.hpp"
+enum class OpType { Insert, Delete, BatchStart, BatchEnd };
+
+template<typename T>
+struct Command {
+    OpType type;
+    T value;
+};
 
 template<typename T>
 class ScapeGoatTree {
@@ -34,74 +42,62 @@ class ScapeGoatTree {
      * Calculates the height of a given node in the tree.
      */
     static int findH(const Node* node);
-
     /**
      * Counts the total number of nodes in the subtree rooted at the given node.
      */
     static int countN(const Node* node);
-
     /**
      * Finds the highest node that violates the alpha-weight-balance property.
      */
     static Node* findTraitor(Node* node);
-
     /**
      * Recursively rebuilds a balanced BST from a sorted array of values.
      */
     Node* rebuildTree(int start,int end,Node* parent_node,T* array);
-
     /**
      * Performs an in-order traversal to populate a sorted array with node values.
      */
     void inorderTraversal(const Node*node, int &i,T* array) const;
-
     /**
      * Recursively deletes all nodes in the subtree using post-order traversal.
      */
     static void postorderTraversal(const Node* node);
-
     /**
      * Performs a pre-order traversal for internal processing.
      */
     void preorderTraversal(const Node* node);
-
     /**
      * Formats the tree in pre-order.
      */
     void displayPreOrder(const Node* node, std::ostream& os);
-
     /**
      * Formats the tree in in-order.
      */
     void displayInOrder(const Node* node, std::ostream& os);
-
     /**
      * Formats the tree in post-order.
      */
     void displayPostOrder(const Node* node, std::ostream& os);
-
     /**
      * Calculates the maximum allowed height before a rebuild is triggered.
      */
     [[nodiscard]] int getThreshold() const {return static_cast<int>(log(nNodes) / log(1.5));}
-
     /**
      * Checks if a rebuild is needed after a deletion and performs it if necessary.
      */
     void DeletionRebuild();
-
     /**
      * Compares two subtrees for structural and value equality.
      */
     bool areTreesEqual(const Node* n1, const Node* n2) const;
-
     /**
      * Initiates a subtree rebuild starting from the scapegoat node.
      */
     void restructure_subtree(Node *newNode);
     Node* root{};
     int nNodes{};
-
+    Stack<Command<T>> commandStack;
+    bool isUndoing = false;
     int max_nodes = 0;
 public:
 
@@ -139,6 +135,7 @@ public:
      * Removes all nodes from the tree and resets its state.
      */
     void clear();
+    void undo();
 
     /**
      * Returns a string report indicating if the tree is currently balanced.
@@ -245,6 +242,7 @@ public:
      * Overloaded addition assignment operator for inserting a value.
      */
     void operator+=(const T& value);
+
 };
 #include "scapegoatTree.tpp"
 
