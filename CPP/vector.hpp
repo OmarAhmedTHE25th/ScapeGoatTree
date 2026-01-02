@@ -6,15 +6,8 @@ class Vector {
     unsigned int _size = 50;
     int nElements = 0;
     T* data = new T[_size]{};
-
-public:
     ~Vector() { delete[] data; }
     Vector()=default;
-    // Disable copying to prevent crashes
-    Vector(const Vector&)=delete;
-Vector& operator=(const Vector&) = delete;
-Vector(Vector&&) = delete;
-Vector& operator=(Vector&&) = delete;
     [[nodiscard]] unsigned int size() const { return nElements; }
     void push_back(const T& value) {
        if (nElements >= _size) {
@@ -29,5 +22,12 @@ Vector& operator=(Vector&&) = delete;
     }
     T& operator[](unsigned int index) { return data[index]; }
     const T& operator[](unsigned int index) const { return data[index]; }
+    template <typename>
+    friend class ScapeGoatTree;
+public:
+    Vector(const Vector&)=delete;
+    Vector& operator=(const Vector&) = delete;
+    Vector(Vector&&) = delete;
+    Vector& operator=(Vector&&) = delete;
 };
 #endif

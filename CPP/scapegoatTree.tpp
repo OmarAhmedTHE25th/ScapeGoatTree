@@ -23,8 +23,6 @@ ScapeGoatTree<T>::ScapeGoatTree(const ScapeGoatTree &Otree) {
 template<typename T>
 ScapeGoatTree<T>::~ScapeGoatTree() {
     postorderTraversal(root);
-    root = nullptr;
-    nNodes = 0;
     max_nodes = 0;
 }
 /* Move constructor
@@ -156,7 +154,6 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
             parent->right = nullptr;
         }
         delete node;
-        std::cout << "Deleting: " << value << '\n';
     }
 
     // Case 2: One child
@@ -181,7 +178,6 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
         }
 
         delete node;
-        std::cout << "Deleting: " << value << '\n';
     }
 
     // Case 3: Two children
@@ -195,10 +191,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
         T successorValue = suc->value;
         deleteValue(successorValue);
         node->value = successorValue;
-
-
-        delete suc;
-        std::cout << "Deleting: " << value << '\n';
+        return true;
     }
 
     // Update node count
