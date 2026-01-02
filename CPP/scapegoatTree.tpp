@@ -60,7 +60,7 @@ void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
     //find the scapegoat  node
     Node* goat = findTraitor(newNode->parent);
     if (goat == nullptr) return;
-    int subtree_size = countN(goat);
+    const int subtree_size = countN(goat);
     T* temp_array = new T[subtree_size];
 
     int i = 0;
@@ -93,13 +93,23 @@ void ScapeGoatTree<T>::insert(T value) {
 
     while (current) {
         parent = current;
+        ++current->size;
         depth++;
         if (value < current->value)
             current = current->left;
         else if (value > current->value)
             current = current->right;
-        else
+        else {
+            // value already exists, backtrack size increment
+            current = root;
+            while (current != parent) {
+                --current->size;
+                if (value < current->value) current = current->left;
+                else current = current->right;
+            }
+            --parent->size;
             return;
+        }
     }
 
     Node* newNode = new Node(value, parent);
@@ -160,7 +170,27 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     // Value not found
     if (!node) return false;
 
-    // Deletion cases
+    // Case 3: Two children
+    if (node->left && node->right) {
+        // Find inorder successor (smallest in right subtree)
+        Node* suc = node->right;
+        while (suc->left != nullptr)
+            suc = suc->left;
+
+        T successorValue = suc->value;
+        deleteValue(successorValue);
+        node->value = successorValue;
+        return true;
+    }
+
+    // Case 1 & 2: Leaf or one child
+    // Decrement size for all nodes on the path
+    Node* temp = root;
+    while (temp != node) {
+        --temp->size;
+        if (value < temp->value) temp = temp->left;
+        else temp = temp->right;
+    }
 
     // Case 1: Leaf node
     if (!node->left && !node->right) {
@@ -177,7 +207,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     }
 
     // Case 2: One child
-    else if (!node->left || !node->right) {
+    else {
         Node* child = nullptr;
 
         if (node->left != nullptr)
@@ -198,20 +228,6 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
         }
 
         delete node;
-    }
-
-    // Case 3: Two children
-    else {
-        // Find inorder successor (smallest in right subtree)
-        Node* suc = node->right;
-        while (suc->left != nullptr)
-            suc = suc->left;
-
-
-        T successorValue = suc->value;
-        deleteValue(successorValue);
-        node->value = successorValue;
-        return true;
     }
 
     // Update node count
@@ -247,7 +263,7 @@ int ScapeGoatTree<T>::findH(const Node *node) {
 template<typename T>
 int ScapeGoatTree<T>::countN(const Node *node) {
     if (!node) return 0;
-    return 1 + countN(node->left) + countN(node->right);
+    return node->size;
 }
 
 /**
@@ -258,7 +274,7 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
     while (node != nullptr) {
         const int left = countN(node->left);
         const int right = countN(node->right);
-        int size = left + right + 1;
+        int size = node->size;
 
         if (left > (2.0 / 3.0) * size || right > (2.0 / 3.0) * size)
             return node;
@@ -279,6 +295,7 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int
     Node* Nroot = new Node(array[mid], parent_node);
     Nroot->left = rebuildTree(start, mid - 1, Nroot, array);
     Nroot->right = rebuildTree(mid + 1, end, Nroot, array);
+    Nroot->size = 1 + countN(Nroot->left) + countN(Nroot->right);
     return Nroot;
 }
 /**
@@ -506,8 +523,6 @@ template<typename T>
 ScapeGoatTree<T>& ScapeGoatTree<T>::operator=(const ScapeGoatTree& other) {
     if (this == &other) return *this;
     postorderTraversal(root);
-    root = nullptr;
-    nNodes = 0;
     max_nodes = 0;
     if (other.root) preorderTraversal(other.root);
     return *this;
@@ -671,6 +686,8 @@ bool ScapeGoatTree<T>::search(const T& key) const {
 template<typename T>
 void ScapeGoatTree<T>::clear() {
     postorderTraversal(root);
+    root = nullptr;
+    nNodes = 0;
     max_nodes = 0;
 }
 

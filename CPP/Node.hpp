@@ -8,16 +8,17 @@ template<typename T>
 
 class Node {
 public:
-    T value;     // stored value
-    Node* left;    // left child pointer
-    Node* right;   // right child pointer
-    Node* parent;  // parent pointer
+    T value{};     // stored value
+    Node* left{};    // left child pointer
+    Node* right{};   // right child pointer
+    Node* parent{};  // parent pointer
+    int size=1;      // subtree size
 
     /**
      * Initializes a node with a value and an optional parent pointer.
      */
     explicit Node(T& v, Node* parentPtr = nullptr)
-        : value(v), left(nullptr), right(nullptr), parent(parentPtr) {}
+        : value(v), parent(parentPtr){}
     template<typename>
     friend class ScapeGoatTree;
 };
