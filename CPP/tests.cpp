@@ -143,7 +143,7 @@ void testCopyAndMove() {
     tree1.insert(30);
 
     // Copy constructor
-    ScapeGoatTree<int> tree2(tree1);
+    ScapeGoatTree tree2(tree1);
     assert(tree2 == tree1);
     assert(tree2.search(10));
     assert(tree2.search(20));
@@ -154,7 +154,7 @@ void testCopyAndMove() {
     assert(tree3 == tree1);
 
     // Move constructor
-    ScapeGoatTree<int> tree4(std::move(tree2));
+    const ScapeGoatTree tree4(std::move(tree2));
     assert(tree4.search(10));
     assert(tree4.search(20));
     assert(tree4.search(30));
