@@ -26,12 +26,23 @@
 #include <cmath>
 #include "vector.hpp"
 #include "stack.hpp"
-enum class OpType { Insert, Delete, BatchStart, BatchEnd };
+/**
+ * Represents the type of operation performed on the tree for undo/redo purposes.
+ */
+enum class OpType { 
+    Insert,     // Insertion of a single value
+    Delete,     // Deletion of a single value
+    BatchStart, // Marker for the beginning of a batch operation
+    BatchEnd    // Marker for the end of a batch operation
+};
 
+/**
+ * Encapsulates a command that can be undone or redone.
+ */
 template<typename T>
 struct Command {
-    OpType type;
-    T value;
+    OpType type; // Type of the operation
+    T value;     // Value associated with the operation (if applicable)
 };
 
 template<typename T>
@@ -95,8 +106,18 @@ class ScapeGoatTree {
     void restructure_subtree(Node *newNode);
     Node* root{};
     int nNodes{};
+    /**
+     * Stack to store commands that can be undone.
+     */
     Stack<Command<T>> undoStack;
+    /**
+     * Stack to store commands that have been undone and can be redone.
+     */
     Stack<Command<T>> redoStack;
+    /**
+     * Flag to prevent operations triggered by undo/redo from being recorded.
+     * This avoids infinite recursion and keeps the undo history clean.
+     */
     bool isUndoing = false;
     int max_nodes = 0;
 public:

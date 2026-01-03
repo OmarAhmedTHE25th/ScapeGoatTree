@@ -78,6 +78,7 @@ void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
  */
 template<typename T>
 void ScapeGoatTree<T>::insert(T value) {
+    // Record the operation for undo if not currently undoing/redoing
     if (!isUndoing) {
         undoStack.push({OpType::Insert, value});
     }
@@ -109,6 +110,8 @@ void ScapeGoatTree<T>::insert(T value) {
                 else current = current->right;
             }
             --parent->size;
+            // If the value already exists, we didn't actually change the tree,
+            // so we remove the command from the undo stack.
             if (!isUndoing) {
                 undoStack.pop();
             }
@@ -133,6 +136,7 @@ void ScapeGoatTree<T>::insert(T value) {
  */
 template<typename T>
     void ScapeGoatTree<T>::insertBatch(const Vector<T>& values) {
+    // Group multiple insertions into a single undo/redo unit
     if (!isUndoing) undoStack.push({OpType::BatchStart, T()});
     for (int i = 0; i < values.size(); i++) {
         insert(values[i]);
@@ -145,6 +149,7 @@ template<typename T>
  */
 template<typename T>
 void ScapeGoatTree<T>::deleteBatch(const  Vector<T>& values) {
+    // Group multiple deletions into a single undo/redo unit
     if (!isUndoing) undoStack.push({OpType::BatchStart, T()});
     for (int i = 0; i < values.size(); i++) {
         deleteValue(values[i]);
@@ -177,22 +182,21 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     // Value not found
     if (!node) return false;
 
+    // Record the operation for undo if not currently undoing/redoing
     if (!isUndoing) {
         undoStack.push({OpType::Delete, value});
     }
     bool originalIsUndoing = isUndoing;
     isUndoing = true;
-    // Case 1 & 2: Leaf or one child
-    // Decrement size for all nodes on the path
-    Node* temp = root;
-    while (temp != node) {
-        --temp->size;
-        if (value < temp->value) temp = temp->left;
-        else temp = temp->right;
-    }
-
     // Case 1: Leaf node
     if (!node->left && !node->right) {
+        // Decrement size for all nodes on the path
+        Node* temp = root;
+        while (temp != node) {
+            --temp->size;
+            if (value < temp->value) temp = temp->left;
+            else temp = temp->right;
+        }
         if (!parent) {
             root = nullptr;
         }
@@ -207,6 +211,13 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
 
     // Case 2: One child
     else if(node->left && !node->right || !node->left && node->right) {
+        // Decrement size for all nodes on the path
+        Node* temp = root;
+        while (temp != node) {
+            --temp->size;
+            if (value < temp->value) temp = temp->left;
+            else temp = temp->right;
+        }
         Node* child = nullptr;
 
         if (node->left != nullptr)
@@ -694,26 +705,30 @@ void ScapeGoatTree<T>::clear() {
 }
 /**
  * Undo the last operation (insert or delete).
+ * If the last operation was a batch, it undoes the entire batch.
  */
 
 template<typename T>
     void ScapeGoatTree<T>::undo() {
             if (undoStack.isEmpty()) return;
+            // Set flag to prevent undo actions from being recorded as new operations
             isUndoing = true;
             Command<T> cmd = undoStack.pop();
             
             if (cmd.type == OpType::BatchEnd) {
-                redoStack.push(cmd); // Push End first
+                // Handle batch operation: undo everything until BatchStart
+                redoStack.push(cmd); // Push End first to maintain order for redo
                 while (!undoStack.isEmpty()) {
                     Command<T> batchCmd = undoStack.pop();
                     redoStack.push(batchCmd);
                     if (batchCmd.type == OpType::BatchStart) break;
 
-                    // Execute the inverse operation
+                    // Execute the inverse of the recorded operation
                     if (batchCmd.type == OpType::Insert) deleteValue(batchCmd.value);
                     else if (batchCmd.type == OpType::Delete) insert(batchCmd.value);
                 }
             } else {
+                // Handle single operation
                 redoStack.push(cmd);
                 if (cmd.type == OpType::Insert) deleteValue(cmd.value);
                 else if (cmd.type == OpType::Delete) insert(cmd.value);
@@ -721,15 +736,18 @@ template<typename T>
             isUndoing = false;
         }
 /**
- *  Redo the last undone operation.
+ * Redo the last undone operation.
+ * If the last undone operation was a batch, it redoes the entire batch.
  */
     template<typename T>
     void ScapeGoatTree<T>::redo() {
             if (redoStack.isEmpty()) return;
+            // Set flag to prevent redo actions from being recorded in undoStack incorrectly
             isUndoing = true;
             Command<T> cmd = redoStack.pop();
 
             if (cmd.type == OpType::BatchStart) {
+                // Handle batch operation: redo everything until BatchEnd
                 undoStack.push(cmd);
                 while (!redoStack.isEmpty()) {
                     Command<T> batchCmd = redoStack.pop();
@@ -741,6 +759,7 @@ template<typename T>
                     else if (batchCmd.type == OpType::Delete) deleteValue(batchCmd.value);
                 }
             } else {
+                // Handle single operation
                 undoStack.push(cmd);
                 if (cmd.type == OpType::Insert) insert(cmd.value);
                 else if (cmd.type == OpType::Delete) deleteValue(cmd.value);

@@ -12,7 +12,7 @@ public:
     Node* left{};    // left child pointer
     Node* right{};   // right child pointer
     Node* parent{};  // parent pointer
-    unsigned short size=1;      // subtree size
+    size_t size=1;      // subtree size
 
     /**
      * Initializes a node with a value and an optional parent pointer.
