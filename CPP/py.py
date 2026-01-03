@@ -64,8 +64,6 @@ class ScapeGoatGUI:
         tk.Button(self.ops_frame, text="Delete", command=self.cmd_delete, bg="lightcoral", **btn_opts).grid(row=0, column=2, padx=5, pady=2)
         tk.Button(self.ops_frame, text="Delete Batch", command=self.cmd_deletebatch, bg="lightcoral", **btn_opts).grid(row=0, column=3, padx=5, pady=2)
         tk.Button(self.ops_frame, text="Search", command=self.cmd_search, bg="gold", **btn_opts).grid(row=0, column=4, padx=5, pady=2)
-        tk.Button(self.ops_frame, text="Undo", command=self.cmd_undo, bg="orange", **btn_opts).grid(row=0, column=5, padx=5, pady=2)
-
         # Row 1: Displays
         tk.Button(self.ops_frame, text="Show In-Order", command=lambda: self.cmd_show("in"), **btn_opts).grid(row=1, column=0, padx=5, pady=2)
         tk.Button(self.ops_frame, text="Show Pre-Order", command=lambda: self.cmd_show("pre"), **btn_opts).grid(row=1, column=1, padx=5, pady=2)
@@ -75,8 +73,10 @@ class ScapeGoatGUI:
         # Row 2: Maintenance
         tk.Button(self.ops_frame, text="Check Balance", command=self.cmd_balance, **btn_opts).grid(row=2, column=0, padx=5, pady=2)
         tk.Button(self.ops_frame, text="Clear Tree", command=self.cmd_clear, **btn_opts).grid(row=2, column=1, padx=5, pady=2)
-
-        # --- Section C: Advanced Features ---
+        # Row 3: Undo/Redo
+        tk.Button(self.ops_frame, text="Undo", command=self.cmd_undo, bg="orange", **btn_opts).grid(row=3, column=0, padx=5, pady=2)
+        tk.Button(self.ops_frame, text="Redo", command=self.cmd_redo, bg="orange", **btn_opts).grid(row=3, column=1, padx=5, pady=2)
+    # --- Section C: Advanced Features ---
         self.adv_frame = tk.LabelFrame(self.control_frame, text="Advanced / Demo", padx=10, pady=10)
         self.adv_frame.pack(side=tk.LEFT, fill=tk.Y, padx=10, pady=10)
 
@@ -171,6 +171,10 @@ class ScapeGoatGUI:
     def cmd_undo(self):
         self.get_active_tree().undo()
         self.log(f"Undo performed on Tree {self.selected_tree_var.get()}")
+        self.draw_tree()
+    def cmd_redo(self):
+        self.get_active_tree().redo()
+        self.log(f"Redo performed on Tree {self.selected_tree_var.get()}")
         self.draw_tree()
 
     def cmd_clear(self):

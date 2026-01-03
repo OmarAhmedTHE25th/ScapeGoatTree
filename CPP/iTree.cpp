@@ -245,7 +245,11 @@ void ITree::handleUndo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &
     tree.undo();
     printSuccess("SUCCESS: Undo complete.");
 }
-
+void ITree::handleRedo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
+    tree.redo();
+    printSuccess("SUCCESS: Redo complete.");
+}
 /* ===================== Main UI ===================== */
 
 typedef void (*MenuHandler)(ScapeGoatTree<ElemenType>&, ScapeGoatTree<ElemenType>&, opcodes);
@@ -280,7 +284,8 @@ void ITree::TreeUI() {
         {"Operator Merge",      opcodes::MERGE,            [](auto& A, auto& B, auto){ handleOperatorMerge(A, B); }},
         {"Operator Compare",    opcodes::COMPARE,          [](auto& A, auto& B, auto){ handleOperatorCompare(A, B); }},
         {"Operator Clear",      opcodes::CLEAR,            [](auto& A, auto& B, auto ){handleClear(A,B);}},
-        {"Undo",                opcodes::EMPTY,            [](auto& A, auto& B, auto ){handleUndo(A,B);}}
+        {"Undo",                opcodes::UNDO,            [](auto& A, auto& B, auto ){handleUndo(A,B);}},
+        {"Redo",                opcodes::REDO,            [](auto& A, auto& B, auto ){handleRedo(A,B);}},
     };
 
     constexpr int menuSize = std::size(menu);

@@ -169,7 +169,7 @@ void testCopyAndMove() {
     std::cout << "Copy and Move Passed!" << std::endl;
 }
 
-void testUndo() {
+void testUandR() {
     std::cout << "Testing Undo..." << std::endl;
     ScapeGoatTree<int> tree;
 
@@ -178,6 +178,11 @@ void testUndo() {
     assert(tree.search(10));
     tree.undo();
     assert(!tree.search(10));
+// Test redo insertion
+    tree.insert(10);
+    assert(tree.search(10));
+    tree.redo();
+    assert(tree.search(10));
 
     // Test undo deletion
     tree.insert(20);
@@ -186,6 +191,12 @@ void testUndo() {
     assert(!tree.search(20));
     tree.undo();
     assert(tree.search(20));
+    // Test redo deletion
+    tree.deleteValue(20);
+    assert(!tree.search(20));
+    tree.redo();
+    assert(!tree.search(20));
+
 
     // Test batch undo
     Vector<int> values;
@@ -196,9 +207,15 @@ void testUndo() {
     assert(tree.search(1) && tree.search(2) && tree.search(3));
     tree.undo();
     assert(!tree.search(1) && !tree.search(2) && !tree.search(3));
-    assert(tree.search(20)); // Should still have 20
+    assert(tree.search(20));
+    // Test batch redo
+    tree.insertBatch(values);
+    assert(tree.search(1) && tree.search(2) && tree.search(3));
+    tree.redo();
+    assert(tree.search(1) && tree.search(2) && tree.search(3));
+    assert(tree.search(20));
 
-    std::cout << "Undo Passed!" << std::endl;
+    std::cout << "Undo and Redo Passed!" << std::endl;
 }
 
 int main() {
@@ -209,7 +226,7 @@ int main() {
         testOperators();
         testBatchOperations();
         testCopyAndMove();
-        testUndo();
+        testUandR();
         std::cout << "\nALL TESTS PASSED SUCCESSFULLY!" << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "Test failed with exception: " << e.what() << std::endl;

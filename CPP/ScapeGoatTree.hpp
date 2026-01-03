@@ -96,7 +96,8 @@ class ScapeGoatTree {
     void restructure_subtree(Node *newNode);
     Node* root{};
     int nNodes{};
-    Stack<Command<T>> commandStack;
+    Stack<Command<T>> undoStack;
+    Stack<Command<T>> redoStack;
     bool isUndoing = false;
     int max_nodes = 0;
 public:
@@ -136,6 +137,7 @@ public:
      */
     void clear();
     void undo();
+    void redo();
 
     /**
      * Returns a string report indicating if the tree is currently balanced.

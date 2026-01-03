@@ -37,6 +37,7 @@ PYBIND11_MODULE(scapegoat_tree_py, m) {
         .def("get_root", &ScapeGoatTree<Type>::getRoot, py::return_value_policy::reference_internal)
         .def("clear", &ScapeGoatTree<Type>::clear)
         .def("undo", &ScapeGoatTree<Type>::undo)
+        .def("redo", &ScapeGoatTree<Type>::redo)
 
 
         .def(py::self + py::self)

@@ -79,7 +79,7 @@ void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
 template<typename T>
 void ScapeGoatTree<T>::insert(T value) {
     if (!isUndoing) {
-        commandStack.push({OpType::Insert, value});
+        undoStack.push({OpType::Insert, value});
     }
     if (!root) {
         root = new Node(value, nullptr);
@@ -110,7 +110,7 @@ void ScapeGoatTree<T>::insert(T value) {
             }
             --parent->size;
             if (!isUndoing) {
-                commandStack.pop();
+                undoStack.pop();
             }
             return;
         }
@@ -133,11 +133,11 @@ void ScapeGoatTree<T>::insert(T value) {
  */
 template<typename T>
     void ScapeGoatTree<T>::insertBatch(const Vector<T>& values) {
-    if (!isUndoing) commandStack.push({OpType::BatchStart, T()});
+    if (!isUndoing) undoStack.push({OpType::BatchStart, T()});
     for (int i = 0; i < values.size(); i++) {
         insert(values[i]);
     }
-    if (!isUndoing) commandStack.push({OpType::BatchEnd, T()});
+    if (!isUndoing) undoStack.push({OpType::BatchEnd, T()});
 }
 
 /**
@@ -145,11 +145,11 @@ template<typename T>
  */
 template<typename T>
 void ScapeGoatTree<T>::deleteBatch(const  Vector<T>& values) {
-    if (!isUndoing) commandStack.push({OpType::BatchStart, T()});
+    if (!isUndoing) undoStack.push({OpType::BatchStart, T()});
     for (int i = 0; i < values.size(); i++) {
         deleteValue(values[i]);
     }
-    if (!isUndoing) commandStack.push({OpType::BatchEnd, T()});
+    if (!isUndoing) undoStack.push({OpType::BatchEnd, T()});
 }
 
 
@@ -178,7 +178,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     if (!node) return false;
 
     if (!isUndoing) {
-        commandStack.push({OpType::Delete, value});
+        undoStack.push({OpType::Delete, value});
     }
 
     // Case 1 & 2: Leaf or one child
@@ -236,7 +236,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
 
         T successorValue = suc->value;
         if (!isUndoing) {
-            commandStack.pop();
+            undoStack.pop();
         }
         deleteValue(successorValue);
         node->value = successorValue;
@@ -694,28 +694,52 @@ void ScapeGoatTree<T>::clear() {
 }
 
 template<typename T>
-void ScapeGoatTree<T>::undo() {
-        if (commandStack.isEmpty()) return;
-        isUndoing = true;
+    void ScapeGoatTree<T>::undo() {
+            if (undoStack.isEmpty()) return;
+            isUndoing = true;
+            Command<T> cmd = undoStack.pop();
+            
+            if (cmd.type == OpType::BatchEnd) {
+                redoStack.push(cmd); // Push End first
+                while (!undoStack.isEmpty()) {
+                    Command<T> batchCmd = undoStack.pop();
+                    redoStack.push(batchCmd);
+                    if (batchCmd.type == OpType::BatchStart) break;
 
-        if (Command<T> cmd = commandStack.pop(); cmd.type == OpType::BatchEnd) {
-            // Revert everything until we hit BatchStart
-            while (!commandStack.isEmpty()) {
-                Command<T> batchCmd = commandStack.pop();
-                if (batchCmd.type == OpType::BatchStart) break;
-                
-                if (batchCmd.type == OpType::Insert) deleteValue(batchCmd.value);
-                else if (batchCmd.type == OpType::Delete) insert(batchCmd.value);
+                    // Execute the inverse operation
+                    if (batchCmd.type == OpType::Insert) deleteValue(batchCmd.value);
+                    else if (batchCmd.type == OpType::Delete) insert(batchCmd.value);
+                }
+            } else {
+                redoStack.push(cmd);
+                if (cmd.type == OpType::Insert) deleteValue(cmd.value);
+                else if (cmd.type == OpType::Delete) insert(cmd.value);
             }
-        } else {
-            // Normal single-item undo
-            if (cmd.type == OpType::Insert) {
-                deleteValue(cmd.value);
-            } else if (cmd.type == OpType::Delete) {
-                insert(cmd.value);
-            }
+            isUndoing = false;
         }
-        
-        isUndoing = false;
-    }
+
+    template<typename T>
+    void ScapeGoatTree<T>::redo() {
+            if (redoStack.isEmpty()) return;
+            isUndoing = true;
+            Command<T> cmd = redoStack.pop();
+
+            if (cmd.type == OpType::BatchStart) {
+                undoStack.push(cmd);
+                while (!redoStack.isEmpty()) {
+                    Command<T> batchCmd = redoStack.pop();
+                    undoStack.push(batchCmd);
+                    if (batchCmd.type == OpType::BatchEnd) break;
+
+                    // Re-execute the original operation
+                    if (batchCmd.type == OpType::Insert) insert(batchCmd.value);
+                    else if (batchCmd.type == OpType::Delete) deleteValue(batchCmd.value);
+                }
+            } else {
+                undoStack.push(cmd);
+                if (cmd.type == OpType::Insert) insert(cmd.value);
+                else if (cmd.type == OpType::Delete) deleteValue(cmd.value);
+            }
+            isUndoing = false;
+        }
 #endif //TREE_SCAPEGOATTREE_TPP

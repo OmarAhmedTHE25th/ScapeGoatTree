@@ -10,7 +10,7 @@ using namespace std;
 typedef int ElemenType;
 
 enum class opcodes {INSERT, DELETEOP, SEARCH, DISPLAY_INORDER, DISPLAY_PREORDER,
-    DISPLAY_POSTORDER, DISPLAY_LEVELS,EXIT,BALANCE,COMPARE,MERGE,EMPTY,BATCH_INSERT,BATCH_DELETE,CLEAR};
+    DISPLAY_POSTORDER, DISPLAY_LEVELS,EXIT,BALANCE,COMPARE,MERGE,EMPTY,BATCH_INSERT,BATCH_DELETE,CLEAR,UNDO,REDO};
 
 class ITree {
     /**
@@ -63,6 +63,7 @@ class ITree {
      */
     static  void handleClear(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
     static void handleUndo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+    static void handleRedo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
 public:
     /**
      * Launches the terminal-based user interface for interacting with the trees.
