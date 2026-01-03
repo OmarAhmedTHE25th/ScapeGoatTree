@@ -22,7 +22,6 @@
 #define SCAPEGOATTREE_SCAPEGOATTREE_HPP
 
 #include <string>
-#include  <iostream>
 #include "Node.hpp"
 #include <cmath>
 #include "vector.hpp"

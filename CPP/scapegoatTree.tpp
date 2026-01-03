@@ -692,7 +692,7 @@ void ScapeGoatTree<T>::clear() {
     nNodes = 0;
     max_nodes = 0;
 }
-/*
+/**
  * Undo the last operation (insert or delete).
  */
 
@@ -720,9 +720,9 @@ template<typename T>
             }
             isUndoing = false;
         }
-/*
+/**
  *  Redo the last undone operation.
-    */
+ */
     template<typename T>
     void ScapeGoatTree<T>::redo() {
             if (redoStack.isEmpty()) return;
