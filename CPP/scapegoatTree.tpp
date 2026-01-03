@@ -60,16 +60,18 @@ void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
     if (goat == nullptr) return;
     const int subtree_size = countN(goat);
     T* temp_array = new T[subtree_size];
-
     int i = 0;
     //flatten the tree into a sorted array
     inorderTraversal(goat, i, temp_array);
     const int sub_size = i; // size of subtree
+    //rebuild the subtree
     Node* balanced = rebuildTree(0, sub_size- 1, goat->parent, temp_array);
-    if (!goat->parent) root = balanced;
-    else if (goat == goat->parent->left) goat->parent->left = balanced;
-    else goat->parent->right = balanced;
-    postorderTraversal(goat);
+    rebuildCount++;
+    //reattach the rebuilt subtree
+    if (!goat->parent) root = balanced; // if goat is root then update root
+    else if (goat == goat->parent->left) goat->parent->left = balanced; //if goat is left child then update left pointer
+    else goat->parent->right = balanced; //if goat is right child then update right pointer
+    postorderTraversal(goat);// delete old subtree
     delete[] temp_array;
 }
 
@@ -333,6 +335,7 @@ void ScapeGoatTree<T>::DeletionRebuild(){
             inorderTraversal(root, i, temp_array);
            const Node* oldRoot = root;
             root = rebuildTree(0, nNodes - 1, nullptr, temp_array);
+            rebuildCount++;
             delete[] temp_array;
             postorderTraversal(oldRoot);
             max_nodes = nNodes;
@@ -509,13 +512,13 @@ ScapeGoatTree<T> ScapeGoatTree<T>::operator+(const ScapeGoatTree& other)const  {
     int idx = 0, idx1 = 0, idx2 = 0;
 
     // Linear Merge (O(N+M)) to keep the array sorted
-    while (idx1 < nNodes && idx2 < other.nNodes) { //run as long as both arrays have elements
-        /**
+    /**
          * if first is smaller then take it
          * and increment the indicies for the merged list and the current array
          * else if second is smaller then take it and increment the indicies for the merged list and the current array
          * else (duplicates) take one of them and skip the duplicate in the other array
          */
+    while (idx1 < nNodes && idx2 < other.nNodes) { //run as long as both arrays have elements
         if (array[idx1] < other_array[idx2]) temp_array[idx++] = array[idx1++];
         else if (array[idx1] > other_array[idx2]) temp_array[idx++] = other_array[idx2++];
         else { // duplicates
@@ -673,10 +676,11 @@ std::string ScapeGoatTree<T>::isBalanced() const {
 
     out << "Node count: " << n << "\n";
     out << "Height: " << height << "\n";
-    out << "Height bound: " << bound << "\n\n";
+    out << "Height bound: " << bound << "\n";
+    out << "Total Rebuilds: " << rebuildCount << "\n\n";
 
     if (height<= bound)
-        out << "^_____^ Tree is balanced -- congratulations. It's not a Linked List.\n";
+        out << "^_____^ Tree is balanced. \nCongratulations, It's not a Linked List.\n";
     else
         out << "~_~ Tree is NOT balanced. A scapegoat must be sacrificed.\n";
 

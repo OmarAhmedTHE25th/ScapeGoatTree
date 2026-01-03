@@ -106,6 +106,7 @@ class ScapeGoatTree {
     void restructure_subtree(Node *newNode);
     Node* root{};
     int nNodes{};
+    int rebuildCount = 0;
     /**
      * Stack to store commands that can be undone.
      */

@@ -38,10 +38,13 @@ class ScapeGoatGUI:
         self.control_frame = tk.Frame(root, height=250, bg="#f0f0f0", bd=2, relief=tk.RAISED)
         self.control_frame.pack(fill=tk.X, side=tk.BOTTOM)
 
+        # Configure columns so the log box gets the extra space
+        self.control_frame.columnconfigure(3, weight=1)
+
+
         # --- Section A: Inputs & Selection ---
         self.input_frame = tk.LabelFrame(self.control_frame, text="Inputs & Selection", padx=10, pady=10)
-        self.input_frame.pack(side=tk.LEFT, fill=tk.Y, padx=10, pady=10)
-
+        self.input_frame.grid(row=0, column=0, sticky="nsw", padx=10, pady=10)
         tk.Label(self.input_frame, text="Value:").grid(row=0, column=0, sticky="w")
         self.entry_val = tk.Entry(self.input_frame, width=10, font=("Arial", 12))
         self.entry_val.grid(row=0, column=1, padx=5)
@@ -55,8 +58,7 @@ class ScapeGoatGUI:
 
         # --- Section B: Operations ---
         self.ops_frame = tk.LabelFrame(self.control_frame, text="Operations", padx=10, pady=10)
-        self.ops_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=10, pady=10)
-
+        self.ops_frame.grid(row=0, column=1, sticky="nsw", padx=10, pady=10)
         # Row 0: Basic Ops
         btn_opts = {'width': 12, 'pady': 2}
         tk.Button(self.ops_frame, text="Insert", command=self.cmd_insert, bg="lightgreen", **btn_opts).grid(row=0, column=0, padx=5, pady=2)
@@ -78,16 +80,17 @@ class ScapeGoatGUI:
         tk.Button(self.ops_frame, text="Redo", command=self.cmd_redo, bg="orange", **btn_opts).grid(row=3, column=1, padx=5, pady=2)
     # --- Section C: Advanced Features ---
         self.adv_frame = tk.LabelFrame(self.control_frame, text="Advanced / Demo", padx=10, pady=10)
-        self.adv_frame.pack(side=tk.LEFT, fill=tk.Y, padx=10, pady=10)
+        self.adv_frame.grid(row=0, column=2, sticky="nsw", padx=10, pady=10)
 
         tk.Button(self.adv_frame, text="Merge A+B -> A", command=self.cmd_merge, width=15, bg="lightblue").pack(pady=2)
         tk.Button(self.adv_frame, text="Compare A == B", command=self.cmd_compare, width=15).pack(pady=2)
         tk.Button(self.adv_frame, text="Is Empty?", command=self.cmd_isempty, width=15).pack(pady=2)
 
         # --- Section D: Logs ---
-        self.log_text = tk.Text(self.control_frame, height=8, width=50)
-        self.log_text.pack(side=tk.RIGHT, padx=10, pady=10)
+        self.log_text = tk.Text(self.control_frame, height=12, width=80)
+        self.log_text.grid(row=0, column=3, sticky="nsew", padx=10, pady=10)
         self.log("Welcome! C++ Backend Connected.")
+
 
     # --- LOGIC HANDLERS ---
 
