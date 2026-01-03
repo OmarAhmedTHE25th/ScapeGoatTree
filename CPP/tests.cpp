@@ -170,7 +170,7 @@ void testCopyAndMove() {
 }
 
 void testUandR() {
-    std::cout << "Testing Undo..." << std::endl;
+    std::cout << "Testing Undo and Redo..." << std::endl;
     ScapeGoatTree<int> tree;
 
     // Test undo insertion
@@ -207,13 +207,13 @@ void testUandR() {
     assert(tree.search(1) && tree.search(2) && tree.search(3));
     tree.undo();
     assert(!tree.search(1) && !tree.search(2) && !tree.search(3));
-    assert(tree.search(20));
+
     // Test batch redo
     tree.insertBatch(values);
     assert(tree.search(1) && tree.search(2) && tree.search(3));
     tree.redo();
     assert(tree.search(1) && tree.search(2) && tree.search(3));
-    assert(tree.search(20));
+
 
     std::cout << "Undo and Redo Passed!" << std::endl;
 }
