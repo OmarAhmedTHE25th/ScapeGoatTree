@@ -5,7 +5,6 @@
 #ifndef TREE_ITREE_HPP
 #define TREE_ITREE_HPP
 #include "ScapeGoatTree.hpp"
-#include "string"
 using namespace std;
 typedef int ElemenType;
 
@@ -62,8 +61,8 @@ class ITree {
      * Handles clearing the contents of the trees.
      */
     static  void handleClear(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleUndo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
-    static void handleRedo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+
+    static void handleUndoRedo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op);
 public:
     /**
      * Launches the terminal-based user interface for interacting with the trees.

@@ -2,7 +2,7 @@
 #include <cassert>
 #include <vector>
 #include "ScapeGoatTree.hpp"
-
+typedef int Type;
 // Helper function to check if the tree contains all values in a vector
 template<typename T>
 bool containsAll(const ScapeGoatTree<T>& tree, const std::vector<T>& values) {
@@ -14,7 +14,7 @@ bool containsAll(const ScapeGoatTree<T>& tree, const std::vector<T>& values) {
 
 void testBasicInsertion() {
     std::cout << "Testing Basic Insertion..." << std::endl;
-    ScapeGoatTree<int> tree;
+    ScapeGoatTree<Type> tree;
     tree.insert(10);
     tree.insert(20);
     tree.insert(5);
@@ -28,7 +28,7 @@ void testBasicInsertion() {
 
 void testDeletion() {
     std::cout << "Testing Deletion..." << std::endl;
-    ScapeGoatTree<int> tree;
+    ScapeGoatTree<Type> tree;
     tree.insert(10);
     tree.insert(20);
     tree.insert(5);
@@ -59,7 +59,7 @@ void testDeletion() {
 
 void testRebuilding() {
     std::cout << "Testing Rebuilding (Balancing)..." << std::endl;
-    ScapeGoatTree<int> tree;
+    ScapeGoatTree<Type> tree;
     // Insert values in increasing order to force imbalance
     for (int i = 1; i <= 10; ++i) {
         tree.insert(i);
@@ -81,11 +81,11 @@ void testRebuilding() {
 
 void testOperators() {
     std::cout << "Testing Operators..." << std::endl;
-    ScapeGoatTree<int> tree1;
+    ScapeGoatTree<Type> tree1;
     tree1.insert(10);
     tree1.insert(20);
 
-    ScapeGoatTree<int> tree2;
+    ScapeGoatTree<Type> tree2;
     tree2.insert(10);
     tree2.insert(20);
 
@@ -105,7 +105,7 @@ void testOperators() {
     assert(tree1 != tree2);
 
     // Test operator!
-    ScapeGoatTree<int> emptyTree;
+    ScapeGoatTree<Type> emptyTree;
     assert(!emptyTree);
     assert(!!tree1);
 
@@ -114,8 +114,8 @@ void testOperators() {
 
 void testBatchOperations() {
     std::cout << "Testing Batch Operations..." << std::endl;
-    ScapeGoatTree<int> tree;
-    Vector<int> values;
+    ScapeGoatTree<Type> tree;
+    Vector<Type> values;
     values.push_back(1);
     values.push_back(2);
     values.push_back(3);
@@ -137,7 +137,7 @@ void testBatchOperations() {
 
 void testCopyAndMove() {
     std::cout << "Testing Copy and Move..." << std::endl;
-    ScapeGoatTree<int> tree1;
+    ScapeGoatTree<Type> tree1;
     tree1.insert(10);
     tree1.insert(20);
     tree1.insert(30);
@@ -150,7 +150,7 @@ void testCopyAndMove() {
     assert(tree2.search(30));
 
     // Copy assignment
-    ScapeGoatTree<int> tree3 = tree1;
+    ScapeGoatTree<Type> tree3 = tree1;
     assert(tree3 == tree1);
 
     // Move constructor
@@ -162,7 +162,7 @@ void testCopyAndMove() {
     assert(!tree2);
 
     // Move assignment
-    const ScapeGoatTree<int> tree5 = std::move(tree3);
+    const ScapeGoatTree<Type> tree5 = std::move(tree3);
     assert(tree5.search(10));
     assert(!tree3);
 
@@ -171,7 +171,7 @@ void testCopyAndMove() {
 
 void testUandR() {
     std::cout << "Testing Undo and Redo..." << std::endl;
-    ScapeGoatTree<int> tree;
+    ScapeGoatTree<Type> tree;
 
     // Test undo insertion
     tree.insert(10);
@@ -199,7 +199,7 @@ void testUandR() {
 
 
     // Test batch undo
-    Vector<int> values;
+    Vector<Type> values;
     values.push_back(1);
     values.push_back(2);
     values.push_back(3);

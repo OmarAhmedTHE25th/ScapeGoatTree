@@ -314,12 +314,12 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
  */
 template<typename T>
 ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int end, Node* parent_node,T* array) {
-    if (start > end) return nullptr;
-    int mid = (start + end) / 2;
-    Node* Nroot = new Node(array[mid], parent_node);
-    Nroot->left = rebuildTree(start, mid - 1, Nroot, array);
-    Nroot->right = rebuildTree(mid + 1, end, Nroot, array);
-    Nroot->size = 1 + countN(Nroot->left) + countN(Nroot->right);
+    if (start > end) return nullptr; // base case
+    int mid = (start + end) / 2; // find mid index
+    Node* Nroot = new Node(array[mid], parent_node); // create node with mid value
+    Nroot->left = rebuildTree(start, mid - 1, Nroot, array); // build left subtree
+    Nroot->right = rebuildTree(mid + 1, end, Nroot, array);// build right subtree
+    Nroot->size = 1 + countN(Nroot->left) + countN(Nroot->right);// update size
     return Nroot;
 }
 /**
@@ -509,7 +509,13 @@ ScapeGoatTree<T> ScapeGoatTree<T>::operator+(const ScapeGoatTree& other)const  {
     int idx = 0, idx1 = 0, idx2 = 0;
 
     // Linear Merge (O(N+M)) to keep the array sorted
-    while (idx1 < nNodes && idx2 < other.nNodes) {
+    while (idx1 < nNodes && idx2 < other.nNodes) { //run as long as both arrays have elements
+        /**
+         * if first is smaller then take it
+         * and increment the indicies for the merged list and the current array
+         * else if second is smaller then take it and increment the indicies for the merged list and the current array
+         * else (duplicates) take one of them and skip the duplicate in the other array
+         */
         if (array[idx1] < other_array[idx2]) temp_array[idx++] = array[idx1++];
         else if (array[idx1] > other_array[idx2]) temp_array[idx++] = other_array[idx2++];
         else { // duplicates
@@ -517,8 +523,8 @@ ScapeGoatTree<T> ScapeGoatTree<T>::operator+(const ScapeGoatTree& other)const  {
             idx2++;
         }
     }
-    while (idx1 < nNodes) temp_array[idx++] = array[idx1++];
-    while (idx2 < other.nNodes) temp_array[idx++] = other_array[idx2++];
+    while (idx1 < nNodes) temp_array[idx++] = array[idx1++]; //append remaining elements from first array
+    while (idx2 < other.nNodes) temp_array[idx++] = other_array[idx2++]; //append remaining elements from second array
 
     //Rebuild  (O(N+M))
     result.root = result.rebuildTree(0, idx - 1, nullptr, temp_array);

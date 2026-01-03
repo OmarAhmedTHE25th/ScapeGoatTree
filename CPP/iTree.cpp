@@ -240,15 +240,23 @@ void ITree::handleClear(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> 
     tree = 0;
     printSuccess("SUCCESS: Tree cleared using operator = 0");
 }
-void ITree::handleUndo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+void ITree::handleUndoRedo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B,opcodes op) {
     auto& tree = selectTree(A, B);
-    tree.undo();
-    printSuccess("SUCCESS: Undo complete.");
-}
-void ITree::handleRedo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
-    auto& tree = selectTree(A, B);
-    tree.redo();
-    printSuccess("SUCCESS: Redo complete.");
+    switch (op)
+    {
+        case opcodes::UNDO: {
+            tree.undo();
+            printSuccess("SUCCESS: Undo complete.");
+        }
+            break;
+        case opcodes::REDO: {
+            tree.redo();
+            printSuccess("SUCCESS: Redo complete.");
+        }
+        default:
+            printError("ERROR: Invalid operation.");
+    }
+
 }
 /* ===================== Main UI ===================== */
 
@@ -284,8 +292,8 @@ void ITree::TreeUI() {
         {"Operator Merge",      opcodes::MERGE,            [](auto& A, auto& B, auto){ handleOperatorMerge(A, B); }},
         {"Operator Compare",    opcodes::COMPARE,          [](auto& A, auto& B, auto){ handleOperatorCompare(A, B); }},
         {"Operator Clear",      opcodes::CLEAR,            [](auto& A, auto& B, auto ){handleClear(A,B);}},
-        {"Undo",                opcodes::UNDO,            [](auto& A, auto& B, auto ){handleUndo(A,B);}},
-        {"Redo",                opcodes::REDO,            [](auto& A, auto& B, auto ){handleRedo(A,B);}},
+        {"Undo",                opcodes::UNDO,            handleUndoRedo},
+        {"Redo",                opcodes::REDO,            handleUndoRedo},
     };
 
     constexpr int menuSize = std::size(menu);
