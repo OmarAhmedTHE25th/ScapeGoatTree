@@ -180,7 +180,8 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     if (!isUndoing) {
         undoStack.push({OpType::Delete, value});
     }
-
+    bool originalIsUndoing = isUndoing;
+    isUndoing = true;
     // Case 1 & 2: Leaf or one child
     // Decrement size for all nodes on the path
     Node* temp = root;
@@ -235,11 +236,9 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
             suc = suc->left;
 
         T successorValue = suc->value;
-        if (!isUndoing) {
-            undoStack.pop();
-        }
         deleteValue(successorValue);
         node->value = successorValue;
+        isUndoing = originalIsUndoing;
         return true;
     }
 
@@ -251,6 +250,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     } else {
         DeletionRebuild();
     }
+    isUndoing = originalIsUndoing;
     return true;
 }
 
