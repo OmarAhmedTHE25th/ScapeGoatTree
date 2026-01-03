@@ -479,5 +479,5 @@ For graders/evaluators:
 ---
 
 **Total Lines of Code**: ~2,500  
-**Development Time**: [Your estimate here]  
+**Development Time**: 2 months  
 **Build Status**: ✅ Tested on Windows 11, Ubuntu 22.04
