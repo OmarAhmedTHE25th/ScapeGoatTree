@@ -10,7 +10,26 @@ except ImportError as e:
     scapegoat_tree_py = None
     print(f"CRITICAL ERROR: Could not load C++ module.\n{e}")
     sys.exit(1)
+class LogWindow:
+    def __init__(self, parent):
+        self.win = tk.Toplevel(parent)
+        self.win.title("Tree Logs & Console")
+        self.win.geometry("700x400")
 
+        # When the user clicks the 'X', just hide it again instead of destroying it
+        self.win.protocol("WM_DELETE_WINDOW", self.win.withdraw)
+
+        self.log_text = tk.Text(self.win, bg="#1e1e1e", fg="#d4d4d4",
+                                insertbackground="white", font=("Consolas", 11))
+        self.log_text.pack(fill=tk.BOTH, expand=True)
+        self.log_text.config(state=tk.DISABLED)
+
+    def log(self, msg):
+        self.win.deiconify()  # Show window if hidden
+        self.log_text.config(state=tk.NORMAL)
+        self.log_text.insert(tk.END, "> " + msg + "\n")
+        self.log_text.see(tk.END)
+        self.log_text.config(state=tk.DISABLED)
 class ScapeGoatGUI:
     def __init__(self, root):
         self.root = root
@@ -35,11 +54,8 @@ class ScapeGoatGUI:
         self.canvas.pack(fill=tk.BOTH, expand=True)
 
         # 2. Bottom Controls
-        self.control_frame = tk.Frame(root, height=250, bg="#f0f0f0", bd=2, relief=tk.RAISED)
+        self.control_frame = tk.Frame(root, bg="#f0f0f0", bd=2, relief=tk.RAISED)
         self.control_frame.pack(fill=tk.X, side=tk.BOTTOM)
-
-        # Configure columns so the log box gets the extra space
-        self.control_frame.columnconfigure(3, weight=1)
 
 
         # --- Section A: Inputs & Selection ---
@@ -87,9 +103,8 @@ class ScapeGoatGUI:
         tk.Button(self.adv_frame, text="Is Empty?", command=self.cmd_isempty, width=15).pack(pady=2)
 
         # --- Section D: Logs ---
-        self.log_text = tk.Text(self.control_frame, height=12, width=80)
-        self.log_text.grid(row=0, column=3, sticky="nsew", padx=10, pady=10)
-        self.log("Welcome! C++ Backend Connected.")
+        self.log_win = LogWindow(self.root)
+        self.log_win.log("Welcome! C++ Backend Connected.")
 
 
     # --- LOGIC HANDLERS ---
@@ -98,10 +113,7 @@ class ScapeGoatGUI:
         return self.treeA if self.selected_tree_var.get() == "A" else self.treeB
 
     def log(self, msg):
-        self.log_text.config(state=tk.NORMAL)
-        self.log_text.insert(tk.END, "> " + msg + "\n")
-        self.log_text.see(tk.END)
-        self.log_text.config(state=tk.DISABLED)
+        self.log_win.log(msg)
 
     def refresh_ui(self):
         self.draw_tree()
