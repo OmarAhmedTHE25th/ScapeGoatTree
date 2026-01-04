@@ -1,6 +1,6 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
-
+#include <stdexcept>
 template <typename T>
 class Vector {
 public:
