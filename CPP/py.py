@@ -15,6 +15,7 @@ class LogWindow:
         self.win = tk.Toplevel(parent)
         self.win.title("Tree Logs & Console")
         self.win.geometry("700x400")
+        self.win.withdraw()
 
         # When the user clicks the 'X', just hide it again instead of destroying it
         self.win.protocol("WM_DELETE_WINDOW", self.win.withdraw)
@@ -23,9 +24,9 @@ class LogWindow:
                                 insertbackground="white", font=("Consolas", 11))
         self.log_text.pack(fill=tk.BOTH, expand=True)
         self.log_text.config(state=tk.DISABLED)
-
+    def show(self):
+        self.win.deiconify()
     def log(self, msg):
-        self.win.deiconify()  # Show window if hidden
         self.log_text.config(state=tk.NORMAL)
         self.log_text.insert(tk.END, "> " + msg + "\n")
         self.log_text.see(tk.END)
@@ -101,6 +102,7 @@ class ScapeGoatGUI:
         tk.Button(self.adv_frame, text="Merge A+B -> A", command=self.cmd_merge, width=15, bg="lightblue").pack(pady=2)
         tk.Button(self.adv_frame, text="Compare A == B", command=self.cmd_compare, width=15).pack(pady=2)
         tk.Button(self.adv_frame, text="Is Empty?", command=self.cmd_isempty, width=15).pack(pady=2)
+        tk.Button(self.adv_frame, text="Show Logs/Console", command=lambda: self.log_win.show(), width=15).pack(pady=2)
 
         # --- Section D: Logs ---
         self.log_win = LogWindow(self.root)

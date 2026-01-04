@@ -47,7 +47,7 @@ public:
             throw std::out_of_range("pop_back on empty Vector");
         }
         --nElements;
-        T value = std::move(data[nElements]);
+        T value = data[nElements];
 
         // Shrink when underutilized, keep minimum capacity of 50
         if (nElements > 0 && static_cast<unsigned int>(nElements) <= _size / 4 && _size > 50) {

@@ -310,7 +310,6 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
     return nullptr;
 }
 
-
 /**
  * Recursively rebuilds a balanced BST from a sorted array of values.
  */

@@ -42,7 +42,7 @@ enum class OpType {
 template<typename T>
 struct Command {
     OpType type; // Type of the operation
-    T value;     // Value associated with the operation (if applicable)
+    T value;     // Value associated with the operation
 };
 
 template<typename T>
