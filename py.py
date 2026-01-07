@@ -251,6 +251,51 @@ class AnimationManager:
                 break  # Value already exists
 
         return path
+    def animate_sum_in_range(self, low, high):
+        """Animate finding and summing nodes within a range"""
+        if self.is_animating:
+            return
+
+        self.is_animating = True
+        nodes_in_range = []
+
+        # Helper to perform in-order traversal to find nodes in range
+        def find_nodes(node):
+            if not node:
+                return
+            if node.value > low:
+                find_nodes(node.left)
+            if low <= node.value <= high:
+                nodes_in_range.append(node.value)
+            if node.value < high:
+                find_nodes(node.right)
+
+        find_nodes(self.gui.get_active_tree().get_root())
+
+        if not nodes_in_range:
+            self.gui.log(f"No nodes found in range [{low}, {high}]")
+            self.is_animating = False
+            return
+
+        current_sum = [0]
+
+        def sum_step(index):
+            if index >= len(nodes_in_range):
+                self.gui.log(f"Total Sum in [{low}, {high}]: {current_sum[0]}")
+                self.is_animating = False
+                return
+
+            val = nodes_in_range[index]
+            current_sum[0] += val
+
+            # Highlight current node in range with a distinct color (e.g., Purple/Orchid)
+            self.gui.draw_tree(highlight_val=val, highlight_color="#da70d6")
+            self.gui.log(f"Adding {val} to sum... (Current: {current_sum[0]})")
+
+            self.gui.root.after(self.animation_speed, lambda: sum_step(index + 1))
+
+        sum_step(0)
+
 class LogWindow:
     def __init__(self, parent):
         self.win = tk.Toplevel(parent)
@@ -304,6 +349,10 @@ class ScapeGoatGUI:
         self.input_frame = tk.LabelFrame(self.control_frame, text="Inputs & Selection", padx=10, pady=10)
         self.input_frame.grid(row=0, column=0, sticky="nsw", padx=10, pady=10)
 
+        tk.Label(self.input_frame, text="Range High:").grid(row=0, column=2, sticky="w")
+        self.entry_high = tk.Entry(self.input_frame, width=10, font=("Arial", 12))
+        self.entry_high.grid(row=0, column=3, padx=5)
+
         tk.Label(self.input_frame, text="Value:").grid(row=0, column=0, sticky="w")
         self.entry_val = tk.Entry(self.input_frame, width=10, font=("Arial", 12))
         self.entry_val.grid(row=0, column=1, padx=5)
@@ -330,7 +379,7 @@ class ScapeGoatGUI:
         tk.Button(self.ops_frame, text="Delete", command=self.cmd_delete, bg="lightcoral", **btn_opts).grid(row=0, column=2, padx=3, pady=2)
         tk.Button(self.ops_frame, text="Delete Batch", command=self.cmd_deletebatch, bg="lightcoral", **btn_opts).grid(row=0, column=3, padx=3, pady=2)
         tk.Button(self.ops_frame, text="🔍 Search", command=self.cmd_search, bg="gold", **btn_opts).grid(row=0, column=4, padx=3, pady=2)
-
+        tk.Button(self.ops_frame, text="Σ Range Sum", command=self.cmd_suminrange, bg="orchid", **btn_opts).grid(row=0, column=5, padx=3, pady=2)
         # Row 1: Displays
         tk.Button(self.ops_frame, text="Show In-Order", command=lambda: self.cmd_show("in"), **btn_opts).grid(row=1, column=0, padx=3, pady=2)
         tk.Button(self.ops_frame, text="Show Pre-Order", command=lambda: self.cmd_show("pre"), **btn_opts).grid(row=1, column=1, padx=3, pady=2)
@@ -515,6 +564,28 @@ class ScapeGoatGUI:
     def cmd_isempty(self):
         empty = self.get_active_tree().is_empty()
         self.log(f"Tree {self.selected_tree_var.get()} Is Empty: {empty}")
+    def cmd_suminrange(self):
+        low = self.get_val()
+        high_str = self.entry_high.get()
+
+        if low is None or not high_str.lstrip('-').isdigit():
+            self.log("Error: Provide both Low (Value box) and High values for range sum.")
+            return
+
+        high = int(high_str)
+        if low > high:
+            low, high = high, low
+
+        if self.animation_enabled.get() and not self.animator.is_animating:
+            self.animator.animate_sum_in_range(low, high)
+        else:
+            # Fallback to C++ implementation if it supports range
+            # Assuming tree.suminRange(low, high) exists
+            try:
+                result = self.get_active_tree().suminRange(low, high)
+                self.log(f"Sum in [{low}, {high}]: {result}")
+            except:
+                self.log("C++ suminRange(low, high) not found, check bindings.")
 
     # ============================================
     # DRAWING ENGINE

@@ -772,4 +772,20 @@ template<typename T>
             }
             isUndoing = false;
         }
+
+template<typename T>
+T ScapeGoatTree<T>::sumHelper(TreeNode *node,T min,T max) {
+    T sum {};
+    if (!node)return 0;
+    if (node->value >= min)sum+=sumHelper(node->left,min,max);
+    if (node->value >= min && node->value <= max )sum+=node->value;
+    if (node->value <= max)sum+=sumHelper(node->right,min,max);
+    return sum;
+
+}
+
+template<typename T>
+T ScapeGoatTree<T>::sumInRange(T min, T max) {
+    return sumHelper(root,min,max);
+}
 #endif //TREE_SCAPEGOATTREE_TPP

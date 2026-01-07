@@ -104,6 +104,7 @@ class ScapeGoatTree {
      * Initiates a subtree rebuild starting from the scapegoat node.
      */
     void restructure_subtree(TreeNode *newNode);
+    T sumHelper(TreeNode* node,T min,T max);
     TreeNode* root{};
     int nNodes{};
     int rebuildCount = 0;
@@ -159,6 +160,7 @@ public:
     void clear();
     void undo();
     void redo();
+    T sumInRange(T min, T max);
 
     /**
      * Returns a string report indicating if the tree is currently balanced.

@@ -38,8 +38,7 @@ PYBIND11_MODULE(scapegoat_tree_py, m) {
         .def("clear", &ScapeGoatTree<Type>::clear)
         .def("undo", &ScapeGoatTree<Type>::undo)
         .def("redo", &ScapeGoatTree<Type>::redo)
-
-
+        .def("SuminRange",&ScapeGoatTree<Type>::sumInRange)
         .def(py::self + py::self)
         .def(py::self == py::self)
 
@@ -54,5 +53,6 @@ PYBIND11_MODULE(scapegoat_tree_py, m) {
         .def("get_preorder", [](ScapeGoatTree<Type> &t) { return t.displayPreOrder(); })
         .def("get_postorder", [](ScapeGoatTree<Type> &t) { return t.displayPostOrder(); })
         .def("get_levels", &ScapeGoatTree<Type>::displayLevels);
+
 
 }

@@ -1,6 +1,7 @@
 #include "iTree.hpp"
 #include <limits>
 #include <iostream>
+#include "print"
 using namespace std;
 
 /* ===================== ANSI Colors ===================== */
@@ -254,8 +255,23 @@ void ITree::handleUndoRedo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenTyp
         default:
             printError("ERROR: Invalid operation.");
     }
-
 }
+
+void ITree::handleSuminRange(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A,B);
+    int min=0,max=0;
+    cout << "Enter the minimum value: ";
+    cin >> min;
+    if (!validateCinLine())return;
+    cout << "\n";
+    cout << "Enter the maximum value: ";
+    cin >> max;
+    if (!validateCinLine())return;
+    cout << "\n";
+    println("Sum between {} and {} is {}",min,max,tree.sumInRange(min,max));
+    printSuccess("SUCCESS: Sum in Range complete.");
+}
+
 /* ===================== Main UI ===================== */
 
 typedef void (*MenuHandler)(ScapeGoatTree<ElemenType>&, ScapeGoatTree<ElemenType>&, opcodes);
@@ -275,8 +291,8 @@ void ITree::TreeUI() {
     const MenuItem menu[] = {
         {"Insert",              opcodes::INSERT,           handleOperations},
         {"Insert Batch",        opcodes::INSERT,           handleBatches},
-        {"Delete",              opcodes::DELETEOP,           handleOperations},
-        {"Delete Batch",        opcodes::DELETEOP,           handleBatches},
+        {"Delete",              opcodes::DELETEOP,         handleOperations},
+        {"Delete Batch",        opcodes::DELETEOP,         handleBatches},
         {"Search",              opcodes::SEARCH,           handleOperations},
         {"Display In-Order",    opcodes::DISPLAY_INORDER,  handleDisplay},
         {"Display Pre-Order",   opcodes::DISPLAY_PREORDER, handleDisplay},
@@ -284,14 +300,15 @@ void ITree::TreeUI() {
         {"Display Level-Order", opcodes::DISPLAY_LEVELS,   handleDisplay},
         {"Check Balance",       opcodes::BALANCE,          [](auto& A, auto& B, auto ){ handleBalance(A, B); }},
         {"Operator Insert",     opcodes::INSERT,           handleCoreOperators},
-        {"Operator Delete",     opcodes::DELETEOP,           handleCoreOperators},
+        {"Operator Delete",     opcodes::DELETEOP,         handleCoreOperators},
         {"Operator Search",     opcodes::SEARCH,           handleCoreOperators},
         {"Operator Empty",      opcodes::EMPTY,            [](auto& A, auto& B, auto){ handleOperatorEmpty(A, B); }},
         {"Operator Merge",      opcodes::MERGE,            [](auto& A, auto& B, auto){ handleOperatorMerge(A, B); }},
         {"Operator Compare",    opcodes::COMPARE,          [](auto& A, auto& B, auto){ handleOperatorCompare(A, B); }},
         {"Operator Clear",      opcodes::CLEAR,            [](auto& A, auto& B, auto ){handleClear(A,B);}},
-        {"Undo",                opcodes::UNDO,            handleUndoRedo},
-        {"Redo",                opcodes::REDO,            handleUndoRedo},
+        {"Undo",                opcodes::UNDO,             handleUndoRedo},
+        {"Redo",                opcodes::REDO,             handleUndoRedo},
+        {"Sum in Range",        opcodes::SUMINRANGE,       [](auto& A, auto& B, auto ){handleSuminRange(A,B);}}
     };
 
     constexpr int menuSize = std::size(menu);
