@@ -20,7 +20,7 @@ mkdir build && cd build
 cmake .. && make
 
 # 2. Run the visualizer
-python ../CPP/py.py
+python ../py.py
 ```
 
 ### Running the C++ Terminal UI
@@ -194,10 +194,10 @@ CPP/
 ├── iTree.cpp/hpp             # Terminal UI
 ├── TreeDriver.cpp            # DirectX + ImGui GUI
 ├── RunTU.cpp                 # Entry for terminal interface
-├── py.py                     # Python Tkinter GUI
-├── tests.cpp                 # Unit test suite
-├── CMakeLists.txt            # Build configuration
-└── README.md
+└──  tests.cpp                 # Unit test suite  
+py.py                     # Python Tkinter GUI
+CMakeLists.txt            # Build configuration
+README.md
 ```
 
 ---
