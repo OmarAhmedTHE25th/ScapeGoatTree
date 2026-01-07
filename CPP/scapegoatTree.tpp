@@ -120,7 +120,7 @@ void ScapeGoatTree<T>::insert(T value) {
             return;
         }
     }
-    TreeNode* newNode = new TreeNode(value, parent);
+    auto* newNode = new TreeNode(value, parent);
     if (value < parent->value)
         parent->left = newNode;
     else
@@ -318,7 +318,7 @@ template<typename T>
 ScapeGoatTree<T>::TreeNode* ScapeGoatTree<T>::rebuildTree(const int start, const int end, TreeNode* parent_node,T* array) {
     if (start > end) return nullptr; // base case
     int mid = (start + end) / 2; // find mid index
-    TreeNode* Nroot = new TreeNode(array[mid], parent_node); // create node with mid value
+    auto* Nroot = new TreeNode(array[mid], parent_node); // create node with mid value
     Nroot->left = rebuildTree(start, mid - 1, Nroot, array); // build left subtree
     Nroot->right = rebuildTree(mid + 1, end, Nroot, array);// build right subtree
     Nroot->size = 1 + countN(Nroot->left) + countN(Nroot->right);// update size
