@@ -2,7 +2,7 @@ import sys
 import tkinter as tk
 
 
-sys.path.append(r'C:\Users\DELL\CLionProjects\ScapeGoatTree\CPP\cmake-build-debug')
+sys.path.append(r'C:\Users\DELL\CLionProjects\ScapeGoatTree\cmake-build-debug')
 
 try:
     import scapegoat_tree_py

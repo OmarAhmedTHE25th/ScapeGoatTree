@@ -47,47 +47,47 @@ struct Command {
 
 template<typename T>
 class ScapeGoatTree {
-    using Node = Node<T>;
+    using TreeNode = Node<T>;
     /**
      * Calculates the height of a given node in the tree.
      */
-    static int findH(const Node* node);
+    static int findH(const TreeNode* node);
     /**
      * Counts the total number of nodes in the subtree rooted at the given node.
      */
-    static int countN(const Node* node);
+    static int countN(const TreeNode* node);
     /**
      * Finds the highest node that violates the alpha-weight-balance property.
      */
-    static Node* findTraitor(Node* node);
+    static TreeNode* findTraitor(TreeNode* node);
     /**
      * Recursively rebuilds a balanced BST from a sorted array of values.
      */
-    Node* rebuildTree(int start,int end,Node* parent_node,T* array);
+    TreeNode* rebuildTree(int start,int end,TreeNode* parent_node,T* array);
     /**
      * Performs an in-order traversal to populate a sorted array with node values.
      */
-    void inorderTraversal(const Node*node, int &i,T* array) const;
+    void inorderTraversal(const TreeNode*node, int &i,T* array) const;
     /**
      * Recursively deletes all nodes in the subtree using post-order traversal.
      */
-    static void postorderTraversal(const Node* node);
+    static void postorderTraversal(const TreeNode* node);
     /**
      * Performs a pre-order traversal for internal processing.
      */
-    void preorderTraversal(const Node* node);
+    void preorderTraversal(const TreeNode* node);
     /**
      * Formats the tree in pre-order.
      */
-    void displayPreOrder(const Node* node, std::ostream& os);
+    void displayPreOrder(const TreeNode* node, std::ostream& os);
     /**
      * Formats the tree in in-order.
      */
-    void displayInOrder(const Node* node, std::ostream& os);
+    void displayInOrder(const TreeNode* node, std::ostream& os);
     /**
      * Formats the tree in post-order.
      */
-    void displayPostOrder(const Node* node, std::ostream& os);
+    void displayPostOrder(const TreeNode* node, std::ostream& os);
     /**
      * Calculates the maximum allowed height before a rebuild is triggered.
      */
@@ -99,12 +99,12 @@ class ScapeGoatTree {
     /**
      * Compares two subtrees for structural and value equality.
      */
-    bool areTreesEqual(const Node* n1, const Node* n2) const;
+    bool areTreesEqual(const TreeNode* n1, const TreeNode* n2) const;
     /**
      * Initiates a subtree rebuild starting from the scapegoat node.
      */
-    void restructure_subtree(Node *newNode);
-    Node* root{};
+    void restructure_subtree(TreeNode *newNode);
+    TreeNode* root{};
     int nNodes{};
     int rebuildCount = 0;
     /**
@@ -169,7 +169,7 @@ public:
     /**
      * Returns a pointer to the root node of the tree.
      */
-    const Node* getRoot();
+    const TreeNode* getRoot();
 
     /**
      * Copy constructor for deep copying another ScapeGoatTree.

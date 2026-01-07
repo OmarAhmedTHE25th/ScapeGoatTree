@@ -54,9 +54,9 @@ max_nodes(other.max_nodes) {
  * Initiates a subtree rebuild starting from the scapegoat node.
  */
 template <typename T>
-void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
+void ScapeGoatTree<T>::restructure_subtree(TreeNode *newNode) {
     //find the scapegoat  node
-    Node* goat = findTraitor(newNode->parent);
+    TreeNode* goat = findTraitor(newNode->parent);
     if (goat == nullptr) return;
     const int subtree_size = countN(goat);
     T* temp_array = new T[subtree_size];
@@ -65,7 +65,7 @@ void ScapeGoatTree<T>::restructure_subtree(Node *newNode) {
     inorderTraversal(goat, i, temp_array);
     const int sub_size = i; // size of subtree
     //rebuild the subtree
-    Node* balanced = rebuildTree(0, sub_size- 1, goat->parent, temp_array);
+    TreeNode* balanced = rebuildTree(0, sub_size- 1, goat->parent, temp_array);
     rebuildCount++;
     //reattach the rebuilt subtree
     if (!goat->parent) root = balanced; // if goat is root then update root
@@ -85,14 +85,14 @@ void ScapeGoatTree<T>::insert(T value) {
         undoStack.push({OpType::Insert, value});
     }
     if (!root) {
-        root = new Node(value, nullptr);
+        root = new TreeNode(value, nullptr);
         nNodes++;
         if (nNodes > max_nodes) max_nodes = nNodes;
         return;
     }
 
-    Node* current = root;
-    Node* parent = nullptr;
+    TreeNode* current = root;
+    TreeNode* parent = nullptr;
     int depth = 0;
 
     while (current) {
@@ -120,7 +120,7 @@ void ScapeGoatTree<T>::insert(T value) {
             return;
         }
     }
-    Node* newNode = new Node(value, parent);
+    TreeNode* newNode = new TreeNode(value, parent);
     if (value < parent->value)
         parent->left = newNode;
     else
@@ -140,6 +140,7 @@ template<typename T>
     void ScapeGoatTree<T>::insertBatch(const Vector<T>& values) {
     // Group multiple insertions into a single undo/redo unit
     if (!isUndoing) undoStack.push({OpType::BatchStart, T()});
+
     for (int i = 0; i < values.size(); i++) {
         insert(values[i]);
     }
@@ -169,8 +170,8 @@ void ScapeGoatTree<T>::deleteBatch(const  Vector<T>& values) {
  */
 template<typename T>
 bool ScapeGoatTree<T>::deleteValue(T value) {
-    Node* node = root;
-    Node* parent = nullptr;
+    TreeNode* node = root;
+    TreeNode* parent = nullptr;
 
     // Step 1: Search for the node
     while (node != nullptr && node->value != value) {
@@ -193,7 +194,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     // Case 1: Leaf node
     if (!node->left && !node->right) {
         // Decrement size for all nodes on the path
-        Node* temp = root;
+        TreeNode* temp = root;
         while (temp != node) {
             --temp->size;
             if (value < temp->value) temp = temp->left;
@@ -214,13 +215,13 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     // Case 2: One child
     else if(node->left && !node->right || !node->left && node->right) {
         // Decrement size for all nodes on the path
-        Node* temp = root;
+        TreeNode* temp = root;
         while (temp != node) {
             --temp->size;
             if (value < temp->value) temp = temp->left;
             else temp = temp->right;
         }
-        Node* child = nullptr;
+        TreeNode* child = nullptr;
 
         if (node->left != nullptr)
             child = node->left;
@@ -244,7 +245,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     // Case 3: Two children
     else if (node->left && node->right) {
         // Find inorder successor (smallest in right subtree)
-        Node* suc = node->right;
+        TreeNode* suc = node->right;
         while (suc->left != nullptr)
             suc = suc->left;
 
@@ -275,7 +276,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
  * Calculates the height of a given node in the tree.
  */
 template<typename T>
-int ScapeGoatTree<T>::findH(const Node *node) {
+int ScapeGoatTree<T>::findH(const TreeNode *node) {
     if (!node) return -1;
     const int rightH = findH(node->right);
     const int leftH = findH(node->left);
@@ -287,7 +288,7 @@ int ScapeGoatTree<T>::findH(const Node *node) {
  * Counts the total number of nodes in the subtree rooted at the given node.
  */
 template<typename T>
-int ScapeGoatTree<T>::countN(const Node *node) {
+int ScapeGoatTree<T>::countN(const TreeNode *node) {
     if (!node) return 0;
     return node->size;
 }
@@ -296,7 +297,7 @@ int ScapeGoatTree<T>::countN(const Node *node) {
  * Finds the highest node that violates the alpha-weight-balance property.
  */
 template<typename T>
-ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
+ScapeGoatTree<T>::TreeNode* ScapeGoatTree<T>::findTraitor(TreeNode *node) {
     while (node != nullptr) {
         const int left = countN(node->left);
         const int right = countN(node->right);
@@ -314,10 +315,10 @@ ScapeGoatTree<T>::Node* ScapeGoatTree<T>::findTraitor(Node *node) {
  * Recursively rebuilds a balanced BST from a sorted array of values.
  */
 template<typename T>
-ScapeGoatTree<T>::Node* ScapeGoatTree<T>::rebuildTree(const int start, const int end, Node* parent_node,T* array) {
+ScapeGoatTree<T>::TreeNode* ScapeGoatTree<T>::rebuildTree(const int start, const int end, TreeNode* parent_node,T* array) {
     if (start > end) return nullptr; // base case
     int mid = (start + end) / 2; // find mid index
-    Node* Nroot = new Node(array[mid], parent_node); // create node with mid value
+    TreeNode* Nroot = new TreeNode(array[mid], parent_node); // create node with mid value
     Nroot->left = rebuildTree(start, mid - 1, Nroot, array); // build left subtree
     Nroot->right = rebuildTree(mid + 1, end, Nroot, array);// build right subtree
     Nroot->size = 1 + countN(Nroot->left) + countN(Nroot->right);// update size
@@ -332,7 +333,7 @@ void ScapeGoatTree<T>::DeletionRebuild(){
             T* temp_array = new T[nNodes];
             int i = 0;
             inorderTraversal(root, i, temp_array);
-           const Node* oldRoot = root;
+           const TreeNode* oldRoot = root;
             root = rebuildTree(0, nNodes - 1, nullptr, temp_array);
             rebuildCount++;
             delete[] temp_array;
@@ -344,7 +345,7 @@ void ScapeGoatTree<T>::DeletionRebuild(){
  * Returns a pointer to the root node of the tree.
  */
 template<typename T>
-const ScapeGoatTree<T>::Node *ScapeGoatTree<T>::getRoot() {
+const ScapeGoatTree<T>::TreeNode *ScapeGoatTree<T>::getRoot() {
     return root;
 }
 
@@ -356,7 +357,7 @@ const ScapeGoatTree<T>::Node *ScapeGoatTree<T>::getRoot() {
  * Performs an in-order traversal to populate a sorted array with node values.
  */
 template<typename T>
-void ScapeGoatTree<T>::inorderTraversal(const Node* node, int& i, T* array) const {
+void ScapeGoatTree<T>::inorderTraversal(const TreeNode* node, int& i, T* array) const {
 if (!node) return;
     inorderTraversal(node->left, i,array);
     array[i++] = node->value;
@@ -367,7 +368,7 @@ if (!node) return;
  * Recursively deletes all nodes in the subtree using post-order traversal.
  */
 template<typename T>
-void ScapeGoatTree<T>::postorderTraversal(const Node* node) {
+void ScapeGoatTree<T>::postorderTraversal(const TreeNode* node) {
     if (!node) return;
     postorderTraversal(node->left);
     postorderTraversal(node->right);
@@ -378,7 +379,7 @@ void ScapeGoatTree<T>::postorderTraversal(const Node* node) {
  * Performs a pre-order traversal for internal processing.
  */
 template<typename T>
-void ScapeGoatTree<T>::preorderTraversal(const Node* node) {
+void ScapeGoatTree<T>::preorderTraversal(const TreeNode* node) {
     if (!node) return;
     insert(node->value);
     preorderTraversal(node->left);
@@ -393,8 +394,9 @@ void ScapeGoatTree<T>::preorderTraversal(const Node* node) {
  * Formats the tree in pre-order.
  */
 template<typename T>
-void ScapeGoatTree<T>::displayPreOrder(const Node* node, std::ostream& os) {
-    if (!node) return;
+// diplay order w ostream (output stream)
+void ScapeGoatTree<T>::displayPreOrder(const TreeNode* node, std::ostream& os) {
+    if (!node) return;  // lw mfesh node bn return
     os << node->value << " ";
     displayPreOrder(node->left, os);
     displayPreOrder(node->right, os);
@@ -404,7 +406,7 @@ void ScapeGoatTree<T>::displayPreOrder(const Node* node, std::ostream& os) {
  * Formats the tree in in-order.
  */
 template<typename T>
-void ScapeGoatTree<T>::displayInOrder(const Node* node, std::ostream& os) {
+void ScapeGoatTree<T>::displayInOrder(const TreeNode* node, std::ostream& os) {
     if (!node) return;
     displayInOrder(node->left, os);
     os << node->value << " ";
@@ -415,7 +417,7 @@ void ScapeGoatTree<T>::displayInOrder(const Node* node, std::ostream& os) {
  * Formats the tree in post-order.
  */
 template<typename T>
-void ScapeGoatTree<T>::displayPostOrder(const Node* node, std::ostream& os) {
+void ScapeGoatTree<T>::displayPostOrder(const TreeNode* node, std::ostream& os) {
     if (!node) return;
     displayPostOrder(node->left, os);
     displayPostOrder(node->right, os);
@@ -466,20 +468,20 @@ template<typename T>
 std::string ScapeGoatTree<T>::displayLevels() {
     if (!root) return "Tree is Empty.";
     std::string result;
-    Queue<Node*> q;
+    Queue<TreeNode*> q;
     q.push(root);
     int level =0;
 
     while (!q.isEmpty()) {
-        result += "Level " + std::to_string(level++) + ": ";
+        result += "Level " + std::to_string(level++) + ": ";    // mn int l string b3dha bnro7 ll lvl ele ablo
         const int nodesAtLevel = q.size();
         for (int i = 0; i < nodesAtLevel; i++) {
-            Node* curr = q.front();
-            q.pop();
+            TreeNode* curr = q.front(); // current node
+            q.pop(); // pop 3shan nshof el node ele b3dha
 
             std::ostringstream oss;
             oss << curr->value;
-            result += oss.str() + " ";
+            result += oss.str() + " ";  // str 3shan n7wlo string
 
             if (curr->left)  q.push(curr->left);
             if (curr->right) q.push(curr->right);
@@ -614,7 +616,7 @@ bool ScapeGoatTree<T>::operator==(const ScapeGoatTree& tree) const {
  * Compares two subtrees for structural and value equality.
  */
 template<typename T>
-bool ScapeGoatTree<T>::areTreesEqual(const Node* n1, const Node* n2) const {
+bool ScapeGoatTree<T>::areTreesEqual(const TreeNode* n1, const TreeNode* n2) const {
     // Both null = equal
     if (!n1 && !n2) return true;
     
@@ -691,7 +693,7 @@ std::string ScapeGoatTree<T>::isBalanced() const {
  */
 template<typename T>
 bool ScapeGoatTree<T>::search(const T& key) const {
-    Node* current = root;
+    TreeNode* current = root;
     while (current != nullptr) {
         if (key == current->value) return true;
         if (key < current->value) current = current->left;

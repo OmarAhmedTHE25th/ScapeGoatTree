@@ -10,7 +10,7 @@ typedef long long Type;
  */
 PYBIND11_MODULE(scapegoat_tree_py, m) {
     // 1. Bind Node
-    py::class_<Node<Type>>(m, "Node")
+    py::class_<Node<Type>>(m, "Node")   // node class
         .def_readonly("value", &Node<Type>::value)
         .def_readonly("left", &Node<Type>::left)
         .def_readonly("right", &Node<Type>::right);
@@ -22,9 +22,9 @@ PYBIND11_MODULE(scapegoat_tree_py, m) {
 
         // standard ops
         .def("insert", &ScapeGoatTree<Type>::insert)
-    .def("insert_batch", [](ScapeGoatTree<Type> &self, const std::vector<Type> &values) {
-            Vector<Type> customVec;
-            for (const auto &v : values) customVec.push_back(v);
+    .def("insert_batch", [](ScapeGoatTree<Type> &self, const std::vector<Type> &values) { // makes an insert batch method that takes, a vector as a parameter
+            Vector<Type> customVec; // custom vector (Vector.hpp)
+            for (const auto &v : values) customVec.push_back(v); //copy values from STL vector to our custom Vector.
             self.insertBatch(customVec);
         }, py::arg("values"))
         .def("delete_batch", [](ScapeGoatTree<Type> &self, const std::vector<Type> &values) {
