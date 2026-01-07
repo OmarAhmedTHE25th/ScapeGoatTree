@@ -349,7 +349,7 @@ class ScapeGoatGUI:
         self.input_frame = tk.LabelFrame(self.control_frame, text="Inputs & Selection", padx=10, pady=10)
         self.input_frame.grid(row=0, column=0, sticky="nsw", padx=10, pady=10)
 
-        tk.Label(self.input_frame, text="Range High:").grid(row=0, column=2, sticky="w")
+        tk.Label(self.input_frame, text="Range :").grid(row=0, column=2, sticky="w")
         self.entry_high = tk.Entry(self.input_frame, width=10, font=("Arial", 12))
         self.entry_high.grid(row=0, column=3, padx=5)
 
@@ -565,29 +565,45 @@ class ScapeGoatGUI:
         empty = self.get_active_tree().is_empty()
         self.log(f"Tree {self.selected_tree_var.get()} Is Empty: {empty}")
     def cmd_suminrange(self):
-        low = self.get_val()
-        high_str = self.entry_high.get()
+        # If the user typed "10 - 40" in the Range High box specifically:
+        raw_input = self.entry_high.get().strip()
 
-        if low is None or not high_str.lstrip('-').isdigit():
-            self.log("Error: Provide both Low (Value box) and High values for range sum.")
-            return
+        # Fallback: if Range High is empty, check the Value box (entry_val)
+        if not raw_input:
+            raw_input = self.entry_val.get().strip()
 
-        high = int(high_str)
-        if low > high:
-            low, high = high, low
+        self.log(f"Processing range input: '{raw_input}'")
 
-        if self.animation_enabled.get() and not self.animator.is_animating:
-            self.animator.animate_sum_in_range(low, high)
-        else:
+        try:
+            if "-" in raw_input:
+                # Robust split for "10-40" or "10 - 40"
+                parts = [p.strip() for p in raw_input.split("-") if p.strip()]
 
-            try:
-                result = self.get_active_tree().suminRange(low, high)
-                self.log(f"Sum in [{low}, {high}]: {result}")
-            except:
-                self.log("C++ suminRange(low, high) not found, check bindings.")
+                if len(parts) == 2:
+                    low = int(parts[0])
+                    high = int(parts[1])
+                else:
+                    raise ValueError("Please use format '10 - 40'")
+            else:
+                # If no hyphen, assume Value box is LOW and High box is HIGH
+                low = int(self.entry_val.get().strip())
+                high = int(self.entry_high.get().strip())
+
+            if low > high:
+                low, high = high, low
+
+            if self.animation_enabled.get() and not self.animator.is_animating:
+                self.animator.animate_sum_in_range(low, high)
+            else:
+                result = self.get_active_tree().SuminRange(low, high)
+                self.log(f"✓ Sum in [{low}, {high}]: {result}")
+
+        except Exception as e:
+            self.log(f"❌ Range Error: {e}")
+            self.log("Usage: Type '10 - 40' in either box OR fill both boxes.")
 
     # ============================================
-    # DRAWING ENGINE
+        # DRAWING ENGINE
     # ============================================
 
     def draw_tree(self, highlight_val=None, highlight_color="#ff69b4"):
