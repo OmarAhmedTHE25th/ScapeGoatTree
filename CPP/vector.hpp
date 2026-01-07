@@ -4,11 +4,11 @@
 #include "vector"
 template <typename T>
 class Vector {
-public:
+
     unsigned int _size = 50;
     int nElements = 0;
     T* data = new T[_size]{};
-
+public:
     /**
      * Destroys the vector and releases the dynamically allocated memory.
      */

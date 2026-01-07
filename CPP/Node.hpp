@@ -13,6 +13,7 @@ public:
     Node* right{};   // right child pointer
     Node* parent{};  // parent pointer
     size_t size=1;      // subtree size
+    int height = 0;
 
     /**
      * Initializes a node with a value and an optional parent pointer.

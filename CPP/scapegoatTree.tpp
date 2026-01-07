@@ -58,8 +58,7 @@ void ScapeGoatTree<T>::restructure_subtree(TreeNode *newNode) {
     //find the scapegoat  node
     TreeNode* goat = findTraitor(newNode->parent);
     if (goat == nullptr) return;
-    const int subtree_size = countN(goat);
-    T* temp_array = new T[subtree_size];
+    T* temp_array = new T[nNodes];
     int i = 0;
     //flatten the tree into a sorted array
     inorderTraversal(goat, i, temp_array);
@@ -72,7 +71,6 @@ void ScapeGoatTree<T>::restructure_subtree(TreeNode *newNode) {
     else if (goat == goat->parent->left) goat->parent->left = balanced; //if goat is left child then update left pointer
     else goat->parent->right = balanced; //if goat is right child then update right pointer
     postorderTraversal(goat);// delete old subtree
-    delete[] temp_array;
 }
 
 /**
@@ -84,6 +82,7 @@ void ScapeGoatTree<T>::insert(T value) {
     if (!isUndoing) {
         undoStack.push({OpType::Insert, value});
     }
+    Vector<TreeNode*> path;
     if (!root) {
         root = new TreeNode(value, nullptr);
         nNodes++;
@@ -96,6 +95,7 @@ void ScapeGoatTree<T>::insert(T value) {
     int depth = 0;
 
     while (current) {
+        path.push_back(current);
         parent = current;
         ++current->size;
         depth++;
@@ -105,13 +105,9 @@ void ScapeGoatTree<T>::insert(T value) {
             current = current->right;
         else {
             // value already exists, backtrack size increment
-            current = root;
-            while (current != parent) {
-                --current->size;
-                if (value < current->value) current = current->left;
-                else current = current->right;
+            for (int i = 0; i < path.size(); i++) {
+                --path[i]->size;
             }
-            --parent->size;
             // If the value already exists, we didn't actually change the tree,
             // so we remove the command from the undo stack.
             if (!isUndoing) {
@@ -278,10 +274,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
 template<typename T>
 int ScapeGoatTree<T>::findH(const TreeNode *node) {
     if (!node) return -1;
-    const int rightH = findH(node->right);
-    const int leftH = findH(node->left);
-    const int maximum = (leftH > rightH) ? leftH : rightH;
-    return maximum + 1;
+    return node->height;
 }
 
 /**
@@ -322,6 +315,9 @@ ScapeGoatTree<T>::TreeNode* ScapeGoatTree<T>::rebuildTree(const int start, const
     Nroot->left = rebuildTree(start, mid - 1, Nroot, array); // build left subtree
     Nroot->right = rebuildTree(mid + 1, end, Nroot, array);// build right subtree
     Nroot->size = 1 + countN(Nroot->left) + countN(Nroot->right);// update size
+    const int leftH = Nroot->left ? Nroot->left->height : -1;
+    const int rightH = Nroot->right ? Nroot->right->height : -1;
+    Nroot->height = 1 + std::max(leftH, rightH);
     return Nroot;
 }
 /**
@@ -330,13 +326,12 @@ ScapeGoatTree<T>::TreeNode* ScapeGoatTree<T>::rebuildTree(const int start, const
 template<typename T>
 void ScapeGoatTree<T>::DeletionRebuild(){
         if (nNodes < 0.5 * max_nodes&& nNodes > 0) {  // α = 0.5 for deletion
-            T* temp_array = new T[nNodes];
+            auto temp_array = new T[nNodes];
             int i = 0;
             inorderTraversal(root, i, temp_array);
            const TreeNode* oldRoot = root;
             root = rebuildTree(0, nNodes - 1, nullptr, temp_array);
             rebuildCount++;
-            delete[] temp_array;
             postorderTraversal(oldRoot);
             max_nodes = nNodes;
         }
@@ -360,7 +355,7 @@ template<typename T>
 void ScapeGoatTree<T>::inorderTraversal(const TreeNode* node, int& i, T* array) const {
 if (!node) return;
     inorderTraversal(node->left, i,array);
-    array[i++] = node->value;
+   array[i++]= node->value;
     inorderTraversal(node->right, i,array);
 }
 
