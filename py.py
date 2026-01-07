@@ -579,8 +579,7 @@ class ScapeGoatGUI:
         if self.animation_enabled.get() and not self.animator.is_animating:
             self.animator.animate_sum_in_range(low, high)
         else:
-            # Fallback to C++ implementation if it supports range
-            # Assuming tree.suminRange(low, high) exists
+
             try:
                 result = self.get_active_tree().suminRange(low, high)
                 self.log(f"Sum in [{low}, {high}]: {result}")
