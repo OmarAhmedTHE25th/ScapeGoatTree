@@ -1,0 +1,31 @@
+\doxysection{Node.\+hpp}
+\hypertarget{_node_8hpp_source}{}\label{_node_8hpp_source}\index{CPP/Node.hpp@{CPP/Node.hpp}}
+\mbox{\hyperlink{_node_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ DELL\ on\ 10/25/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ SCAPEGOATTREE\_NODE\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ SCAPEGOATTREE\_NODE\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_node_ae20f1c489909cf89a165b23ef56a1ba6}{Node}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ T\ \mbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\{\};\ \ \ \ \ \textcolor{comment}{//\ stored\ value}}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_node_ae20f1c489909cf89a165b23ef56a1ba6}{Node}}*\ \mbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\{\};\ \ \ \ \textcolor{comment}{//\ left\ child\ pointer}}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_node_ae20f1c489909cf89a165b23ef56a1ba6}{Node}}*\ \mbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}}\{\};\ \ \ \textcolor{comment}{//\ right\ child\ pointer}}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_node_ae20f1c489909cf89a165b23ef56a1ba6}{Node}}*\ \mbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}}\{\};\ \ \textcolor{comment}{//\ parent\ pointer}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_node_af3217a1393b4f84a90f003f076719e0b}{size}}=1;\ \ \ \ \ \ \textcolor{comment}{//\ subtree\ size}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_node_a15b477d75fdc30cac4847dab9c954568}{height}}\ =\ 0;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_node_ae20f1c489909cf89a165b23ef56a1ba6}{Node}}(\textcolor{keyword}{const}\ T\&\ v,\ \mbox{\hyperlink{class_node_ae20f1c489909cf89a165b23ef56a1ba6}{Node}}*\ parentPtr\ =\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}(v),\ \mbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}}(parentPtr)\{\}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}>}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_node_ad52df95674bffa6af89034cede8d90a2}{ScapeGoatTree}};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SCAPEGOATTREE\_NODE\_HPP}}
+
+\end{DoxyCode}

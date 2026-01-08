@@ -1,0 +1,131 @@
+\doxysection{CPP/i\+Tree.cpp File Reference}
+\hypertarget{i_tree_8cpp}{}\label{i_tree_8cpp}\index{CPP/iTree.cpp@{CPP/iTree.cpp}}
+{\ttfamily \#include "{}i\+Tree.\+hpp"{}}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}print"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_menu_item}{Menu\+Item}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{i_tree_8cpp_a23d8f575f43440ab498ce7e4946e3dc4}{Menu\+Handler}}) (\mbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ \mbox{\hyperlink{i_tree_8hpp_aac15e02b585bbfc7af61e10f8bbe4008}{Elemen\+Type}} $>$ \&, \mbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ \mbox{\hyperlink{i_tree_8hpp_aac15e02b585bbfc7af61e10f8bbe4008}{Elemen\+Type}} $>$ \&, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22a}{opcodes}})
+\item 
+typedef const unsigned long long \mbox{\hyperlink{i_tree_8cpp_aecb03d8527063407fc348ced1d1f193f}{Long}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{i_tree_8cpp_aa21bf0084222700c67e7af678331c193}{print\+Error}} (const string \&msg)
+\item 
+void \mbox{\hyperlink{i_tree_8cpp_ae365f72a7b45f6f71ec1a360539fc79c}{print\+Success}} (const string \&msg)
+\item 
+void \mbox{\hyperlink{i_tree_8cpp_ab0902b4883ae0a1c2b7548a81637bae4}{print\+Info}} (const string \&msg)
+\item 
+void \mbox{\hyperlink{i_tree_8cpp_aef3192d7ac58fa34fb65280d2e1de642}{print\+Header}} (const std\+::string \&title)
+\item 
+bool \mbox{\hyperlink{i_tree_8cpp_a5d9f9b6b7a72e33620e69aa7751b9875}{validate\+Cin\+Line}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const string \mbox{\hyperlink{i_tree_8cpp_ab84a8b06714421dcae7acf288a7b61a0}{RED}} = "{}\textbackslash{}033\mbox{[}31m"{}
+\item 
+const string \mbox{\hyperlink{i_tree_8cpp_a6549a333ff1f3c45c95ec71167e8880e}{GREEN}} = "{}\textbackslash{}033\mbox{[}32m"{}
+\item 
+const string \mbox{\hyperlink{i_tree_8cpp_a9d1a2e31c30e2e054682627a6e40ed59}{CYAN}} = "{}\textbackslash{}033\mbox{[}36m"{}
+\item 
+const string \mbox{\hyperlink{i_tree_8cpp_a9a31596d4859c8ad599295239748e3dc}{RESET}} = "{}\textbackslash{}033\mbox{[}0m"{}
+\item 
+const string \mbox{\hyperlink{i_tree_8cpp_ac639b0e3351dfef17f4ec2bdb6064909}{WHITE}} = "{}\textbackslash{}033\mbox{[}37m"{}
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{i_tree_8cpp_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{i_tree_8cpp_aecb03d8527063407fc348ced1d1f193f}\index{iTree.cpp@{iTree.cpp}!Long@{Long}}
+\index{Long@{Long}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{Long}{Long}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_aecb03d8527063407fc348ced1d1f193f} 
+typedef const unsigned long long \mbox{\hyperlink{i_tree_8cpp_aecb03d8527063407fc348ced1d1f193f}{Long}}}
+
+\Hypertarget{i_tree_8cpp_a23d8f575f43440ab498ce7e4946e3dc4}\index{iTree.cpp@{iTree.cpp}!MenuHandler@{MenuHandler}}
+\index{MenuHandler@{MenuHandler}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{MenuHandler}{MenuHandler}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_a23d8f575f43440ab498ce7e4946e3dc4} 
+typedef void(\texorpdfstring{$\ast$}{*} Menu\+Handler) (\mbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ \mbox{\hyperlink{i_tree_8hpp_aac15e02b585bbfc7af61e10f8bbe4008}{Elemen\+Type}} $>$ \&, \mbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ \mbox{\hyperlink{i_tree_8hpp_aac15e02b585bbfc7af61e10f8bbe4008}{Elemen\+Type}} $>$ \&, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22a}{opcodes}})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{i_tree_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{i_tree_8cpp_aa21bf0084222700c67e7af678331c193}\index{iTree.cpp@{iTree.cpp}!printError@{printError}}
+\index{printError@{printError}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{printError()}{printError()}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_aa21bf0084222700c67e7af678331c193} 
+void print\+Error (\begin{DoxyParamCaption}\item[{const string \&}]{msg}{}\end{DoxyParamCaption})}
+
+\Hypertarget{i_tree_8cpp_aef3192d7ac58fa34fb65280d2e1de642}\index{iTree.cpp@{iTree.cpp}!printHeader@{printHeader}}
+\index{printHeader@{printHeader}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{printHeader()}{printHeader()}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_aef3192d7ac58fa34fb65280d2e1de642} 
+void print\+Header (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title}{}\end{DoxyParamCaption})}
+
+\Hypertarget{i_tree_8cpp_ab0902b4883ae0a1c2b7548a81637bae4}\index{iTree.cpp@{iTree.cpp}!printInfo@{printInfo}}
+\index{printInfo@{printInfo}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{printInfo()}{printInfo()}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_ab0902b4883ae0a1c2b7548a81637bae4} 
+void print\+Info (\begin{DoxyParamCaption}\item[{const string \&}]{msg}{}\end{DoxyParamCaption})}
+
+\Hypertarget{i_tree_8cpp_ae365f72a7b45f6f71ec1a360539fc79c}\index{iTree.cpp@{iTree.cpp}!printSuccess@{printSuccess}}
+\index{printSuccess@{printSuccess}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{printSuccess()}{printSuccess()}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_ae365f72a7b45f6f71ec1a360539fc79c} 
+void print\+Success (\begin{DoxyParamCaption}\item[{const string \&}]{msg}{}\end{DoxyParamCaption})}
+
+\Hypertarget{i_tree_8cpp_a5d9f9b6b7a72e33620e69aa7751b9875}\index{iTree.cpp@{iTree.cpp}!validateCinLine@{validateCinLine}}
+\index{validateCinLine@{validateCinLine}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{validateCinLine()}{validateCinLine()}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_a5d9f9b6b7a72e33620e69aa7751b9875} 
+bool validate\+Cin\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{i_tree_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{i_tree_8cpp_a9d1a2e31c30e2e054682627a6e40ed59}\index{iTree.cpp@{iTree.cpp}!CYAN@{CYAN}}
+\index{CYAN@{CYAN}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{CYAN}{CYAN}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_a9d1a2e31c30e2e054682627a6e40ed59} 
+const string CYAN = "{}\textbackslash{}033\mbox{[}36m"{}}
+
+\Hypertarget{i_tree_8cpp_a6549a333ff1f3c45c95ec71167e8880e}\index{iTree.cpp@{iTree.cpp}!GREEN@{GREEN}}
+\index{GREEN@{GREEN}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{GREEN}{GREEN}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_a6549a333ff1f3c45c95ec71167e8880e} 
+const string GREEN = "{}\textbackslash{}033\mbox{[}32m"{}}
+
+\Hypertarget{i_tree_8cpp_ab84a8b06714421dcae7acf288a7b61a0}\index{iTree.cpp@{iTree.cpp}!RED@{RED}}
+\index{RED@{RED}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{RED}{RED}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_ab84a8b06714421dcae7acf288a7b61a0} 
+const string RED = "{}\textbackslash{}033\mbox{[}31m"{}}
+
+\Hypertarget{i_tree_8cpp_a9a31596d4859c8ad599295239748e3dc}\index{iTree.cpp@{iTree.cpp}!RESET@{RESET}}
+\index{RESET@{RESET}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{RESET}{RESET}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_a9a31596d4859c8ad599295239748e3dc} 
+const string RESET = "{}\textbackslash{}033\mbox{[}0m"{}}
+
+\Hypertarget{i_tree_8cpp_ac639b0e3351dfef17f4ec2bdb6064909}\index{iTree.cpp@{iTree.cpp}!WHITE@{WHITE}}
+\index{WHITE@{WHITE}!iTree.cpp@{iTree.cpp}}
+\doxysubsubsection{\texorpdfstring{WHITE}{WHITE}}
+{\footnotesize\ttfamily \label{i_tree_8cpp_ac639b0e3351dfef17f4ec2bdb6064909} 
+const string WHITE = "{}\textbackslash{}033\mbox{[}37m"{}}
+

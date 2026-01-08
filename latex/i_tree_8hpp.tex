@@ -1,0 +1,163 @@
+\doxysection{CPP/i\+Tree.hpp File Reference}
+\hypertarget{i_tree_8hpp}{}\label{i_tree_8hpp}\index{CPP/iTree.hpp@{CPP/iTree.hpp}}
+{\ttfamily \#include "{}Scape\+Goat\+Tree.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_i_tree}{ITree}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \mbox{\hyperlink{i_tree_8hpp_aac15e02b585bbfc7af61e10f8bbe4008}{Elemen\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22a}{opcodes}} \{ \newline
+\mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa61ee777e7f71dc466c3b2c685d8d313b}{INSERT}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaeb02f403b83bbaf99d27386e2c889562}{DELETEOP}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa0f544d682c3a664870f025f48c4b04b5}{SEARCH}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aafae8c8b570db6eb9d75cac4d4aaec750}{DISPLAY\+\_\+\+INORDER}}
+, \newline
+\mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa104bb2ca518b471791a45b115057c31e}{DISPLAY\+\_\+\+PREORDER}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaa06254777492e835c6279845eb62861f}{DISPLAY\+\_\+\+POSTORDER}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa07aeba0e9f174f0092b0506fee649bf3}{DISPLAY\+\_\+\+LEVELS}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaa42b2fb0e720a080e79a92f4ca97d927}{EXIT}}
+, \newline
+\mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aabd50bfdaa74e237144552ad497048642}{BALANCE}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aafee1f202df8193b3ba65f00ad61efcef}{COMPARE}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa97c51054c5ed46d2f88641ac57ff6347}{MERGE}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaba2b45bdc11e2a4a6e86aab2ac693cbb}{EMPTY}}
+, \newline
+\mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa89d9abcd2b9a1a1442a4011c34e1fd0a}{BATCH\+\_\+\+INSERT}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa02f1514366c1864fa85209518c1a04f9}{BATCH\+\_\+\+DELETE}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa813461e0c58e7ad59a2fd83ca2237fec}{CLEAR}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa269940bcad6fddf5c68d3e67f767c3d1}{UNDO}}
+, \newline
+\mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aac07bf946a7da4553f9f2776656e0d60f}{REDO}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa2c138e7c86c563529bfde33ae0a9e756}{SUMINRANGE}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaf79acd49f929ed16ee9ece55b7226fcb}{VALUESINRANGE}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aace31e2a082d17e038fcc6e3006166653}{MIN}}
+, \newline
+\mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa26a4b44a837bf97b972628509912b4a5}{MAX}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa50912fdb4fb2b474efac57853b674bfa}{KTH}}
+, \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa32b7aa62940d5edc65dbaf8a58418558}{SUCC}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{i_tree_8hpp_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{i_tree_8hpp_aac15e02b585bbfc7af61e10f8bbe4008}\index{iTree.hpp@{iTree.hpp}!ElemenType@{ElemenType}}
+\index{ElemenType@{ElemenType}!iTree.hpp@{iTree.hpp}}
+\doxysubsubsection{\texorpdfstring{ElemenType}{ElemenType}}
+{\footnotesize\ttfamily \label{i_tree_8hpp_aac15e02b585bbfc7af61e10f8bbe4008} 
+typedef int \mbox{\hyperlink{i_tree_8hpp_aac15e02b585bbfc7af61e10f8bbe4008}{Elemen\+Type}}}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{i_tree_8hpp_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22a}\index{iTree.hpp@{iTree.hpp}!opcodes@{opcodes}}
+\index{opcodes@{opcodes}!iTree.hpp@{iTree.hpp}}
+\doxysubsubsection{\texorpdfstring{opcodes}{opcodes}}
+{\footnotesize\ttfamily \label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22a} 
+enum class \mbox{\hyperlink{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22a}{opcodes}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INSERT@{INSERT}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!INSERT@{INSERT}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa61ee777e7f71dc466c3b2c685d8d313b}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa61ee777e7f71dc466c3b2c685d8d313b} 
+INSERT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DELETEOP@{DELETEOP}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!DELETEOP@{DELETEOP}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaeb02f403b83bbaf99d27386e2c889562}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaeb02f403b83bbaf99d27386e2c889562} 
+DELETEOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SEARCH@{SEARCH}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!SEARCH@{SEARCH}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa0f544d682c3a664870f025f48c4b04b5}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa0f544d682c3a664870f025f48c4b04b5} 
+SEARCH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DISPLAY\_INORDER@{DISPLAY\_INORDER}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!DISPLAY\_INORDER@{DISPLAY\_INORDER}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aafae8c8b570db6eb9d75cac4d4aaec750}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aafae8c8b570db6eb9d75cac4d4aaec750} 
+DISPLAY\+\_\+\+INORDER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DISPLAY\_PREORDER@{DISPLAY\_PREORDER}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!DISPLAY\_PREORDER@{DISPLAY\_PREORDER}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa104bb2ca518b471791a45b115057c31e}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa104bb2ca518b471791a45b115057c31e} 
+DISPLAY\+\_\+\+PREORDER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DISPLAY\_POSTORDER@{DISPLAY\_POSTORDER}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!DISPLAY\_POSTORDER@{DISPLAY\_POSTORDER}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaa06254777492e835c6279845eb62861f}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaa06254777492e835c6279845eb62861f} 
+DISPLAY\+\_\+\+POSTORDER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DISPLAY\_LEVELS@{DISPLAY\_LEVELS}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!DISPLAY\_LEVELS@{DISPLAY\_LEVELS}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa07aeba0e9f174f0092b0506fee649bf3}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa07aeba0e9f174f0092b0506fee649bf3} 
+DISPLAY\+\_\+\+LEVELS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EXIT@{EXIT}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!EXIT@{EXIT}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaa42b2fb0e720a080e79a92f4ca97d927}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaa42b2fb0e720a080e79a92f4ca97d927} 
+EXIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BALANCE@{BALANCE}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!BALANCE@{BALANCE}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aabd50bfdaa74e237144552ad497048642}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aabd50bfdaa74e237144552ad497048642} 
+BALANCE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COMPARE@{COMPARE}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!COMPARE@{COMPARE}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aafee1f202df8193b3ba65f00ad61efcef}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aafee1f202df8193b3ba65f00ad61efcef} 
+COMPARE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MERGE@{MERGE}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!MERGE@{MERGE}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa97c51054c5ed46d2f88641ac57ff6347}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa97c51054c5ed46d2f88641ac57ff6347} 
+MERGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!EMPTY@{EMPTY}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaba2b45bdc11e2a4a6e86aab2ac693cbb}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaba2b45bdc11e2a4a6e86aab2ac693cbb} 
+EMPTY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BATCH\_INSERT@{BATCH\_INSERT}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!BATCH\_INSERT@{BATCH\_INSERT}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa89d9abcd2b9a1a1442a4011c34e1fd0a}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa89d9abcd2b9a1a1442a4011c34e1fd0a} 
+BATCH\+\_\+\+INSERT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BATCH\_DELETE@{BATCH\_DELETE}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!BATCH\_DELETE@{BATCH\_DELETE}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa02f1514366c1864fa85209518c1a04f9}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa02f1514366c1864fa85209518c1a04f9} 
+BATCH\+\_\+\+DELETE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLEAR@{CLEAR}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!CLEAR@{CLEAR}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa813461e0c58e7ad59a2fd83ca2237fec}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa813461e0c58e7ad59a2fd83ca2237fec} 
+CLEAR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNDO@{UNDO}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!UNDO@{UNDO}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa269940bcad6fddf5c68d3e67f767c3d1}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa269940bcad6fddf5c68d3e67f767c3d1} 
+UNDO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{REDO@{REDO}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!REDO@{REDO}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aac07bf946a7da4553f9f2776656e0d60f}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aac07bf946a7da4553f9f2776656e0d60f} 
+REDO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUMINRANGE@{SUMINRANGE}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!SUMINRANGE@{SUMINRANGE}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa2c138e7c86c563529bfde33ae0a9e756}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa2c138e7c86c563529bfde33ae0a9e756} 
+SUMINRANGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VALUESINRANGE@{VALUESINRANGE}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!VALUESINRANGE@{VALUESINRANGE}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaf79acd49f929ed16ee9ece55b7226fcb}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aaf79acd49f929ed16ee9ece55b7226fcb} 
+VALUESINRANGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MIN@{MIN}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!MIN@{MIN}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aace31e2a082d17e038fcc6e3006166653}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aace31e2a082d17e038fcc6e3006166653} 
+MIN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAX@{MAX}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!MAX@{MAX}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa26a4b44a837bf97b972628509912b4a5}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa26a4b44a837bf97b972628509912b4a5} 
+MAX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KTH@{KTH}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!KTH@{KTH}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa50912fdb4fb2b474efac57853b674bfa}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa50912fdb4fb2b474efac57853b674bfa} 
+KTH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUCC@{SUCC}!iTree.hpp@{iTree.hpp}}\index{iTree.hpp@{iTree.hpp}!SUCC@{SUCC}}}\Hypertarget{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa32b7aa62940d5edc65dbaf8a58418558}\label{i_tree_8hpp_a44c68a04cafe3d38456832196c7bf22aa32b7aa62940d5edc65dbaf8a58418558} 
+SUCC&\\
+\hline
+
+\end{DoxyEnumFields}

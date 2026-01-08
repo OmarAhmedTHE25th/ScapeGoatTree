@@ -1,0 +1,72 @@
+\doxysection{Stack\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_stack}{}\label{class_stack}\index{Stack$<$ T $>$@{Stack$<$ T $>$}}
+
+
+{\ttfamily \#include $<$stack.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_stack_a7b0f0506fd1cd7ec5756bb2b51ff908d}{push}} (const T \&value)
+\item 
+T \mbox{\hyperlink{class_stack_aa2ea0e8c3293648589dd734d52487408}{pop}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_stack_a9fc04e1ddc725589f28249adf4cd31d7}{size}} () const
+\item 
+bool \mbox{\hyperlink{class_stack_a01e885dfcc4ee3282ce581e178354310}{is\+Empty}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \mbox{\hyperlink{class_stack_a1176225c4473f0495e089d22ff80d6ec}{data}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_stack_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_stack_a01e885dfcc4ee3282ce581e178354310}\index{Stack$<$ T $>$@{Stack$<$ T $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!Stack$<$ T $>$@{Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily \label{class_stack_a01e885dfcc4ee3282ce581e178354310} 
+template$<$typename T$>$ \\
+bool \mbox{\hyperlink{class_stack}{Stack}}$<$ T $>$\+::is\+Empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+Checks if the stack is empty. \Hypertarget{class_stack_aa2ea0e8c3293648589dd734d52487408}\index{Stack$<$ T $>$@{Stack$<$ T $>$}!pop@{pop}}
+\index{pop@{pop}!Stack$<$ T $>$@{Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{class_stack_aa2ea0e8c3293648589dd734d52487408} 
+template$<$typename T$>$ \\
+T \mbox{\hyperlink{class_stack}{Stack}}$<$ T $>$\+::pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes and returns the top element from the stack. Throws std\+::out\+\_\+of\+\_\+range if the stack is empty. \Hypertarget{class_stack_a7b0f0506fd1cd7ec5756bb2b51ff908d}\index{Stack$<$ T $>$@{Stack$<$ T $>$}!push@{push}}
+\index{push@{push}!Stack$<$ T $>$@{Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{class_stack_a7b0f0506fd1cd7ec5756bb2b51ff908d} 
+template$<$typename T$>$ \\
+void \mbox{\hyperlink{class_stack}{Stack}}$<$ T $>$\+::push (\begin{DoxyParamCaption}\item[{const T \&}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Pushes a new element onto the stack. \Hypertarget{class_stack_a9fc04e1ddc725589f28249adf4cd31d7}\index{Stack$<$ T $>$@{Stack$<$ T $>$}!size@{size}}
+\index{size@{size}!Stack$<$ T $>$@{Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{class_stack_a9fc04e1ddc725589f28249adf4cd31d7} 
+template$<$typename T$>$ \\
+unsigned int \mbox{\hyperlink{class_stack}{Stack}}$<$ T $>$\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+Returns the number of elements currently in the stack. 
+
+\label{doc-variable-members}
+\Hypertarget{class_stack_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_stack_a1176225c4473f0495e089d22ff80d6ec}\index{Stack$<$ T $>$@{Stack$<$ T $>$}!data@{data}}
+\index{data@{data}!Stack$<$ T $>$@{Stack$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{class_stack_a1176225c4473f0495e089d22ff80d6ec} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_vector}{Vector}}$<$T$>$ \mbox{\hyperlink{class_stack}{Stack}}$<$ T $>$\+::data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+CPP/\mbox{\hyperlink{stack_8hpp}{stack.\+hpp}}\end{DoxyCompactItemize}

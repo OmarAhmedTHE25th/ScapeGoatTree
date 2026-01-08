@@ -1,0 +1,160 @@
+\doxysection{CPP/\+Tree\+Driver.cpp File Reference}
+\hypertarget{_tree_driver_8cpp}{}\label{_tree_driver_8cpp}\index{CPP/TreeDriver.cpp@{CPP/TreeDriver.cpp}}
+{\ttfamily \#include "{}imgui/imgui.\+h"{}}\newline
+{\ttfamily \#include "{}imgui/imgui\+\_\+impl\+\_\+win32.\+h"{}}\newline
+{\ttfamily \#include "{}imgui/imgui\+\_\+impl\+\_\+dx11.\+h"{}}\newline
+{\ttfamily \#include $<$d3d11.\+h$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include "{}i\+Tree.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_tree_driver_8cpp_a9adec99bddda709d509857760a77a8fe}{Create\+Device\+D3D}} (HWND h\+Wnd)
+\item 
+void \mbox{\hyperlink{_tree_driver_8cpp_ae184460b32863da763541b7e59cfdae7}{Cleanup\+Device\+D3D}} ()
+\item 
+void \mbox{\hyperlink{_tree_driver_8cpp_ab9ce49cc3b65f418ffe44be5b6b40da6}{Create\+Render\+Target}} ()
+\item 
+void \mbox{\hyperlink{_tree_driver_8cpp_a158bd53beaca42a81f1154cdcbef96ef}{Cleanup\+Render\+Target}} ()
+\item 
+LRESULT WINAPI \mbox{\hyperlink{_tree_driver_8cpp_aa726a6316fd5b9e2520d1c71670ccc16}{Wnd\+Proc}} (HWND h\+Wnd, UINT msg, WPARAM w\+Param, LPARAM l\+Param)
+\item 
+int \mbox{\hyperlink{_tree_driver_8cpp_a2c3f6775325c30275d11c6abee2db6a0}{main}} (int, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*})
+\item 
+IMGUI\+\_\+\+IMPL\+\_\+\+API LRESULT \mbox{\hyperlink{_tree_driver_8cpp_a87a3f9652a75339308cf5fd5699ef1fd}{Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+Wnd\+Proc\+Handler}} (HWND h\+Wnd, UINT msg, WPARAM w\+Param, LPARAM l\+Param)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static ID3\+D11\+Device \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_tree_driver_8cpp_afe6687fd0921162038f7f6b926c4a469}{g\+\_\+pd3d\+Device}} = nullptr
+\item 
+static ID3\+D11\+Device\+Context \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_tree_driver_8cpp_a76c20cc3cd191013f9524ea1191fb292}{g\+\_\+pd3d\+Device\+Context}} = nullptr
+\item 
+static IDXGISwap\+Chain \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_tree_driver_8cpp_abdc838bdb97168171051e526b8f49d12}{g\+\_\+p\+Swap\+Chain}} = nullptr
+\item 
+static ID3\+D11\+Render\+Target\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_tree_driver_8cpp_a63a95ea0418cb0e50b7ef46e10747a8e}{g\+\_\+main\+Render\+Target\+View}} = nullptr
+\item 
+static UINT \mbox{\hyperlink{_tree_driver_8cpp_af7c4b61a2402e35864b3a2f4c87a23c1}{g\+\_\+\+Resize\+Width}} = 0
+\item 
+static UINT \mbox{\hyperlink{_tree_driver_8cpp_af2c594080d9fc7744ba4c0ecfda4190c}{g\+\_\+\+Resize\+Height}} = 0
+\item 
+static bool \mbox{\hyperlink{_tree_driver_8cpp_a1f1a05ff84aa8f6e01c51b3c054109ff}{g\+\_\+\+Swap\+Chain\+Occluded}} = false
+\item 
+static Im\+Vec2 \mbox{\hyperlink{_tree_driver_8cpp_a327b27c22d2889744ac5fa9c4bb73873}{g\+\_\+\+Window\+Pos}} = Im\+Vec2(200, 200)
+\item 
+static Im\+Vec2 \mbox{\hyperlink{_tree_driver_8cpp_ada17cd0e40b45fc53e5ce9fdda27ae17}{g\+\_\+\+Window\+Vel}} = Im\+Vec2(4.\+0f, 3.\+5f)
+\item 
+static Im\+Vec2 \mbox{\hyperlink{_tree_driver_8cpp_ad04f706ea47b8f2431ef559c4021d766}{g\+\_\+\+Window\+Size}} = Im\+Vec2(300, 120)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_tree_driver_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_tree_driver_8cpp_ae184460b32863da763541b7e59cfdae7}\index{TreeDriver.cpp@{TreeDriver.cpp}!CleanupDeviceD3D@{CleanupDeviceD3D}}
+\index{CleanupDeviceD3D@{CleanupDeviceD3D}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{CleanupDeviceD3D()}{CleanupDeviceD3D()}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_ae184460b32863da763541b7e59cfdae7} 
+void Cleanup\+Device\+D3D (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_tree_driver_8cpp_a158bd53beaca42a81f1154cdcbef96ef}\index{TreeDriver.cpp@{TreeDriver.cpp}!CleanupRenderTarget@{CleanupRenderTarget}}
+\index{CleanupRenderTarget@{CleanupRenderTarget}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{CleanupRenderTarget()}{CleanupRenderTarget()}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_a158bd53beaca42a81f1154cdcbef96ef} 
+void Cleanup\+Render\+Target (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_tree_driver_8cpp_a9adec99bddda709d509857760a77a8fe}\index{TreeDriver.cpp@{TreeDriver.cpp}!CreateDeviceD3D@{CreateDeviceD3D}}
+\index{CreateDeviceD3D@{CreateDeviceD3D}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateDeviceD3D()}{CreateDeviceD3D()}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_a9adec99bddda709d509857760a77a8fe} 
+bool Create\+Device\+D3D (\begin{DoxyParamCaption}\item[{HWND}]{h\+Wnd}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_tree_driver_8cpp_ab9ce49cc3b65f418ffe44be5b6b40da6}\index{TreeDriver.cpp@{TreeDriver.cpp}!CreateRenderTarget@{CreateRenderTarget}}
+\index{CreateRenderTarget@{CreateRenderTarget}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateRenderTarget()}{CreateRenderTarget()}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_ab9ce49cc3b65f418ffe44be5b6b40da6} 
+void Create\+Render\+Target (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_tree_driver_8cpp_a87a3f9652a75339308cf5fd5699ef1fd}\index{TreeDriver.cpp@{TreeDriver.cpp}!ImGui\_ImplWin32\_WndProcHandler@{ImGui\_ImplWin32\_WndProcHandler}}
+\index{ImGui\_ImplWin32\_WndProcHandler@{ImGui\_ImplWin32\_WndProcHandler}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{ImGui\_ImplWin32\_WndProcHandler()}{ImGui\_ImplWin32\_WndProcHandler()}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_a87a3f9652a75339308cf5fd5699ef1fd} 
+IMGUI\+\_\+\+IMPL\+\_\+\+API LRESULT Im\+Gui\+\_\+\+Impl\+Win32\+\_\+\+Wnd\+Proc\+Handler (\begin{DoxyParamCaption}\item[{HWND}]{h\+Wnd}{, }\item[{UINT}]{msg}{, }\item[{WPARAM}]{w\+Param}{, }\item[{LPARAM}]{l\+Param}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{_tree_driver_8cpp_a2c3f6775325c30275d11c6abee2db6a0}\index{TreeDriver.cpp@{TreeDriver.cpp}!main@{main}}
+\index{main@{main}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_a2c3f6775325c30275d11c6abee2db6a0} 
+int main (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+Entry point for the Im\+Gui-\/based visualizer application. \Hypertarget{_tree_driver_8cpp_aa726a6316fd5b9e2520d1c71670ccc16}\index{TreeDriver.cpp@{TreeDriver.cpp}!WndProc@{WndProc}}
+\index{WndProc@{WndProc}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{WndProc()}{WndProc()}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_aa726a6316fd5b9e2520d1c71670ccc16} 
+LRESULT WINAPI Wnd\+Proc (\begin{DoxyParamCaption}\item[{HWND}]{h\+Wnd}{, }\item[{UINT}]{msg}{, }\item[{WPARAM}]{w\+Param}{, }\item[{LPARAM}]{l\+Param}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{_tree_driver_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_tree_driver_8cpp_a63a95ea0418cb0e50b7ef46e10747a8e}\index{TreeDriver.cpp@{TreeDriver.cpp}!g\_mainRenderTargetView@{g\_mainRenderTargetView}}
+\index{g\_mainRenderTargetView@{g\_mainRenderTargetView}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_mainRenderTargetView}{g\_mainRenderTargetView}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_a63a95ea0418cb0e50b7ef46e10747a8e} 
+ID3\+D11\+Render\+Target\+View\texorpdfstring{$\ast$}{*} g\+\_\+main\+Render\+Target\+View = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_tree_driver_8cpp_afe6687fd0921162038f7f6b926c4a469}\index{TreeDriver.cpp@{TreeDriver.cpp}!g\_pd3dDevice@{g\_pd3dDevice}}
+\index{g\_pd3dDevice@{g\_pd3dDevice}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_pd3dDevice}{g\_pd3dDevice}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_afe6687fd0921162038f7f6b926c4a469} 
+ID3\+D11\+Device\texorpdfstring{$\ast$}{*} g\+\_\+pd3d\+Device = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_tree_driver_8cpp_a76c20cc3cd191013f9524ea1191fb292}\index{TreeDriver.cpp@{TreeDriver.cpp}!g\_pd3dDeviceContext@{g\_pd3dDeviceContext}}
+\index{g\_pd3dDeviceContext@{g\_pd3dDeviceContext}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_pd3dDeviceContext}{g\_pd3dDeviceContext}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_a76c20cc3cd191013f9524ea1191fb292} 
+ID3\+D11\+Device\+Context\texorpdfstring{$\ast$}{*} g\+\_\+pd3d\+Device\+Context = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_tree_driver_8cpp_abdc838bdb97168171051e526b8f49d12}\index{TreeDriver.cpp@{TreeDriver.cpp}!g\_pSwapChain@{g\_pSwapChain}}
+\index{g\_pSwapChain@{g\_pSwapChain}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_pSwapChain}{g\_pSwapChain}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_abdc838bdb97168171051e526b8f49d12} 
+IDXGISwap\+Chain\texorpdfstring{$\ast$}{*} g\+\_\+p\+Swap\+Chain = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_tree_driver_8cpp_af2c594080d9fc7744ba4c0ecfda4190c}\index{TreeDriver.cpp@{TreeDriver.cpp}!g\_ResizeHeight@{g\_ResizeHeight}}
+\index{g\_ResizeHeight@{g\_ResizeHeight}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_ResizeHeight}{g\_ResizeHeight}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_af2c594080d9fc7744ba4c0ecfda4190c} 
+UINT g\+\_\+\+Resize\+Height = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_tree_driver_8cpp_af7c4b61a2402e35864b3a2f4c87a23c1}\index{TreeDriver.cpp@{TreeDriver.cpp}!g\_ResizeWidth@{g\_ResizeWidth}}
+\index{g\_ResizeWidth@{g\_ResizeWidth}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_ResizeWidth}{g\_ResizeWidth}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_af7c4b61a2402e35864b3a2f4c87a23c1} 
+UINT g\+\_\+\+Resize\+Width = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_tree_driver_8cpp_a1f1a05ff84aa8f6e01c51b3c054109ff}\index{TreeDriver.cpp@{TreeDriver.cpp}!g\_SwapChainOccluded@{g\_SwapChainOccluded}}
+\index{g\_SwapChainOccluded@{g\_SwapChainOccluded}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_SwapChainOccluded}{g\_SwapChainOccluded}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_a1f1a05ff84aa8f6e01c51b3c054109ff} 
+bool g\+\_\+\+Swap\+Chain\+Occluded = false\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_tree_driver_8cpp_a327b27c22d2889744ac5fa9c4bb73873}\index{TreeDriver.cpp@{TreeDriver.cpp}!g\_WindowPos@{g\_WindowPos}}
+\index{g\_WindowPos@{g\_WindowPos}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_WindowPos}{g\_WindowPos}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_a327b27c22d2889744ac5fa9c4bb73873} 
+Im\+Vec2 g\+\_\+\+Window\+Pos = Im\+Vec2(200, 200)\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_tree_driver_8cpp_ad04f706ea47b8f2431ef559c4021d766}\index{TreeDriver.cpp@{TreeDriver.cpp}!g\_WindowSize@{g\_WindowSize}}
+\index{g\_WindowSize@{g\_WindowSize}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_WindowSize}{g\_WindowSize}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_ad04f706ea47b8f2431ef559c4021d766} 
+Im\+Vec2 g\+\_\+\+Window\+Size = Im\+Vec2(300, 120)\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{_tree_driver_8cpp_ada17cd0e40b45fc53e5ce9fdda27ae17}\index{TreeDriver.cpp@{TreeDriver.cpp}!g\_WindowVel@{g\_WindowVel}}
+\index{g\_WindowVel@{g\_WindowVel}!TreeDriver.cpp@{TreeDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_WindowVel}{g\_WindowVel}}
+{\footnotesize\ttfamily \label{_tree_driver_8cpp_ada17cd0e40b45fc53e5ce9fdda27ae17} 
+Im\+Vec2 g\+\_\+\+Window\+Vel = Im\+Vec2(4.\+0f, 3.\+5f)\hspace{0.3cm}{\ttfamily [static]}}
+
