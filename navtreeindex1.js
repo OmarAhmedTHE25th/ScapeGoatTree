@@ -1,20 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"structMenuItem.html#a50f3f29f3f401f68e39b8ed97fad7171":[1,0,2,1],
-"structMenuItem.html#a5f8e2e1d9a13877ca002223e1918f4bc":[1,0,2,2],
-"tests_8cpp.html":[2,0,0,8],
-"tests_8cpp.html#a2cadb03b96447554bb9dd5150d4da272":[2,0,0,8,6],
-"tests_8cpp.html#a4254b1de12411bcb0d1e0c629dccb4a7":[2,0,0,8,1],
-"tests_8cpp.html#a44188ca99c888b6938948fba90017cbe":[2,0,0,8,12],
-"tests_8cpp.html#a5cff6b92b00293802d8254dd7bae2f03":[2,0,0,8,7],
-"tests_8cpp.html#a885e50a4d30960ae1d574913222befb7":[2,0,0,8,4],
-"tests_8cpp.html#aa79308c77ce863ce4b6d27c7dd8f3ba4":[2,0,0,8,10],
-"tests_8cpp.html#ac6d9af7aeb81c2548a4a744332210687":[2,0,0,8,8],
-"tests_8cpp.html#ac756b4b63d8fcd9af6086bdaa32d32bb":[2,0,0,8,3],
-"tests_8cpp.html#acc87d1cc918f67b2cc0dd41656482a31":[2,0,0,8,9],
-"tests_8cpp.html#acf326bb477a5bcb5ca69d535da296189":[2,0,0,8,0],
-"tests_8cpp.html#adce82b498615b2735fa994f52aabb1f5":[2,0,0,8,11],
-"tests_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[2,0,0,8,2],
 "tests_8cpp.html#ae76fcb3361d68803394791dfb0df3b1e":[2,0,0,8,5],
 "vector_8hpp.html":[2,0,0,10],
 "vector_8hpp_source.html":[2,0,0,10]

@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "ScapeGoatTree", "index.html", [
-    [ "Scapegoat Tree Implementation", "index.html", "index" ],
+    [ "🌳 Scapegoat Tree Implementation", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -53,7 +53,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Node_8hpp.html",
-"structMenuItem.html#a50f3f29f3f401f68e39b8ed97fad7171"
+"tests_8cpp.html#ae76fcb3361d68803394791dfb0df3b1e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -6,6 +6,5 @@ var searchData=
   ['vector_3',['vector',['../classVector.html',1,'Vector&lt; T &gt;'],['../classVector.html#a4cc1512628c38e37178fb3ae7106a5f8',1,'Vector::Vector()=default'],['../classVector.html#a940f94b7c4a1c15a65a1ab6e13859dfe',1,'Vector::Vector(const Vector &amp;other)'],['../classVector.html#a3b1c243ee12512045d0565917f6da4f1',1,'Vector::Vector(Vector &amp;&amp;)=delete']]],
   ['vector_2ehpp_4',['vector.hpp',['../vector_8hpp.html',1,'']]],
   ['vector_3c_20command_3c_20elementype_20_3e_20_3e_5',['Vector&lt; Command&lt; ElemenType &gt; &gt;',['../classVector.html',1,'']]],
-  ['vector_3c_20command_3c_20t_20_3e_20_3e_6',['Vector&lt; Command&lt; T &gt; &gt;',['../classVector.html',1,'']]],
-  ['via_20docker_7',['Running via Docker',['../index.html#autotoc_md6',1,'']]]
+  ['vector_3c_20command_3c_20t_20_3e_20_3e_6',['Vector&lt; Command&lt; T &gt; &gt;',['../classVector.html',1,'']]]
 ];

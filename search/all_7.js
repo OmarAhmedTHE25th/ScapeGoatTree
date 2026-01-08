@@ -16,5 +16,5 @@ var searchData=
   ['getsuccessor_13',['getSuccessor',['../classScapeGoatTree.html#a860d6d999f3f0e9d85134ccc9812bc1f',1,'ScapeGoatTree']]],
   ['getthreshold_14',['getThreshold',['../classScapeGoatTree.html#a3c806f03d92710ac84cda07d32fa09d7',1,'ScapeGoatTree']]],
   ['green_15',['GREEN',['../iTree_8cpp.html#a6549a333ff1f3c45c95ec71167e8880e',1,'iTree.cpp']]],
-  ['gui_20cross_20platform_16',['Running the Python GUI (Cross-Platform)',['../index.html#autotoc_md4',1,'']]]
+  ['gui_20cross_20platform_16',['Running the Python GUI (Cross-Platform)',['../index.html#autotoc_md12',1,'']]]
 ];
