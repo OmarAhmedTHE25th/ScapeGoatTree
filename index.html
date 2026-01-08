@@ -174,8 +174,212 @@ Advanced Usage</h2>
 🚀 Quick Start</h1>
 <h2><a class="anchor" id="autotoc_md12"></a>
 Running the Python GUI (Cross-Platform)</h2>
-<p>```bash </p>
-</div></div><!-- PageDoc -->
+<div class="fragment"><div class="line"># 1. Build the project</div>
+<div class="line">mkdir build &amp;&amp; cd build</div>
+<div class="line">cmake .. &amp;&amp; make</div>
+<div class="line"> </div>
+<div class="line"># 2. Run the animated visualizer</div>
+<div class="line">python ../py.py</div>
+</div><!-- fragment --><p><img src="https://img.shields.io/badge/GUI-Animated-ff69b4" alt="GUI Demo" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Running the C++ Terminal UI</h2>
+<div class="fragment"><div class="line"># After building, run the executable</div>
+<div class="line">./TUI   # Terminal-based User Interface</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+Running via Docker</h2>
+<p>The provided Dockerfile runs the Terminal UI directly: </p><div class="fragment"><div class="line">docker build -t scapegoat .</div>
+<div class="line">docker run -it --rm scapegoat</div>
+</div><!-- fragment --><hr  />
+<h1><a class="anchor" id="autotoc_md16"></a>
+📖 Algorithm Overview</h1>
+<p>A Scapegoat Tree is a self-balancing BST that maintains balance through periodic rebuilding:</p>
+<ul>
+<li><b>α-weight-balanced</b>: No subtree can exceed α × parent's size (α = 2/3)</li>
+<li><b>Height bound</b>: h ≤ log₁.₅(n), where n = number of nodes</li>
+<li><b>Lazy rebalancing</b>: Rebuilds only when balance is violated</li>
+</ul>
+<p><b>Advantages</b>:</p>
+<ul>
+<li>Simpler than AVL or Red-Black trees (no color/height metadata)</li>
+<li>Amortized efficiency: rebuilds are rare, fast average-case operations</li>
+<li>Space-efficient: minimal per-node overhead</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md17"></a>
+Complexity Analysis</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Operation   </th><th class="markdownTableHeadNone">Time Complexity   </th><th class="markdownTableHeadNone">Space    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Search   </td><td class="markdownTableBodyNone">O(log n) worst-case   </td><td class="markdownTableBodyNone">O(1)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Insert   </td><td class="markdownTableBodyNone">O(log n) amortized   </td><td class="markdownTableBodyNone">O(1)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Delete   </td><td class="markdownTableBodyNone">O(log n) amortized   </td><td class="markdownTableBodyNone">O(1)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Rebuild   </td><td class="markdownTableBodyNone">O(n) occasional   </td><td class="markdownTableBodyNone">O(n) temporary    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Traversal   </td><td class="markdownTableBodyNone">O(n)   </td><td class="markdownTableBodyNone">O(n) for level-order   </td></tr>
+</table>
+<hr  />
+<h1><a class="anchor" id="autotoc_md19"></a>
+🛠️ Prerequisites</h1>
+<h2><a class="anchor" id="autotoc_md20"></a>
+Required</h2>
+<ul>
+<li>C++ Compiler: GCC 9+, Clang 10+, or MSVC 2019+</li>
+<li>CMake 3.15+</li>
+<li>Python 3.7+</li>
+<li>pybind11 (<code>pip install pybind11</code>)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md21"></a>
+Optional</h2>
+<ul>
+<li>DirectX 11 SDK (for Windows GUI)</li>
+<li>Tkinter (usually included with Python)</li>
+<li>Doxygen (for generating documentation locally)</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md23"></a>
+💻 Installation</h1>
+<h2><a class="anchor" id="autotoc_md24"></a>
+Windows</h2>
+<div class="fragment"><div class="line">pip install pybind11</div>
+<div class="line"> </div>
+<div class="line">mkdir build &amp;&amp; cd build</div>
+<div class="line">cmake ..</div>
+<div class="line">cmake --build . --config Release</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md25"></a>
+Linux/Mac</h2>
+<div class="fragment"><div class="line">pip install pybind11</div>
+<div class="line"> </div>
+<div class="line">mkdir build &amp;&amp; cd build</div>
+<div class="line">cmake ..</div>
+<div class="line">make</div>
+</div><!-- fragment --><hr  />
+<h1><a class="anchor" id="autotoc_md27"></a>
+📝 Usage Examples</h1>
+<h2><a class="anchor" id="autotoc_md28"></a>
+Python Interface</h2>
+<div class="fragment"><div class="line"><span class="keyword">import</span> scapegoat_tree_py <span class="keyword">as</span> sgt</div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># Create tree and insert values</span></div>
+<div class="line">tree = sgt.ScapeGoatTree()</div>
+<div class="line">tree.insert_batch([10, 20, 30, 5, 15])</div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># Use undo/redo</span></div>
+<div class="line">tree.undo()</div>
+<div class="line">tree.redo()</div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># Range queries</span></div>
+<div class="line">sum_result = tree.SuminRange(10, 30)</div>
+<div class="line">values = tree.ValuesInRange(5, 20)</div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># Merge trees</span></div>
+<div class="line">tree2 = sgt.ScapeGoatTree()</div>
+<div class="line">tree2.insert_batch([25, 35])</div>
+<div class="line">merged = tree + tree2</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md29"></a>
+C++ Interface</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ScapeGoatTree_8hpp.html">ScapeGoatTree.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="classScapeGoatTree.html">ScapeGoatTree&lt;int&gt;</a> tree;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Insert values</span></div>
+<div class="line">tree.<a class="code hl_function" href="classScapeGoatTree.html#ae0c57e0e8e419e1dc2bb01ea32d12f4b">insert</a>(100);</div>
+<div class="line">tree + 200;  <span class="comment">// Operator overload</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Delete values</span></div>
+<div class="line">tree - 100;  <span class="comment">// Operator overload</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Batch operations</span></div>
+<div class="line">tree.<a class="code hl_function" href="classScapeGoatTree.html#a6bd78764375cfb22fa23166905bbd336">insertBatch</a>({10, 20, 30});</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Undo/Redo</span></div>
+<div class="line">tree.<a class="code hl_function" href="classScapeGoatTree.html#a693ee93867d1092ca56b98becfddb21d">undo</a>();</div>
+<div class="line">tree.<a class="code hl_function" href="classScapeGoatTree.html#aaa4bf81af689fa0a95ebc65eb20af91d">redo</a>();</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Range queries</span></div>
+<div class="line"><span class="keywordtype">int</span> sum = tree.<a class="code hl_function" href="classScapeGoatTree.html#a5e7459a77ee4685e0c81026c4a7faf12">sumInRange</a>(10, 50);</div>
+<div class="line"><a class="code hl_class" href="classVector.html">Vector&lt;int&gt;</a> values = tree.<a class="code hl_function" href="classScapeGoatTree.html#a6a1850d6bcb416d7e3ed03f2c22b8ad6">valuesInRange</a>(10, 50);</div>
+<div class="ttc" id="aScapeGoatTree_8hpp_html"><div class="ttname"><a href="ScapeGoatTree_8hpp.html">ScapeGoatTree.hpp</a></div></div>
+<div class="ttc" id="aclassScapeGoatTree_html"><div class="ttname"><a href="classScapeGoatTree.html">ScapeGoatTree</a></div><div class="ttdef"><b>Definition</b> ScapeGoatTree.hpp:49</div></div>
+<div class="ttc" id="aclassScapeGoatTree_html_a5e7459a77ee4685e0c81026c4a7faf12"><div class="ttname"><a href="classScapeGoatTree.html#a5e7459a77ee4685e0c81026c4a7faf12">ScapeGoatTree::sumInRange</a></div><div class="ttdeci">T sumInRange(T min, T max)</div></div>
+<div class="ttc" id="aclassScapeGoatTree_html_a693ee93867d1092ca56b98becfddb21d"><div class="ttname"><a href="classScapeGoatTree.html#a693ee93867d1092ca56b98becfddb21d">ScapeGoatTree::undo</a></div><div class="ttdeci">void undo()</div></div>
+<div class="ttc" id="aclassScapeGoatTree_html_a6a1850d6bcb416d7e3ed03f2c22b8ad6"><div class="ttname"><a href="classScapeGoatTree.html#a6a1850d6bcb416d7e3ed03f2c22b8ad6">ScapeGoatTree::valuesInRange</a></div><div class="ttdeci">Vector&lt; T &gt; valuesInRange(T min, T max)</div></div>
+<div class="ttc" id="aclassScapeGoatTree_html_a6bd78764375cfb22fa23166905bbd336"><div class="ttname"><a href="classScapeGoatTree.html#a6bd78764375cfb22fa23166905bbd336">ScapeGoatTree::insertBatch</a></div><div class="ttdeci">void insertBatch(const Vector&lt; T &gt; &amp;values)</div></div>
+<div class="ttc" id="aclassScapeGoatTree_html_aaa4bf81af689fa0a95ebc65eb20af91d"><div class="ttname"><a href="classScapeGoatTree.html#aaa4bf81af689fa0a95ebc65eb20af91d">ScapeGoatTree::redo</a></div><div class="ttdeci">void redo()</div></div>
+<div class="ttc" id="aclassScapeGoatTree_html_ae0c57e0e8e419e1dc2bb01ea32d12f4b"><div class="ttname"><a href="classScapeGoatTree.html#ae0c57e0e8e419e1dc2bb01ea32d12f4b">ScapeGoatTree::insert</a></div><div class="ttdeci">void insert(T value)</div></div>
+<div class="ttc" id="aclassVector_html"><div class="ttname"><a href="classVector.html">Vector</a></div><div class="ttdef"><b>Definition</b> vector.hpp:6</div></div>
+</div><!-- fragment --><hr  />
+<h1><a class="anchor" id="autotoc_md31"></a>
+🧪 Testing</h1>
+<h2><a class="anchor" id="autotoc_md32"></a>
+Run Unit Tests</h2>
+<div class="fragment"><div class="line">cd build</div>
+<div class="line">./unit_tests</div>
+</div><!-- fragment --><p>Comprehensive test suite includes:</p><ul>
+<li>✅ Basic operations and edge cases</li>
+<li>✅ Automatic rebalancing verification</li>
+<li>✅ Operator overloading</li>
+<li>✅ Undo/Redo system</li>
+<li>✅ Batch operations</li>
+<li>✅ Copy and move semantics</li>
+<li>✅ <b>Stress testing with 50,000 operations</b></li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md34"></a>
+📁 Project Structure</h1>
+<div class="fragment"><div class="line">ScapeGoatTree/</div>
+<div class="line">├── .github/</div>
+<div class="line">│   └── workflows/</div>
+<div class="line">│       └── docs.yml              # Auto-generate documentation</div>
+<div class="line">├── CPP/</div>
+<div class="line">│   ├── ScapeGoatTree.hpp/tpp     # Main tree implementation</div>
+<div class="line">│   ├── Node.hpp                  # Node structure</div>
+<div class="line">│   ├── vector.hpp                # Custom dynamic array</div>
+<div class="line">│   ├── queue.hpp/tpp             # Custom queue</div>
+<div class="line">│   ├── stack.hpp                 # Custom stack</div>
+<div class="line">│   ├── bindings.cpp              # Pybind11 bindings</div>
+<div class="line">│   ├── iTree.cpp/hpp             # Terminal UI</div>
+<div class="line">│   ├── TreeDriver.cpp            # DirectX + ImGui GUI</div>
+<div class="line">│   ├── RunTUI.cpp                # Entry for terminal interface</div>
+<div class="line">│   └── tests.cpp                 # Unit test suite  </div>
+<div class="line">├── py.py                         # Python Tkinter GUI</div>
+<div class="line">├── CMakeLists.txt                # Build configuration</div>
+<div class="line">├── Doxyfile                      # Documentation config</div>
+<div class="line">├── Dockerfile                    # Container deployment</div>
+<div class="line">├── LICENSE.md</div>
+<div class="line">└── README.md</div>
+</div><!-- fragment --><hr  />
+<h1><a class="anchor" id="autotoc_md36"></a>
+🎓 Learning Resources</h1>
+<p>For more information about Scapegoat Trees:</p><ul>
+<li><a href="https://people.csail.mit.edu/rivest/pubs/GR93.pdf">Original Paper (1993)</a> by Galperin &amp; Rivest</li>
+<li><a href="https://omarahmedthe25th.github.io/ScapeGoatTree/">API Documentation</a></li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md38"></a>
+📄 License</h1>
+<p>This project is licensed under the <b>MIT License</b> - see LICENSE.md for details.</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md40"></a>
+👤 Author</h1>
+<p><b>Omar Ahmed Abdel Hameed</b></p>
+<ul>
+<li>GitHub: <a href="https://github.com/omarahmedthe25th">@omarahmedthe25th</a></li>
+<li>Project Link: <a href="https://github.com/omarahmedthe25th/ScapeGoatTree">https://github.com/omarahmedthe25th/ScapeGoatTree</a></li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md42"></a>
+🌟 Acknowledgments</h1>
+<ul>
+<li>Course: Data Structures <br  />
+</li>
+<li>Inspiration: Self-balancing tree algorithms</li>
+<li>Special thanks to the open-source community</li>
+</ul>
+<hr  />
+<div align="center"></div><div align="center"><b>⭐ Star this repo if you found it helpful!</b></div><div align="center"><a href="https://github.com/omarahmedthe25th/ScapeGoatTree"><img src="https://img.shields.io/github/stars/omarahmedthe25th/ScapeGoatTree?style=social" alt="GitHub stars" class="inline"/></a></div><div align="center"></div> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
