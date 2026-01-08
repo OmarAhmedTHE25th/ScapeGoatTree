@@ -67,7 +67,7 @@ class ScapeGoatTree {
     /**
      * Performs an in-order traversal to populate a sorted array with node values.
      */
-    void inorderTraversal(const TreeNode*node, int &i,T* array) const;
+    void inorderTraversal(const TreeNode*node, int &i,T*& array) const;
     /**
      * Recursively deletes all nodes in the subtree using post-order traversal.
      */
@@ -105,6 +105,11 @@ class ScapeGoatTree {
      */
     void restructure_subtree(TreeNode *newNode);
     T sumHelper(TreeNode* node,T min,T max);
+    void rangeHelper(TreeNode* node,T min,T max,Vector<T>& range);
+    T kthSmallestHelper(TreeNode *node, int k) const;
+
+    T kthSmallest(int k) const;
+
     TreeNode* root{};
     int nNodes{};
     int rebuildCount = 0;
@@ -161,6 +166,13 @@ public:
     void undo();
     void redo();
     T sumInRange(T min, T max);
+    T getMin();
+    T getMax();
+    Vector<T> valuesInRange(T min,T max);
+
+    T getSuccessor(T value) const;
+
+
 
     /**
      * Returns a string report indicating if the tree is currently balanced.

@@ -317,7 +317,8 @@ ScapeGoatTree<T>::TreeNode* ScapeGoatTree<T>::rebuildTree(const int start, const
     Nroot->size = 1 + countN(Nroot->left) + countN(Nroot->right);// update size
     const int leftH = Nroot->left ? Nroot->left->height : -1;
     const int rightH = Nroot->right ? Nroot->right->height : -1;
-    Nroot->height = 1 + std::max(leftH, rightH);
+    int max = leftH > rightH ? leftH : rightH;
+    Nroot->height = 1 + max;
     return Nroot;
 }
 /**
@@ -352,7 +353,7 @@ const ScapeGoatTree<T>::TreeNode *ScapeGoatTree<T>::getRoot() {
  * Performs an in-order traversal to populate a sorted array with node values.
  */
 template<typename T>
-void ScapeGoatTree<T>::inorderTraversal(const TreeNode* node, int& i, T* array) const {
+void ScapeGoatTree<T>::inorderTraversal(const TreeNode* node, int& i, T*& array) const {
 if (!node) return;
     inorderTraversal(node->left, i,array);
    array[i++]= node->value;
@@ -787,5 +788,63 @@ T ScapeGoatTree<T>::sumHelper(TreeNode *node,T min,T max) {
 template<typename T>
 T ScapeGoatTree<T>::sumInRange(T min, T max) {
     return sumHelper(root,min,max);
+}
+
+template<typename T>
+T ScapeGoatTree<T>::getMin() {
+    if (!root)throw std::exception("Tree is Empty");
+    TreeNode* current = root;
+    while (current->left) current =current->left;
+    return current->value;
+
+}
+template<typename T>
+T ScapeGoatTree<T>::getMax() {
+    if (!root)throw std::exception("Tree is Empty");
+    TreeNode* current = root;
+    while (current->right) current =current->right;
+    return current->value;
+}
+
+template<typename T>
+void ScapeGoatTree<T>::rangeHelper(TreeNode *node,T min,T max,Vector<T>& range) {
+    if (!node)return;
+    if (node->value > min)rangeHelper(node->left,min,max);
+    if (node->value >= min && node->value <= max )range.push_back(node->value);
+    if (node->value < max)rangeHelper(node->right,min,max);
+}
+template<typename T>
+Vector<T> ScapeGoatTree<T>::valuesInRange(T min, T max) {
+    Vector<T>range{};
+    rangeHelper(root,min,max,range);
+    return range;
+}
+template<typename T>
+T ScapeGoatTree<T>::getSuccessor(T value) const {
+    TreeNode* current = root;
+    TreeNode* successor = nullptr;
+    while (current) {
+        if (current->value > value) {
+            successor = current;
+            current = current->left;
+        } else {
+            current = current->right;
+        }
+    }
+    if (!successor) throw std::runtime_error("No successor found");
+    return successor->value;
+}
+
+template<typename T>
+T ScapeGoatTree<T>::kthSmallestHelper(TreeNode* node, int k) const {
+    int leftSize = countN(node->left);
+    if (k == leftSize + 1) return node->value;
+    if (k <= leftSize) return kthSmallestHelper(node->left, k);
+    return kthSmallestHelper(node->right, k - leftSize - 1);
+}
+template<typename T>
+T ScapeGoatTree<T>::kthSmallest(int k) const {
+    if (k < 1 || k > nNodes) throw std::out_of_range("k is out of bounds");
+    return kthSmallestHelper(root, k);
 }
 #endif //TREE_SCAPEGOATTREE_TPP
