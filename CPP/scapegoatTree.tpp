@@ -71,6 +71,7 @@ void ScapeGoatTree<T>::restructure_subtree(TreeNode *newNode) {
     else if (goat == goat->parent->left) goat->parent->left = balanced; //if goat is left child then update left pointer
     else goat->parent->right = balanced; //if goat is right child then update right pointer
     postorderTraversal(goat);// delete old subtree
+    delete[] temp_array;
 }
 
 /**
@@ -335,6 +336,7 @@ void ScapeGoatTree<T>::DeletionRebuild(){
             rebuildCount++;
             postorderTraversal(oldRoot);
             max_nodes = nNodes;
+            delete[] temp_array;
         }
         }
 /**
