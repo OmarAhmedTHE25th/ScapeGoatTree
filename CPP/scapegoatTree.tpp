@@ -817,7 +817,7 @@ void ScapeGoatTree<T>::rangeHelper(TreeNode *node,T min,T max,Vector<T>& range) 
 }
 template<typename T>
 Vector<T> ScapeGoatTree<T>::valuesInRange(T min, T max) {
-    static Vector<T>range;
+    Vector<T>range;
     rangeHelper(root,min,max,range);
     return range;
 }
