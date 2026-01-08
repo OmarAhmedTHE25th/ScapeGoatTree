@@ -363,8 +363,8 @@ void ITree::TreeUI() {
         {"Max",                 opcodes::MAX,              hanleMinMax},
         {"Sum in Range",        opcodes::SUMINRANGE,       [](auto& A, auto& B, auto ){handleSuminRange(A,B);}},
         {"Values in Range",     opcodes::VALUESINRANGE,    [](auto& A, auto& B, auto ){handleValuesinRange(A,B);}},
-        {"Get Inorder Successor",opcodes::SUCC,    [](auto& A, auto& B, auto ){handleSucessor(A,B);}},
-        {"Kth Smallest Element",opcodes::KTH,    [](auto& A, auto& B, auto ){handleKthSmallestElement(A,B);}},
+        {"Get Inorder Successor",opcodes::SUCC,            [](auto& A, auto& B, auto ){handleSucessor(A,B);}},
+        {"Kth Smallest Element",opcodes::KTH,              [](auto& A, auto& B, auto ){handleKthSmallestElement(A,B);}},
 
     };
 

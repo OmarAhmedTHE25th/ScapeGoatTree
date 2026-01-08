@@ -39,6 +39,11 @@ PYBIND11_MODULE(scapegoat_tree_py, m) {
         .def("undo", &ScapeGoatTree<Type>::undo)
         .def("redo", &ScapeGoatTree<Type>::redo)
         .def("SuminRange",&ScapeGoatTree<Type>::sumInRange)
+        .def("ValuesInRange", &ScapeGoatTree<Type>::valuesInRange)
+        .def("KthSmallest", &ScapeGoatTree<Type>::kthSmallest)
+        .def("GetSuccessor", &ScapeGoatTree<Type>::getSuccessor)
+        .def("GetMin", &ScapeGoatTree<Type>::getMin)
+        .def("GetMax", &ScapeGoatTree<Type>::getMax)
         .def(py::self + py::self)
         .def(py::self == py::self)
 

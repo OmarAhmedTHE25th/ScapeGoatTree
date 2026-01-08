@@ -379,7 +379,6 @@ class ScapeGoatGUI:
         tk.Button(self.ops_frame, text="Delete", command=self.cmd_delete, bg="lightcoral", **btn_opts).grid(row=0, column=2, padx=3, pady=2)
         tk.Button(self.ops_frame, text="Delete Batch", command=self.cmd_deletebatch, bg="lightcoral", **btn_opts).grid(row=0, column=3, padx=3, pady=2)
         tk.Button(self.ops_frame, text="🔍 Search", command=self.cmd_search, bg="gold", **btn_opts).grid(row=0, column=4, padx=3, pady=2)
-        tk.Button(self.ops_frame, text="Σ Range Sum", command=self.cmd_suminrange, bg="orchid", **btn_opts).grid(row=0, column=5, padx=3, pady=2)
         # Row 1: Displays
         tk.Button(self.ops_frame, text="Show In-Order", command=lambda: self.cmd_show("in"), **btn_opts).grid(row=1, column=0, padx=3, pady=2)
         tk.Button(self.ops_frame, text="Show Pre-Order", command=lambda: self.cmd_show("pre"), **btn_opts).grid(row=1, column=1, padx=3, pady=2)
@@ -391,8 +390,15 @@ class ScapeGoatGUI:
         tk.Button(self.ops_frame, text="Clear Tree", command=self.cmd_clear, **btn_opts).grid(row=2, column=1, padx=3, pady=2)
         tk.Button(self.ops_frame, text="Undo", command=self.cmd_undo, bg="orange", **btn_opts).grid(row=2, column=2, padx=3, pady=2)
         tk.Button(self.ops_frame, text="Redo", command=self.cmd_redo, bg="orange", **btn_opts).grid(row=2, column=3, padx=3, pady=2)
+        tk.Button(self.ops_frame, text="Σ Range Sum", command=self.cmd_suminrange, bg="orchid", **btn_opts).grid(row=2, column=4, padx=3, pady=2)
+        # Row 3: Specialized Queries
+        tk.Button(self.ops_frame, text="📊 Range Values", command=self.cmd_valuesinrange, bg="orchid", **btn_opts).grid(row=3, column=0, padx=3, pady=2)
+        tk.Button(self.ops_frame, text="🔢 K-th Smallest", command=self.cmd_kthsmallest, bg="orchid", **btn_opts).grid(row=3, column=1, padx=3, pady=2)
+        tk.Button(self.ops_frame, text="⏭️ Successor", command=self.cmd_successor, bg="orchid", **btn_opts).grid(row=3, column=2, padx=3, pady=2)
+        tk.Button(self.ops_frame, text="📉 Get Min", command=self.cmd_min, bg="orchid", **btn_opts).grid(row=3, column=3, padx=3, pady=2)
+        tk.Button(self.ops_frame, text="📈 Get Max", command=self.cmd_max, bg="orchid", **btn_opts).grid(row=3, column=4, padx=3, pady=2)
 
-        # Section C: Advanced
+    # Section C: Advanced
         self.adv_frame = tk.LabelFrame(self.control_frame, text="Advanced / Demo", padx=10, pady=10)
         self.adv_frame.grid(row=0, column=2, sticky="nsw", padx=10, pady=10)
 
@@ -576,7 +582,7 @@ class ScapeGoatGUI:
 
         try:
             if "-" in raw_input:
-                # Robust split for "10-40" or "10 - 40"
+
                 parts = [p.strip() for p in raw_input.split("-") if p.strip()]
 
                 if len(parts) == 2:
@@ -601,7 +607,79 @@ class ScapeGoatGUI:
         except Exception as e:
             self.log(f"❌ Range Error: {e}")
             self.log("Usage: Type '10 - 40' in either box OR fill both boxes.")
+    def cmd_valuesinrange(self):
+        # If the user typed "10 - 40" in the Range High box specifically:
+        raw_input = self.entry_high.get().strip()
 
+        # Fallback: if Range High is empty, check the Value box (entry_val)
+        if not raw_input:
+            raw_input = self.entry_val.get().strip()
+
+        self.log(f"Processing range input: '{raw_input}'")
+
+        try:
+            if "-" in raw_input:
+
+                parts = [p.strip() for p in raw_input.split("-") if p.strip()]
+
+                if len(parts) == 2:
+                    low = int(parts[0])
+                    high = int(parts[1])
+                else:
+                    raise ValueError("Please use format '10 - 40'")
+            else:
+                # If no hyphen, assume Value box is LOW and High box is HIGH
+                low = int(self.entry_val.get().strip())
+                high = int(self.entry_high.get().strip())
+
+            if low > high:
+                low, high = high, low
+
+            if self.animation_enabled.get() and not self.animator.is_animating:
+                self.animator.animate_sum_in_range(low, high)
+            else:
+                result = self.get_active_tree().ValuesinRange(low, high)
+                self.log(f"✓ Values in [{low}, {high}]: {result}")
+
+        except Exception as e:
+            self.log(f"❌ Range Error: {e}")
+            self.log("Usage: Type '10 - 40' in either box OR fill both boxes.")
+
+    def cmd_kthsmallest(self):
+        k = self.get_val()
+        if k is None: return
+        try:
+            res = self.get_active_tree().KthSmallest(k)
+            self.log(f"Rank {k} element is: {res}")
+            self.draw_tree(highlight_val=res, highlight_color="#da70d6")
+        except Exception as e:
+            self.log(f"❌ Error: {e}")
+
+    def cmd_successor(self):
+        val = self.get_val()
+        if val is None: return
+        try:
+            res = self.get_active_tree().GetSuccessor(val)
+            self.log(f"Successor of {val} is: {res}")
+            self.draw_tree(highlight_val=res, highlight_color="#da70d6")
+        except Exception as e:
+            self.log(f"❌ Error: {e}")
+
+    def cmd_min(self):
+        try:
+            res = self.get_active_tree().GetMin()
+            self.log(f"Minimum value: {res}")
+            self.draw_tree(highlight_val=res, highlight_color="#da70d6")
+        except Exception as e:
+            self.log(f"❌ Error: {e}")
+
+    def cmd_max(self):
+        try:
+            res = self.get_active_tree().GetMax()
+            self.log(f"Maximum value: {res}")
+            self.draw_tree(highlight_val=res, highlight_color="#da70d6")
+        except Exception as e:
+            self.log(f"❌ Error: {e}")
     # ============================================
         # DRAWING ENGINE
     # ============================================
