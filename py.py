@@ -295,6 +295,44 @@ class AnimationManager:
             self.gui.root.after(self.animation_speed, lambda: sum_step(index + 1))
 
         sum_step(0)
+    def animate_values_in_range(self, low, high):
+        """Animate finding and listing nodes within a range"""
+        if self.is_animating:
+            return
+
+        self.is_animating = True
+        nodes_in_range = []
+
+        def find_nodes(node):
+            if not node:
+                return
+            if node.value > low:
+                find_nodes(node.left)
+            if low <= node.value <= high:
+                nodes_in_range.append(node.value)
+            if node.value < high:
+                find_nodes(node.right)
+
+        find_nodes(self.gui.get_active_tree().get_root())
+
+        if not nodes_in_range:
+            self.gui.log(f"No nodes found in range [{low}, {high}]")
+            self.is_animating = False
+            return
+
+        def highlight_step(index):
+            if index >= len(nodes_in_range):
+                self.gui.log(f"✓ All values in [{low}, {high}]: {nodes_in_range}")
+                self.is_animating = False
+                return
+
+            val = nodes_in_range[index]
+            self.gui.draw_tree(highlight_val=val, highlight_color="#da70d6")
+            self.gui.log(f"Found node in range: {val}")
+
+            self.gui.root.after(self.animation_speed, lambda: highlight_step(index + 1))
+
+        highlight_step(0)
 
 class LogWindow:
     def __init__(self, parent):
@@ -392,13 +430,14 @@ class ScapeGoatGUI:
         tk.Button(self.ops_frame, text="Redo", command=self.cmd_redo, bg="orange", **btn_opts).grid(row=2, column=3, padx=3, pady=2)
         tk.Button(self.ops_frame, text="Σ Range Sum", command=self.cmd_suminrange, bg="orchid", **btn_opts).grid(row=2, column=4, padx=3, pady=2)
         # Row 3: Specialized Queries
-        tk.Button(self.ops_frame, text="📊 Range Values", command=self.cmd_valuesinrange, bg="orchid", **btn_opts).grid(row=3, column=0, padx=3, pady=2)
-        tk.Button(self.ops_frame, text="🔢 K-th Smallest", command=self.cmd_kthsmallest, bg="orchid", **btn_opts).grid(row=3, column=1, padx=3, pady=2)
-        tk.Button(self.ops_frame, text="⏭️ Successor", command=self.cmd_successor, bg="orchid", **btn_opts).grid(row=3, column=2, padx=3, pady=2)
-        tk.Button(self.ops_frame, text="📉 Get Min", command=self.cmd_min, bg="orchid", **btn_opts).grid(row=3, column=3, padx=3, pady=2)
-        tk.Button(self.ops_frame, text="📈 Get Max", command=self.cmd_max, bg="orchid", **btn_opts).grid(row=3, column=4, padx=3, pady=2)
+        colors = ["orchid", "plum", "violet", "mediumorchid", "fuchsia"]
+        tk.Button(self.ops_frame, text="📊 Range Values", command=self.cmd_valuesinrange, bg=colors[0], **btn_opts).grid(row=3, column=0, padx=3, pady=2)
+        tk.Button(self.ops_frame, text="🔢 K-th Smallest", command=self.cmd_kthsmallest, bg=colors[1], **btn_opts).grid(row=3, column=1, padx=3, pady=2)
+        tk.Button(self.ops_frame, text="⏭️ Successor", command=self.cmd_successor, bg=colors[2], **btn_opts).grid(row=3, column=2, padx=3, pady=2)
+        tk.Button(self.ops_frame, text="📉 Get Min", command=self.cmd_min, bg=colors[3], **btn_opts).grid(row=3, column=3, padx=3, pady=2)
+        tk.Button(self.ops_frame, text="📈 Get Max", command=self.cmd_max, bg=colors[4], **btn_opts).grid(row=3, column=4, padx=3, pady=2)
 
-    # Section C: Advanced
+# Section C: Advanced
         self.adv_frame = tk.LabelFrame(self.control_frame, text="Advanced / Demo", padx=10, pady=10)
         self.adv_frame.grid(row=0, column=2, sticky="nsw", padx=10, pady=10)
 
@@ -636,7 +675,7 @@ class ScapeGoatGUI:
                 low, high = high, low
 
             if self.animation_enabled.get() and not self.animator.is_animating:
-                self.animator.animate_sum_in_range(low, high)
+                self.animator.animate_values_in_range(low, high)
             else:
                 result = self.get_active_tree().ValuesinRange(low, high)
                 self.log(f"✓ Values in [{low}, {high}]: {result}")
