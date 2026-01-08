@@ -61,6 +61,9 @@ public:
         }
         return value;
     }
+    T* begin() { return data; }
+    T* end()   { return data + _size; }
+
     /**
      * Provides access to the element at the specified index.
      */
@@ -73,7 +76,11 @@ public:
     template <typename>
     friend class ScapeGoatTree;
 
-    Vector(const Vector&)=delete;
+    Vector(const Vector& other) {
+      for (int i =0; i<other.nElements;i++) {
+          push_back(other.data[i]);
+      }
+    }
     Vector& operator=(const Vector&) = delete;
     Vector(Vector&&) = delete;
     Vector& operator=(Vector&&) = delete;

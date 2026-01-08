@@ -809,13 +809,13 @@ T ScapeGoatTree<T>::getMax() {
 template<typename T>
 void ScapeGoatTree<T>::rangeHelper(TreeNode *node,T min,T max,Vector<T>& range) {
     if (!node)return;
-    if (node->value > min)rangeHelper(node->left,min,max);
+    if (node->value > min)rangeHelper(node->left,min,max,range);
     if (node->value >= min && node->value <= max )range.push_back(node->value);
-    if (node->value < max)rangeHelper(node->right,min,max);
+    if (node->value < max)rangeHelper(node->right,min,max,range);
 }
 template<typename T>
 Vector<T> ScapeGoatTree<T>::valuesInRange(T min, T max) {
-    Vector<T>range{};
+    static Vector<T>range;
     rangeHelper(root,min,max,range);
     return range;
 }

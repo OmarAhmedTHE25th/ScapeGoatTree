@@ -108,7 +108,6 @@ class ScapeGoatTree {
     void rangeHelper(TreeNode* node,T min,T max,Vector<T>& range);
     T kthSmallestHelper(TreeNode *node, int k) const;
 
-    T kthSmallest(int k) const;
 
     TreeNode* root{};
     int nNodes{};
@@ -169,9 +168,8 @@ public:
     T getMin();
     T getMax();
     Vector<T> valuesInRange(T min,T max);
-
     T getSuccessor(T value) const;
-
+    T kthSmallest(int k) const;
 
 
     /**

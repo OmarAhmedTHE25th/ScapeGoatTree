@@ -259,7 +259,7 @@ void ITree::handleUndoRedo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenTyp
 
 void ITree::handleSuminRange(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
     auto& tree = selectTree(A,B);
-    int min=0,max=0;
+    ElemenType min=0,max=0;
     cout << "Enter the minimum value: ";
     cin >> min;
     if (!validateCinLine())return;
@@ -270,6 +270,57 @@ void ITree::handleSuminRange(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenT
     cout << "\n";
     println("Sum between {} and {} is {}",min,max,tree.sumInRange(min,max));
     printSuccess("SUCCESS: Sum in Range complete.");
+}
+
+void ITree::hanleMinMax(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op) {
+    auto& tree = selectTree(A, B);
+    switch (op) {
+        case (opcodes::MIN): cout << "Minimum value is: " << tree.getMin();
+        case (opcodes::MAX):cout << "Maximum value is: " << tree.getMax();
+        default: ;
+    }
+
+}
+
+void ITree::handleValuesinRange(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A,B);
+    ElemenType min=0,max=0;
+    cout << "Enter the minimum value: ";
+    cin >> min;
+    if (!validateCinLine())return;
+    cout << "\n";
+    cout << "Enter the maximum value: ";
+    cin >> max;
+    if (!validateCinLine())return;
+    cout << "\n";
+   auto result = tree.valuesInRange(min,max);
+    print("Values between {} and {} are",min,max);
+    for (const auto& v : result) {
+        cout << v << " ";
+    }
+    printSuccess("SUCCESS: Values in Range complete.");
+}
+
+void ITree::handleKthSmallestElement(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
+    ElemenType k;
+    cout << "Enter k: ";
+    cin >> k;
+    if (!validateCinLine())return;
+    cout << "\n";
+    println("The {}th smallest element is {}" ,k,tree.kthSmallest(k));
+    printSuccess("SUCCESS: Kth smallest Element complete.");
+}
+
+void ITree::handleSucessor(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A, B);
+    ElemenType val;
+    cout << "Enter a value to find its successor in the tree: ";
+    cin >> val;
+    if (!validateCinLine())return;
+    cout << "\n";
+    println("the inorder successor of {} is {}" ,val,tree.getSuccessor(val));
+    printSuccess("SUCCESS:Successor Search Element complete.");
 }
 
 /* ===================== Main UI ===================== */
@@ -308,7 +359,13 @@ void ITree::TreeUI() {
         {"Operator Clear",      opcodes::CLEAR,            [](auto& A, auto& B, auto ){handleClear(A,B);}},
         {"Undo",                opcodes::UNDO,             handleUndoRedo},
         {"Redo",                opcodes::REDO,             handleUndoRedo},
-        {"Sum in Range",        opcodes::SUMINRANGE,       [](auto& A, auto& B, auto ){handleSuminRange(A,B);}}
+        {"Min",                 opcodes::MIN,              hanleMinMax},
+        {"Max",                 opcodes::MAX,              hanleMinMax},
+        {"Sum in Range",        opcodes::SUMINRANGE,       [](auto& A, auto& B, auto ){handleSuminRange(A,B);}},
+        {"Values in Range",     opcodes::VALUESINRANGE,    [](auto& A, auto& B, auto ){handleValuesinRange(A,B);}},
+        {"Get Inorder Successor",opcodes::SUCC,    [](auto& A, auto& B, auto ){handleSucessor(A,B);}},
+        {"Kth Smallest Element",opcodes::KTH,    [](auto& A, auto& B, auto ){handleKthSmallestElement(A,B);}},
+
     };
 
     constexpr int menuSize = std::size(menu);

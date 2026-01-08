@@ -9,7 +9,7 @@ using namespace std;
 typedef int ElemenType;
 
 enum class opcodes {INSERT, DELETEOP, SEARCH, DISPLAY_INORDER, DISPLAY_PREORDER,
-    DISPLAY_POSTORDER, DISPLAY_LEVELS,EXIT,BALANCE,COMPARE,MERGE,EMPTY,BATCH_INSERT,BATCH_DELETE,CLEAR,UNDO,REDO,SUMINRANGE};
+    DISPLAY_POSTORDER, DISPLAY_LEVELS,EXIT,BALANCE,COMPARE,MERGE,EMPTY,BATCH_INSERT,BATCH_DELETE,CLEAR,UNDO,REDO,SUMINRANGE,VALUESINRANGE,MIN,MAX,KTH,SUCC};
 
 class ITree {
     /**
@@ -64,6 +64,11 @@ class ITree {
 
     static void handleUndoRedo(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op);
     static void handleSuminRange(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+    static void hanleMinMax(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B, opcodes op);
+    static void handleValuesinRange(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+    static void handleKthSmallestElement(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+    static void handleSucessor(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B);
+
 public:
     /**
      * Launches the terminal-based user interface for interacting with the trees.
