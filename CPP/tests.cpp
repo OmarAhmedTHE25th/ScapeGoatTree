@@ -251,7 +251,7 @@ void stressTest() {
     ScapeGoatTree<Type> tree;
     std::set<Type> reference_set;
 
-    const int OPERATIONS = 50000;
+    constexpr int OPERATIONS = 50000;
     std::mt19937 rng(42);
     std::uniform_int_distribution<int> dist(1, 100000);
     std::uniform_int_distribution<int> op_dist(0, 2); // 0: Insert, 1: Delete, 2: Search
@@ -267,7 +267,7 @@ void stressTest() {
             tree.deleteValue(val);
             reference_set.erase(val);
         } else { // Search
-            assert(tree.search(val) == (reference_set.count(val) > 0));
+            assert(tree.search(val) == (reference_set.contains(val)));
         }
 
         // Periodically check balance and order statistics
@@ -294,7 +294,7 @@ void stressTest() {
 void testOrderedInsertion() {
     std::cout << "Testing Ordered Insertion (Forcing Scapegoat rebuilds)..." << std::endl;
     ScapeGoatTree<Type> tree;
-    const int N = 2000;
+    constexpr int N = 2000;
     for (int i = 1; i <= N; ++i) {
         tree.insert(i);
     }
