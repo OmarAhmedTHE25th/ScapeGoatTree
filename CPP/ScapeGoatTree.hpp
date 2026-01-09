@@ -55,7 +55,7 @@ class ScapeGoatTree {
     /**
      * Counts the total number of nodes in the subtree rooted at the given node.
      */
-    static int countN(const TreeNode* node);
+    static  unsigned int countN(const TreeNode* node);
     /**
      * Finds the highest node that violates the alpha-weight-balance property.
      */

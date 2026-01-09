@@ -275,14 +275,14 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
 template<typename T>
 int ScapeGoatTree<T>::findH(const TreeNode *node) {
     if (!node) return -1;
-    return node->height;
+   return 1+std::max(findH(node->left),findH(node->right));
 }
 
 /**
  * Counts the total number of nodes in the subtree rooted at the given node.
  */
 template<typename T>
-int ScapeGoatTree<T>::countN(const TreeNode *node) {
+unsigned int ScapeGoatTree<T>::countN(const TreeNode *node) {
     if (!node) return 0;
     return node->size;
 }
@@ -316,10 +316,6 @@ ScapeGoatTree<T>::TreeNode* ScapeGoatTree<T>::rebuildTree(const int start, const
     Nroot->left = rebuildTree(start, mid - 1, Nroot, array); // build left subtree
     Nroot->right = rebuildTree(mid + 1, end, Nroot, array);// build right subtree
     Nroot->size = 1 + countN(Nroot->left) + countN(Nroot->right);// update size
-    const int leftH = Nroot->left ? Nroot->left->height : -1;
-    const int rightH = Nroot->right ? Nroot->right->height : -1;
-    int max = leftH > rightH ? leftH : rightH;
-    Nroot->height = 1 + max;
     return Nroot;
 }
 /**
