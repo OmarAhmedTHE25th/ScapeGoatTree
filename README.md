@@ -1,39 +1,93 @@
-# Scapegoat Tree Implementation
+# 🌳 Scapegoat Tree Implementation
+
+[![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://omarahmedthe25th.github.io/ScapeGoatTree/)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![C++](https://img.shields.io/badge/C++-26-00599C.svg?logo=c%2B%2B)]()
+[![Python](https://img.shields.io/badge/Python-3.7+-3776AB.svg?logo=python&logoColor=white)]()
 
 ### A Self-Balancing BST with Multi-Platform Support
 
-**Academic Project**: Data Structures Course
-**Language**: C++26 with Python Bindings
+**Academic Project**: Data Structures Course  
+**Language**: C++26 with Python Bindings  
 **Constraint**: Minimal STL Usage (Custom Containers)
 
 **Note**: This is the most comprehensive publicly available Scapegoat Tree project, including multiple user interfaces, Python bindings, advanced operations, and extensive testing.
 
 ---
 
-## Quick Start
+## 📚 Documentation
+
+**[→ View Full API Documentation](https://omarahmedthe25th.github.io/ScapeGoatTree/)**
+
+Complete API reference with:
+- Class hierarchies and relationships
+- Detailed method descriptions with complexity analysis
+- Code examples and usage patterns
+- Interactive search functionality
+
+---
+
+## ✨ Features
+
+### Core Tree Features
+
+* ✅ α-Weight-Balanced Scapegoat Tree  
+* ✅ Automatic height-balanced rebalancing  
+* ✅ Supports insert, delete, search  
+* ✅ **Sum in range** — efficiently compute the sum of all values within a given range  
+* ✅ **Values in range** — retrieve all elements within a specified range  
+* ✅ **Kth smallest element** — find the element at a specific order in sorted sequence  
+* ✅ **Get successor** — find the next higher element in the tree  
+* ✅ **Get minimum / maximum** — retrieve the smallest or largest element in the tree  
+* ✅ Batch operations for efficiency  
+* ✅ Undo/Redo system  
+* ✅ Tree merging with duplicate handling  
+* ✅ Operator overloading for intuitive syntax  
+
+### Custom Data Structures
+
+* **Vector**: Dynamic array, automatic resizing, minimal memory overhead  
+* **Queue**: Singly-linked list for level-order traversal  
+* **Stack**: Built on Vector, used for undo/redo  
+
+### User Interfaces
+
+* 🖥️ Terminal UI (TUI) with color-coded menus  
+* 🎨 Python Tkinter GUI with animations
+* 🎮 DirectX 11 + ImGui GUI (Windows only)  
+
+### Advanced Usage
+
+* 🐍 Cross-language Python bindings via pybind11  
+* ⚙️ Custom α parameter for tree balancing  
+* 📊 Detailed balance checking and traversal outputs  
+
+---
+
+## 🚀 Quick Start
 
 ### Running the Python GUI (Cross-Platform)
-
 ```bash
 # 1. Build the project
 mkdir build && cd build
 cmake .. && make
 
-# 2. Run the visualizer
+# 2. Run the animated visualizer
 python ../py.py
 ```
 
-### Running the C++ Terminal UI
+![GUI Demo](https://img.shields.io/badge/GUI-Animated-ff69b4)
 
+### Running the C++ Terminal UI
 ```bash
 # After building, run the executable
-./RunTU   # Terminal-based User Interface
+./TUI   # Terminal-based User Interface
 ```
 
 ### Running via Docker
 
 The provided Dockerfile runs the Terminal UI directly:
-
 ```bash
 docker build -t scapegoat .
 docker run -it --rm scapegoat
@@ -41,60 +95,11 @@ docker run -it --rm scapegoat
 
 ---
 
-## Features
-
-### Core Tree Features
-
-* α-Weight-Balanced Scapegoat Tree  
-* Automatic height-balanced rebalancing  
-* Supports insert, delete, search  
-* Sum in range — efficiently compute the sum of all values within a given range  
-* Values in range — retrieve all elements within a specified range  
-* Kth smallest element — find the element at a specific order in sorted sequence  
-* Get successor — find the next higher element in the tree  
-* Get minimum / maximum — retrieve the smallest or largest element in the tree  
-* Batch operations for efficiency  
-* Undo/Redo system  
-* Tree merging with duplicate handling  
-* Operator overloading for intuitive syntax  
-
-### Custom Data Structures
-
-* Vector: Dynamic array, automatic resizing, minimal memory overhead  
-* Queue: Singly-linked list for level-order traversal  
-* Stack: Built on Vector, used for undo/redo  
-
-### User Interfaces
-
-* Terminal UI (TUI) with color-coded menus  
-* Python Tkinter GUI  
-* DirectX 11 + ImGui GUI (Windows only)  
-
-### Advanced Usage
-
-* Cross-language Python bindings via pybind11  
-* Custom α parameter for tree balancing  
-* Detailed balance checking and traversal outputs  
-
-
-### Testing
-
-* Comprehensive unit tests covering:
-
-  * Basic operations and edge cases
-  * Automatic rebalancing
-  * Operator overloading
-  * Undo/Redo system
-  * Batch operations
-  * Copy and move semantics
-
----
-
-## Algorithm Overview
+## 📖 Algorithm Overview
 
 A Scapegoat Tree is a self-balancing BST that maintains balance through periodic rebuilding:
 
-* **α-weight-balanced**: No subtree can exceed α × parent’s size (α = 2/3)
+* **α-weight-balanced**: No subtree can exceed α × parent's size (α = 2/3)
 * **Height bound**: h ≤ log₁.₅(n), where n = number of nodes
 * **Lazy rebalancing**: Rebuilds only when balance is violated
 
@@ -116,7 +121,7 @@ A Scapegoat Tree is a self-balancing BST that maintains balance through periodic
 
 ---
 
-## Prerequisites
+## 🛠️ Prerequisites
 
 ### Required
 
@@ -129,13 +134,13 @@ A Scapegoat Tree is a self-balancing BST that maintains balance through periodic
 
 * DirectX 11 SDK (for Windows GUI)
 * Tkinter (usually included with Python)
+* Doxygen (for generating documentation locally)
 
 ---
 
-## Installation
+## 💻 Installation
 
 ### Windows
-
 ```bash
 pip install pybind11
 
@@ -145,7 +150,6 @@ cmake --build . --config Release
 ```
 
 ### Linux/Mac
-
 ```bash
 pip install pybind11
 
@@ -156,59 +160,138 @@ make
 
 ---
 
-## Usage Examples
+## 📝 Usage Examples
 
 ### Python Interface
-
 ```python
 import scapegoat_tree_py as sgt
 
+# Create tree and insert values
 tree = sgt.ScapeGoatTree()
-tree.insert_batch([10, 20, 30])
+tree.insert_batch([10, 20, 30, 5, 15])
+
+# Use undo/redo
 tree.undo()
 tree.redo()
 
+# Range queries
+sum_result = tree.SuminRange(10, 30)
+values = tree.ValuesInRange(5, 20)
+
+# Merge trees
 tree2 = sgt.ScapeGoatTree()
-tree2.insert_batch([5, 15])
+tree2.insert_batch([25, 35])
 merged = tree + tree2
 ```
 
 ### C++ Interface
-
 ```cpp
+#include "ScapeGoatTree.hpp"
+
 ScapeGoatTree<int> tree;
+
+// Insert values
 tree.insert(100);
-tree + 200;  // Insert
-tree - 100;  // Delete
-tree.insertBatch({10,20,30});
+tree + 200;  // Operator overload
+
+// Delete values
+tree - 100;  // Operator overload
+
+// Batch operations
+tree.insertBatch({10, 20, 30});
+
+// Undo/Redo
 tree.undo();
 tree.redo();
+
+// Range queries
+int sum = tree.sumInRange(10, 50);
+Vector<int> values = tree.valuesInRange(10, 50);
 ```
 
 ---
 
-## Project Structure
+## 🧪 Testing
 
+### Run Unit Tests
+```bash
+cd build
+./unit_tests
 ```
-CPP/
-├── ScapeGoatTree.hpp/tpp    # Main tree implementation
-├── Node.hpp                  # Node structure
-├── vector.hpp                # Custom dynamic array
-├── queue.hpp/tpp             # Custom queue
-├── stack.hpp                 # Custom stack
-├── bindings.cpp              # Pybind11 bindings
-├── iTree.cpp/hpp             # Terminal UI
-├── TreeDriver.cpp            # DirectX + ImGui GUI
-├── RunTU.cpp                 # Entry for terminal interface
-└──  tests.cpp                 # Unit test suite  
-py.py                     # Python Tkinter GUI
-CMakeLists.txt            # Build configuration
-README.md
+
+Comprehensive test suite includes:
+- ✅ Basic operations and edge cases
+- ✅ Automatic rebalancing verification
+- ✅ Operator overloading
+- ✅ Undo/Redo system
+- ✅ Batch operations
+- ✅ Copy and move semantics
+- ✅ **Stress testing with 50,000 operations**
+
+---
+
+## 📁 Project Structure
+```
+ScapeGoatTree/
+├── .github/
+│   └── workflows/
+│       └── docs.yml              # Auto-generate documentation
+├── CPP/
+│   ├── ScapeGoatTree.hpp/tpp     # Main tree implementation
+│   ├── Node.hpp                  # Node structure
+│   ├── vector.hpp                # Custom dynamic array
+│   ├── queue.hpp/tpp             # Custom queue
+│   ├── stack.hpp                 # Custom stack
+│   ├── bindings.cpp              # Pybind11 bindings
+│   ├── iTree.cpp/hpp             # Terminal UI
+│   ├── TreeDriver.cpp            # DirectX + ImGui GUI
+│   ├── RunTUI.cpp                # Entry for terminal interface
+│   └── tests.cpp                 # Unit test suite  
+├── py.py                         # Python Tkinter GUI
+├── CMakeLists.txt                # Build configuration
+├── Doxyfile                      # Documentation config
+├── Dockerfile                    # Container deployment
+├── LICENSE.md
+└── README.md
 ```
 
 ---
 
-## License
+## 🎓 Learning Resources
 
-This project is licensed under the **MIT License**.
+For more information about Scapegoat Trees:
+- [Original Paper (1993)](https://people.csail.mit.edu/rivest/pubs/GR93.pdf) by Galperin & Rivest
+- [API Documentation](https://omarahmedthe25th.github.io/ScapeGoatTree/)
 
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see [LICENSE.md](LICENSE.md) for details.
+
+---
+
+## 👤 Author
+
+**Omar Ahmed Abdel Hameed**
+
+- GitHub: [@omarahmedthe25th](https://github.com/omarahmedthe25th)
+- Project Link: [https://github.com/omarahmedthe25th/ScapeGoatTree](https://github.com/omarahmedthe25th/ScapeGoatTree)
+
+---
+
+## 🌟 Acknowledgments
+
+- Course: Data Structures  
+- Inspiration: Self-balancing tree algorithms
+- Special thanks to the open-source community
+
+---
+
+<div align="center">
+
+**⭐ Star this repo if you found it helpful!**
+
+[![GitHub stars](https://img.shields.io/github/stars/omarahmedthe25th/ScapeGoatTree?style=social)](https://github.com/omarahmedthe25th/ScapeGoatTree)
+
+</div>
