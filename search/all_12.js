@@ -8,7 +8,7 @@ var searchData=
   ['selecttree_5',['selectTree',['../classITree.html#a00555367ee0e45792007d5ba0bd83d9c',1,'ITree']]],
   ['self_20balancing_20bst_20with_20multi_20platform_20support_6',['A Self-Balancing BST with Multi-Platform Support',['../index.html#autotoc_md1',1,'']]],
   ['size_7',['size',['../classQueue.html#a504eb9d0777fb73f99d87a19b7c25c2a',1,'Queue::size()'],['../classVector.html#a5214a382564aedc712b609416aa3b7b1',1,'Vector::size()'],['../classStack.html#a9fc04e1ddc725589f28249adf4cd31d7',1,'Stack::size()'],['../classNode.html#a6993bad98a83cdf991cf851aacceb187',1,'Node::size']]],
-  ['stack_8',['Stack',['../classStack.html',1,'']]],
+  ['stack_8',['stack',['../classVector.html#a2132310955c0d3dd3d8aa1e665553003',1,'Vector::Stack'],['../classStack.html',1,'Stack&lt; T &gt;']]],
   ['stack_2ehpp_9',['stack.hpp',['../stack_8hpp.html',1,'']]],
   ['stack_3c_20command_3c_20elementype_20_3e_20_3e_10',['Stack&lt; Command&lt; ElemenType &gt; &gt;',['../classStack.html',1,'']]],
   ['stack_3c_20command_3c_20t_20_3e_20_3e_11',['Stack&lt; Command&lt; T &gt; &gt;',['../classStack.html',1,'']]],
