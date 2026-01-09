@@ -7,7 +7,7 @@ var classScapeGoatTree =
     [ "~ScapeGoatTree", "classScapeGoatTree.html#a6f4613f23d01fe8a214cb8461d4dc0bf", null ],
     [ "areTreesEqual", "classScapeGoatTree.html#aa4f98c05eef31c5da9f35aadf96669f2", null ],
     [ "clear", "classScapeGoatTree.html#a72ae50cdc7fd189b8bf69cdc105d1e42", null ],
-    [ "countN", "classScapeGoatTree.html#abfb350b627896907c824055ed4638cc4", null ],
+    [ "countN", "classScapeGoatTree.html#ad72e869e60dc11de5a030c71ea7284f9", null ],
     [ "deleteBatch", "classScapeGoatTree.html#a8cbea8620cd09e7265904dd741e3a107", null ],
     [ "deleteValue", "classScapeGoatTree.html#ad69b1a69c57ea4c80edf99628117132a", null ],
     [ "DeletionRebuild", "classScapeGoatTree.html#aaa21cef2509e04cb8c0a53cd5db2db64", null ],

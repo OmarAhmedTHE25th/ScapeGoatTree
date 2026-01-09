@@ -1,6 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"structCommand.html":[1,0,0],
 "structCommand.html#a08549615d7f7499b6194733c14479dfe":[1,0,0,0],
 "structCommand.html#a11a11bb97b6855c79c482060112c5f18":[1,0,0,1],
 "structMenuItem.html":[1,0,2],
