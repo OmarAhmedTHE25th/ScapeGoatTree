@@ -50,6 +50,7 @@ endif()
 
 # 4. UNIT TESTS
 add_executable(unit_tests CPP/tests.cpp)
+add_executable(benchmark CPP/benchmark.cpp)
 add_executable(TUI
         CPP/RunTUI.cpp
         CPP/iTree.cpp

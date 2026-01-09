@@ -47,6 +47,7 @@ struct Command {
 
 template<typename T>
 class ScapeGoatTree {
+
     using TreeNode = Node<T>;
     /**
      * Calculates the height of a given node in the tree.
@@ -107,6 +108,7 @@ class ScapeGoatTree {
     T sumHelper(TreeNode* node,T min,T max);
     void rangeHelper(TreeNode* node,T min,T max,Vector<T>& range);
     T kthSmallestHelper(TreeNode *node, int k) const;
+  static TreeNode* getSuccessor(TreeNode* node);
 
 
     TreeNode* root{};
@@ -126,6 +128,34 @@ class ScapeGoatTree {
      */
     bool isUndoing = false;
     int max_nodes = 0;
+    class iterator {
+        TreeNode* curr;  // stores current node
+
+    public:
+        // constructor
+        iterator(TreeNode* node) : curr(node) {}
+
+        // dereference
+        T& operator*() { return curr->value; }
+
+        // pre-increment
+        iterator& operator++() {
+            curr = getSuccessor(curr);  // use  TreeNode* successor function
+            return *this;
+        }
+
+        // post-increment
+        iterator operator++(int) {
+            iterator temp = *this;
+            ++(*this);
+            return temp;
+        }
+
+        // comparison
+        bool operator!=(const iterator& other) const { return curr != other.curr; }
+    };
+
+
 public:
 
     /**
@@ -182,6 +212,9 @@ public:
      * Returns a pointer to the root node of the tree.
      */
     const TreeNode* getRoot();
+    iterator begin();
+
+    static iterator end();
 
     /**
      * Copy constructor for deep copying another ScapeGoatTree.
@@ -277,6 +310,8 @@ public:
      * Overloaded addition assignment operator for inserting a value.
      */
     void operator+=(const T& value);
+
+
 
 };
 #include "scapegoatTree.tpp"

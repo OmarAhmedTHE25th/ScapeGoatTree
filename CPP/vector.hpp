@@ -8,7 +8,11 @@ class Vector {
     unsigned int _size = 50;
     int nElements = 0;
     T* data = new T[_size]{};
+
+
 public:
+    template<typename>
+    friend class Stack;
     /**
      * Destroys the vector and releases the dynamically allocated memory.
      */

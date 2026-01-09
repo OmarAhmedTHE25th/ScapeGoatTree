@@ -275,7 +275,8 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
 template<typename T>
 int ScapeGoatTree<T>::findH(const TreeNode *node) {
     if (!node) return -1;
-   return 1+std::max(findH(node->left),findH(node->right));
+    const int max = findH(node->left) > findH(node->right) ? findH(node->left) :findH(node->right);
+   return 1+ max;
 }
 
 /**
@@ -613,15 +614,15 @@ template<typename T>
 bool ScapeGoatTree<T>::areTreesEqual(const TreeNode* n1, const TreeNode* n2) const {
     // Both null = equal
     if (!n1 && !n2) return true;
-    
+
     // One null, one not = unequal
     if (!n1 || !n2) return false;
-    
+
     // Values differ = unequal
     if (n1->value != n2->value) return false;
-    
+
     // Recursively check subtrees (in-order comparison)
-    return areTreesEqual(n1->left, n2->left) && 
+    return areTreesEqual(n1->left, n2->left) &&
            areTreesEqual(n1->right, n2->right);
 }
 /**
@@ -719,7 +720,7 @@ template<typename T>
             // Set flag to prevent undo actions from being recorded as new operations
             isUndoing = true;
             Command<T> cmd = undoStack.pop();
-            
+
             if (cmd.type == OpType::BatchEnd) {
                 // Handle batch operation: undo everything until BatchStart
                 redoStack.push(cmd); // Push End first to maintain order for redo
@@ -845,4 +846,36 @@ T ScapeGoatTree<T>::kthSmallest(int k) const {
     if (k < 1 || k > nNodes) throw std::out_of_range("k is out of bounds");
     return kthSmallestHelper(root, k);
 }
+
+template<typename T>
+ ScapeGoatTree<T>::iterator ScapeGoatTree<T>::begin() {
+    if (!root) return end();
+    TreeNode* curr = root;
+    while (curr->left)curr = curr->left;
+    return iterator(curr);
+}
+template<typename T>
+ ScapeGoatTree<T>::iterator ScapeGoatTree<T>::end() {
+    return iterator(nullptr);
+ }
+
+template<typename T>
+ ScapeGoatTree<T>::TreeNode *ScapeGoatTree<T>::getSuccessor(TreeNode *node) {
+    if (!node)return nullptr;
+
+    if (node->right) {
+        TreeNode* suc = node->right;
+        while (suc->left != nullptr)
+            suc = suc->left;
+        return suc;
+    }
+    TreeNode* p = node->parent;
+    while ( p && node == p->right) {
+        node = p;
+        p = p->parent;
+    }
+    return p;
+}
+
+
 #endif //TREE_SCAPEGOATTREE_TPP

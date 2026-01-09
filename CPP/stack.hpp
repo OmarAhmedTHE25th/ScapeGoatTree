@@ -28,6 +28,9 @@ public:
         }
         return data.pop_back();
     }
+    T top() {
+        return data.data[0];
+    }
 
     /**
      * Returns the number of elements currently in the stack.
