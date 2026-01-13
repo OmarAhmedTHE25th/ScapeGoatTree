@@ -8,13 +8,15 @@ var searchData=
   ['redo_5',['REDO',['../i_tree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aac07bf946a7da4553f9f2776656e0d60f',1,'iTree.hpp']]],
   ['redo_6',['redo',['../class_scape_goat_tree.html#aaa4bf81af689fa0a95ebc65eb20af91d',1,'ScapeGoatTree']]],
   ['redostack_7',['redoStack',['../class_scape_goat_tree.html#a39698cf2674b3a6e908ee7bbda1c78ba',1,'ScapeGoatTree']]],
-  ['required_8',['Required',['../index.html#autotoc_md19',1,'']]],
+  ['required_8',['Required',['../index.html#autotoc_md20',1,'']]],
   ['reset_9',['RESET',['../i_tree_8cpp.html#a9a31596d4859c8ad599295239748e3dc',1,'iTree.cpp']]],
-  ['restructure_5fsubtree_10',['restructure_subtree',['../class_scape_goat_tree.html#a84eb0e2095f9542731d173237081050a',1,'ScapeGoatTree']]],
-  ['right_11',['right',['../class_node.html#a4009a1138f2f04372037fbec63406f11',1,'Node']]],
-  ['root_12',['root',['../class_scape_goat_tree.html#aa10d7d604b724dcf6bc245b859431951',1,'ScapeGoatTree']]],
-  ['running_20the_20c_20terminal_20ui_13',['Running the C++ Terminal UI',['../index.html#autotoc_md5',1,'']]],
-  ['running_20the_20python_20gui_20cross_20platform_14',['Running the Python GUI (Cross-Platform)',['../index.html#autotoc_md4',1,'']]],
-  ['running_20via_20docker_15',['Running via Docker',['../index.html#autotoc_md6',1,'']]],
-  ['runtui_2ecpp_16',['RunTUI.cpp',['../_run_t_u_i_8cpp.html',1,'']]]
+  ['resources_10',['🎓 Learning Resources',['../index.html#autotoc_md36',1,'']]],
+  ['restructure_5fsubtree_11',['restructure_subtree',['../class_scape_goat_tree.html#a84eb0e2095f9542731d173237081050a',1,'ScapeGoatTree']]],
+  ['right_12',['right',['../class_node.html#a4009a1138f2f04372037fbec63406f11',1,'Node']]],
+  ['root_13',['root',['../class_scape_goat_tree.html#aa10d7d604b724dcf6bc245b859431951',1,'ScapeGoatTree']]],
+  ['run_20unit_20tests_14',['Run Unit Tests',['../index.html#autotoc_md32',1,'']]],
+  ['running_20the_20c_20terminal_20ui_15',['Running the C++ Terminal UI',['../index.html#autotoc_md13',1,'']]],
+  ['running_20the_20python_20gui_20cross_20platform_16',['Running the Python GUI (Cross-Platform)',['../index.html#autotoc_md12',1,'']]],
+  ['running_20via_20docker_17',['Running via Docker',['../index.html#autotoc_md14',1,'']]],
+  ['runtui_2ecpp_18',['RunTUI.cpp',['../_run_t_u_i_8cpp.html',1,'']]]
 ];

@@ -30,6 +30,5 @@ RUN mkdir build && cd build && \
 # Set the working directory to the build folder for execution
 WORKDIR /ScapeGoatProject/build
 
-# By default, run the unit tests to verify the build
-# You can override this to run ./tree (the TUI) when starting the container
+# By default, run the TUI
 CMD ["./TUI"]

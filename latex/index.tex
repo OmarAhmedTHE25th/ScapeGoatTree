@@ -1,36 +1,109 @@
-\chapter{Scapegoat Tree Implementation }
-\hypertarget{index}{}\label{index}\index{Scapegoat Tree Implementation@{Scapegoat Tree Implementation}}
+\chapter{🌳 Scapegoat Tree Implementation }
+\hypertarget{index}{}\label{index}\index{🌳 Scapegoat Tree Implementation@{🌳 Scapegoat Tree Implementation}}
 \label{index_md__r_e_a_d_m_e}%
 \Hypertarget{index_md__r_e_a_d_m_e}%
-\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{A Self-\/\+Balancing BST with Multi-\/\+Platform Support}{A Self-\/\+Balancing BST with Multi-\/\+Platform Support}}\label{index_autotoc_md1}
-{\bfseries{Academic Project}}\+: Data Structures Course {\bfseries{Language}}\+: C++26 with Python Bindings {\bfseries{Constraint}}\+: Minimal STL Usage (Custom Containers)
 
-{\bfseries{Note}}\+: This is the most comprehensive publicly available Scapegoat Tree project, including multiple user interfaces, Python bindings, advanced operations, and extensive testing.
+
+\href{https://omarahmedthe25th.github.io/ScapeGoatTree/}{\texttt{}} \+[]\+()  \+[]\+() \+[]\+()\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{A Self-\/\+Balancing BST with Multi-\/\+Platform Support}{A Self-\/\+Balancing BST with Multi-\/\+Platform Support}}\label{index_autotoc_md1}
+{\bfseries{Academic Project}}:\+ Data Structures Course ~\newline
+ {\bfseries{Language}}:\+ C++26 with Python Bindings ~\newline
+ {\bfseries{Constraint}}:\+ Minimal STL Usage (Custom Containers)
+
+{\bfseries{Note}}:\+ This is the most comprehensive publicly available Scapegoat Tree project, including multiple user interfaces, Python bindings, advanced operations, and extensive testing.
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Quick Start}{Quick Start}}\label{index_autotoc_md3}
-\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{Running the Python GUI (Cross-\/\+Platform)}{Running the Python GUI (Cross-\/\+Platform)}}\label{index_autotoc_md4}
+\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{📚 Documentation}{📚 Documentation}}\label{index_autotoc_md3}
+{\bfseries{\href{https://omarahmedthe25th.github.io/ScapeGoatTree/}{\texttt{→ View Full API Documentation}}}}
+
+Complete API reference with:\+
+\begin{DoxyItemize}
+\item Class hierarchies and relationships
+\item Detailed method descriptions with complexity analysis
+\item Code examples and usage patterns
+\item Interactive search functionality
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{✨ Features}{✨ Features}}\label{index_autotoc_md5}
+\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Core Tree Features}{Core Tree Features}}\label{index_autotoc_md6}
+
+\begin{DoxyItemize}
+\item ✅ α-\/\+Weight-\/\+Balanced Scapegoat Tree ~\newline
+
+\item ✅ Automatic height-\/balanced rebalancing ~\newline
+
+\item ✅ Supports insert, delete, search ~\newline
+
+\item ✅ {\bfseries{Sum in range}} — efficiently compute the sum of all values within a given range ~\newline
+
+\item ✅ {\bfseries{Values in range}} — retrieve all elements within a specified range ~\newline
+
+\item ✅ {\bfseries{Kth smallest element}} — find the element at a specific order in sorted sequence ~\newline
+
+\item ✅ {\bfseries{Get successor}} — find the next higher element in the tree ~\newline
+
+\item ✅ {\bfseries{Get minimum /\+ maximum}} — retrieve the smallest or largest element in the tree ~\newline
+
+\item ✅ Batch operations for efficiency ~\newline
+
+\item ✅ Undo/\+\+Redo system ~\newline
+
+\item ✅ Tree merging with duplicate handling ~\newline
+
+\item ✅ Operator overloading for intuitive syntax ~\newline
+
+\end{DoxyItemize}\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{Custom Data Structures}{Custom Data Structures}}\label{index_autotoc_md7}
+
+\begin{DoxyItemize}
+\item {\bfseries{\doxylink{class_vector}{Vector}}}:\+ Dynamic array, automatic resizing, minimal memory overhead ~\newline
+
+\item {\bfseries{\doxylink{class_queue}{Queue}}}:\+ Singly-\/linked list for level-\/order traversal ~\newline
+
+\item {\bfseries{\doxylink{class_stack}{Stack}}}:\+ Built on \doxylink{class_vector}{Vector}, used for undo/\+redo ~\newline
+
+\end{DoxyItemize}\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{User Interfaces}{User Interfaces}}\label{index_autotoc_md8}
+
+\begin{DoxyItemize}
+\item 🖥️ Terminal UI (TUI) with color-\/coded menus ~\newline
+
+\item 🎨 Python Tkinter GUI with animations
+\item 🎮 DirectX 11 + Im\+Gui GUI (Windows only) ~\newline
+
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{Advanced Usage}{Advanced Usage}}\label{index_autotoc_md9}
+
+\begin{DoxyItemize}
+\item 🐍 Cross-\/language Python bindings via pybind11 ~\newline
+
+\item ⚙️ Custom α parameter for tree balancing ~\newline
+
+\item 📊 Detailed balance checking and traversal outputs ~\newline
+
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md11}{}\doxysection{\texorpdfstring{🚀 Quick Start}{🚀 Quick Start}}\label{index_autotoc_md11}
+\hypertarget{index_autotoc_md12}{}\doxysubsection{\texorpdfstring{Running the Python GUI (Cross-\/\+Platform)}{Running the Python GUI (Cross-\/\+Platform)}}\label{index_autotoc_md12}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\#\ 1.\ Build\ the\ project}
 \DoxyCodeLine{mkdir\ build\ \&\&\ cd\ build}
 \DoxyCodeLine{cmake\ ..\ \&\&\ make}
 \DoxyCodeLine{}
-\DoxyCodeLine{\#\ 2.\ Run\ the\ visualizer}
+\DoxyCodeLine{\#\ 2.\ Run\ the\ animated\ visualizer}
 \DoxyCodeLine{python\ ../py.py}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Running the C++ Terminal UI}{Running the C++ Terminal UI}}\label{index_autotoc_md5}
+
+
+\hypertarget{index_autotoc_md13}{}\doxysubsection{\texorpdfstring{Running the C++ Terminal UI}{Running the C++ Terminal UI}}\label{index_autotoc_md13}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\#\ After\ building,\ run\ the\ executable}
-\DoxyCodeLine{./RunTU\ \ \ \#\ Terminal-\/based\ User\ Interface}
+\DoxyCodeLine{./TUI\ \ \ \#\ Terminal-\/based\ User\ Interface}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md6}{}\doxysubsection{\texorpdfstring{Running via Docker}{Running via Docker}}\label{index_autotoc_md6}
-The provided Dockerfile runs the Terminal UI directly\+:
-
-
+\hypertarget{index_autotoc_md14}{}\doxysubsection{\texorpdfstring{Running via Docker}{Running via Docker}}\label{index_autotoc_md14}
+The provided Dockerfile runs the Terminal UI directly:\+ 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{docker\ build\ -\/t\ scapegoat\ .}
 \DoxyCodeLine{docker\ run\ -\/it\ -\/-\/rm\ scapegoat}
@@ -39,94 +112,24 @@ The provided Dockerfile runs the Terminal UI directly\+:
 
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{Features}{Features}}\label{index_autotoc_md8}
-\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{Core Tree Features}{Core Tree Features}}\label{index_autotoc_md9}
+\hypertarget{index_autotoc_md16}{}\doxysection{\texorpdfstring{📖 Algorithm Overview}{📖 Algorithm Overview}}\label{index_autotoc_md16}
+A Scapegoat Tree is a self-\/balancing BST that maintains balance through periodic rebuilding:\+
+
 
 \begin{DoxyItemize}
-\item α-\/\+Weight-\/\+Balanced Scapegoat Tree ~\newline
-
-\item Automatic height-\/balanced rebalancing ~\newline
-
-\item Supports insert, delete, search ~\newline
-
-\item Sum in range — efficiently compute the sum of all values within a given range ~\newline
-
-\item Values in range — retrieve all elements within a specified range ~\newline
-
-\item Kth smallest element — find the element at a specific order in sorted sequence ~\newline
-
-\item Get successor — find the next higher element in the tree ~\newline
-
-\item Get minimum / maximum — retrieve the smallest or largest element in the tree ~\newline
-
-\item Batch operations for efficiency ~\newline
-
-\item Undo/\+Redo system ~\newline
-
-\item Tree merging with duplicate handling ~\newline
-
-\item Operator overloading for intuitive syntax ~\newline
-
-\end{DoxyItemize}\hypertarget{index_autotoc_md10}{}\doxysubsection{\texorpdfstring{Custom Data Structures}{Custom Data Structures}}\label{index_autotoc_md10}
-
-\begin{DoxyItemize}
-\item \doxylink{class_vector}{Vector}\+: Dynamic array, automatic resizing, minimal memory overhead ~\newline
-
-\item \doxylink{class_queue}{Queue}\+: Singly-\/linked list for level-\/order traversal ~\newline
-
-\item \doxylink{class_stack}{Stack}\+: Built on \doxylink{class_vector}{Vector}, used for undo/redo ~\newline
-
-\end{DoxyItemize}\hypertarget{index_autotoc_md11}{}\doxysubsection{\texorpdfstring{User Interfaces}{User Interfaces}}\label{index_autotoc_md11}
-
-\begin{DoxyItemize}
-\item Terminal UI (TUI) with color-\/coded menus ~\newline
-
-\item Python Tkinter GUI ~\newline
-
-\item DirectX 11 + Im\+Gui GUI (Windows only) ~\newline
-
-\end{DoxyItemize}\hypertarget{index_autotoc_md12}{}\doxysubsection{\texorpdfstring{Advanced Usage}{Advanced Usage}}\label{index_autotoc_md12}
-
-\begin{DoxyItemize}
-\item Cross-\/language Python bindings via pybind11 ~\newline
-
-\item Custom α parameter for tree balancing ~\newline
-
-\item Detailed balance checking and traversal outputs ~\newline
-
-\end{DoxyItemize}\hypertarget{index_autotoc_md13}{}\doxysubsection{\texorpdfstring{Testing}{Testing}}\label{index_autotoc_md13}
-
-\begin{DoxyItemize}
-\item Comprehensive unit tests covering\+:
-\begin{DoxyItemize}
-\item Basic operations and edge cases
-\item Automatic rebalancing
-\item Operator overloading
-\item Undo/\+Redo system
-\item Batch operations
-\item Copy and move semantics
-\end{DoxyItemize}
+\item {\bfseries{α-\/weight-\/balanced}}:\+ No subtree can exceed α × parent\textquotesingle{}s size (α = 2/\+3)
+\item {\bfseries{Height bound}}:\+ h ≤ log₁.\+₅(n), where n = number of nodes
+\item {\bfseries{Lazy rebalancing}}:\+ Rebuilds only when balance is violated
 \end{DoxyItemize}
 
-\DoxyHorRuler{0}
-\hypertarget{index_autotoc_md15}{}\doxysection{\texorpdfstring{Algorithm Overview}{Algorithm Overview}}\label{index_autotoc_md15}
-A Scapegoat Tree is a self-\/balancing BST that maintains balance through periodic rebuilding\+:
+{\bfseries{Advantages}}:\+
 
 
 \begin{DoxyItemize}
-\item {\bfseries{α-\/weight-\/balanced}}\+: No subtree can exceed α × parent’s size (α = 2/3)
-\item {\bfseries{Height bound}}\+: h ≤ log₁.\+₅(n), where n = number of nodes
-\item {\bfseries{Lazy rebalancing}}\+: Rebuilds only when balance is violated
-\end{DoxyItemize}
-
-{\bfseries{Advantages}}\+:
-
-
-\begin{DoxyItemize}
-\item Simpler than AVL or Red-\/\+Black trees (no color/height metadata)
-\item Amortized efficiency\+: rebuilds are rare, fast average-\/case operations
-\item Space-\/efficient\+: minimal per-\/node overhead
-\end{DoxyItemize}\hypertarget{index_autotoc_md16}{}\doxysubsection{\texorpdfstring{Complexity Analysis}{Complexity Analysis}}\label{index_autotoc_md16}
+\item Simpler than AVL or Red-\/\+Black trees (no color/\+height metadata)
+\item Amortized efficiency:\+ rebuilds are rare, fast average-\/case operations
+\item Space-\/efficient:\+ minimal per-\/node overhead
+\end{DoxyItemize}\hypertarget{index_autotoc_md17}{}\doxysubsection{\texorpdfstring{Complexity Analysis}{Complexity Analysis}}\label{index_autotoc_md17}
 
 \begin{DoxyTable}{3}{}{}{1}
 \SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Operation  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Time Complexity  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Space  \\
@@ -139,24 +142,25 @@ Traversal  &O(n)  &O(n) for level-\/order  \\
 
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md18}{}\doxysection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{index_autotoc_md18}
-\hypertarget{index_autotoc_md19}{}\doxysubsection{\texorpdfstring{Required}{Required}}\label{index_autotoc_md19}
+\hypertarget{index_autotoc_md19}{}\doxysection{\texorpdfstring{🛠️ Prerequisites}{🛠️ Prerequisites}}\label{index_autotoc_md19}
+\hypertarget{index_autotoc_md20}{}\doxysubsection{\texorpdfstring{Required}{Required}}\label{index_autotoc_md20}
 
 \begin{DoxyItemize}
-\item C++ Compiler\+: GCC 9+, Clang 10+, or MSVC 2019+
+\item C++ Compiler:\+ GCC 9+, Clang 10+, or MSVC 2019+
 \item CMake 3.\+15+
 \item Python 3.\+7+
 \item pybind11 ({\ttfamily pip install pybind11})
-\end{DoxyItemize}\hypertarget{index_autotoc_md20}{}\doxysubsection{\texorpdfstring{Optional}{Optional}}\label{index_autotoc_md20}
+\end{DoxyItemize}\hypertarget{index_autotoc_md21}{}\doxysubsection{\texorpdfstring{Optional}{Optional}}\label{index_autotoc_md21}
 
 \begin{DoxyItemize}
 \item DirectX 11 SDK (for Windows GUI)
 \item Tkinter (usually included with Python)
+\item Doxygen (for generating documentation locally)
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md22}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{index_autotoc_md22}
-\hypertarget{index_autotoc_md23}{}\doxysubsection{\texorpdfstring{Windows}{Windows}}\label{index_autotoc_md23}
+\hypertarget{index_autotoc_md23}{}\doxysection{\texorpdfstring{💻 Installation}{💻 Installation}}\label{index_autotoc_md23}
+\hypertarget{index_autotoc_md24}{}\doxysubsection{\texorpdfstring{Windows}{Windows}}\label{index_autotoc_md24}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{pip\ install\ pybind11}
@@ -166,7 +170,7 @@ Traversal  &O(n)  &O(n) for level-\/order  \\
 \DoxyCodeLine{cmake\ -\/-\/build\ .\ -\/-\/config\ Release}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md24}{}\doxysubsection{\texorpdfstring{Linux/\+Mac}{Linux/\+Mac}}\label{index_autotoc_md24}
+\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{Linux/\+\+Mac}{Linux/\+\+Mac}}\label{index_autotoc_md25}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{pip\ install\ pybind11}
@@ -179,58 +183,148 @@ Traversal  &O(n)  &O(n) for level-\/order  \\
 
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md26}{}\doxysection{\texorpdfstring{Usage Examples}{Usage Examples}}\label{index_autotoc_md26}
-\hypertarget{index_autotoc_md27}{}\doxysubsection{\texorpdfstring{Python Interface}{Python Interface}}\label{index_autotoc_md27}
+\hypertarget{index_autotoc_md27}{}\doxysection{\texorpdfstring{📝 Usage Examples}{📝 Usage Examples}}\label{index_autotoc_md27}
+\hypertarget{index_autotoc_md28}{}\doxysubsection{\texorpdfstring{Python Interface}{Python Interface}}\label{index_autotoc_md28}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{import}\ scapegoat\_tree\_py\ \textcolor{keyword}{as}\ sgt}
 \DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\#\ Create\ tree\ and\ insert\ values}}
 \DoxyCodeLine{tree\ =\ sgt.ScapeGoatTree()}
-\DoxyCodeLine{tree.insert\_batch([10,\ 20,\ 30])}
+\DoxyCodeLine{tree.insert\_batch([10,\ 20,\ 30,\ 5,\ 15])}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\#\ Use\ undo/redo}}
 \DoxyCodeLine{tree.undo()}
 \DoxyCodeLine{tree.redo()}
 \DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\#\ Range\ queries}}
+\DoxyCodeLine{sum\_result\ =\ tree.SuminRange(10,\ 30)}
+\DoxyCodeLine{values\ =\ tree.ValuesInRange(5,\ 20)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\#\ Merge\ trees}}
 \DoxyCodeLine{tree2\ =\ sgt.ScapeGoatTree()}
-\DoxyCodeLine{tree2.insert\_batch([5,\ 15])}
+\DoxyCodeLine{tree2.insert\_batch([25,\ 35])}
 \DoxyCodeLine{merged\ =\ tree\ +\ tree2}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md28}{}\doxysubsection{\texorpdfstring{C++ Interface}{C++ Interface}}\label{index_autotoc_md28}
+\hypertarget{index_autotoc_md29}{}\doxysubsection{\texorpdfstring{C++ Interface}{C++ Interface}}\label{index_autotoc_md29}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\mbox{\hyperlink{class_scape_goat_tree}{ScapeGoatTree<int>}}\ tree;}
-\DoxyCodeLine{tree.\mbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}}(100);}
-\DoxyCodeLine{tree\ +\ 200;\ \ \textcolor{comment}{//\ Insert}}
-\DoxyCodeLine{tree\ -\/\ 100;\ \ \textcolor{comment}{//\ Delete}}
-\DoxyCodeLine{tree.\mbox{\hyperlink{class_scape_goat_tree_a6bd78764375cfb22fa23166905bbd336}{insertBatch}}(\{10,20,30\});}
-\DoxyCodeLine{tree.\mbox{\hyperlink{class_scape_goat_tree_a693ee93867d1092ca56b98becfddb21d}{undo}}();}
-\DoxyCodeLine{tree.\mbox{\hyperlink{class_scape_goat_tree_aaa4bf81af689fa0a95ebc65eb20af91d}{redo}}();}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_scape_goat_tree_8hpp}{ScapeGoatTree.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_scape_goat_tree}{ScapeGoatTree<int>}}\ tree;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Insert\ values}}
+\DoxyCodeLine{tree.\doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}}(100);}
+\DoxyCodeLine{tree\ +\ 200;\ \ \textcolor{comment}{//\ Operator\ overload}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Delete\ values}}
+\DoxyCodeLine{tree\ -\/\ 100;\ \ \textcolor{comment}{//\ Operator\ overload}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Batch\ operations}}
+\DoxyCodeLine{tree.\doxymbox{\hyperlink{class_scape_goat_tree_a6bd78764375cfb22fa23166905bbd336}{insertBatch}}(\{10,\ 20,\ 30\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Undo/Redo}}
+\DoxyCodeLine{tree.\doxymbox{\hyperlink{class_scape_goat_tree_a693ee93867d1092ca56b98becfddb21d}{undo}}();}
+\DoxyCodeLine{tree.\doxymbox{\hyperlink{class_scape_goat_tree_aaa4bf81af689fa0a95ebc65eb20af91d}{redo}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Range\ queries}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ sum\ =\ tree.\doxymbox{\hyperlink{class_scape_goat_tree_a5e7459a77ee4685e0c81026c4a7faf12}{sumInRange}}(10,\ 50);}
+\DoxyCodeLine{\doxymbox{\hyperlink{class_vector}{Vector<int>}}\ values\ =\ tree.\doxymbox{\hyperlink{class_scape_goat_tree_a6a1850d6bcb416d7e3ed03f2c22b8ad6}{valuesInRange}}(10,\ 50);}
 
 \end{DoxyCode}
 
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md30}{}\doxysection{\texorpdfstring{Project Structure}{Project Structure}}\label{index_autotoc_md30}
+\hypertarget{index_autotoc_md31}{}\doxysection{\texorpdfstring{🧪 Testing}{🧪 Testing}}\label{index_autotoc_md31}
+\hypertarget{index_autotoc_md32}{}\doxysubsection{\texorpdfstring{Run Unit Tests}{Run Unit Tests}}\label{index_autotoc_md32}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{CPP/}
-\DoxyCodeLine{├──\ ScapeGoatTree.hpp/tpp\ \ \ \ \#\ Main\ tree\ implementation}
-\DoxyCodeLine{├──\ Node.hpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Node\ structure}
-\DoxyCodeLine{├──\ vector.hpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Custom\ dynamic\ array}
-\DoxyCodeLine{├──\ queue.hpp/tpp\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Custom\ queue}
-\DoxyCodeLine{├──\ stack.hpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Custom\ stack}
-\DoxyCodeLine{├──\ bindings.cpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Pybind11\ bindings}
-\DoxyCodeLine{├──\ iTree.cpp/hpp\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Terminal\ UI}
-\DoxyCodeLine{├──\ TreeDriver.cpp\ \ \ \ \ \ \ \ \ \ \ \ \#\ DirectX\ +\ ImGui\ GUI}
-\DoxyCodeLine{├──\ RunTU.cpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Entry\ for\ terminal\ interface}
-\DoxyCodeLine{└──\ \ tests.cpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Unit\ test\ suite\ \ }
-\DoxyCodeLine{py.py\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Python\ Tkinter\ GUI}
-\DoxyCodeLine{CMakeLists.txt\ \ \ \ \ \ \ \ \ \ \ \ \#\ Build\ configuration}
-\DoxyCodeLine{README.md}
+\DoxyCodeLine{cd\ build}
+\DoxyCodeLine{./unit\_tests}
+
+\end{DoxyCode}
+
+
+Comprehensive test suite includes:\+
+\begin{DoxyItemize}
+\item ✅ Basic operations and edge cases
+\item ✅ Automatic rebalancing verification
+\item ✅ Operator overloading
+\item ✅ Undo/\+\+Redo system
+\item ✅ Batch operations
+\item ✅ Copy and move semantics
+\item ✅ {\bfseries{Stress testing with 50,000 operations}}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md34}{}\doxysection{\texorpdfstring{📁 Project Structure}{📁 Project Structure}}\label{index_autotoc_md34}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ScapeGoatTree/}
+\DoxyCodeLine{├──\ .github/}
+\DoxyCodeLine{│\ \ \ └──\ workflows/}
+\DoxyCodeLine{│\ \ \ \ \ \ \ └──\ docs.yml\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Auto-\/generate\ documentation}
+\DoxyCodeLine{├──\ CPP/}
+\DoxyCodeLine{│\ \ \ ├──\ ScapeGoatTree.hpp/tpp\ \ \ \ \ \#\ Main\ tree\ implementation}
+\DoxyCodeLine{│\ \ \ ├──\ Node.hpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Node\ structure}
+\DoxyCodeLine{│\ \ \ ├──\ vector.hpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Custom\ dynamic\ array}
+\DoxyCodeLine{│\ \ \ ├──\ queue.hpp/tpp\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Custom\ queue}
+\DoxyCodeLine{│\ \ \ ├──\ stack.hpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Custom\ stack}
+\DoxyCodeLine{│\ \ \ ├──\ bindings.cpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Pybind11\ bindings}
+\DoxyCodeLine{│\ \ \ ├──\ iTree.cpp/hpp\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Terminal\ UI}
+\DoxyCodeLine{│\ \ \ ├──\ TreeDriver.cpp\ \ \ \ \ \ \ \ \ \ \ \ \#\ DirectX\ +\ ImGui\ GUI}
+\DoxyCodeLine{│\ \ \ ├──\ RunTUI.cpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Entry\ for\ terminal\ interface}
+\DoxyCodeLine{│\ \ \ └──\ tests.cpp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Unit\ test\ suite\ \ }
+\DoxyCodeLine{├──\ py.py\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Python\ Tkinter\ GUI}
+\DoxyCodeLine{├──\ CMakeLists.txt\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Build\ configuration}
+\DoxyCodeLine{├──\ Doxyfile\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Documentation\ config}
+\DoxyCodeLine{├──\ Dockerfile\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Container\ deployment}
+\DoxyCodeLine{├──\ LICENSE.md}
+\DoxyCodeLine{└──\ README.md}
 
 \end{DoxyCode}
 
 
 \DoxyHorRuler{0}
-\hypertarget{index_autotoc_md32}{}\doxysection{\texorpdfstring{License}{License}}\label{index_autotoc_md32}
-This project is licensed under the {\bfseries{MIT License}}. 
+\hypertarget{index_autotoc_md36}{}\doxysection{\texorpdfstring{🎓 Learning Resources}{🎓 Learning Resources}}\label{index_autotoc_md36}
+For more information about Scapegoat Trees:\+
+\begin{DoxyItemize}
+\item \href{https://people.csail.mit.edu/rivest/pubs/GR93.pdf}{\texttt{Original Paper (1993)}} by Galperin \& Rivest
+\item \href{https://omarahmedthe25th.github.io/ScapeGoatTree/}{\texttt{API Documentation}}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md38}{}\doxysection{\texorpdfstring{📄 License}{📄 License}}\label{index_autotoc_md38}
+This project is licensed under the {\bfseries{MIT License}} -\/ see LICENSE.md for details.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md40}{}\doxysection{\texorpdfstring{👤 Author}{👤 Author}}\label{index_autotoc_md40}
+{\bfseries{Omar Ahmed Abdel Hameed}}
+
+
+\begin{DoxyItemize}
+\item Git\+Hub:\+ \href{https://github.com/omarahmedthe25th}{\texttt{@omarahmedthe25th}}
+\item Project Link:\+ \href{https://github.com/omarahmedthe25th/ScapeGoatTree}{\texttt{https:\+/\+/\+github.\+com/\+omarahmedthe25th/\+\+Scape\+Goat\+Tree}}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md42}{}\doxysection{\texorpdfstring{🌟 Acknowledgments}{🌟 Acknowledgments}}\label{index_autotoc_md42}
+
+\begin{DoxyItemize}
+\item Course:\+ Data Structures ~\newline
+
+\item Inspiration:\+ Self-\/balancing tree algorithms
+\item Special thanks to the open-\/source community
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+
+
+{\bfseries{⭐ Star this repo if you found it helpful!}}
+
+\href{https://github.com/omarahmedthe25th/ScapeGoatTree}{\texttt{}}
+
+ 

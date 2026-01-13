@@ -15,6 +15,5 @@ var searchData=
   ['handleundoredo_12',['handleUndoRedo',['../class_i_tree.html#a077e3978accea9212146621f6363d59e',1,'ITree']]],
   ['handlevaluesinrange_13',['handleValuesinRange',['../class_i_tree.html#accddd94da8dc323e8103e66133670bb6',1,'ITree']]],
   ['hanleminmax_14',['hanleMinMax',['../class_i_tree.html#a481b8da9a0f640603c1c02b22f6fe85e',1,'ITree']]],
-  ['head_15',['head',['../class_queue.html#adbabab2ce50185a0ce1828c9eaa06c6e',1,'Queue']]],
-  ['height_16',['height',['../class_node.html#a15b477d75fdc30cac4847dab9c954568',1,'Node']]]
+  ['head_15',['head',['../class_queue.html#adbabab2ce50185a0ce1828c9eaa06c6e',1,'Queue']]]
 ];

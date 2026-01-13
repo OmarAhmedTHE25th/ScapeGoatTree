@@ -1,25 +1,27 @@
-\doxysection{CPP/\+Scape\+Goat\+Tree.hpp File Reference}
+\doxysection{CPP/\+\+Scape\+Goat\+Tree.hpp File Reference}
 \hypertarget{_scape_goat_tree_8hpp}{}\label{_scape_goat_tree_8hpp}\index{CPP/ScapeGoatTree.hpp@{CPP/ScapeGoatTree.hpp}}
-{\ttfamily \#include $<$string$>$}\newline
-{\ttfamily \#include "{}Node.\+hpp"{}}\newline
-{\ttfamily \#include $<$cmath$>$}\newline
-{\ttfamily \#include "{}vector.\+hpp"{}}\newline
-{\ttfamily \#include "{}stack.\+hpp"{}}\newline
-{\ttfamily \#include "{}scapegoat\+Tree.\+tpp"{}}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include "{}Node.\+hpp"{}}\newline
+{\ttfamily \+\#include $<$cmath$>$}\newline
+{\ttfamily \+\#include "{}vector.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}stack.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}scapegoat\+Tree.\+tpp"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct_command}{Command$<$ T $>$}}
+struct \doxymbox{\hyperlink{struct_command}{Command$<$ T $>$}}
 \item 
-class \mbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree$<$ T $>$}}
+class \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree$<$ T $>$}}
+\item 
+class \doxymbox{\hyperlink{class_scape_goat_tree_1_1iterator}{Scape\+Goat\+Tree$<$ T $>$::\+iterator}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum class \mbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969}{Op\+Type}} \{ \mbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0}{Insert}}
-, \mbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18}{Delete}}
-, \mbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aee25d922c3fec70103726fa7ad54591b}{Batch\+Start}}
-, \mbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969a4b6359d478c659d8d26a2942c0963082}{Batch\+End}}
+enum class \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969}{Op\+Type}} \{ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0}{Insert}}
+, \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18}{Delete}}
+, \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aee25d922c3fec70103726fa7ad54591b}{Batch\+Start}}
+, \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969a4b6359d478c659d8d26a2942c0963082}{Batch\+End}}
  \}
 \end{DoxyCompactItemize}
 
@@ -31,40 +33,48 @@ enum class \mbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b
 \index{OpType@{OpType}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}}
 \doxysubsubsection{\texorpdfstring{OpType}{OpType}}
 {\footnotesize\ttfamily \label{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969} 
-enum class \mbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969}{Op\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+enum class \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969}{Op\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
 
 Scape\+Goat Tree Implementation
 
 A self-\/balancing BST that maintains balance through periodic rebuilding.
 
-Key Properties\+:
+Key Properties:\+
 \begin{DoxyItemize}
-\item α-\/weight-\/balanced\+: No node\textquotesingle{}s subtree is heavier than α × parent\textquotesingle{}s subtree
-\item α = 2/3 for this implementation
-\item Height bound\+: h ≤ log₁.\+₅(n) where n = number of nodes
+\item α-\/weight-\/balanced:\+ No node\textquotesingle{}s subtree is heavier than α × parent\textquotesingle{}s subtree
+\item α = 2/\+3 for this implementation
+\item Height bound:\+ h ≤ log₁.\+₅(n) where n = number of nodes
 \end{DoxyItemize}
 
-Time Complexity\+:
+Time Complexity:\+
 \begin{DoxyItemize}
-\item Insert\+: O(log n) amortized, O(n) worst case during rebuild
-\item Delete\+: O(log n) amortized, O(n) worst case during rebuild
-\item Search\+: O(log n) worst case (tree stays balanced)
+\item Insert:\+ O(log n) amortized, O(n) worst case during rebuild
+\item Delete:\+ O(log n) amortized, O(n) worst case during rebuild
+\item Search:\+ O(log n) worst case (tree stays balanced)
 \end{DoxyItemize}
 
-Space Complexity\+: O(n) for tree + O(n) temporary array during rebuild Represents the type of operation performed on the tree for undo/redo purposes. \begin{DoxyEnumFields}[2]{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Insert@{Insert}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}}\index{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!Insert@{Insert}}}\Hypertarget{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0}\label{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0} 
+Space Complexity:\+ O(n) for tree + O(n) temporary array during rebuild Represents the type of operation performed on the tree for undo/\+redo purposes. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Insert@{Insert}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}}
+\index{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!Insert@{Insert}}
+}\Hypertarget{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0}\label{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0} 
 Insert&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Delete@{Delete}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}}\index{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!Delete@{Delete}}}\Hypertarget{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18}\label{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Delete@{Delete}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}}
+\index{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!Delete@{Delete}}
+}\Hypertarget{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18}\label{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18} 
 Delete&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{BatchStart@{BatchStart}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}}\index{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!BatchStart@{BatchStart}}}\Hypertarget{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aee25d922c3fec70103726fa7ad54591b}\label{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aee25d922c3fec70103726fa7ad54591b} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BatchStart@{BatchStart}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}}
+\index{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!BatchStart@{BatchStart}}
+}\Hypertarget{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aee25d922c3fec70103726fa7ad54591b}\label{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aee25d922c3fec70103726fa7ad54591b} 
 Batch\+Start&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{BatchEnd@{BatchEnd}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}}\index{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!BatchEnd@{BatchEnd}}}\Hypertarget{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969a4b6359d478c659d8d26a2942c0963082}\label{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969a4b6359d478c659d8d26a2942c0963082} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BatchEnd@{BatchEnd}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}}
+\index{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!BatchEnd@{BatchEnd}}
+}\Hypertarget{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969a4b6359d478c659d8d26a2942c0963082}\label{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969a4b6359d478c659d8d26a2942c0963082} 
 Batch\+End&\\
 \hline
 

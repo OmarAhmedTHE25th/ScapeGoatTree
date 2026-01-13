@@ -171,7 +171,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     TreeNode* parent = nullptr;
 
     // Step 1: Search for the node
-    while (node != nullptr && node->value != value) {
+    while (node != nullptr and node->value != value) {
         parent = node;
         if (value < node->value)
             node = node->left;
@@ -183,7 +183,7 @@ bool ScapeGoatTree<T>::deleteValue(T value) {
     if (!node) return false;
 
     // Record the operation for undo if not currently undoing/redoing
-    if (!isUndoing) {
+    if (not isUndoing) {
         undoStack.push({OpType::Delete, value});
     }
     bool originalIsUndoing = isUndoing;
@@ -818,6 +818,7 @@ Vector<T> ScapeGoatTree<T>::valuesInRange(T min, T max) {
     rangeHelper(root,min,max,range);
     return range;
 }
+//leftmost in the right subtree.
 template<typename T>
 T ScapeGoatTree<T>::getSuccessor(T value) const {
     TreeNode* current = root;

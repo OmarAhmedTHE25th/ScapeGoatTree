@@ -14,6 +14,7 @@ var class_vector =
     [ "push_back", "class_vector.html#a4415960a83615855ec32f8169f641786", null ],
     [ "size", "class_vector.html#a5214a382564aedc712b609416aa3b7b1", null ],
     [ "ScapeGoatTree", "class_vector.html#ad52df95674bffa6af89034cede8d90a2", null ],
+    [ "Stack", "class_vector.html#a2132310955c0d3dd3d8aa1e665553003", null ],
     [ "_size", "class_vector.html#acb6320b3ff4bf32733fbf0c279d8f895", null ],
     [ "data", "class_vector.html#a536da87a916c8bdf2565fa6d808337f2", null ],
     [ "nElements", "class_vector.html#a562a1e4730448413c8061310a755d3fe", null ]

@@ -29,7 +29,7 @@
 /**
  * Represents the type of operation performed on the tree for undo/redo purposes.
  */
-enum class OpType { 
+enum class OpType {
     Insert,     // Insertion of a single value
     Delete,     // Deletion of a single value
     BatchStart, // Marker for the beginning of a batch operation
@@ -49,6 +49,51 @@ template<typename T>
 class ScapeGoatTree {
 
     using TreeNode = Node<T>;
+    TreeNode* root{};
+    int nNodes{};
+    int rebuildCount = 0;
+    /**
+     * Stack to store commands that can be undone.
+     */
+    Stack<Command<T>> undoStack;
+    /**
+     * Stack to store commands that have been undone and can be redone.
+     */
+    Stack<Command<T>> redoStack;
+    /**
+     * Flag to prevent operations triggered by undo/redo from being recorded.
+     * This avoids infinite recursion and keeps the undo history clean.
+     */
+    bool isUndoing = false;
+    int max_nodes = 0;
+    // iterator class
+    class iterator {
+        TreeNode* curr;  // stores current node
+
+    public:
+        // constructor
+        iterator(TreeNode* node) : curr(node) {}
+
+        // dereference
+        T& operator*() { return curr->value; }
+
+        // pre-increment
+        iterator& operator++() {
+            curr = getSuccessor(curr);
+            return *this;
+        }
+
+        // post-increment
+        iterator operator++(int) {
+            iterator temp = *this;
+            ++(*this);
+            return temp;
+        }
+
+        // comparison
+        bool operator!=(const iterator& other) const { return curr != other.curr; }
+    };
+
     /**
      * Calculates the height of a given node in the tree.
      */
@@ -111,49 +156,6 @@ class ScapeGoatTree {
   static TreeNode* getSuccessor(TreeNode* node);
 
 
-    TreeNode* root{};
-    int nNodes{};
-    int rebuildCount = 0;
-    /**
-     * Stack to store commands that can be undone.
-     */
-    Stack<Command<T>> undoStack;
-    /**
-     * Stack to store commands that have been undone and can be redone.
-     */
-    Stack<Command<T>> redoStack;
-    /**
-     * Flag to prevent operations triggered by undo/redo from being recorded.
-     * This avoids infinite recursion and keeps the undo history clean.
-     */
-    bool isUndoing = false;
-    int max_nodes = 0;
-    class iterator {
-        TreeNode* curr;  // stores current node
-
-    public:
-        // constructor
-        iterator(TreeNode* node) : curr(node) {}
-
-        // dereference
-        T& operator*() { return curr->value; }
-
-        // pre-increment
-        iterator& operator++() {
-            curr = getSuccessor(curr);  // use  TreeNode* successor function
-            return *this;
-        }
-
-        // post-increment
-        iterator operator++(int) {
-            iterator temp = *this;
-            ++(*this);
-            return temp;
-        }
-
-        // comparison
-        bool operator!=(const iterator& other) const { return curr != other.curr; }
-    };
 
 
 public:

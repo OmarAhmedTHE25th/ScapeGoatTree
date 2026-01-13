@@ -1,6 +1,6 @@
 \doxysection{queue.\+hpp}
 \hypertarget{queue_8hpp_source}{}\label{queue_8hpp_source}\index{CPP/queue.hpp@{CPP/queue.hpp}}
-\mbox{\hyperlink{queue_8hpp}{Go to the documentation of this file.}}
+\doxymbox{\hyperlink{queue_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//}}
 \DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ DELL\ on\ 24/12/2025.}}
@@ -10,32 +10,32 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TREE\_QUEUE\_HPP}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_q_node_ac2f676367dc9d44aed65e831799b78e2}{QNode}}\ \{}
-\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_q_node_ac2f676367dc9d44aed65e831799b78e2}{QNode}}*\ \mbox{\hyperlink{class_q_node_af2fa4048dcb4810318ca76fcc9a6ff02}{next}}\{\};}
-\DoxyCodeLine{00011\ \ \ \ \ T\ \mbox{\hyperlink{class_q_node_aefe0a8fb42fe8e691e498ec38a2de205}{value}}\{\};}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_q_node_ac2f676367dc9d44aed65e831799b78e2}{QNode}}(T\ \mbox{\hyperlink{class_q_node_aefe0a8fb42fe8e691e498ec38a2de205}{value}}):\ \mbox{\hyperlink{class_q_node_aefe0a8fb42fe8e691e498ec38a2de205}{value}}(\mbox{\hyperlink{class_q_node_aefe0a8fb42fe8e691e498ec38a2de205}{value}})\{\}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_q_node_ac2f676367dc9d44aed65e831799b78e2}{QNode}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \doxymbox{\hyperlink{class_q_node_ac2f676367dc9d44aed65e831799b78e2}{QNode}}*\ \doxymbox{\hyperlink{class_q_node_af2fa4048dcb4810318ca76fcc9a6ff02}{next}}\{\};}
+\DoxyCodeLine{00011\ \ \ \ \ T\ \doxymbox{\hyperlink{class_q_node_aefe0a8fb42fe8e691e498ec38a2de205}{value}}\{\};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_q_node_ac2f676367dc9d44aed65e831799b78e2}{QNode}}(T\ \doxymbox{\hyperlink{class_q_node_aefe0a8fb42fe8e691e498ec38a2de205}{value}}):\ \doxymbox{\hyperlink{class_q_node_aefe0a8fb42fe8e691e498ec38a2de205}{value}}(\doxymbox{\hyperlink{class_q_node_aefe0a8fb42fe8e691e498ec38a2de205}{value}})\{\}}
 \DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}>}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_q_node_a76db68f71f6e65aa4083615ee111ab59}{Queue}};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_q_node_a76db68f71f6e65aa4083615ee111ab59}{Queue}};}
 \DoxyCodeLine{00015\ \};}
 \DoxyCodeLine{00016\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_queue}{Queue}}\ \{}
-\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_q_node}{QNode<T>}}*\ \mbox{\hyperlink{class_queue_adbabab2ce50185a0ce1828c9eaa06c6e}{head}}\{\};}
-\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_q_node}{QNode<T>}}*\ \mbox{\hyperlink{class_queue_a0c13741e844928f47d37fe1a5ce35d8d}{tail}}\{\};}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_queue_a7aedf6d9a3feb07f564b9e6d0a4391c9}{nNodes}}\{\};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_queue}{Queue}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{class_q_node}{QNode<T>}}*\ \doxymbox{\hyperlink{class_queue_adbabab2ce50185a0ce1828c9eaa06c6e}{head}}\{\};}
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{class_q_node}{QNode<T>}}*\ \doxymbox{\hyperlink{class_queue_a0c13741e844928f47d37fe1a5ce35d8d}{tail}}\{\};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_queue_a7aedf6d9a3feb07f564b9e6d0a4391c9}{nNodes}}\{\};}
 \DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_queue_aa7eef1b427e24555780505de20e9acbc}{\string~Queue}}()\ \{\ \ }
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{class_queue_a225f5d08888ea72a4dfe73f235761e5d}{isEmpty}}())\ \mbox{\hyperlink{class_queue_a02ea784625fe33b5793d00c3b02b4878}{pop}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{class_queue_aa7eef1b427e24555780505de20e9acbc}{\string~Queue}}()\ \{\ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\doxymbox{\hyperlink{class_queue_a225f5d08888ea72a4dfe73f235761e5d}{isEmpty}}())\ \doxymbox{\hyperlink{class_queue_a02ea784625fe33b5793d00c3b02b4878}{pop}}();}
 \DoxyCodeLine{00027\ \ \ \ \ \}}
 \DoxyCodeLine{00028\ }
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_queue_ab1b5d7b2169cc93ff7757d0017be2c33}{push}}(T\ value);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_queue_ab1b5d7b2169cc93ff7757d0017be2c33}{push}}(T\ value);}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_queue_a02ea784625fe33b5793d00c3b02b4878}{pop}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_queue_a02ea784625fe33b5793d00c3b02b4878}{pop}}();}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00042\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_queue_a225f5d08888ea72a4dfe73f235761e5d}{isEmpty}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_queue_a225f5d08888ea72a4dfe73f235761e5d}{isEmpty}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00047\ \ \ \ \ T\ \mbox{\hyperlink{class_queue_a8b5b32ea305ed921bd06ab62bd53bc1b}{front}}();}
+\DoxyCodeLine{00047\ \ \ \ \ T\ \doxymbox{\hyperlink{class_queue_a8b5b32ea305ed921bd06ab62bd53bc1b}{front}}();}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00052\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_queue_a504eb9d0777fb73f99d87a19b7c25c2a}{size}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_queue_a504eb9d0777fb73f99d87a19b7c25c2a}{size}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00053\ }
 \DoxyCodeLine{00054\ \};}
 \DoxyCodeLine{00055\ }

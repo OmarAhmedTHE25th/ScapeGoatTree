@@ -2,32 +2,30 @@
 \hypertarget{class_node}{}\label{class_node}\index{Node$<$ T $>$@{Node$<$ T $>$}}
 
 
-{\ttfamily \#include $<$Node.\+hpp$>$}
+{\ttfamily \+\#include $<$Node.\+hpp$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_node_ae20f1c489909cf89a165b23ef56a1ba6}{Node}} (const T \&v, \mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*}parent\+Ptr=nullptr)
+\doxymbox{\hyperlink{class_node_ae20f1c489909cf89a165b23ef56a1ba6}{Node}} (const T \&v, \doxymbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*}parent\+Ptr=nullptr)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-T \mbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}} \{\}
+T \doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}} \{\}
 \item 
-\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}} \{\}
+\doxymbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}} \{\}
 \item 
-\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}} \{\}
+\doxymbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}} \{\}
 \item 
-\mbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}} \{\}
+\doxymbox{\hyperlink{class_node}{Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}} \{\}
 \item 
-size\+\_\+t \mbox{\hyperlink{class_node_af3217a1393b4f84a90f003f076719e0b}{size}} =1
-\item 
-int \mbox{\hyperlink{class_node_a15b477d75fdc30cac4847dab9c954568}{height}} = 0
+unsigned int \doxymbox{\hyperlink{class_node_a6993bad98a83cdf991cf851aacceb187}{size}} =1
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename$>$ }\\class \mbox{\hyperlink{class_node_ad52df95674bffa6af89034cede8d90a2}{Scape\+Goat\+Tree}}
+{\footnotesize template$<$typename$>$ }\\class \doxymbox{\hyperlink{class_node_ad52df95674bffa6af89034cede8d90a2}{Scape\+Goat\+Tree}}
 \end{DoxyCompactItemize}
 
 
@@ -39,7 +37,7 @@ int \mbox{\hyperlink{class_node_a15b477d75fdc30cac4847dab9c954568}{height}} = 0
 \doxysubsubsection{\texorpdfstring{Node()}{Node()}}
 {\footnotesize\ttfamily \label{class_node_ae20f1c489909cf89a165b23ef56a1ba6} 
 template$<$typename T$>$ \\
-\mbox{\hyperlink{class_node}{Node}}$<$ T $>$\+::\+Node (\begin{DoxyParamCaption}\item[{const T \&}]{v}{, }\item[{\mbox{\hyperlink{class_node}{Node}}$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{parent\+Ptr}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+\doxymbox{\hyperlink{class_node}{Node}}$<$ T $>$::\+\+Node (\begin{DoxyParamCaption}\item[{const T \&}]{v}{, }\item[{\doxymbox{\hyperlink{class_node}{Node}}$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{parent\+Ptr}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 Initializes a node with a value and an optional parent pointer. 
 
@@ -52,57 +50,50 @@ Initializes a node with a value and an optional parent pointer.
 {\footnotesize\ttfamily \label{class_node_ad52df95674bffa6af89034cede8d90a2} 
 template$<$typename T$>$ \\
 template$<$typename$>$ \\
-friend class \mbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}\hspace{0.3cm}{\ttfamily [friend]}}
+friend class \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}\hspace{0.3cm}{\ttfamily [friend]}}
 
 
 
 \label{doc-variable-members}
 \Hypertarget{class_node_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{class_node_a15b477d75fdc30cac4847dab9c954568}\index{Node$<$ T $>$@{Node$<$ T $>$}!height@{height}}
-\index{height@{height}!Node$<$ T $>$@{Node$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{height}{height}}
-{\footnotesize\ttfamily \label{class_node_a15b477d75fdc30cac4847dab9c954568} 
-template$<$typename T$>$ \\
-int \mbox{\hyperlink{class_node}{Node}}$<$ T $>$\+::height = 0}
-
 \Hypertarget{class_node_a6596c7ac17ecafff5522310c0da3a828}\index{Node$<$ T $>$@{Node$<$ T $>$}!left@{left}}
 \index{left@{left}!Node$<$ T $>$@{Node$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{left}{left}}
 {\footnotesize\ttfamily \label{class_node_a6596c7ac17ecafff5522310c0da3a828} 
 template$<$typename T$>$ \\
-\mbox{\hyperlink{class_node}{Node}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_node}{Node}}$<$ T $>$\+::left \{\}}
+\doxymbox{\hyperlink{class_node}{Node}}\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_node}{Node}}$<$ T $>$::\+left \{\}}
 
 \Hypertarget{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}\index{Node$<$ T $>$@{Node$<$ T $>$}!parent@{parent}}
 \index{parent@{parent}!Node$<$ T $>$@{Node$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{parent}{parent}}
 {\footnotesize\ttfamily \label{class_node_a28eff2e37cf969f59ca88cfe4c464cf3} 
 template$<$typename T$>$ \\
-\mbox{\hyperlink{class_node}{Node}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_node}{Node}}$<$ T $>$\+::parent \{\}}
+\doxymbox{\hyperlink{class_node}{Node}}\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_node}{Node}}$<$ T $>$::\+parent \{\}}
 
 \Hypertarget{class_node_a4009a1138f2f04372037fbec63406f11}\index{Node$<$ T $>$@{Node$<$ T $>$}!right@{right}}
 \index{right@{right}!Node$<$ T $>$@{Node$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{right}{right}}
 {\footnotesize\ttfamily \label{class_node_a4009a1138f2f04372037fbec63406f11} 
 template$<$typename T$>$ \\
-\mbox{\hyperlink{class_node}{Node}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_node}{Node}}$<$ T $>$\+::right \{\}}
+\doxymbox{\hyperlink{class_node}{Node}}\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_node}{Node}}$<$ T $>$::\+right \{\}}
 
-\Hypertarget{class_node_af3217a1393b4f84a90f003f076719e0b}\index{Node$<$ T $>$@{Node$<$ T $>$}!size@{size}}
+\Hypertarget{class_node_a6993bad98a83cdf991cf851aacceb187}\index{Node$<$ T $>$@{Node$<$ T $>$}!size@{size}}
 \index{size@{size}!Node$<$ T $>$@{Node$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{size}{size}}
-{\footnotesize\ttfamily \label{class_node_af3217a1393b4f84a90f003f076719e0b} 
+{\footnotesize\ttfamily \label{class_node_a6993bad98a83cdf991cf851aacceb187} 
 template$<$typename T$>$ \\
-size\+\_\+t \mbox{\hyperlink{class_node}{Node}}$<$ T $>$\+::size =1}
+unsigned int \doxymbox{\hyperlink{class_node}{Node}}$<$ T $>$::\+size =1}
 
 \Hypertarget{class_node_a01b9071c0de774c720b64583262d1559}\index{Node$<$ T $>$@{Node$<$ T $>$}!value@{value}}
 \index{value@{value}!Node$<$ T $>$@{Node$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{value}{value}}
 {\footnotesize\ttfamily \label{class_node_a01b9071c0de774c720b64583262d1559} 
 template$<$typename T$>$ \\
-T \mbox{\hyperlink{class_node}{Node}}$<$ T $>$\+::value \{\}}
+T \doxymbox{\hyperlink{class_node}{Node}}$<$ T $>$::\+value \{\}}
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
 \item 
-CPP/\mbox{\hyperlink{_node_8hpp}{Node.\+hpp}}\end{DoxyCompactItemize}
+CPP/\+\doxymbox{\hyperlink{_node_8hpp}{Node.\+hpp}}\end{DoxyCompactItemize}

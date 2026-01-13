@@ -1,0 +1,459 @@
+\indexentry{🌳 Scapegoat Tree Implementation@{🌳 Scapegoat Tree Implementation}|hyperpage}{1}
+\indexentry{CPP Directory Reference@{CPP Directory Reference}|hyperpage}{13}
+\indexentry{Command$<$ T $>$@{Command$<$ T $>$}|hyperpage}{15}
+\indexentry{Command$<$ T $>$@{Command$<$ T $>$}!type@{type}|hyperpage}{15}
+\indexentry{type@{type}!Command$<$ T $>$@{Command$<$ T $>$}|hyperpage}{15}
+\indexentry{Command$<$ T $>$@{Command$<$ T $>$}!value@{value}|hyperpage}{15}
+\indexentry{value@{value}!Command$<$ T $>$@{Command$<$ T $>$}|hyperpage}{15}
+\indexentry{ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}|hyperpage}{15}
+\indexentry{ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}!iterator@{iterator}|hyperpage}{16}
+\indexentry{iterator@{iterator}!ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}|hyperpage}{16}
+\indexentry{ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}!operator"!=@{operator"!=}|hyperpage}{16}
+\indexentry{operator"!=@{operator"!=}!ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}|hyperpage}{16}
+\indexentry{ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}|hyperpage}{16}
+\indexentry{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}|hyperpage}{16}
+\indexentry{ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}!operator++@{operator++}|hyperpage}{16}
+\indexentry{operator++@{operator++}!ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}|hyperpage}{16}
+\indexentry{ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}!operator++@{operator++}|hyperpage}{16}
+\indexentry{operator++@{operator++}!ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}|hyperpage}{16}
+\indexentry{ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}!curr@{curr}|hyperpage}{16}
+\indexentry{curr@{curr}!ScapeGoatTree$<$ T $>$::iterator@{ScapeGoatTree$<$ T $>$::iterator}|hyperpage}{16}
+\indexentry{ITree@{ITree}|hyperpage}{16}
+\indexentry{ITree@{ITree}!handleBalance@{handleBalance}|hyperpage}{17}
+\indexentry{handleBalance@{handleBalance}!ITree@{ITree}|hyperpage}{17}
+\indexentry{ITree@{ITree}!handleBatches@{handleBatches}|hyperpage}{17}
+\indexentry{handleBatches@{handleBatches}!ITree@{ITree}|hyperpage}{17}
+\indexentry{ITree@{ITree}!handleClear@{handleClear}|hyperpage}{17}
+\indexentry{handleClear@{handleClear}!ITree@{ITree}|hyperpage}{17}
+\indexentry{ITree@{ITree}!handleCoreOperators@{handleCoreOperators}|hyperpage}{17}
+\indexentry{handleCoreOperators@{handleCoreOperators}!ITree@{ITree}|hyperpage}{17}
+\indexentry{ITree@{ITree}!handleDisplay@{handleDisplay}|hyperpage}{17}
+\indexentry{handleDisplay@{handleDisplay}!ITree@{ITree}|hyperpage}{17}
+\indexentry{ITree@{ITree}!handleKthSmallestElement@{handleKthSmallestElement}|hyperpage}{18}
+\indexentry{handleKthSmallestElement@{handleKthSmallestElement}!ITree@{ITree}|hyperpage}{18}
+\indexentry{ITree@{ITree}!handleOperations@{handleOperations}|hyperpage}{18}
+\indexentry{handleOperations@{handleOperations}!ITree@{ITree}|hyperpage}{18}
+\indexentry{ITree@{ITree}!handleOperatorCompare@{handleOperatorCompare}|hyperpage}{18}
+\indexentry{handleOperatorCompare@{handleOperatorCompare}!ITree@{ITree}|hyperpage}{18}
+\indexentry{ITree@{ITree}!handleOperatorEmpty@{handleOperatorEmpty}|hyperpage}{18}
+\indexentry{handleOperatorEmpty@{handleOperatorEmpty}!ITree@{ITree}|hyperpage}{18}
+\indexentry{ITree@{ITree}!handleOperatorMerge@{handleOperatorMerge}|hyperpage}{18}
+\indexentry{handleOperatorMerge@{handleOperatorMerge}!ITree@{ITree}|hyperpage}{18}
+\indexentry{ITree@{ITree}!handleSucessor@{handleSucessor}|hyperpage}{18}
+\indexentry{handleSucessor@{handleSucessor}!ITree@{ITree}|hyperpage}{18}
+\indexentry{ITree@{ITree}!handleSuminRange@{handleSuminRange}|hyperpage}{18}
+\indexentry{handleSuminRange@{handleSuminRange}!ITree@{ITree}|hyperpage}{18}
+\indexentry{ITree@{ITree}!handleUndoRedo@{handleUndoRedo}|hyperpage}{18}
+\indexentry{handleUndoRedo@{handleUndoRedo}!ITree@{ITree}|hyperpage}{18}
+\indexentry{ITree@{ITree}!handleValuesinRange@{handleValuesinRange}|hyperpage}{19}
+\indexentry{handleValuesinRange@{handleValuesinRange}!ITree@{ITree}|hyperpage}{19}
+\indexentry{ITree@{ITree}!hanleMinMax@{hanleMinMax}|hyperpage}{19}
+\indexentry{hanleMinMax@{hanleMinMax}!ITree@{ITree}|hyperpage}{19}
+\indexentry{ITree@{ITree}!selectTree@{selectTree}|hyperpage}{19}
+\indexentry{selectTree@{selectTree}!ITree@{ITree}|hyperpage}{19}
+\indexentry{ITree@{ITree}!TreeUI@{TreeUI}|hyperpage}{19}
+\indexentry{TreeUI@{TreeUI}!ITree@{ITree}|hyperpage}{19}
+\indexentry{MenuItem@{MenuItem}|hyperpage}{19}
+\indexentry{MenuItem@{MenuItem}!func@{func}|hyperpage}{19}
+\indexentry{func@{func}!MenuItem@{MenuItem}|hyperpage}{19}
+\indexentry{MenuItem@{MenuItem}!name@{name}|hyperpage}{19}
+\indexentry{name@{name}!MenuItem@{MenuItem}|hyperpage}{19}
+\indexentry{MenuItem@{MenuItem}!opcode@{opcode}|hyperpage}{19}
+\indexentry{opcode@{opcode}!MenuItem@{MenuItem}|hyperpage}{19}
+\indexentry{Node$<$ T $>$@{Node$<$ T $>$}|hyperpage}{19}
+\indexentry{Node$<$ T $>$@{Node$<$ T $>$}!Node@{Node}|hyperpage}{20}
+\indexentry{Node@{Node}!Node$<$ T $>$@{Node$<$ T $>$}|hyperpage}{20}
+\indexentry{Node$<$ T $>$@{Node$<$ T $>$}!ScapeGoatTree@{ScapeGoatTree}|hyperpage}{20}
+\indexentry{ScapeGoatTree@{ScapeGoatTree}!Node$<$ T $>$@{Node$<$ T $>$}|hyperpage}{20}
+\indexentry{Node$<$ T $>$@{Node$<$ T $>$}!left@{left}|hyperpage}{20}
+\indexentry{left@{left}!Node$<$ T $>$@{Node$<$ T $>$}|hyperpage}{20}
+\indexentry{Node$<$ T $>$@{Node$<$ T $>$}!parent@{parent}|hyperpage}{20}
+\indexentry{parent@{parent}!Node$<$ T $>$@{Node$<$ T $>$}|hyperpage}{20}
+\indexentry{Node$<$ T $>$@{Node$<$ T $>$}!right@{right}|hyperpage}{20}
+\indexentry{right@{right}!Node$<$ T $>$@{Node$<$ T $>$}|hyperpage}{20}
+\indexentry{Node$<$ T $>$@{Node$<$ T $>$}!size@{size}|hyperpage}{20}
+\indexentry{size@{size}!Node$<$ T $>$@{Node$<$ T $>$}|hyperpage}{20}
+\indexentry{Node$<$ T $>$@{Node$<$ T $>$}!value@{value}|hyperpage}{20}
+\indexentry{value@{value}!Node$<$ T $>$@{Node$<$ T $>$}|hyperpage}{20}
+\indexentry{QNode$<$ T $>$@{QNode$<$ T $>$}|hyperpage}{21}
+\indexentry{QNode$<$ T $>$@{QNode$<$ T $>$}!QNode@{QNode}|hyperpage}{21}
+\indexentry{QNode@{QNode}!QNode$<$ T $>$@{QNode$<$ T $>$}|hyperpage}{21}
+\indexentry{QNode$<$ T $>$@{QNode$<$ T $>$}!Queue@{Queue}|hyperpage}{21}
+\indexentry{Queue@{Queue}!QNode$<$ T $>$@{QNode$<$ T $>$}|hyperpage}{21}
+\indexentry{QNode$<$ T $>$@{QNode$<$ T $>$}!next@{next}|hyperpage}{21}
+\indexentry{next@{next}!QNode$<$ T $>$@{QNode$<$ T $>$}|hyperpage}{21}
+\indexentry{QNode$<$ T $>$@{QNode$<$ T $>$}!value@{value}|hyperpage}{21}
+\indexentry{value@{value}!QNode$<$ T $>$@{QNode$<$ T $>$}|hyperpage}{21}
+\indexentry{Queue$<$ T $>$@{Queue$<$ T $>$}|hyperpage}{21}
+\indexentry{Queue$<$ T $>$@{Queue$<$ T $>$}!````~Queue@{\texorpdfstring{$\sim$}{\string~}Queue}|hyperpage}{22}
+\indexentry{````~Queue@{\texorpdfstring{$\sim$}{\string~}Queue}!Queue$<$ T $>$@{Queue$<$ T $>$}|hyperpage}{22}
+\indexentry{Queue$<$ T $>$@{Queue$<$ T $>$}!front@{front}|hyperpage}{22}
+\indexentry{front@{front}!Queue$<$ T $>$@{Queue$<$ T $>$}|hyperpage}{22}
+\indexentry{Queue$<$ T $>$@{Queue$<$ T $>$}!isEmpty@{isEmpty}|hyperpage}{22}
+\indexentry{isEmpty@{isEmpty}!Queue$<$ T $>$@{Queue$<$ T $>$}|hyperpage}{22}
+\indexentry{Queue$<$ T $>$@{Queue$<$ T $>$}!pop@{pop}|hyperpage}{22}
+\indexentry{pop@{pop}!Queue$<$ T $>$@{Queue$<$ T $>$}|hyperpage}{22}
+\indexentry{Queue$<$ T $>$@{Queue$<$ T $>$}!push@{push}|hyperpage}{22}
+\indexentry{push@{push}!Queue$<$ T $>$@{Queue$<$ T $>$}|hyperpage}{22}
+\indexentry{Queue$<$ T $>$@{Queue$<$ T $>$}!size@{size}|hyperpage}{22}
+\indexentry{size@{size}!Queue$<$ T $>$@{Queue$<$ T $>$}|hyperpage}{22}
+\indexentry{Queue$<$ T $>$@{Queue$<$ T $>$}!head@{head}|hyperpage}{22}
+\indexentry{head@{head}!Queue$<$ T $>$@{Queue$<$ T $>$}|hyperpage}{22}
+\indexentry{Queue$<$ T $>$@{Queue$<$ T $>$}!nNodes@{nNodes}|hyperpage}{22}
+\indexentry{nNodes@{nNodes}!Queue$<$ T $>$@{Queue$<$ T $>$}|hyperpage}{22}
+\indexentry{Queue$<$ T $>$@{Queue$<$ T $>$}!tail@{tail}|hyperpage}{23}
+\indexentry{tail@{tail}!Queue$<$ T $>$@{Queue$<$ T $>$}|hyperpage}{23}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{23}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!TreeNode@{TreeNode}|hyperpage}{24}
+\indexentry{TreeNode@{TreeNode}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{24}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!ScapeGoatTree@{ScapeGoatTree}|hyperpage}{24}
+\indexentry{ScapeGoatTree@{ScapeGoatTree}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{24}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!ScapeGoatTree@{ScapeGoatTree}|hyperpage}{24}
+\indexentry{ScapeGoatTree@{ScapeGoatTree}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{24}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!ScapeGoatTree@{ScapeGoatTree}|hyperpage}{25}
+\indexentry{ScapeGoatTree@{ScapeGoatTree}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{25}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!````~ScapeGoatTree@{\texorpdfstring{$\sim$}{\string~}ScapeGoatTree}|hyperpage}{25}
+\indexentry{````~ScapeGoatTree@{\texorpdfstring{$\sim$}{\string~}ScapeGoatTree}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{25}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!areTreesEqual@{areTreesEqual}|hyperpage}{25}
+\indexentry{areTreesEqual@{areTreesEqual}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{25}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!begin@{begin}|hyperpage}{25}
+\indexentry{begin@{begin}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{25}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!clear@{clear}|hyperpage}{25}
+\indexentry{clear@{clear}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{25}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!countN@{countN}|hyperpage}{25}
+\indexentry{countN@{countN}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{25}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!deleteBatch@{deleteBatch}|hyperpage}{25}
+\indexentry{deleteBatch@{deleteBatch}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{25}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!deleteValue@{deleteValue}|hyperpage}{25}
+\indexentry{deleteValue@{deleteValue}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{25}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!DeletionRebuild@{DeletionRebuild}|hyperpage}{25}
+\indexentry{DeletionRebuild@{DeletionRebuild}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{25}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!displayInOrder@{displayInOrder}|hyperpage}{26}
+\indexentry{displayInOrder@{displayInOrder}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{26}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!displayInOrder@{displayInOrder}|hyperpage}{26}
+\indexentry{displayInOrder@{displayInOrder}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{26}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!displayLevels@{displayLevels}|hyperpage}{26}
+\indexentry{displayLevels@{displayLevels}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{26}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!displayPostOrder@{displayPostOrder}|hyperpage}{26}
+\indexentry{displayPostOrder@{displayPostOrder}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{26}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!displayPostOrder@{displayPostOrder}|hyperpage}{26}
+\indexentry{displayPostOrder@{displayPostOrder}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{26}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!displayPreOrder@{displayPreOrder}|hyperpage}{26}
+\indexentry{displayPreOrder@{displayPreOrder}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{26}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!displayPreOrder@{displayPreOrder}|hyperpage}{26}
+\indexentry{displayPreOrder@{displayPreOrder}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{26}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!end@{end}|hyperpage}{26}
+\indexentry{end@{end}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{26}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!findH@{findH}|hyperpage}{26}
+\indexentry{findH@{findH}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{26}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!findTraitor@{findTraitor}|hyperpage}{27}
+\indexentry{findTraitor@{findTraitor}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{27}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!getMax@{getMax}|hyperpage}{27}
+\indexentry{getMax@{getMax}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{27}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!getMin@{getMin}|hyperpage}{27}
+\indexentry{getMin@{getMin}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{27}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!getRoot@{getRoot}|hyperpage}{27}
+\indexentry{getRoot@{getRoot}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{27}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!getSuccessor@{getSuccessor}|hyperpage}{27}
+\indexentry{getSuccessor@{getSuccessor}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{27}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!getSuccessor@{getSuccessor}|hyperpage}{27}
+\indexentry{getSuccessor@{getSuccessor}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{27}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!getThreshold@{getThreshold}|hyperpage}{27}
+\indexentry{getThreshold@{getThreshold}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{27}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!inorderTraversal@{inorderTraversal}|hyperpage}{27}
+\indexentry{inorderTraversal@{inorderTraversal}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{27}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!insert@{insert}|hyperpage}{27}
+\indexentry{insert@{insert}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{27}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!insertBatch@{insertBatch}|hyperpage}{28}
+\indexentry{insertBatch@{insertBatch}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{28}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!isBalanced@{isBalanced}|hyperpage}{28}
+\indexentry{isBalanced@{isBalanced}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{28}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!kthSmallest@{kthSmallest}|hyperpage}{28}
+\indexentry{kthSmallest@{kthSmallest}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{28}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!kthSmallestHelper@{kthSmallestHelper}|hyperpage}{28}
+\indexentry{kthSmallestHelper@{kthSmallestHelper}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{28}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator"!@{operator"!}|hyperpage}{28}
+\indexentry{operator"!@{operator"!}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{28}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator"!=@{operator"!=}|hyperpage}{28}
+\indexentry{operator"!=@{operator"!=}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{28}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator+@{operator+}|hyperpage}{28}
+\indexentry{operator+@{operator+}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{28}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator+@{operator+}|hyperpage}{28}
+\indexentry{operator+@{operator+}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{28}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator+=@{operator+=}|hyperpage}{28}
+\indexentry{operator+=@{operator+=}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{28}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator-\/@{operator-\/}|hyperpage}{28}
+\indexentry{operator-\/@{operator-\/}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{28}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator-\/=@{operator-\/=}|hyperpage}{29}
+\indexentry{operator-\/=@{operator-\/=}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{29}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator=@{operator=}|hyperpage}{29}
+\indexentry{operator=@{operator=}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{29}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator=@{operator=}|hyperpage}{29}
+\indexentry{operator=@{operator=}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{29}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator=@{operator=}|hyperpage}{29}
+\indexentry{operator=@{operator=}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{29}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator==@{operator==}|hyperpage}{29}
+\indexentry{operator==@{operator==}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{29}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!operator\+[]\+@{operator[]}|hyperpage}{29}
+\indexentry{operator\+[]\+@{operator[]}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{29}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!postorderTraversal@{postorderTraversal}|hyperpage}{29}
+\indexentry{postorderTraversal@{postorderTraversal}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{29}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!preorderTraversal@{preorderTraversal}|hyperpage}{29}
+\indexentry{preorderTraversal@{preorderTraversal}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{29}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!rangeHelper@{rangeHelper}|hyperpage}{29}
+\indexentry{rangeHelper@{rangeHelper}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{29}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!rebuildTree@{rebuildTree}|hyperpage}{30}
+\indexentry{rebuildTree@{rebuildTree}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{30}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!redo@{redo}|hyperpage}{30}
+\indexentry{redo@{redo}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{30}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!restructure\_subtree@{restructure\_subtree}|hyperpage}{30}
+\indexentry{restructure\_subtree@{restructure\_subtree}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{30}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!search@{search}|hyperpage}{30}
+\indexentry{search@{search}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{30}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!sumHelper@{sumHelper}|hyperpage}{30}
+\indexentry{sumHelper@{sumHelper}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{30}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!sumInRange@{sumInRange}|hyperpage}{30}
+\indexentry{sumInRange@{sumInRange}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{30}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!undo@{undo}|hyperpage}{30}
+\indexentry{undo@{undo}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{30}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!valuesInRange@{valuesInRange}|hyperpage}{30}
+\indexentry{valuesInRange@{valuesInRange}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{30}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!isUndoing@{isUndoing}|hyperpage}{31}
+\indexentry{isUndoing@{isUndoing}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{31}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!max\_nodes@{max\_nodes}|hyperpage}{31}
+\indexentry{max\_nodes@{max\_nodes}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{31}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!nNodes@{nNodes}|hyperpage}{31}
+\indexentry{nNodes@{nNodes}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{31}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!rebuildCount@{rebuildCount}|hyperpage}{31}
+\indexentry{rebuildCount@{rebuildCount}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{31}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!redoStack@{redoStack}|hyperpage}{31}
+\indexentry{redoStack@{redoStack}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{31}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!root@{root}|hyperpage}{31}
+\indexentry{root@{root}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{31}
+\indexentry{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!undoStack@{undoStack}|hyperpage}{31}
+\indexentry{undoStack@{undoStack}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}|hyperpage}{31}
+\indexentry{Stack$<$ T $>$@{Stack$<$ T $>$}|hyperpage}{31}
+\indexentry{Stack$<$ T $>$@{Stack$<$ T $>$}!isEmpty@{isEmpty}|hyperpage}{32}
+\indexentry{isEmpty@{isEmpty}!Stack$<$ T $>$@{Stack$<$ T $>$}|hyperpage}{32}
+\indexentry{Stack$<$ T $>$@{Stack$<$ T $>$}!pop@{pop}|hyperpage}{32}
+\indexentry{pop@{pop}!Stack$<$ T $>$@{Stack$<$ T $>$}|hyperpage}{32}
+\indexentry{Stack$<$ T $>$@{Stack$<$ T $>$}!push@{push}|hyperpage}{32}
+\indexentry{push@{push}!Stack$<$ T $>$@{Stack$<$ T $>$}|hyperpage}{32}
+\indexentry{Stack$<$ T $>$@{Stack$<$ T $>$}!size@{size}|hyperpage}{32}
+\indexentry{size@{size}!Stack$<$ T $>$@{Stack$<$ T $>$}|hyperpage}{32}
+\indexentry{Stack$<$ T $>$@{Stack$<$ T $>$}!top@{top}|hyperpage}{32}
+\indexentry{top@{top}!Stack$<$ T $>$@{Stack$<$ T $>$}|hyperpage}{32}
+\indexentry{Stack$<$ T $>$@{Stack$<$ T $>$}!data@{data}|hyperpage}{32}
+\indexentry{data@{data}!Stack$<$ T $>$@{Stack$<$ T $>$}|hyperpage}{32}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{32}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!````~Vector@{\texorpdfstring{$\sim$}{\string~}Vector}|hyperpage}{33}
+\indexentry{````~Vector@{\texorpdfstring{$\sim$}{\string~}Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{33}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}|hyperpage}{33}
+\indexentry{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{33}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}|hyperpage}{33}
+\indexentry{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{33}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}|hyperpage}{33}
+\indexentry{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{33}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!begin@{begin}|hyperpage}{33}
+\indexentry{begin@{begin}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{33}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!end@{end}|hyperpage}{33}
+\indexentry{end@{end}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{33}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!operator=@{operator=}|hyperpage}{33}
+\indexentry{operator=@{operator=}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{33}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!operator=@{operator=}|hyperpage}{34}
+\indexentry{operator=@{operator=}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{34}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!operator\+[]\+@{operator[]}|hyperpage}{34}
+\indexentry{operator\+[]\+@{operator[]}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{34}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!operator\+[]\+@{operator[]}|hyperpage}{34}
+\indexentry{operator\+[]\+@{operator[]}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{34}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!pop\_back@{pop\_back}|hyperpage}{34}
+\indexentry{pop\_back@{pop\_back}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{34}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!push\_back@{push\_back}|hyperpage}{34}
+\indexentry{push\_back@{push\_back}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{34}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!size@{size}|hyperpage}{34}
+\indexentry{size@{size}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{34}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!ScapeGoatTree@{ScapeGoatTree}|hyperpage}{34}
+\indexentry{ScapeGoatTree@{ScapeGoatTree}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{34}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!Stack@{Stack}|hyperpage}{34}
+\indexentry{Stack@{Stack}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{34}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!\_size@{\_size}|hyperpage}{35}
+\indexentry{\_size@{\_size}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{35}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!data@{data}|hyperpage}{35}
+\indexentry{data@{data}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{35}
+\indexentry{Vector$<$ T $>$@{Vector$<$ T $>$}!nElements@{nElements}|hyperpage}{35}
+\indexentry{nElements@{nElements}!Vector$<$ T $>$@{Vector$<$ T $>$}|hyperpage}{35}
+\indexentry{CPP/benchmark.cpp@{CPP/benchmark.cpp}|hyperpage}{37}
+\indexentry{benchmark.cpp@{benchmark.cpp}!benchmark\_sequential\_ops@{benchmark\_sequential\_ops}|hyperpage}{37}
+\indexentry{benchmark\_sequential\_ops@{benchmark\_sequential\_ops}!benchmark.cpp@{benchmark.cpp}|hyperpage}{37}
+\indexentry{benchmark.cpp@{benchmark.cpp}!main@{main}|hyperpage}{37}
+\indexentry{main@{main}!benchmark.cpp@{benchmark.cpp}|hyperpage}{37}
+\indexentry{CPP/bindings.cpp@{CPP/bindings.cpp}|hyperpage}{37}
+\indexentry{bindings.cpp@{bindings.cpp}!Type@{Type}|hyperpage}{37}
+\indexentry{Type@{Type}!bindings.cpp@{bindings.cpp}|hyperpage}{37}
+\indexentry{bindings.cpp@{bindings.cpp}!PYBIND11\_MODULE@{PYBIND11\_MODULE}|hyperpage}{38}
+\indexentry{PYBIND11\_MODULE@{PYBIND11\_MODULE}!bindings.cpp@{bindings.cpp}|hyperpage}{38}
+\indexentry{CPP/iTree.cpp@{CPP/iTree.cpp}|hyperpage}{38}
+\indexentry{iTree.cpp@{iTree.cpp}!Long@{Long}|hyperpage}{38}
+\indexentry{Long@{Long}!iTree.cpp@{iTree.cpp}|hyperpage}{38}
+\indexentry{iTree.cpp@{iTree.cpp}!MenuHandler@{MenuHandler}|hyperpage}{38}
+\indexentry{MenuHandler@{MenuHandler}!iTree.cpp@{iTree.cpp}|hyperpage}{38}
+\indexentry{iTree.cpp@{iTree.cpp}!printError@{printError}|hyperpage}{38}
+\indexentry{printError@{printError}!iTree.cpp@{iTree.cpp}|hyperpage}{38}
+\indexentry{iTree.cpp@{iTree.cpp}!printHeader@{printHeader}|hyperpage}{38}
+\indexentry{printHeader@{printHeader}!iTree.cpp@{iTree.cpp}|hyperpage}{38}
+\indexentry{iTree.cpp@{iTree.cpp}!printInfo@{printInfo}|hyperpage}{39}
+\indexentry{printInfo@{printInfo}!iTree.cpp@{iTree.cpp}|hyperpage}{39}
+\indexentry{iTree.cpp@{iTree.cpp}!printSuccess@{printSuccess}|hyperpage}{39}
+\indexentry{printSuccess@{printSuccess}!iTree.cpp@{iTree.cpp}|hyperpage}{39}
+\indexentry{iTree.cpp@{iTree.cpp}!validateCinLine@{validateCinLine}|hyperpage}{39}
+\indexentry{validateCinLine@{validateCinLine}!iTree.cpp@{iTree.cpp}|hyperpage}{39}
+\indexentry{iTree.cpp@{iTree.cpp}!CYAN@{CYAN}|hyperpage}{39}
+\indexentry{CYAN@{CYAN}!iTree.cpp@{iTree.cpp}|hyperpage}{39}
+\indexentry{iTree.cpp@{iTree.cpp}!GREEN@{GREEN}|hyperpage}{39}
+\indexentry{GREEN@{GREEN}!iTree.cpp@{iTree.cpp}|hyperpage}{39}
+\indexentry{iTree.cpp@{iTree.cpp}!RED@{RED}|hyperpage}{39}
+\indexentry{RED@{RED}!iTree.cpp@{iTree.cpp}|hyperpage}{39}
+\indexentry{iTree.cpp@{iTree.cpp}!RESET@{RESET}|hyperpage}{39}
+\indexentry{RESET@{RESET}!iTree.cpp@{iTree.cpp}|hyperpage}{39}
+\indexentry{iTree.cpp@{iTree.cpp}!WHITE@{WHITE}|hyperpage}{39}
+\indexentry{WHITE@{WHITE}!iTree.cpp@{iTree.cpp}|hyperpage}{39}
+\indexentry{CPP/iTree.hpp@{CPP/iTree.hpp}|hyperpage}{39}
+\indexentry{iTree.hpp@{iTree.hpp}!ElemenType@{ElemenType}|hyperpage}{40}
+\indexentry{ElemenType@{ElemenType}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!opcodes@{opcodes}|hyperpage}{40}
+\indexentry{opcodes@{opcodes}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{INSERT@{INSERT}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!INSERT@{INSERT}|hyperpage}{40}
+\indexentry{DELETEOP@{DELETEOP}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!DELETEOP@{DELETEOP}|hyperpage}{40}
+\indexentry{SEARCH@{SEARCH}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!SEARCH@{SEARCH}|hyperpage}{40}
+\indexentry{DISPLAY\_INORDER@{DISPLAY\_INORDER}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!DISPLAY\_INORDER@{DISPLAY\_INORDER}|hyperpage}{40}
+\indexentry{DISPLAY\_PREORDER@{DISPLAY\_PREORDER}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!DISPLAY\_PREORDER@{DISPLAY\_PREORDER}|hyperpage}{40}
+\indexentry{DISPLAY\_POSTORDER@{DISPLAY\_POSTORDER}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!DISPLAY\_POSTORDER@{DISPLAY\_POSTORDER}|hyperpage}{40}
+\indexentry{DISPLAY\_LEVELS@{DISPLAY\_LEVELS}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!DISPLAY\_LEVELS@{DISPLAY\_LEVELS}|hyperpage}{40}
+\indexentry{EXIT@{EXIT}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!EXIT@{EXIT}|hyperpage}{40}
+\indexentry{BALANCE@{BALANCE}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!BALANCE@{BALANCE}|hyperpage}{40}
+\indexentry{COMPARE@{COMPARE}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!COMPARE@{COMPARE}|hyperpage}{40}
+\indexentry{MERGE@{MERGE}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!MERGE@{MERGE}|hyperpage}{40}
+\indexentry{EMPTY@{EMPTY}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!EMPTY@{EMPTY}|hyperpage}{40}
+\indexentry{BATCH\_INSERT@{BATCH\_INSERT}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!BATCH\_INSERT@{BATCH\_INSERT}|hyperpage}{40}
+\indexentry{BATCH\_DELETE@{BATCH\_DELETE}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!BATCH\_DELETE@{BATCH\_DELETE}|hyperpage}{40}
+\indexentry{CLEAR@{CLEAR}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!CLEAR@{CLEAR}|hyperpage}{40}
+\indexentry{UNDO@{UNDO}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!UNDO@{UNDO}|hyperpage}{40}
+\indexentry{REDO@{REDO}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!REDO@{REDO}|hyperpage}{40}
+\indexentry{SUMINRANGE@{SUMINRANGE}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!SUMINRANGE@{SUMINRANGE}|hyperpage}{40}
+\indexentry{VALUESINRANGE@{VALUESINRANGE}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!VALUESINRANGE@{VALUESINRANGE}|hyperpage}{40}
+\indexentry{MIN@{MIN}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!MIN@{MIN}|hyperpage}{40}
+\indexentry{MAX@{MAX}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!MAX@{MAX}|hyperpage}{40}
+\indexentry{KTH@{KTH}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!KTH@{KTH}|hyperpage}{40}
+\indexentry{SUCC@{SUCC}!iTree.hpp@{iTree.hpp}|hyperpage}{40}
+\indexentry{iTree.hpp@{iTree.hpp}!SUCC@{SUCC}|hyperpage}{40}
+\indexentry{CPP/iTree.hpp@{CPP/iTree.hpp}|hyperpage}{40}
+\indexentry{CPP/Node.hpp@{CPP/Node.hpp}|hyperpage}{41}
+\indexentry{CPP/Node.hpp@{CPP/Node.hpp}|hyperpage}{41}
+\indexentry{CPP/queue.hpp@{CPP/queue.hpp}|hyperpage}{42}
+\indexentry{CPP/queue.hpp@{CPP/queue.hpp}|hyperpage}{42}
+\indexentry{CPP/RunTUI.cpp@{CPP/RunTUI.cpp}|hyperpage}{42}
+\indexentry{RunTUI.cpp@{RunTUI.cpp}!main@{main}|hyperpage}{42}
+\indexentry{main@{main}!RunTUI.cpp@{RunTUI.cpp}|hyperpage}{42}
+\indexentry{CPP/ScapeGoatTree.hpp@{CPP/ScapeGoatTree.hpp}|hyperpage}{43}
+\indexentry{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!OpType@{OpType}|hyperpage}{43}
+\indexentry{OpType@{OpType}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}|hyperpage}{43}
+\indexentry{Insert@{Insert}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}|hyperpage}{43}
+\indexentry{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!Insert@{Insert}|hyperpage}{43}
+\indexentry{Delete@{Delete}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}|hyperpage}{43}
+\indexentry{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!Delete@{Delete}|hyperpage}{43}
+\indexentry{BatchStart@{BatchStart}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}|hyperpage}{43}
+\indexentry{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!BatchStart@{BatchStart}|hyperpage}{43}
+\indexentry{BatchEnd@{BatchEnd}!ScapeGoatTree.hpp@{ScapeGoatTree.hpp}|hyperpage}{43}
+\indexentry{ScapeGoatTree.hpp@{ScapeGoatTree.hpp}!BatchEnd@{BatchEnd}|hyperpage}{43}
+\indexentry{CPP/ScapeGoatTree.hpp@{CPP/ScapeGoatTree.hpp}|hyperpage}{43}
+\indexentry{CPP/stack.hpp@{CPP/stack.hpp}|hyperpage}{45}
+\indexentry{CPP/stack.hpp@{CPP/stack.hpp}|hyperpage}{46}
+\indexentry{CPP/tests.cpp@{CPP/tests.cpp}|hyperpage}{46}
+\indexentry{tests.cpp@{tests.cpp}!Type@{Type}|hyperpage}{47}
+\indexentry{Type@{Type}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!containsAll@{containsAll}|hyperpage}{47}
+\indexentry{containsAll@{containsAll}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!main@{main}|hyperpage}{47}
+\indexentry{main@{main}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!stressTest@{stressTest}|hyperpage}{47}
+\indexentry{stressTest@{stressTest}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!testBasicInsertion@{testBasicInsertion}|hyperpage}{47}
+\indexentry{testBasicInsertion@{testBasicInsertion}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!testBatchOperations@{testBatchOperations}|hyperpage}{47}
+\indexentry{testBatchOperations@{testBatchOperations}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!testCopyAndMove@{testCopyAndMove}|hyperpage}{47}
+\indexentry{testCopyAndMove@{testCopyAndMove}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!testDeletion@{testDeletion}|hyperpage}{47}
+\indexentry{testDeletion@{testDeletion}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!testIterator@{testIterator}|hyperpage}{47}
+\indexentry{testIterator@{testIterator}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!testNewMethods@{testNewMethods}|hyperpage}{47}
+\indexentry{testNewMethods@{testNewMethods}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!testOperators@{testOperators}|hyperpage}{47}
+\indexentry{testOperators@{testOperators}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!testOrderedInsertion@{testOrderedInsertion}|hyperpage}{47}
+\indexentry{testOrderedInsertion@{testOrderedInsertion}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!testRebuilding@{testRebuilding}|hyperpage}{47}
+\indexentry{testRebuilding@{testRebuilding}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{tests.cpp@{tests.cpp}!testUandR@{testUandR}|hyperpage}{47}
+\indexentry{testUandR@{testUandR}!tests.cpp@{tests.cpp}|hyperpage}{47}
+\indexentry{CPP/TreeDriver.cpp@{CPP/TreeDriver.cpp}|hyperpage}{48}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!CleanupDeviceD3D@{CleanupDeviceD3D}|hyperpage}{48}
+\indexentry{CleanupDeviceD3D@{CleanupDeviceD3D}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{48}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!CleanupRenderTarget@{CleanupRenderTarget}|hyperpage}{48}
+\indexentry{CleanupRenderTarget@{CleanupRenderTarget}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{48}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!CreateDeviceD3D@{CreateDeviceD3D}|hyperpage}{48}
+\indexentry{CreateDeviceD3D@{CreateDeviceD3D}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{48}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!CreateRenderTarget@{CreateRenderTarget}|hyperpage}{48}
+\indexentry{CreateRenderTarget@{CreateRenderTarget}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{48}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!ImGui\_ImplWin32\_WndProcHandler@{ImGui\_ImplWin32\_WndProcHandler}|hyperpage}{48}
+\indexentry{ImGui\_ImplWin32\_WndProcHandler@{ImGui\_ImplWin32\_WndProcHandler}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{48}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!main@{main}|hyperpage}{49}
+\indexentry{main@{main}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!WndProc@{WndProc}|hyperpage}{49}
+\indexentry{WndProc@{WndProc}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!g\_mainRenderTargetView@{g\_mainRenderTargetView}|hyperpage}{49}
+\indexentry{g\_mainRenderTargetView@{g\_mainRenderTargetView}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!g\_pd3dDevice@{g\_pd3dDevice}|hyperpage}{49}
+\indexentry{g\_pd3dDevice@{g\_pd3dDevice}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!g\_pd3dDeviceContext@{g\_pd3dDeviceContext}|hyperpage}{49}
+\indexentry{g\_pd3dDeviceContext@{g\_pd3dDeviceContext}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!g\_pSwapChain@{g\_pSwapChain}|hyperpage}{49}
+\indexentry{g\_pSwapChain@{g\_pSwapChain}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!g\_ResizeHeight@{g\_ResizeHeight}|hyperpage}{49}
+\indexentry{g\_ResizeHeight@{g\_ResizeHeight}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!g\_ResizeWidth@{g\_ResizeWidth}|hyperpage}{49}
+\indexentry{g\_ResizeWidth@{g\_ResizeWidth}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!g\_SwapChainOccluded@{g\_SwapChainOccluded}|hyperpage}{49}
+\indexentry{g\_SwapChainOccluded@{g\_SwapChainOccluded}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!g\_WindowPos@{g\_WindowPos}|hyperpage}{49}
+\indexentry{g\_WindowPos@{g\_WindowPos}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!g\_WindowSize@{g\_WindowSize}|hyperpage}{49}
+\indexentry{g\_WindowSize@{g\_WindowSize}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{TreeDriver.cpp@{TreeDriver.cpp}!g\_WindowVel@{g\_WindowVel}|hyperpage}{49}
+\indexentry{g\_WindowVel@{g\_WindowVel}!TreeDriver.cpp@{TreeDriver.cpp}|hyperpage}{49}
+\indexentry{CPP/vector.hpp@{CPP/vector.hpp}|hyperpage}{50}
+\indexentry{CPP/vector.hpp@{CPP/vector.hpp}|hyperpage}{50}
+\indexentry{README.md@{README.md}|hyperpage}{51}

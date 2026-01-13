@@ -1,0 +1,297 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}🌳 Scapegoat Tree Implementation }{1}{chapter.1}%
+\contentsline {subsection}{\numberline {1.0.1}A Self-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Balancing BST with Multi-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Platform Support}{1}{subsection.1.0.1}%
+\contentsline {section}{\numberline {1.1}📚 Documentation}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}✨ Features}{1}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Core Tree Features}{1}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Custom Data Structures}{2}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}User Interfaces}{2}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Advanced Usage}{2}{subsection.1.2.4}%
+\contentsline {section}{\numberline {1.3}🚀 Quick Start}{2}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Running the Python GUI (Cross-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Platform)}{2}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Running the C++ Terminal UI}{3}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Running via Docker}{3}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}📖 Algorithm Overview}{3}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Complexity Analysis}{3}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.5}🛠️ Prerequisites}{3}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Required}{3}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Optional}{3}{subsection.1.5.2}%
+\contentsline {section}{\numberline {1.6}💻 Installation}{4}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Windows}{4}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Linux/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mac}{4}{subsection.1.6.2}%
+\contentsline {section}{\numberline {1.7}📝 Usage Examples}{4}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Python Interface}{4}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}C++ Interface}{4}{subsection.1.7.2}%
+\contentsline {section}{\numberline {1.8}🧪 Testing}{4}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}Run Unit Tests}{4}{subsection.1.8.1}%
+\contentsline {section}{\numberline {1.9}📁 Project Structure}{5}{section.1.9}%
+\contentsline {section}{\numberline {1.10}🎓 Learning Resources}{5}{section.1.10}%
+\contentsline {section}{\numberline {1.11}📄 License}{5}{section.1.11}%
+\contentsline {section}{\numberline {1.12}👤 Author}{5}{section.1.12}%
+\contentsline {section}{\numberline {1.13}🌟 Acknowledgments}{5}{section.1.13}%
+\contentsline {chapter}{\numberline {2}Directory Hierarchy}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Directories}{7}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Index}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Class List}{9}{section.3.1}%
+\contentsline {chapter}{\numberline {4}File Index}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}File List}{11}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Directory Documentation}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}CPP Directory Reference}{13}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Class Documentation}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Command$<$ T $>$ Struct Template Reference}{15}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Detailed Description}{15}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Member Data Documentation}{15}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}type}{15}{subsubsection.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.2.2}value}{15}{subsubsection.6.1.2.2}%
+\contentsline {section}{\numberline {6.2}Scape\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Goat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tree$<$ T $>$::\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}iterator Class Reference}{15}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Constructor \& Destructor Documentation}{16}{subsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.1}iterator()}{16}{subsubsection.6.2.1.1}%
+\contentsline {subsection}{\numberline {6.2.2}Member Function Documentation}{16}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.1}operator"!=()}{16}{subsubsection.6.2.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2.2}operator$\ast $()}{16}{subsubsection.6.2.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.3}operator++()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{16}{subsubsection.6.2.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.2.4}operator++()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{16}{subsubsection.6.2.2.4}%
+\contentsline {subsection}{\numberline {6.2.3}Member Data Documentation}{16}{subsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.3.1}curr}{16}{subsubsection.6.2.3.1}%
+\contentsline {section}{\numberline {6.3}ITree Class Reference}{16}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Member Function Documentation}{17}{subsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.1}handleBalance()}{17}{subsubsection.6.3.1.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.2}handleBatches()}{17}{subsubsection.6.3.1.2}%
+\contentsline {subsubsection}{\numberline {6.3.1.3}handleClear()}{17}{subsubsection.6.3.1.3}%
+\contentsline {subsubsection}{\numberline {6.3.1.4}handleCoreOperators()}{17}{subsubsection.6.3.1.4}%
+\contentsline {subsubsection}{\numberline {6.3.1.5}handleDisplay()}{18}{subsubsection.6.3.1.5}%
+\contentsline {subsubsection}{\numberline {6.3.1.6}handleKthSmallestElement()}{18}{subsubsection.6.3.1.6}%
+\contentsline {subsubsection}{\numberline {6.3.1.7}handleOperations()}{18}{subsubsection.6.3.1.7}%
+\contentsline {subsubsection}{\numberline {6.3.1.8}handleOperatorCompare()}{18}{subsubsection.6.3.1.8}%
+\contentsline {subsubsection}{\numberline {6.3.1.9}handleOperatorEmpty()}{18}{subsubsection.6.3.1.9}%
+\contentsline {subsubsection}{\numberline {6.3.1.10}handleOperatorMerge()}{18}{subsubsection.6.3.1.10}%
+\contentsline {subsubsection}{\numberline {6.3.1.11}handleSucessor()}{18}{subsubsection.6.3.1.11}%
+\contentsline {subsubsection}{\numberline {6.3.1.12}handleSuminRange()}{18}{subsubsection.6.3.1.12}%
+\contentsline {subsubsection}{\numberline {6.3.1.13}handleUndoRedo()}{18}{subsubsection.6.3.1.13}%
+\contentsline {subsubsection}{\numberline {6.3.1.14}handleValuesinRange()}{19}{subsubsection.6.3.1.14}%
+\contentsline {subsubsection}{\numberline {6.3.1.15}hanleMinMax()}{19}{subsubsection.6.3.1.15}%
+\contentsline {subsubsection}{\numberline {6.3.1.16}selectTree()}{19}{subsubsection.6.3.1.16}%
+\contentsline {subsubsection}{\numberline {6.3.1.17}TreeUI()}{19}{subsubsection.6.3.1.17}%
+\contentsline {section}{\numberline {6.4}Menu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item Struct Reference}{19}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Member Data Documentation}{19}{subsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.1.1}func}{19}{subsubsection.6.4.1.1}%
+\contentsline {subsubsection}{\numberline {6.4.1.2}name}{19}{subsubsection.6.4.1.2}%
+\contentsline {subsubsection}{\numberline {6.4.1.3}opcode}{19}{subsubsection.6.4.1.3}%
+\contentsline {section}{\numberline {6.5}Node$<$ T $>$ Class Template Reference}{19}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Constructor \& Destructor Documentation}{20}{subsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.1}Node()}{20}{subsubsection.6.5.1.1}%
+\contentsline {subsection}{\numberline {6.5.2}Friends And Related Symbol Documentation}{20}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}ScapeGoatTree}{20}{subsubsection.6.5.2.1}%
+\contentsline {subsection}{\numberline {6.5.3}Member Data Documentation}{20}{subsection.6.5.3}%
+\contentsline {subsubsection}{\numberline {6.5.3.1}left}{20}{subsubsection.6.5.3.1}%
+\contentsline {subsubsection}{\numberline {6.5.3.2}parent}{20}{subsubsection.6.5.3.2}%
+\contentsline {subsubsection}{\numberline {6.5.3.3}right}{20}{subsubsection.6.5.3.3}%
+\contentsline {subsubsection}{\numberline {6.5.3.4}size}{20}{subsubsection.6.5.3.4}%
+\contentsline {subsubsection}{\numberline {6.5.3.5}value}{21}{subsubsection.6.5.3.5}%
+\contentsline {section}{\numberline {6.6}QNode$<$ T $>$ Class Template Reference}{21}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Constructor \& Destructor Documentation}{21}{subsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.1.1}QNode()}{21}{subsubsection.6.6.1.1}%
+\contentsline {subsection}{\numberline {6.6.2}Friends And Related Symbol Documentation}{21}{subsection.6.6.2}%
+\contentsline {subsubsection}{\numberline {6.6.2.1}Queue}{21}{subsubsection.6.6.2.1}%
+\contentsline {subsection}{\numberline {6.6.3}Member Data Documentation}{21}{subsection.6.6.3}%
+\contentsline {subsubsection}{\numberline {6.6.3.1}next}{21}{subsubsection.6.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.6.3.2}value}{21}{subsubsection.6.6.3.2}%
+\contentsline {section}{\numberline {6.7}Queue$<$ T $>$ Class Template Reference}{21}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Constructor \& Destructor Documentation}{22}{subsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.1.1}$\sim $Queue()}{22}{subsubsection.6.7.1.1}%
+\contentsline {subsection}{\numberline {6.7.2}Member Function Documentation}{22}{subsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.1}front()}{22}{subsubsection.6.7.2.1}%
+\contentsline {subsubsection}{\numberline {6.7.2.2}isEmpty()}{22}{subsubsection.6.7.2.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.3}pop()}{22}{subsubsection.6.7.2.3}%
+\contentsline {subsubsection}{\numberline {6.7.2.4}push()}{22}{subsubsection.6.7.2.4}%
+\contentsline {subsubsection}{\numberline {6.7.2.5}size()}{22}{subsubsection.6.7.2.5}%
+\contentsline {subsection}{\numberline {6.7.3}Member Data Documentation}{22}{subsection.6.7.3}%
+\contentsline {subsubsection}{\numberline {6.7.3.1}head}{22}{subsubsection.6.7.3.1}%
+\contentsline {subsubsection}{\numberline {6.7.3.2}nNodes}{23}{subsubsection.6.7.3.2}%
+\contentsline {subsubsection}{\numberline {6.7.3.3}tail}{23}{subsubsection.6.7.3.3}%
+\contentsline {section}{\numberline {6.8}Scape\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Goat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tree$<$ T $>$ Class Template Reference}{23}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Member Typedef Documentation}{24}{subsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.1.1}TreeNode}{24}{subsubsection.6.8.1.1}%
+\contentsline {subsection}{\numberline {6.8.2}Constructor \& Destructor Documentation}{24}{subsection.6.8.2}%
+\contentsline {subsubsection}{\numberline {6.8.2.1}ScapeGoatTree()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{24}{subsubsection.6.8.2.1}%
+\contentsline {subsubsection}{\numberline {6.8.2.2}ScapeGoatTree()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{25}{subsubsection.6.8.2.2}%
+\contentsline {subsubsection}{\numberline {6.8.2.3}ScapeGoatTree()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{25}{subsubsection.6.8.2.3}%
+\contentsline {subsubsection}{\numberline {6.8.2.4}$\sim $ScapeGoatTree()}{25}{subsubsection.6.8.2.4}%
+\contentsline {subsection}{\numberline {6.8.3}Member Function Documentation}{25}{subsection.6.8.3}%
+\contentsline {subsubsection}{\numberline {6.8.3.1}areTreesEqual()}{25}{subsubsection.6.8.3.1}%
+\contentsline {subsubsection}{\numberline {6.8.3.2}begin()}{25}{subsubsection.6.8.3.2}%
+\contentsline {subsubsection}{\numberline {6.8.3.3}clear()}{25}{subsubsection.6.8.3.3}%
+\contentsline {subsubsection}{\numberline {6.8.3.4}countN()}{25}{subsubsection.6.8.3.4}%
+\contentsline {subsubsection}{\numberline {6.8.3.5}deleteBatch()}{25}{subsubsection.6.8.3.5}%
+\contentsline {subsubsection}{\numberline {6.8.3.6}deleteValue()}{25}{subsubsection.6.8.3.6}%
+\contentsline {subsubsection}{\numberline {6.8.3.7}DeletionRebuild()}{26}{subsubsection.6.8.3.7}%
+\contentsline {subsubsection}{\numberline {6.8.3.8}displayInOrder()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{26}{subsubsection.6.8.3.8}%
+\contentsline {subsubsection}{\numberline {6.8.3.9}displayInOrder()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{26}{subsubsection.6.8.3.9}%
+\contentsline {subsubsection}{\numberline {6.8.3.10}displayLevels()}{26}{subsubsection.6.8.3.10}%
+\contentsline {subsubsection}{\numberline {6.8.3.11}displayPostOrder()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{26}{subsubsection.6.8.3.11}%
+\contentsline {subsubsection}{\numberline {6.8.3.12}displayPostOrder()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{26}{subsubsection.6.8.3.12}%
+\contentsline {subsubsection}{\numberline {6.8.3.13}displayPreOrder()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{26}{subsubsection.6.8.3.13}%
+\contentsline {subsubsection}{\numberline {6.8.3.14}displayPreOrder()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{26}{subsubsection.6.8.3.14}%
+\contentsline {subsubsection}{\numberline {6.8.3.15}end()}{26}{subsubsection.6.8.3.15}%
+\contentsline {subsubsection}{\numberline {6.8.3.16}findH()}{27}{subsubsection.6.8.3.16}%
+\contentsline {subsubsection}{\numberline {6.8.3.17}findTraitor()}{27}{subsubsection.6.8.3.17}%
+\contentsline {subsubsection}{\numberline {6.8.3.18}getMax()}{27}{subsubsection.6.8.3.18}%
+\contentsline {subsubsection}{\numberline {6.8.3.19}getMin()}{27}{subsubsection.6.8.3.19}%
+\contentsline {subsubsection}{\numberline {6.8.3.20}getRoot()}{27}{subsubsection.6.8.3.20}%
+\contentsline {subsubsection}{\numberline {6.8.3.21}getSuccessor()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{27}{subsubsection.6.8.3.21}%
+\contentsline {subsubsection}{\numberline {6.8.3.22}getSuccessor()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{27}{subsubsection.6.8.3.22}%
+\contentsline {subsubsection}{\numberline {6.8.3.23}getThreshold()}{27}{subsubsection.6.8.3.23}%
+\contentsline {subsubsection}{\numberline {6.8.3.24}inorderTraversal()}{27}{subsubsection.6.8.3.24}%
+\contentsline {subsubsection}{\numberline {6.8.3.25}insert()}{27}{subsubsection.6.8.3.25}%
+\contentsline {subsubsection}{\numberline {6.8.3.26}insertBatch()}{28}{subsubsection.6.8.3.26}%
+\contentsline {subsubsection}{\numberline {6.8.3.27}isBalanced()}{28}{subsubsection.6.8.3.27}%
+\contentsline {subsubsection}{\numberline {6.8.3.28}kthSmallest()}{28}{subsubsection.6.8.3.28}%
+\contentsline {subsubsection}{\numberline {6.8.3.29}kthSmallestHelper()}{28}{subsubsection.6.8.3.29}%
+\contentsline {subsubsection}{\numberline {6.8.3.30}operator"!()}{28}{subsubsection.6.8.3.30}%
+\contentsline {subsubsection}{\numberline {6.8.3.31}operator"!=()}{28}{subsubsection.6.8.3.31}%
+\contentsline {subsubsection}{\numberline {6.8.3.32}operator+()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{28}{subsubsection.6.8.3.32}%
+\contentsline {subsubsection}{\numberline {6.8.3.33}operator+()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{28}{subsubsection.6.8.3.33}%
+\contentsline {subsubsection}{\numberline {6.8.3.34}operator+=()}{28}{subsubsection.6.8.3.34}%
+\contentsline {subsubsection}{\numberline {6.8.3.35}operator-\/()}{29}{subsubsection.6.8.3.35}%
+\contentsline {subsubsection}{\numberline {6.8.3.36}operator-\/=()}{29}{subsubsection.6.8.3.36}%
+\contentsline {subsubsection}{\numberline {6.8.3.37}operator=()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{29}{subsubsection.6.8.3.37}%
+\contentsline {subsubsection}{\numberline {6.8.3.38}operator=()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{29}{subsubsection.6.8.3.38}%
+\contentsline {subsubsection}{\numberline {6.8.3.39}operator=()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{29}{subsubsection.6.8.3.39}%
+\contentsline {subsubsection}{\numberline {6.8.3.40}operator==()}{29}{subsubsection.6.8.3.40}%
+\contentsline {subsubsection}{\numberline {6.8.3.41}operator[]()}{29}{subsubsection.6.8.3.41}%
+\contentsline {subsubsection}{\numberline {6.8.3.42}postorderTraversal()}{29}{subsubsection.6.8.3.42}%
+\contentsline {subsubsection}{\numberline {6.8.3.43}preorderTraversal()}{29}{subsubsection.6.8.3.43}%
+\contentsline {subsubsection}{\numberline {6.8.3.44}rangeHelper()}{30}{subsubsection.6.8.3.44}%
+\contentsline {subsubsection}{\numberline {6.8.3.45}rebuildTree()}{30}{subsubsection.6.8.3.45}%
+\contentsline {subsubsection}{\numberline {6.8.3.46}redo()}{30}{subsubsection.6.8.3.46}%
+\contentsline {subsubsection}{\numberline {6.8.3.47}restructure\_subtree()}{30}{subsubsection.6.8.3.47}%
+\contentsline {subsubsection}{\numberline {6.8.3.48}search()}{30}{subsubsection.6.8.3.48}%
+\contentsline {subsubsection}{\numberline {6.8.3.49}sumHelper()}{30}{subsubsection.6.8.3.49}%
+\contentsline {subsubsection}{\numberline {6.8.3.50}sumInRange()}{30}{subsubsection.6.8.3.50}%
+\contentsline {subsubsection}{\numberline {6.8.3.51}undo()}{30}{subsubsection.6.8.3.51}%
+\contentsline {subsubsection}{\numberline {6.8.3.52}valuesInRange()}{31}{subsubsection.6.8.3.52}%
+\contentsline {subsection}{\numberline {6.8.4}Member Data Documentation}{31}{subsection.6.8.4}%
+\contentsline {subsubsection}{\numberline {6.8.4.1}isUndoing}{31}{subsubsection.6.8.4.1}%
+\contentsline {subsubsection}{\numberline {6.8.4.2}max\_nodes}{31}{subsubsection.6.8.4.2}%
+\contentsline {subsubsection}{\numberline {6.8.4.3}nNodes}{31}{subsubsection.6.8.4.3}%
+\contentsline {subsubsection}{\numberline {6.8.4.4}rebuildCount}{31}{subsubsection.6.8.4.4}%
+\contentsline {subsubsection}{\numberline {6.8.4.5}redoStack}{31}{subsubsection.6.8.4.5}%
+\contentsline {subsubsection}{\numberline {6.8.4.6}root}{31}{subsubsection.6.8.4.6}%
+\contentsline {subsubsection}{\numberline {6.8.4.7}undoStack}{31}{subsubsection.6.8.4.7}%
+\contentsline {section}{\numberline {6.9}Stack$<$ T $>$ Class Template Reference}{31}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}Member Function Documentation}{32}{subsection.6.9.1}%
+\contentsline {subsubsection}{\numberline {6.9.1.1}isEmpty()}{32}{subsubsection.6.9.1.1}%
+\contentsline {subsubsection}{\numberline {6.9.1.2}pop()}{32}{subsubsection.6.9.1.2}%
+\contentsline {subsubsection}{\numberline {6.9.1.3}push()}{32}{subsubsection.6.9.1.3}%
+\contentsline {subsubsection}{\numberline {6.9.1.4}size()}{32}{subsubsection.6.9.1.4}%
+\contentsline {subsubsection}{\numberline {6.9.1.5}top()}{32}{subsubsection.6.9.1.5}%
+\contentsline {subsection}{\numberline {6.9.2}Member Data Documentation}{32}{subsection.6.9.2}%
+\contentsline {subsubsection}{\numberline {6.9.2.1}data}{32}{subsubsection.6.9.2.1}%
+\contentsline {section}{\numberline {6.10}Vector$<$ T $>$ Class Template Reference}{32}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}Constructor \& Destructor Documentation}{33}{subsection.6.10.1}%
+\contentsline {subsubsection}{\numberline {6.10.1.1}$\sim $Vector()}{33}{subsubsection.6.10.1.1}%
+\contentsline {subsubsection}{\numberline {6.10.1.2}Vector()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{33}{subsubsection.6.10.1.2}%
+\contentsline {subsubsection}{\numberline {6.10.1.3}Vector()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{33}{subsubsection.6.10.1.3}%
+\contentsline {subsubsection}{\numberline {6.10.1.4}Vector()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{33}{subsubsection.6.10.1.4}%
+\contentsline {subsection}{\numberline {6.10.2}Member Function Documentation}{33}{subsection.6.10.2}%
+\contentsline {subsubsection}{\numberline {6.10.2.1}begin()}{33}{subsubsection.6.10.2.1}%
+\contentsline {subsubsection}{\numberline {6.10.2.2}end()}{33}{subsubsection.6.10.2.2}%
+\contentsline {subsubsection}{\numberline {6.10.2.3}operator=()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{34}{subsubsection.6.10.2.3}%
+\contentsline {subsubsection}{\numberline {6.10.2.4}operator=()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{34}{subsubsection.6.10.2.4}%
+\contentsline {subsubsection}{\numberline {6.10.2.5}operator[]()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{34}{subsubsection.6.10.2.5}%
+\contentsline {subsubsection}{\numberline {6.10.2.6}operator[]()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{34}{subsubsection.6.10.2.6}%
+\contentsline {subsubsection}{\numberline {6.10.2.7}pop\_back()}{34}{subsubsection.6.10.2.7}%
+\contentsline {subsubsection}{\numberline {6.10.2.8}push\_back()}{34}{subsubsection.6.10.2.8}%
+\contentsline {subsubsection}{\numberline {6.10.2.9}size()}{34}{subsubsection.6.10.2.9}%
+\contentsline {subsection}{\numberline {6.10.3}Friends And Related Symbol Documentation}{34}{subsection.6.10.3}%
+\contentsline {subsubsection}{\numberline {6.10.3.1}ScapeGoatTree}{34}{subsubsection.6.10.3.1}%
+\contentsline {subsubsection}{\numberline {6.10.3.2}Stack}{34}{subsubsection.6.10.3.2}%
+\contentsline {subsection}{\numberline {6.10.4}Member Data Documentation}{35}{subsection.6.10.4}%
+\contentsline {subsubsection}{\numberline {6.10.4.1}\_size}{35}{subsubsection.6.10.4.1}%
+\contentsline {subsubsection}{\numberline {6.10.4.2}data}{35}{subsubsection.6.10.4.2}%
+\contentsline {subsubsection}{\numberline {6.10.4.3}nElements}{35}{subsubsection.6.10.4.3}%
+\contentsline {chapter}{\numberline {7}File Documentation}{37}{chapter.7}%
+\contentsline {section}{\numberline {7.1}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}benchmark.cpp File Reference}{37}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Function Documentation}{37}{subsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1.1}benchmark\_sequential\_ops()}{37}{subsubsection.7.1.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.1.2}main()}{37}{subsubsection.7.1.1.2}%
+\contentsline {section}{\numberline {7.2}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}bindings.cpp File Reference}{37}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Typedef Documentation}{37}{subsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.1}Type}{37}{subsubsection.7.2.1.1}%
+\contentsline {subsection}{\numberline {7.2.2}Function Documentation}{38}{subsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.2.1}PYBIND11\_MODULE()}{38}{subsubsection.7.2.2.1}%
+\contentsline {section}{\numberline {7.3}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tree.cpp File Reference}{38}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Typedef Documentation}{38}{subsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.1.1}Long}{38}{subsubsection.7.3.1.1}%
+\contentsline {subsubsection}{\numberline {7.3.1.2}MenuHandler}{38}{subsubsection.7.3.1.2}%
+\contentsline {subsection}{\numberline {7.3.2}Function Documentation}{38}{subsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.1}printError()}{38}{subsubsection.7.3.2.1}%
+\contentsline {subsubsection}{\numberline {7.3.2.2}printHeader()}{39}{subsubsection.7.3.2.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.3}printInfo()}{39}{subsubsection.7.3.2.3}%
+\contentsline {subsubsection}{\numberline {7.3.2.4}printSuccess()}{39}{subsubsection.7.3.2.4}%
+\contentsline {subsubsection}{\numberline {7.3.2.5}validateCinLine()}{39}{subsubsection.7.3.2.5}%
+\contentsline {subsection}{\numberline {7.3.3}Variable Documentation}{39}{subsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.3.1}CYAN}{39}{subsubsection.7.3.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.3.2}GREEN}{39}{subsubsection.7.3.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3.3}RED}{39}{subsubsection.7.3.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.3.4}RESET}{39}{subsubsection.7.3.3.4}%
+\contentsline {subsubsection}{\numberline {7.3.3.5}WHITE}{39}{subsubsection.7.3.3.5}%
+\contentsline {section}{\numberline {7.4}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tree.hpp File Reference}{39}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Typedef Documentation}{40}{subsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.1.1}ElemenType}{40}{subsubsection.7.4.1.1}%
+\contentsline {subsection}{\numberline {7.4.2}Enumeration Type Documentation}{40}{subsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {7.4.2.1}opcodes}{40}{subsubsection.7.4.2.1}%
+\contentsline {section}{\numberline {7.5}i\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tree.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{40}{section.7.5}%
+\contentsline {section}{\numberline {7.6}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Node.hpp File Reference}{41}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Node.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{41}{section.7.7}%
+\contentsline {section}{\numberline {7.8}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}queue.hpp File Reference}{42}{section.7.8}%
+\contentsline {section}{\numberline {7.9}queue.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{42}{section.7.9}%
+\contentsline {section}{\numberline {7.10}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Run\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}TUI.cpp File Reference}{42}{section.7.10}%
+\contentsline {subsection}{\numberline {7.10.1}Function Documentation}{42}{subsection.7.10.1}%
+\contentsline {subsubsection}{\numberline {7.10.1.1}main()}{42}{subsubsection.7.10.1.1}%
+\contentsline {section}{\numberline {7.11}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Scape\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Goat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tree.hpp File Reference}{43}{section.7.11}%
+\contentsline {subsection}{\numberline {7.11.1}Enumeration Type Documentation}{43}{subsection.7.11.1}%
+\contentsline {subsubsection}{\numberline {7.11.1.1}OpType}{43}{subsubsection.7.11.1.1}%
+\contentsline {section}{\numberline {7.12}Scape\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Goat\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tree.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{43}{section.7.12}%
+\contentsline {section}{\numberline {7.13}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}stack.hpp File Reference}{45}{section.7.13}%
+\contentsline {section}{\numberline {7.14}stack.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{46}{section.7.14}%
+\contentsline {section}{\numberline {7.15}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}tests.cpp File Reference}{46}{section.7.15}%
+\contentsline {subsection}{\numberline {7.15.1}Typedef Documentation}{47}{subsection.7.15.1}%
+\contentsline {subsubsection}{\numberline {7.15.1.1}Type}{47}{subsubsection.7.15.1.1}%
+\contentsline {subsection}{\numberline {7.15.2}Function Documentation}{47}{subsection.7.15.2}%
+\contentsline {subsubsection}{\numberline {7.15.2.1}containsAll()}{47}{subsubsection.7.15.2.1}%
+\contentsline {subsubsection}{\numberline {7.15.2.2}main()}{47}{subsubsection.7.15.2.2}%
+\contentsline {subsubsection}{\numberline {7.15.2.3}stressTest()}{47}{subsubsection.7.15.2.3}%
+\contentsline {subsubsection}{\numberline {7.15.2.4}testBasicInsertion()}{47}{subsubsection.7.15.2.4}%
+\contentsline {subsubsection}{\numberline {7.15.2.5}testBatchOperations()}{47}{subsubsection.7.15.2.5}%
+\contentsline {subsubsection}{\numberline {7.15.2.6}testCopyAndMove()}{47}{subsubsection.7.15.2.6}%
+\contentsline {subsubsection}{\numberline {7.15.2.7}testDeletion()}{47}{subsubsection.7.15.2.7}%
+\contentsline {subsubsection}{\numberline {7.15.2.8}testIterator()}{47}{subsubsection.7.15.2.8}%
+\contentsline {subsubsection}{\numberline {7.15.2.9}testNewMethods()}{47}{subsubsection.7.15.2.9}%
+\contentsline {subsubsection}{\numberline {7.15.2.10}testOperators()}{47}{subsubsection.7.15.2.10}%
+\contentsline {subsubsection}{\numberline {7.15.2.11}testOrderedInsertion()}{47}{subsubsection.7.15.2.11}%
+\contentsline {subsubsection}{\numberline {7.15.2.12}testRebuilding()}{47}{subsubsection.7.15.2.12}%
+\contentsline {subsubsection}{\numberline {7.15.2.13}testUandR()}{48}{subsubsection.7.15.2.13}%
+\contentsline {section}{\numberline {7.16}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tree\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Driver.cpp File Reference}{48}{section.7.16}%
+\contentsline {subsection}{\numberline {7.16.1}Function Documentation}{48}{subsection.7.16.1}%
+\contentsline {subsubsection}{\numberline {7.16.1.1}CleanupDeviceD3D()}{48}{subsubsection.7.16.1.1}%
+\contentsline {subsubsection}{\numberline {7.16.1.2}CleanupRenderTarget()}{48}{subsubsection.7.16.1.2}%
+\contentsline {subsubsection}{\numberline {7.16.1.3}CreateDeviceD3D()}{48}{subsubsection.7.16.1.3}%
+\contentsline {subsubsection}{\numberline {7.16.1.4}CreateRenderTarget()}{48}{subsubsection.7.16.1.4}%
+\contentsline {subsubsection}{\numberline {7.16.1.5}ImGui\_ImplWin32\_WndProcHandler()}{49}{subsubsection.7.16.1.5}%
+\contentsline {subsubsection}{\numberline {7.16.1.6}main()}{49}{subsubsection.7.16.1.6}%
+\contentsline {subsubsection}{\numberline {7.16.1.7}WndProc()}{49}{subsubsection.7.16.1.7}%
+\contentsline {subsection}{\numberline {7.16.2}Variable Documentation}{49}{subsection.7.16.2}%
+\contentsline {subsubsection}{\numberline {7.16.2.1}g\_mainRenderTargetView}{49}{subsubsection.7.16.2.1}%
+\contentsline {subsubsection}{\numberline {7.16.2.2}g\_pd3dDevice}{49}{subsubsection.7.16.2.2}%
+\contentsline {subsubsection}{\numberline {7.16.2.3}g\_pd3dDeviceContext}{49}{subsubsection.7.16.2.3}%
+\contentsline {subsubsection}{\numberline {7.16.2.4}g\_pSwapChain}{49}{subsubsection.7.16.2.4}%
+\contentsline {subsubsection}{\numberline {7.16.2.5}g\_ResizeHeight}{49}{subsubsection.7.16.2.5}%
+\contentsline {subsubsection}{\numberline {7.16.2.6}g\_ResizeWidth}{49}{subsubsection.7.16.2.6}%
+\contentsline {subsubsection}{\numberline {7.16.2.7}g\_SwapChainOccluded}{49}{subsubsection.7.16.2.7}%
+\contentsline {subsubsection}{\numberline {7.16.2.8}g\_WindowPos}{49}{subsubsection.7.16.2.8}%
+\contentsline {subsubsection}{\numberline {7.16.2.9}g\_WindowSize}{49}{subsubsection.7.16.2.9}%
+\contentsline {subsubsection}{\numberline {7.16.2.10}g\_WindowVel}{50}{subsubsection.7.16.2.10}%
+\contentsline {section}{\numberline {7.17}CPP/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}vector.hpp File Reference}{50}{section.7.17}%
+\contentsline {section}{\numberline {7.18}vector.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{50}{section.7.18}%
+\contentsline {section}{\numberline {7.19}README.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}md File Reference}{51}{section.7.19}%
