@@ -37,7 +37,8 @@ Complete API reference with:
 * ✅ Supports insert, delete, search  
 * ✅ **Sum in range** — efficiently compute the sum of all values within a given range  
 * ✅ **Values in range** — retrieve all elements within a specified range  
-* ✅ **Kth smallest element** — find the element at a specific order in sorted sequence  
+* ✅ **Kth smallest element** — find the element at a specific order in sorted sequence
+* ✅ **Forward iterator** support — fully compatible with C++ range-based for loops (for(auto x : tree))
 * ✅ **Get successor** — find the next higher element in the tree  
 * ✅ **Get minimum / maximum** — retrieve the smallest or largest element in the tree  
 * ✅ Batch operations for efficiency  
