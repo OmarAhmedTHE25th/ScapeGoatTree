@@ -17,6 +17,12 @@
 template<typename T>
 ScapeGoatTree<T>::ScapeGoatTree() = default;
 
+template<typename T>
+ScapeGoatTree<T>::ScapeGoatTree(const double alpha)  {
+    if (alpha > 1 or alpha < 0.5)return;
+    ALPHA = alpha;
+}
+
 /**
  * Copy constructor for deep copying another ScapeGoatTree.
  */
@@ -297,7 +303,7 @@ ScapeGoatTree<T>::TreeNode* ScapeGoatTree<T>::findTraitor(TreeNode *node) {
         const int right = countN(node->right);
         int size = node->size;
 
-        if (left > (2.0 / 3.0) * size || right > (2.0 / 3.0) * size)
+        if (left > ALPHA * size || right > ALPHA * size)
             return node;
 
         node = node->parent;

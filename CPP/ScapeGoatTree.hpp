@@ -66,6 +66,7 @@ class ScapeGoatTree {
      */
     bool isUndoing = false;
     int max_nodes = 0;
+    double ALPHA = 2.0/3.0;
     // iterator class
     class iterator {
         TreeNode* curr;  // stores current node
@@ -105,7 +106,7 @@ class ScapeGoatTree {
     /**
      * Finds the highest node that violates the alpha-weight-balance property.
      */
-    static TreeNode* findTraitor(TreeNode* node);
+    TreeNode* findTraitor(TreeNode* node);
     /**
      * Recursively rebuilds a balanced BST from a sorted array of values.
      */
@@ -137,7 +138,7 @@ class ScapeGoatTree {
     /**
      * Calculates the maximum allowed height before a rebuild is triggered.
      */
-    [[nodiscard]] int getThreshold() const {return static_cast<int>(log(nNodes) / log(1.5));}
+    [[nodiscard]] int getThreshold() const {return static_cast<int>(log(nNodes) / log(1/ALPHA));}
     /**
      * Checks if a rebuild is needed after a deletion and performs it if necessary.
      */
@@ -164,7 +165,7 @@ public:
      * Default constructor for an empty Scapegoat Tree.
      */
     ScapeGoatTree();
-
+ScapeGoatTree(double alpha);
     /**
      * Inserts a new value into the tree and maintains balance if needed.
      */
@@ -205,7 +206,7 @@ public:
     T kthSmallest(int k) const;
     std::pair<ScapeGoatTree, ScapeGoatTree> split(T value);
     int updateSize(TreeNode*& node);
-
+    void changeAlpha(const double alpha){if (alpha > 1 or alpha < 0.5)return; ALPHA=alpha;}
     /**
      * Returns a string report indicating if the tree is currently balanced.
      */
