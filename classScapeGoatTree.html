@@ -241,8 +241,8 @@ Static Private Member Functions</h2></td></tr>
 <tr class="separator:a12b0cf485978e4e6af7f6662874c569b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dd3005987294a82a472eec572fb0f49" id="r_a5dd3005987294a82a472eec572fb0f49"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#a5dd3005987294a82a472eec572fb0f49">postorderTraversal</a> (const <a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *node)</td></tr>
 <tr class="separator:a5dd3005987294a82a472eec572fb0f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9b68cd169e9d3812066f9f4a821bd1c" id="r_aa9b68cd169e9d3812066f9f4a821bd1c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#aa9b68cd169e9d3812066f9f4a821bd1c">getSuccessor</a> (<a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *node)</td></tr>
-<tr class="separator:aa9b68cd169e9d3812066f9f4a821bd1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed9ab2125b733469dd71fa8357f29e1" id="r_a8ed9ab2125b733469dd71fa8357f29e1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#a8ed9ab2125b733469dd71fa8357f29e1">findSuccessor</a> (<a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *node)</td></tr>
+<tr class="separator:a8ed9ab2125b733469dd71fa8357f29e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -808,6 +808,34 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a8ed9ab2125b733469dd71fa8357f29e1" name="a8ed9ab2125b733469dd71fa8357f29e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ed9ab2125b733469dd71fa8357f29e1">&#9670;&#160;</a></span>findSuccessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> * <a class="el" href="classScapeGoatTree.html">ScapeGoatTree</a>&lt; T &gt;::findSuccessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a12b0cf485978e4e6af7f6662874c569b" name="a12b0cf485978e4e6af7f6662874c569b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12b0cf485978e4e6af7f6662874c569b">&#9670;&#160;</a></span>findTraitor()</h2>
 
@@ -896,7 +924,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a860d6d999f3f0e9d85134ccc9812bc1f" name="a860d6d999f3f0e9d85134ccc9812bc1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a860d6d999f3f0e9d85134ccc9812bc1f">&#9670;&#160;</a></span>getSuccessor() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a860d6d999f3f0e9d85134ccc9812bc1f">&#9670;&#160;</a></span>getSuccessor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -911,34 +939,6 @@ template&lt;typename T &gt; </div>
           <td> const</td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa9b68cd169e9d3812066f9f4a821bd1c" name="aa9b68cd169e9d3812066f9f4a821bd1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9b68cd169e9d3812066f9f4a821bd1c">&#9670;&#160;</a></span>getSuccessor() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> * <a class="el" href="classScapeGoatTree.html">ScapeGoatTree</a>&lt; T &gt;::getSuccessor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *&#160;</td>
-          <td class="paramname"><em>node</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>

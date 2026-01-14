@@ -13,7 +13,7 @@ var searchData=
   ['getmax_10',['getMax',['../classScapeGoatTree.html#ab973a00d9840d4030491575805b234ad',1,'ScapeGoatTree']]],
   ['getmin_11',['getMin',['../classScapeGoatTree.html#a0e1153dd07e98fb190d5aa557240a30a',1,'ScapeGoatTree']]],
   ['getroot_12',['getRoot',['../classScapeGoatTree.html#a890d46d97a8768e79c4635782eeab94f',1,'ScapeGoatTree']]],
-  ['getsuccessor_13',['getsuccessor',['../classScapeGoatTree.html#a860d6d999f3f0e9d85134ccc9812bc1f',1,'ScapeGoatTree::getSuccessor(T value) const'],['../classScapeGoatTree.html#aa9b68cd169e9d3812066f9f4a821bd1c',1,'ScapeGoatTree::getSuccessor(TreeNode *node)']]],
+  ['getsuccessor_13',['getSuccessor',['../classScapeGoatTree.html#a860d6d999f3f0e9d85134ccc9812bc1f',1,'ScapeGoatTree']]],
   ['getthreshold_14',['getThreshold',['../classScapeGoatTree.html#a3c806f03d92710ac84cda07d32fa09d7',1,'ScapeGoatTree']]],
   ['green_15',['GREEN',['../iTree_8cpp.html#a6549a333ff1f3c45c95ec71167e8880e',1,'iTree.cpp']]],
   ['gui_20cross_20platform_16',['Running the Python GUI (Cross-Platform)',['../index.html#autotoc_md12',1,'']]]
