@@ -10,6 +10,7 @@ var class_i_tree =
     [ "handleOperatorCompare", "class_i_tree.html#a7e2087ddd305237aa7da44097b5a8eba", null ],
     [ "handleOperatorEmpty", "class_i_tree.html#a33b9fa40706213d348e2be8795c3ecc6", null ],
     [ "handleOperatorMerge", "class_i_tree.html#aa985fe8b82032b4bf268532844831ede", null ],
+    [ "handleSplit", "class_i_tree.html#a2271e988fb87a84f078d914fd4563dd6", null ],
     [ "handleSucessor", "class_i_tree.html#a6a95fbe5f40a349d90503be8e6f1b6af", null ],
     [ "handleSuminRange", "class_i_tree.html#a38a1854f05ff708458e386a35d4e6dd7", null ],
     [ "handleUndoRedo", "class_i_tree.html#a077e3978accea9212146621f6363d59e", null ],
