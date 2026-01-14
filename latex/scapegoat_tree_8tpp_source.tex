@@ -1,0 +1,813 @@
+\doxysection{scapegoat\+Tree.\+tpp}
+\hypertarget{scapegoat_tree_8tpp_source}{}\label{scapegoat_tree_8tpp_source}\index{CPP/scapegoatTree.tpp@{CPP/scapegoatTree.tpp}}
+\doxymbox{\hyperlink{scapegoat_tree_8tpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ DELL\ on\ 24/12/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ TREE\_SCAPEGOATTREE\_TPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TREE\_SCAPEGOATTREE\_TPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{queue_8hpp}{queue.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}sstream"{}}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//==================================IMPLEMENTATION========================================================}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00018\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree<T>::ScapeGoatTree}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00021\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree<T>::ScapeGoatTree}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ alpha)\ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (alpha\ >\ 1\ or\ alpha\ <\ 0.5)\textcolor{keywordflow}{return};}
+\DoxyCodeLine{00023\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a7c1333963530cb80530f112b07eb9a90}{ALPHA}}\ =\ alpha;}
+\DoxyCodeLine{00024\ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00030\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree<T>::ScapeGoatTree}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\ \&Otree)\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Otree.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00032\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aad6ab479b9af3407e322a6587a4c0b00}{preorderTraversal}}(Otree.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00033\ \}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00038\ \doxymbox{\hyperlink{class_scape_goat_tree_a6f4613f23d01fe8a214cb8461d4dc0bf}{ScapeGoatTree<T>::\string~ScapeGoatTree}}()\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a9f00cac8c794e4c9bdb23b94e7f2d776}{postorderTraversal}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00040\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}}\ =\ 0;}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00045\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00046\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree<T>::ScapeGoatTree}}(\doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\ \&\&other)\ noexcept}
+\DoxyCodeLine{00047\ \ \ \ \ :\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}(other.root),}
+\DoxyCodeLine{00048\ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}(other.nNodes),}
+\DoxyCodeLine{00049\ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}}(other.max\_nodes)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ other.root\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00051\ \ \ \ \ other.nNodes\ =\ 0;}
+\DoxyCodeLine{00052\ \ \ \ \ other.max\_nodes\ =\ 0;}
+\DoxyCodeLine{00053\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ Insert}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a84eb0e2095f9542731d173237081050a}{ScapeGoatTree<T>::restructure\_subtree}}(\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}\ *newNode)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//find\ the\ scapegoat\ \ node}}
+\DoxyCodeLine{00065\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ goat\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a236fa4811a827ed772c5d4257dcff902}{findTraitor}}(newNode-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}});}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (goat\ ==\ \textcolor{keyword}{nullptr})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00067\ \ \ \ \ T*\ temp\_array\ =\ \textcolor{keyword}{new}\ T[\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}];}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//flatten\ the\ tree\ into\ a\ sorted\ array}}
+\DoxyCodeLine{00070\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a16b202af1e6fe5d1810ea896a504d96f}{inorderTraversal}}(goat,\ i,\ temp\_array);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ sub\_size\ =\ i;\ \textcolor{comment}{//\ size\ of\ subtree}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//rebuild\ the\ subtree}}
+\DoxyCodeLine{00073\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ balanced\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a3cc7f0a0e24e01447d0233f55ef83c00}{rebuildTree}}(0,\ sub\_size-\/\ 1,\ goat-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}},\ temp\_array);}
+\DoxyCodeLine{00074\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a134b09d057d18e54c028658c2170f9fa}{rebuildCount}}++;}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//reattach\ the\ rebuilt\ subtree}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{if}\ (!goat-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}})\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ balanced;\ \textcolor{comment}{//\ if\ goat\ is\ root\ then\ update\ root}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (goat\ ==\ goat-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}}-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}})\ goat-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}}-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ =\ balanced;\ \textcolor{comment}{//if\ goat\ is\ left\ child\ then\ update\ left\ pointer}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{else}\ goat-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}}-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}}\ =\ balanced;\ \textcolor{comment}{//if\ goat\ is\ right\ child\ then\ update\ right\ pointer}}
+\DoxyCodeLine{00079\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a9f00cac8c794e4c9bdb23b94e7f2d776}{postorderTraversal}}(goat);\textcolor{comment}{//\ delete\ old\ subtree}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{delete}[]\ temp\_array;}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{ScapeGoatTree<T>::insert}}(T\ value)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ Record\ the\ operation\ for\ undo\ if\ not\ currently\ undoing/redoing}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}})\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.push(\{\doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0}{OpType::Insert}},\ value\});}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \doxymbox{\hyperlink{class_vector}{Vector<TreeNode*>}}\ path;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}})\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}(value,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}++;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}\ >\ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}})\ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}}\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ current\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00101\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ parent\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ depth\ =\ 0;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{while}\ (current)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ path.\doxymbox{\hyperlink{class_vector_a4415960a83615855ec32f8169f641786}{push\_back}}(current);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ parent\ =\ current;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ ++current-\/>\doxymbox{\hyperlink{class_node_a6993bad98a83cdf991cf851aacceb187}{size}};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ depth++;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ current-\/>value)}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (value\ >\ current-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}})}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ value\ already\ exists,\ backtrack\ size\ increment}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ path.\doxymbox{\hyperlink{class_vector_a5214a382564aedc712b609416aa3b7b1}{size}}();\ i++)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/path[i]-\/>\doxymbox{\hyperlink{class_vector_a5214a382564aedc712b609416aa3b7b1}{size}};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ value\ already\ exists,\ we\ didn't\ actually\ change\ the\ tree,}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ so\ we\ remove\ the\ command\ from\ the\ undo\ stack.}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}})\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.pop();}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{auto}*\ newNode\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}(value,\ parent);}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ parent-\/>value)}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ parent-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ =\ newNode;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ parent-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}}\ =\ newNode;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}++;}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}\ >\ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}})\ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}}\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}\ (depth\ +\ 1\ <=\ \doxymbox{\hyperlink{class_scape_goat_tree_a3c806f03d92710ac84cda07d32fa09d7}{getThreshold}}())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00136\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a84eb0e2095f9542731d173237081050a}{restructure\_subtree}}(newNode);}
+\DoxyCodeLine{00137\ \}}
+\DoxyCodeLine{00141\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a6bd78764375cfb22fa23166905bbd336}{ScapeGoatTree<T>::insertBatch}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_vector}{Vector<T>}}\&\ values)\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ Group\ multiple\ insertions\ into\ a\ single\ undo/redo\ unit}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}})\ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.push(\{\doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aee25d922c3fec70103726fa7ad54591b}{OpType::BatchStart}},\ T()\});}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ values.\doxymbox{\hyperlink{class_vector_a5214a382564aedc712b609416aa3b7b1}{size}}();\ i++)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}}(values[i]);}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}})\ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.push(\{\doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969a4b6359d478c659d8d26a2942c0963082}{OpType::BatchEnd}},\ T()\});}
+\DoxyCodeLine{00150\ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00155\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8cbea8620cd09e7265904dd741e3a107}{ScapeGoatTree<T>::deleteBatch}}(\textcolor{keyword}{const}\ \ \doxymbox{\hyperlink{class_vector}{Vector<T>}}\&\ values)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ Group\ multiple\ deletions\ into\ a\ single\ undo/redo\ unit}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}})\ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.push(\{\doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aee25d922c3fec70103726fa7ad54591b}{OpType::BatchStart}},\ T()\});}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ values.\doxymbox{\hyperlink{class_vector_a5214a382564aedc712b609416aa3b7b1}{size}}();\ i++)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_ad69b1a69c57ea4c80edf99628117132a}{deleteValue}}(values[i]);}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}})\ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.push(\{\doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969a4b6359d478c659d8d26a2942c0963082}{OpType::BatchEnd}},\ T()\});}
+\DoxyCodeLine{00163\ \}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00167\ \textcolor{comment}{//\ Delete}}
+\DoxyCodeLine{00168\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_scape_goat_tree_ad69b1a69c57ea4c80edf99628117132a}{ScapeGoatTree<T>::deleteValue}}(T\ value)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ node\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00176\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ parent\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{comment}{//\ Step\ 1:\ Search\ for\ the\ node}}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ \textcolor{keyword}{nullptr}\ and\ node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ !=\ value)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ parent\ =\ node;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ node-\/>value)}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ node\ =\ node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ node\ =\ node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{//\ Value\ not\ found}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{comment}{//\ Record\ the\ operation\ for\ undo\ if\ not\ currently\ undoing/redoing}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{if}\ (not\ \doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}})\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.push(\{\doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18}{OpType::Delete}},\ value\});}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{bool}\ originalIsUndoing\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}};}
+\DoxyCodeLine{00195\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{//\ Case\ 1:\ Leaf\ node}}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ \&\&\ !node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}})\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Decrement\ size\ for\ all\ nodes\ on\ the\ path}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ temp\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (temp\ !=\ node)\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/temp-\/>\doxymbox{\hyperlink{class_node_a6993bad98a83cdf991cf851aacceb187}{size}};}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ temp-\/>value)\ temp\ =\ temp-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ temp\ =\ temp-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!parent)\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (parent-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ ==\ node)\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ parent-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ parent-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ node;}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{comment}{//\ Case\ 2:\ One\ child}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ \&\&\ !node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}}\ ||\ !node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ \&\&\ node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}})\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Decrement\ size\ for\ all\ nodes\ on\ the\ path}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ temp\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (temp\ !=\ node)\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/temp-\/>\doxymbox{\hyperlink{class_node_a6993bad98a83cdf991cf851aacceb187}{size}};}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ temp-\/>value)\ temp\ =\ temp-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ temp\ =\ temp-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ child\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ child\ =\ node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ child\ =\ node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ child-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}}\ =\ parent;}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!parent)\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ child;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (parent-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ ==\ node)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ parent-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ =\ child;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ parent-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}}\ =\ child;}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ node;}
+\DoxyCodeLine{00246\ \ \ \ \ \}}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{comment}{//\ Case\ 3:\ Two\ children}}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ \&\&\ node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}})\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ inorder\ successor\ (smallest\ in\ right\ subtree)}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ suc\ =\ node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (suc-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ suc\ =\ suc-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ T\ successorValue\ =\ suc-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}};}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_ad69b1a69c57ea4c80edf99628117132a}{deleteValue}}(successorValue);}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ =\ successorValue;}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}}\ =\ originalIsUndoing;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{comment}{//\ Update\ node\ count}}
+\DoxyCodeLine{00262\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}-\/-\/;}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}\ ==\ 0)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}}\ =\ 0;}
+\DoxyCodeLine{00266\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aaa21cef2509e04cb8c0a53cd5db2db64}{DeletionRebuild}}();}
+\DoxyCodeLine{00268\ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}}\ =\ originalIsUndoing;}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00271\ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00274\ \textcolor{comment}{//\ Utility\ /\ Static\ helpers}}
+\DoxyCodeLine{00275\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00280\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00281\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_scape_goat_tree_ade7915ec9566392558f90918bd798283}{ScapeGoatTree<T>::findH}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}\ *node)\ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ max\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_ade7915ec9566392558f90918bd798283}{findH}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}})\ >\ \doxymbox{\hyperlink{class_scape_goat_tree_ade7915ec9566392558f90918bd798283}{findH}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}})\ ?\ \doxymbox{\hyperlink{class_scape_goat_tree_ade7915ec9566392558f90918bd798283}{findH}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}})\ :\doxymbox{\hyperlink{class_scape_goat_tree_ade7915ec9566392558f90918bd798283}{findH}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}});}
+\DoxyCodeLine{00284\ \ \ \ \textcolor{keywordflow}{return}\ 1+\ max;}
+\DoxyCodeLine{00285\ \}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00290\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00291\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_scape_goat_tree_a7197ac181837ee515812dfd547e8f796}{ScapeGoatTree<T>::countN}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}\ *node)\ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>\doxymbox{\hyperlink{class_node_a6993bad98a83cdf991cf851aacceb187}{size}};}
+\DoxyCodeLine{00294\ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00299\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00300\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{ScapeGoatTree<T>::TreeNode}}*\ \doxymbox{\hyperlink{class_scape_goat_tree_a236fa4811a827ed772c5d4257dcff902}{ScapeGoatTree<T>::findTraitor}}(\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}\ *node)\ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ left\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a7197ac181837ee515812dfd547e8f796}{countN}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}});}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ right\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a7197ac181837ee515812dfd547e8f796}{countN}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}});}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ node-\/>\doxymbox{\hyperlink{class_node_a6993bad98a83cdf991cf851aacceb187}{size}};}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (left\ >\ \doxymbox{\hyperlink{class_scape_goat_tree_a7c1333963530cb80530f112b07eb9a90}{ALPHA}}\ *\ size\ ||\ right\ >\ \doxymbox{\hyperlink{class_scape_goat_tree_a7c1333963530cb80530f112b07eb9a90}{ALPHA}}\ *\ size)}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ node;}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}};}
+\DoxyCodeLine{00310\ \ \ \ \ \}}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00312\ \}}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00317\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00318\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{ScapeGoatTree<T>::TreeNode}}*\ \doxymbox{\hyperlink{class_scape_goat_tree_a3cc7f0a0e24e01447d0233f55ef83c00}{ScapeGoatTree<T>::rebuildTree}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ start,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_scape_goat_tree_a1546821041c8c2de46ea3e4a6e7c08ac}{end}},\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ parent\_node,T*\ array)\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ >\ \doxymbox{\hyperlink{class_scape_goat_tree_a1546821041c8c2de46ea3e4a6e7c08ac}{end}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ base\ case}}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{int}\ mid\ =\ (start\ +\ \doxymbox{\hyperlink{class_scape_goat_tree_a1546821041c8c2de46ea3e4a6e7c08ac}{end}})\ /\ 2;\ \textcolor{comment}{//\ find\ mid\ index}}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keyword}{auto}*\ Nroot\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}(array[mid],\ parent\_node);\ \textcolor{comment}{//\ create\ node\ with\ mid\ value}}
+\DoxyCodeLine{00322\ \ \ \ \ Nroot-\/>left\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a3cc7f0a0e24e01447d0233f55ef83c00}{rebuildTree}}(start,\ mid\ -\/\ 1,\ Nroot,\ array);\ \textcolor{comment}{//\ build\ left\ subtree}}
+\DoxyCodeLine{00323\ \ \ \ \ Nroot-\/>right\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a3cc7f0a0e24e01447d0233f55ef83c00}{rebuildTree}}(mid\ +\ 1,\ \doxymbox{\hyperlink{class_scape_goat_tree_a1546821041c8c2de46ea3e4a6e7c08ac}{end}},\ Nroot,\ array);\textcolor{comment}{//\ build\ right\ subtree}}
+\DoxyCodeLine{00324\ \ \ \ \ Nroot-\/>size\ =\ 1\ +\ \doxymbox{\hyperlink{class_scape_goat_tree_a7197ac181837ee515812dfd547e8f796}{countN}}(Nroot-\/>left)\ +\ \doxymbox{\hyperlink{class_scape_goat_tree_a7197ac181837ee515812dfd547e8f796}{countN}}(Nroot-\/>right);\textcolor{comment}{//\ update\ size}}
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordflow}{return}\ Nroot;}
+\DoxyCodeLine{00326\ \}}
+\DoxyCodeLine{00330\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00331\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_aaa21cef2509e04cb8c0a53cd5db2db64}{ScapeGoatTree<T>::DeletionRebuild}}()\{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nNodes\ <\ 0.5\ *\ max\_nodes\&\&\ nNodes\ >\ 0)\ \{\ \ \textcolor{comment}{//\ α\ =\ 0.5\ for\ deletion}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ temp\_array\ =\ \textcolor{keyword}{new}\ T[\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}];}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a16b202af1e6fe5d1810ea896a504d96f}{inorderTraversal}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},\ i,\ temp\_array);}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ oldRoot\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a3cc7f0a0e24e01447d0233f55ef83c00}{rebuildTree}}(0,\ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}\ -\/\ 1,\ \textcolor{keyword}{nullptr},\ temp\_array);}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a134b09d057d18e54c028658c2170f9fa}{rebuildCount}}++;}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a9f00cac8c794e4c9bdb23b94e7f2d776}{postorderTraversal}}(oldRoot);}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}}\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}};}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ temp\_array;}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00347\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00348\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{ScapeGoatTree<T>::TreeNode}}\ *\doxymbox{\hyperlink{class_scape_goat_tree_a51b24f65fd687396a38423d9d79f18cb}{ScapeGoatTree<T>::getRoot}}()\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00350\ \}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00353\ \textcolor{comment}{//\ Traversals}}
+\DoxyCodeLine{00354\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00359\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00360\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a16b202af1e6fe5d1810ea896a504d96f}{ScapeGoatTree<T>::inorderTraversal}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ node,\ \textcolor{keywordtype}{int}\&\ i,\ T*\&\ array)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00361\ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00362\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a16b202af1e6fe5d1810ea896a504d96f}{inorderTraversal}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}},\ i,array);}
+\DoxyCodeLine{00363\ \ \ \ array[i++]=\ node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}};}
+\DoxyCodeLine{00364\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a16b202af1e6fe5d1810ea896a504d96f}{inorderTraversal}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}},\ i,array);}
+\DoxyCodeLine{00365\ \}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00370\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00371\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a9f00cac8c794e4c9bdb23b94e7f2d776}{ScapeGoatTree<T>::postorderTraversal}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ node)\ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00373\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a9f00cac8c794e4c9bdb23b94e7f2d776}{postorderTraversal}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}});}
+\DoxyCodeLine{00374\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a9f00cac8c794e4c9bdb23b94e7f2d776}{postorderTraversal}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}});}
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keyword}{delete}\ node;}
+\DoxyCodeLine{00376\ \}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00381\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00382\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_aad6ab479b9af3407e322a6587a4c0b00}{ScapeGoatTree<T>::preorderTraversal}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ node)\ \{}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00384\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}}(node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}});}
+\DoxyCodeLine{00385\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aad6ab479b9af3407e322a6587a4c0b00}{preorderTraversal}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}});}
+\DoxyCodeLine{00386\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aad6ab479b9af3407e322a6587a4c0b00}{preorderTraversal}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}});}
+\DoxyCodeLine{00387\ \}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00390\ \textcolor{comment}{//\ Display\ (internal)}}
+\DoxyCodeLine{00391\ \textcolor{comment}{//\ =====================1}}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00396\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00397\ \textcolor{comment}{//\ diplay\ order\ w\ ostream\ (output\ stream)}}
+\DoxyCodeLine{00398\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_ac495cff539e458cb6b22e3d3eb3632c5}{ScapeGoatTree<T>::displayPreOrder}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ node,\ std::ostream\&\ os)\ \{}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return};\ \ \textcolor{comment}{//\ lw\ mfesh\ node\ bn\ return}}
+\DoxyCodeLine{00400\ \ \ \ \ os\ <<\ node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00401\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a95cbe48e5a67f3cd09fef08515ad6b55}{displayPreOrder}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}},\ os);}
+\DoxyCodeLine{00402\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a95cbe48e5a67f3cd09fef08515ad6b55}{displayPreOrder}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}},\ os);}
+\DoxyCodeLine{00403\ \}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00408\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00409\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a0466a64c763abdf3d481bda542154c3c}{ScapeGoatTree<T>::displayInOrder}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ node,\ std::ostream\&\ os)\ \{}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00411\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a89326684657a25819aee14536cedbd71}{displayInOrder}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}},\ os);}
+\DoxyCodeLine{00412\ \ \ \ \ os\ <<\ node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00413\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a89326684657a25819aee14536cedbd71}{displayInOrder}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}},\ os);}
+\DoxyCodeLine{00414\ \}}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00419\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00420\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_abd156e4055354b0295f5ad2cc1ce353b}{ScapeGoatTree<T>::displayPostOrder}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ node,\ std::ostream\&\ os)\ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00422\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a4220aaf5884a222057379757c7db0704}{displayPostOrder}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}},\ os);}
+\DoxyCodeLine{00423\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a4220aaf5884a222057379757c7db0704}{displayPostOrder}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}},\ os);}
+\DoxyCodeLine{00424\ \ \ \ \ os\ <<\ node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00425\ \}}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00428\ \textcolor{comment}{//\ Display\ (public)}}
+\DoxyCodeLine{00429\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00434\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00435\ std::string\ \doxymbox{\hyperlink{class_scape_goat_tree_ac495cff539e458cb6b22e3d3eb3632c5}{ScapeGoatTree<T>::displayPreOrder}}()\ \{}
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}})\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Tree\ is\ empty."{}};}
+\DoxyCodeLine{00437\ \ \ \ \ std::ostringstream\ oss;}
+\DoxyCodeLine{00438\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a95cbe48e5a67f3cd09fef08515ad6b55}{displayPreOrder}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},\ oss);}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordflow}{return}\ oss.str();}
+\DoxyCodeLine{00440\ \}}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00445\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00446\ std::string\ \doxymbox{\hyperlink{class_scape_goat_tree_a0466a64c763abdf3d481bda542154c3c}{ScapeGoatTree<T>::displayInOrder}}()\ \{}
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}})\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Tree\ is\ empty."{}};}
+\DoxyCodeLine{00448\ \ \ \ \ std::ostringstream\ oss;}
+\DoxyCodeLine{00449\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a89326684657a25819aee14536cedbd71}{displayInOrder}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},\ oss);}
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordflow}{return}\ oss.str();}
+\DoxyCodeLine{00451\ \}}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00456\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00457\ std::string\ \doxymbox{\hyperlink{class_scape_goat_tree_abd156e4055354b0295f5ad2cc1ce353b}{ScapeGoatTree<T>::displayPostOrder}}()\ \{}
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}})\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Tree\ is\ empty."{}};}
+\DoxyCodeLine{00459\ \ \ \ \ std::ostringstream\ oss;}
+\DoxyCodeLine{00460\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a4220aaf5884a222057379757c7db0704}{displayPostOrder}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},\ oss);}
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keywordflow}{return}\ oss.str();}
+\DoxyCodeLine{00462\ \}}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00467\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00468\ std::string\ \doxymbox{\hyperlink{class_scape_goat_tree_a06d093c4a252ff1c41a24d31df894c9a}{ScapeGoatTree<T>::displayLevels}}()\ \{}
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}})\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Tree\ is\ Empty."{}};}
+\DoxyCodeLine{00470\ \ \ \ \ std::string\ result;}
+\DoxyCodeLine{00471\ \ \ \ \ \doxymbox{\hyperlink{class_queue}{Queue<TreeNode*>}}\ q;}
+\DoxyCodeLine{00472\ \ \ \ \ q.\doxymbox{\hyperlink{class_queue_ab1b5d7b2169cc93ff7757d0017be2c33}{push}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keywordtype}{int}\ level\ =0;}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{keywordflow}{while}\ (!q.\doxymbox{\hyperlink{class_queue_a225f5d08888ea72a4dfe73f235761e5d}{isEmpty}}())\ \{}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ result\ +=\ \textcolor{stringliteral}{"{}Level\ "{}}\ +\ std::to\_string(level++)\ +\ \textcolor{stringliteral}{"{}:\ "{}};\ \ \ \ \textcolor{comment}{//\ mn\ int\ l\ string\ b3dha\ bnro7\ ll\ lvl\ ele\ ablo}}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nodesAtLevel\ =\ q.\doxymbox{\hyperlink{class_queue_a504eb9d0777fb73f99d87a19b7c25c2a}{size}}();}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nodesAtLevel;\ i++)\ \{}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ curr\ =\ q.\doxymbox{\hyperlink{class_queue_a8b5b32ea305ed921bd06ab62bd53bc1b}{front}}();\ \textcolor{comment}{//\ current\ node}}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ q.\doxymbox{\hyperlink{class_queue_a02ea784625fe33b5793d00c3b02b4878}{pop}}();\ \textcolor{comment}{//\ pop\ 3shan\ nshof\ el\ node\ ele\ b3dha}}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostringstream\ oss;}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ oss\ <<\ curr-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}};}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ result\ +=\ oss.str()\ +\ \textcolor{stringliteral}{"{}\ "{}};\ \ \textcolor{comment}{//\ str\ 3shan\ n7wlo\ string}}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}})\ \ q.\doxymbox{\hyperlink{class_queue_ab1b5d7b2169cc93ff7757d0017be2c33}{push}}(curr-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}});}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}})\ q.\doxymbox{\hyperlink{class_queue_ab1b5d7b2169cc93ff7757d0017be2c33}{push}}(curr-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}});}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ result\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00490\ \ \ \ \ \}}
+\DoxyCodeLine{00491\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00492\ \}}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00497\ \textcolor{comment}{//\ Operators}}
+\DoxyCodeLine{00498\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00503\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00504\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree<T>}}\ \doxymbox{\hyperlink{class_scape_goat_tree_a313f48e364d5bad780e74d2843ce77d3}{ScapeGoatTree<T>::operator+}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\&\ other)\textcolor{keyword}{const\ \ }\{}
+\DoxyCodeLine{00505\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\ result;}
+\DoxyCodeLine{00506\ \ \ \ \ T*\ array\ =\ \textcolor{keyword}{new}\ T[\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}];}
+\DoxyCodeLine{00507\ \ \ \ \ T*\ other\_array\ =\ \textcolor{keyword}{new}\ T[other.\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}];}
+\DoxyCodeLine{00508\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00509\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a16b202af1e6fe5d1810ea896a504d96f}{inorderTraversal}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},\ i,\ array);}
+\DoxyCodeLine{00510\ \ \ \ \ \textcolor{keywordtype}{int}\ i2\ =\ 0;}
+\DoxyCodeLine{00511\ \ \ \ \ other.\doxymbox{\hyperlink{class_scape_goat_tree_a16b202af1e6fe5d1810ea896a504d96f}{inorderTraversal}}(other.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},\ i2,\ other\_array);}
+\DoxyCodeLine{00512\ \ \ \ \ T*\ temp\_array\ =\ \textcolor{keyword}{new}\ T[\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}\ +\ other.\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}];}
+\DoxyCodeLine{00513\ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ 0,\ idx1\ =\ 0,\ idx2\ =\ 0;}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \ \ \ \ \textcolor{comment}{//\ Linear\ Merge\ (O(N+M))\ to\ keep\ the\ array\ sorted}}
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keywordflow}{while}\ (idx1\ <\ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}\ \&\&\ idx2\ <\ other.\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}})\ \{\ \textcolor{comment}{//run\ as\ long\ as\ both\ arrays\ have\ elements}}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (array[idx1]\ <\ other\_array[idx2])\ temp\_array[idx++]\ =\ array[idx1++];}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (array[idx1]\ >\ other\_array[idx2])\ temp\_array[idx++]\ =\ other\_array[idx2++];}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ duplicates}}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ temp\_array[idx++]\ =\ array[idx1++];}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ idx2++;}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00529\ \ \ \ \ \}}
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordflow}{while}\ (idx1\ <\ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}})\ temp\_array[idx++]\ =\ array[idx1++];\ \textcolor{comment}{//append\ remaining\ elements\ from\ first\ array}}
+\DoxyCodeLine{00531\ \ \ \ \ \textcolor{keywordflow}{while}\ (idx2\ <\ other.\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}})\ temp\_array[idx++]\ =\ other\_array[idx2++];\ \textcolor{comment}{//append\ remaining\ elements\ from\ second\ array}}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ \ \ \ \ \textcolor{comment}{//Rebuild\ \ (O(N+M))}}
+\DoxyCodeLine{00534\ \ \ \ \ result.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ result.\doxymbox{\hyperlink{class_scape_goat_tree_a3cc7f0a0e24e01447d0233f55ef83c00}{rebuildTree}}(0,\ idx\ -\/\ 1,\ \textcolor{keyword}{nullptr},\ temp\_array);}
+\DoxyCodeLine{00535\ \ \ \ \ result.\doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}\ =\ idx;}
+\DoxyCodeLine{00536\ \ \ \ \ result.\doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}}\ =\ idx;}
+\DoxyCodeLine{00537\ \ \ \ \ \textcolor{keyword}{delete}[]\ temp\_array;}
+\DoxyCodeLine{00538\ \ \ \ \ \textcolor{keyword}{delete}[]\ array;}
+\DoxyCodeLine{00539\ \ \ \ \ \textcolor{keyword}{delete}[]\ other\_array;}
+\DoxyCodeLine{00540\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00541\ \}}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00546\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00547\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree<T>}}\&\ \doxymbox{\hyperlink{class_scape_goat_tree_a29aec4b0589ca8aeb9ed46a5d0149b4b}{ScapeGoatTree<T>::operator=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\&\ other)\ \{}
+\DoxyCodeLine{00548\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00549\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a9f00cac8c794e4c9bdb23b94e7f2d776}{postorderTraversal}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00550\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}}\ =\ 0;}
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keywordflow}{if}\ (other.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}})\ \doxymbox{\hyperlink{class_scape_goat_tree_aad6ab479b9af3407e322a6587a4c0b00}{preorderTraversal}}(other.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00552\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00553\ \}}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00558\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00559\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree<T>}}\&\ \doxymbox{\hyperlink{class_scape_goat_tree_a29aec4b0589ca8aeb9ed46a5d0149b4b}{ScapeGoatTree<T>::operator=}}(\doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00560\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00561\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a9f00cac8c794e4c9bdb23b94e7f2d776}{postorderTraversal}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00562\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ other.root;}
+\DoxyCodeLine{00563\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}\ =\ other.nNodes;}
+\DoxyCodeLine{00564\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}}\ =\ other.max\_nodes;}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00566\ \ \ \ \ other.root\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00567\ \ \ \ \ other.nNodes\ =\ 0;}
+\DoxyCodeLine{00568\ \ \ \ \ other.max\_nodes\ =\ 0;}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00570\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00571\ \}}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00576\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00577\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a313f48e364d5bad780e74d2843ce77d3}{ScapeGoatTree<T>::operator+}}(\textcolor{keyword}{const}\ T\&\ value)\ \{\ \doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}}(value);\ \}}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00582\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00583\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a6e1013205c8bfc0ad56f3542cefd6fa3}{ScapeGoatTree<T>::operator+=}}(\textcolor{keyword}{const}\ T\&\ value)\ \{\ \doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}}(value);\ \}}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00588\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00589\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_scape_goat_tree_add864e4934ff98c8fa29d14cdb05f135}{ScapeGoatTree<T>::operator-\/=}}(\textcolor{keyword}{const}\ T\&\ value)\ \{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_ad69b1a69c57ea4c80edf99628117132a}{deleteValue}}(value);\ \}}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00594\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00595\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_scape_goat_tree_a4f2f674c767976c345b976f92bd5e28d}{ScapeGoatTree<T>::operator[]}}(T\ value)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00596\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_aab92879a495e4402076f25cc5073734a}{search}}(value);}
+\DoxyCodeLine{00597\ \}}
+\DoxyCodeLine{00601\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00602\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree<T>}}\&\ \doxymbox{\hyperlink{class_scape_goat_tree_a29aec4b0589ca8aeb9ed46a5d0149b4b}{ScapeGoatTree<T>::operator=}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ value)\ \{}
+\DoxyCodeLine{00603\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ ==\ 0)\ \{}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a72ae50cdc7fd189b8bf69cdc105d1e42}{clear}}();}
+\DoxyCodeLine{00605\ \ \ \ \ \}}
+\DoxyCodeLine{00606\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00607\ \}}
+\DoxyCodeLine{00611\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00612\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_scape_goat_tree_a1515cfa06a871df862a71f480d36645f}{ScapeGoatTree<T>::operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\&\ tree)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00613\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_aa4f98c05eef31c5da9f35aadf96669f2}{areTreesEqual}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},\ tree.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00614\ \}}
+\DoxyCodeLine{00618\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00619\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_scape_goat_tree_aa4f98c05eef31c5da9f35aadf96669f2}{ScapeGoatTree<T>::areTreesEqual}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ n1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ n2)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00620\ \ \ \ \ \textcolor{comment}{//\ Both\ null\ =\ equal}}
+\DoxyCodeLine{00621\ \ \ \ \ \textcolor{keywordflow}{if}\ (!n1\ \&\&\ !n2)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00622\ }
+\DoxyCodeLine{00623\ \ \ \ \ \textcolor{comment}{//\ One\ null,\ one\ not\ =\ unequal}}
+\DoxyCodeLine{00624\ \ \ \ \ \textcolor{keywordflow}{if}\ (!n1\ ||\ !n2)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \ \ \ \ \textcolor{comment}{//\ Values\ differ\ =\ unequal}}
+\DoxyCodeLine{00627\ \ \ \ \ \textcolor{keywordflow}{if}\ (n1-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ !=\ n2-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00629\ \ \ \ \ \textcolor{comment}{//\ Recursively\ check\ subtrees\ (in-\/order\ comparison)}}
+\DoxyCodeLine{00630\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_aa4f98c05eef31c5da9f35aadf96669f2}{areTreesEqual}}(n1-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}},\ n2-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}})\ \&\&}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aa4f98c05eef31c5da9f35aadf96669f2}{areTreesEqual}}(n1-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}},\ n2-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}});}
+\DoxyCodeLine{00632\ \}}
+\DoxyCodeLine{00636\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00637\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_scape_goat_tree_acebc47656ff69f1f051bfe3dd0437d8a}{ScapeGoatTree<T>::operator!=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\&\ tree)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ tree);}
+\DoxyCodeLine{00639\ \}}
+\DoxyCodeLine{00640\ }
+\DoxyCodeLine{00644\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00645\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_scape_goat_tree_a3769fd620aba002ef39406af96374b06}{ScapeGoatTree<T>::operator!}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00646\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ ==\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00647\ \}}
+\DoxyCodeLine{00648\ }
+\DoxyCodeLine{00652\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00653\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_scape_goat_tree_a098c284a6265cdfe3062bfa82592080e}{ScapeGoatTree<T>::operator-\/}}(\textcolor{keyword}{const}\ T\ \&value)\ \{}
+\DoxyCodeLine{00654\ \ \ \ \textcolor{keywordflow}{return}\ \ \doxymbox{\hyperlink{class_scape_goat_tree_ad69b1a69c57ea4c80edf99628117132a}{deleteValue}}(value);}
+\DoxyCodeLine{00655\ \}}
+\DoxyCodeLine{00656\ }
+\DoxyCodeLine{00657\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00658\ \textcolor{comment}{//\ Balance\ /\ Search}}
+\DoxyCodeLine{00659\ \textcolor{comment}{//\ =====================}}
+\DoxyCodeLine{00660\ }
+\DoxyCodeLine{00664\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00665\ std::string\ \doxymbox{\hyperlink{class_scape_goat_tree_a862c0af243dd64556a0a2520fd7cb450}{ScapeGoatTree<T>::isBalanced}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00666\ \ \ \ \ std::ostringstream\ out;}
+\DoxyCodeLine{00667\ }
+\DoxyCodeLine{00668\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ n\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a7197ac181837ee515812dfd547e8f796}{countN}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00669\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ ==\ 0)\ \{}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Tree\ empty.\ Of\ course\ it's\ balanced\ "{}};}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out.str();}
+\DoxyCodeLine{00672\ \ \ \ \ \}}
+\DoxyCodeLine{00673\ }
+\DoxyCodeLine{00674\ \ \ \ \ \textcolor{keywordtype}{int}\ height\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_ade7915ec9566392558f90918bd798283}{findH}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00675\ \ \ \ \ \textcolor{keywordtype}{double}\ bound\ =\ log(n)\ /\ log(1.5);}
+\DoxyCodeLine{00676\ }
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00678\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Node\ count:\ "{}}\ <<\ n\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00679\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Height:\ "{}}\ <<\ height\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00680\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Height\ bound:\ "{}}\ <<\ bound\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00681\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Total\ Rebuilds:\ "{}}\ <<\ \doxymbox{\hyperlink{class_scape_goat_tree_a134b09d057d18e54c028658c2170f9fa}{rebuildCount}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{00682\ }
+\DoxyCodeLine{00683\ \ \ \ \ \textcolor{keywordflow}{if}\ (height<=\ bound)}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\string^\_\_\_\_\_\string^\ Tree\ is\ balanced.\ \(\backslash\)nCongratulations,\ It's\ not\ a\ Linked\ List.\(\backslash\)n"{}};}
+\DoxyCodeLine{00685\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\string~\_\string~\ Tree\ is\ NOT\ balanced.\ A\ scapegoat\ must\ be\ sacrificed.\(\backslash\)n"{}};}
+\DoxyCodeLine{00687\ }
+\DoxyCodeLine{00688\ \ \ \ \ \textcolor{keywordflow}{return}\ out.str();}
+\DoxyCodeLine{00689\ \}}
+\DoxyCodeLine{00690\ }
+\DoxyCodeLine{00694\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00695\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_scape_goat_tree_aab92879a495e4402076f25cc5073734a}{ScapeGoatTree<T>::search}}(\textcolor{keyword}{const}\ T\&\ key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00696\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ current\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00697\ \ \ \ \ \textcolor{keywordflow}{while}\ (current\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ ==\ current-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ <\ current-\/>value)\ current\ =\ current-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00700\ }
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (key\ >\ current-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}})\ current\ =\ current-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00702\ }
+\DoxyCodeLine{00703\ \ \ \ \ \}}
+\DoxyCodeLine{00704\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00705\ \}}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00707\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00708\ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{ScapeGoatTree<T>::TreeNode}}\ *\doxymbox{\hyperlink{class_scape_goat_tree_aab92879a495e4402076f25cc5073734a}{ScapeGoatTree<T>::search}}(T\ \&key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00709\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ current\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00710\ \ \ \ \ \textcolor{keywordflow}{while}\ (current\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ ==\ current-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}})\ \textcolor{keywordflow}{return}\ current;}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ <\ current-\/>value)\ current\ =\ current-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00713\ }
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (key\ >\ current-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}})\ current\ =\ current-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00715\ }
+\DoxyCodeLine{00716\ \ \ \ \ \}}
+\DoxyCodeLine{00717\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00718\ \}}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00723\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00724\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a72ae50cdc7fd189b8bf69cdc105d1e42}{ScapeGoatTree<T>::clear}}()\ \{}
+\DoxyCodeLine{00725\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a9f00cac8c794e4c9bdb23b94e7f2d776}{postorderTraversal}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00726\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00727\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}}\ =\ 0;}
+\DoxyCodeLine{00728\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\_nodes}}\ =\ 0;}
+\DoxyCodeLine{00729\ \}}
+\DoxyCodeLine{00734\ }
+\DoxyCodeLine{00735\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00736\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a693ee93867d1092ca56b98becfddb21d}{ScapeGoatTree<T>::undo}}()\ \{}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.isEmpty())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ flag\ to\ prevent\ undo\ actions\ from\ being\ recorded\ as\ new\ operations}}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_command}{Command<T>}}\ cmd\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.pop();}
+\DoxyCodeLine{00741\ }
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969a4b6359d478c659d8d26a2942c0963082}{OpType::BatchEnd}})\ \{}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Handle\ batch\ operation:\ undo\ everything\ until\ BatchStart}}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a39698cf2674b3a6e908ee7bbda1c78ba}{redoStack}}.push(cmd);\ \textcolor{comment}{//\ Push\ End\ first\ to\ maintain\ order\ for\ redo}}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.isEmpty())\ \{}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_command}{Command<T>}}\ batchCmd\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.pop();}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a39698cf2674b3a6e908ee7bbda1c78ba}{redoStack}}.push(batchCmd);}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (batchCmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aee25d922c3fec70103726fa7ad54591b}{OpType::BatchStart}})\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00749\ }
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Execute\ the\ inverse\ of\ the\ recorded\ operation}}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (batchCmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0}{OpType::Insert}})\ \doxymbox{\hyperlink{class_scape_goat_tree_ad69b1a69c57ea4c80edf99628117132a}{deleteValue}}(batchCmd.\doxymbox{\hyperlink{struct_command_a11a11bb97b6855c79c482060112c5f18}{value}});}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (batchCmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18}{OpType::Delete}})\ \doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}}(batchCmd.\doxymbox{\hyperlink{struct_command_a11a11bb97b6855c79c482060112c5f18}{value}});}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Handle\ single\ operation}}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a39698cf2674b3a6e908ee7bbda1c78ba}{redoStack}}.push(cmd);}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0}{OpType::Insert}})\ \doxymbox{\hyperlink{class_scape_goat_tree_ad69b1a69c57ea4c80edf99628117132a}{deleteValue}}(cmd.\doxymbox{\hyperlink{struct_command_a11a11bb97b6855c79c482060112c5f18}{value}});}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (cmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18}{OpType::Delete}})\ \doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}}(cmd.\doxymbox{\hyperlink{struct_command_a11a11bb97b6855c79c482060112c5f18}{value}});}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00766\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00767\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_aaa4bf81af689fa0a95ebc65eb20af91d}{ScapeGoatTree<T>::redo}}()\ \{}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_scape_goat_tree_a39698cf2674b3a6e908ee7bbda1c78ba}{redoStack}}.isEmpty())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ flag\ to\ prevent\ redo\ actions\ from\ being\ recorded\ in\ undoStack\ incorrectly}}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_command}{Command<T>}}\ cmd\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a39698cf2674b3a6e908ee7bbda1c78ba}{redoStack}}.pop();}
+\DoxyCodeLine{00772\ }
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aee25d922c3fec70103726fa7ad54591b}{OpType::BatchStart}})\ \{}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Handle\ batch\ operation:\ redo\ everything\ until\ BatchEnd}}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.push(cmd);}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_a39698cf2674b3a6e908ee7bbda1c78ba}{redoStack}}.isEmpty())\ \{}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_command}{Command<T>}}\ batchCmd\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a39698cf2674b3a6e908ee7bbda1c78ba}{redoStack}}.pop();}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.push(batchCmd);}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (batchCmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969a4b6359d478c659d8d26a2942c0963082}{OpType::BatchEnd}})\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00780\ }
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Re-\/execute\ the\ original\ operation}}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (batchCmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0}{OpType::Insert}})\ \doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}}(batchCmd.\doxymbox{\hyperlink{struct_command_a11a11bb97b6855c79c482060112c5f18}{value}});}
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (batchCmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18}{OpType::Delete}})\ \doxymbox{\hyperlink{class_scape_goat_tree_ad69b1a69c57ea4c80edf99628117132a}{deleteValue}}(batchCmd.\doxymbox{\hyperlink{struct_command_a11a11bb97b6855c79c482060112c5f18}{value}});}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Handle\ single\ operation}}
+\DoxyCodeLine{00787\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a6cf65741abbbef5a152bb8033b733e3d}{undoStack}}.push(cmd);}
+\DoxyCodeLine{00788\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0}{OpType::Insert}})\ \doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}}(cmd.\doxymbox{\hyperlink{struct_command_a11a11bb97b6855c79c482060112c5f18}{value}});}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (cmd.\doxymbox{\hyperlink{struct_command_a08549615d7f7499b6194733c14479dfe}{type}}\ ==\ \doxymbox{\hyperlink{_scape_goat_tree_8hpp_aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18}{OpType::Delete}})\ \doxymbox{\hyperlink{class_scape_goat_tree_ad69b1a69c57ea4c80edf99628117132a}{deleteValue}}(cmd.\doxymbox{\hyperlink{struct_command_a11a11bb97b6855c79c482060112c5f18}{value}});}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{isUndoing}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00793\ }
+\DoxyCodeLine{00794\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00795\ T\ \doxymbox{\hyperlink{class_scape_goat_tree_a02cfe4be0ba3451189766cdaa7f3cebb}{ScapeGoatTree<T>::sumHelper}}(\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}\ *node,T\ min,T\ max)\ \{}
+\DoxyCodeLine{00796\ \ \ \ \ T\ sum\ \{\};}
+\DoxyCodeLine{00797\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00798\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ >=\ min)sum+=\doxymbox{\hyperlink{class_scape_goat_tree_a02cfe4be0ba3451189766cdaa7f3cebb}{sumHelper}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}},min,max);}
+\DoxyCodeLine{00799\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ >=\ min\ \&\&\ node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ <=\ max\ )sum+=node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}};}
+\DoxyCodeLine{00800\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ <=\ max)sum+=\doxymbox{\hyperlink{class_scape_goat_tree_a02cfe4be0ba3451189766cdaa7f3cebb}{sumHelper}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}},min,max);}
+\DoxyCodeLine{00801\ \ \ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{00802\ }
+\DoxyCodeLine{00803\ \}}
+\DoxyCodeLine{00804\ }
+\DoxyCodeLine{00805\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00806\ T\ \doxymbox{\hyperlink{class_scape_goat_tree_a5e7459a77ee4685e0c81026c4a7faf12}{ScapeGoatTree<T>::sumInRange}}(T\ min,\ T\ max)\ \{}
+\DoxyCodeLine{00807\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_a02cfe4be0ba3451189766cdaa7f3cebb}{sumHelper}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},min,max);}
+\DoxyCodeLine{00808\ \}}
+\DoxyCodeLine{00809\ }
+\DoxyCodeLine{00810\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00811\ T\ \doxymbox{\hyperlink{class_scape_goat_tree_a0e1153dd07e98fb190d5aa557240a30a}{ScapeGoatTree<T>::getMin}}()\ \{}
+\DoxyCodeLine{00812\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}})\textcolor{keywordflow}{throw}\ std::exception(\textcolor{stringliteral}{"{}Tree\ is\ Empty"{}});}
+\DoxyCodeLine{00813\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ current\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00814\ \ \ \ \ \textcolor{keywordflow}{while}\ (current-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}})\ current\ =current-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00815\ \ \ \ \ \textcolor{keywordflow}{return}\ current-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}};}
+\DoxyCodeLine{00816\ }
+\DoxyCodeLine{00817\ \}}
+\DoxyCodeLine{00818\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00819\ T\ \doxymbox{\hyperlink{class_scape_goat_tree_ab973a00d9840d4030491575805b234ad}{ScapeGoatTree<T>::getMax}}()\ \{}
+\DoxyCodeLine{00820\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}})\textcolor{keywordflow}{throw}\ std::exception(\textcolor{stringliteral}{"{}Tree\ is\ Empty"{}});}
+\DoxyCodeLine{00821\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ current\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00822\ \ \ \ \ \textcolor{keywordflow}{while}\ (current-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}})\ current\ =current-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00823\ \ \ \ \ \textcolor{keywordflow}{return}\ current-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}};}
+\DoxyCodeLine{00824\ \}}
+\DoxyCodeLine{00825\ }
+\DoxyCodeLine{00826\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00827\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_scape_goat_tree_a1a9446a27414d0f7ec5fdf3912cdd35e}{ScapeGoatTree<T>::rangeHelper}}(\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}\ *node,T\ min,T\ max,\doxymbox{\hyperlink{class_vector}{Vector<T>}}\&\ range)\ \{}
+\DoxyCodeLine{00828\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\textcolor{keywordflow}{return};}
+\DoxyCodeLine{00829\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ >\ min)\doxymbox{\hyperlink{class_scape_goat_tree_a1a9446a27414d0f7ec5fdf3912cdd35e}{rangeHelper}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}},min,max,range);}
+\DoxyCodeLine{00830\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ >=\ min\ \&\&\ node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ <=\ max\ )range.\doxymbox{\hyperlink{class_vector_a4415960a83615855ec32f8169f641786}{push\_back}}(node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}});}
+\DoxyCodeLine{00831\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ <\ max)\doxymbox{\hyperlink{class_scape_goat_tree_a1a9446a27414d0f7ec5fdf3912cdd35e}{rangeHelper}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}},min,max,range);}
+\DoxyCodeLine{00832\ \}}
+\DoxyCodeLine{00833\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00834\ \doxymbox{\hyperlink{class_vector}{Vector<T>}}\ \doxymbox{\hyperlink{class_scape_goat_tree_a6a1850d6bcb416d7e3ed03f2c22b8ad6}{ScapeGoatTree<T>::valuesInRange}}(T\ min,\ T\ max)\ \{}
+\DoxyCodeLine{00835\ \ \ \ \ \doxymbox{\hyperlink{class_vector}{Vector<T>}}range;}
+\DoxyCodeLine{00836\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a1a9446a27414d0f7ec5fdf3912cdd35e}{rangeHelper}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},min,max,range);}
+\DoxyCodeLine{00837\ \ \ \ \ \textcolor{keywordflow}{return}\ \ std::move(range);}
+\DoxyCodeLine{00838\ \}}
+\DoxyCodeLine{00839\ \textcolor{comment}{//leftmost\ in\ the\ right\ subtree.}}
+\DoxyCodeLine{00840\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00841\ T\ \doxymbox{\hyperlink{class_scape_goat_tree_a860d6d999f3f0e9d85134ccc9812bc1f}{ScapeGoatTree<T>::getSuccessor}}(T\ value)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00842\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ current\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00843\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ successor\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00844\ \ \ \ \ \textcolor{keywordflow}{while}\ (current)\ \{}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}}\ >\ value)\ \{}
+\DoxyCodeLine{00846\ \ \ \ \ \ \ \ \ \ \ \ \ successor\ =\ current;}
+\DoxyCodeLine{00847\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00848\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00849\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00850\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00851\ \ \ \ \ \}}
+\DoxyCodeLine{00852\ \ \ \ \ \textcolor{keywordflow}{if}\ (!successor)\ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}No\ successor\ found"{}});}
+\DoxyCodeLine{00853\ \ \ \ \ \textcolor{keywordflow}{return}\ successor-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}};}
+\DoxyCodeLine{00854\ \}}
+\DoxyCodeLine{00855\ }
+\DoxyCodeLine{00856\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00857\ T\ \doxymbox{\hyperlink{class_scape_goat_tree_a1591b2db66edf3447766ea94b6a9c4cc}{ScapeGoatTree<T>::kthSmallestHelper}}(\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ node,\ \textcolor{keywordtype}{int}\ k)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00858\ \ \ \ \ \textcolor{keywordtype}{int}\ leftSize\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a7197ac181837ee515812dfd547e8f796}{countN}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}});}
+\DoxyCodeLine{00859\ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ ==\ leftSize\ +\ 1)\ \textcolor{keywordflow}{return}\ node-\/>\doxymbox{\hyperlink{class_node_a01b9071c0de774c720b64583262d1559}{value}};}
+\DoxyCodeLine{00860\ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ <=\ leftSize)\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_a1591b2db66edf3447766ea94b6a9c4cc}{kthSmallestHelper}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}},\ k);}
+\DoxyCodeLine{00861\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_a1591b2db66edf3447766ea94b6a9c4cc}{kthSmallestHelper}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}},\ k\ -\/\ leftSize\ -\/\ 1);}
+\DoxyCodeLine{00862\ \}}
+\DoxyCodeLine{00863\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00864\ T\ \doxymbox{\hyperlink{class_scape_goat_tree_a321ca8990bc74819a98ee1779bab5671}{ScapeGoatTree<T>::kthSmallest}}(\textcolor{keywordtype}{int}\ k)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00865\ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ <\ 1\ ||\ k\ >\ \doxymbox{\hyperlink{class_scape_goat_tree_a7f64246bafbf7b413859d5059cde45c4}{nNodes}})\ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}k\ is\ out\ of\ bounds"{}});}
+\DoxyCodeLine{00866\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_a1591b2db66edf3447766ea94b6a9c4cc}{kthSmallestHelper}}(\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},\ k);}
+\DoxyCodeLine{00867\ \}}
+\DoxyCodeLine{00868\ }
+\DoxyCodeLine{00869\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00870\ \ \doxymbox{\hyperlink{class_scape_goat_tree_1_1iterator}{ScapeGoatTree<T>::iterator}}\ \doxymbox{\hyperlink{class_scape_goat_tree_a5f065ac825ffe78ad47f579683547b8d}{ScapeGoatTree<T>::begin}}()\ \{}
+\DoxyCodeLine{00871\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}})\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_a1546821041c8c2de46ea3e4a6e7c08ac}{end}}();}
+\DoxyCodeLine{00872\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ curr\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}};}
+\DoxyCodeLine{00873\ \ \ \ \ \textcolor{keywordflow}{while}\ (curr-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}})curr\ =\ curr-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00874\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_1_1iterator}{iterator}}(curr);}
+\DoxyCodeLine{00875\ \}}
+\DoxyCodeLine{00876\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00877\ \ \doxymbox{\hyperlink{class_scape_goat_tree_1_1iterator}{ScapeGoatTree<T>::iterator}}\ \doxymbox{\hyperlink{class_scape_goat_tree_a1546821041c8c2de46ea3e4a6e7c08ac}{ScapeGoatTree<T>::end}}()\ \{}
+\DoxyCodeLine{00878\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_scape_goat_tree_1_1iterator}{iterator}}(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00879\ \ \}}
+\DoxyCodeLine{00880\ }
+\DoxyCodeLine{00881\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00882\ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{ScapeGoatTree<T>::TreeNode}}\ *\doxymbox{\hyperlink{class_scape_goat_tree_a8490db2489c7785ae0b563fef3d91916}{ScapeGoatTree<T>::findSuccessor}}(\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}\ *node)\ \{}
+\DoxyCodeLine{00883\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00884\ }
+\DoxyCodeLine{00885\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}})\ \{}
+\DoxyCodeLine{00886\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ suc\ =\ node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00887\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (suc-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}}\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00888\ \ \ \ \ \ \ \ \ \ \ \ \ suc\ =\ suc-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00889\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ suc;}
+\DoxyCodeLine{00890\ \ \ \ \ \}}
+\DoxyCodeLine{00891\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ p\ =\ node-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}};}
+\DoxyCodeLine{00892\ \ \ \ \ \textcolor{keywordflow}{while}\ (\ p\ \&\&\ node\ ==\ p-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}})\ \{}
+\DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ node\ =\ p;}
+\DoxyCodeLine{00894\ \ \ \ \ \ \ \ \ p\ =\ p-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}};}
+\DoxyCodeLine{00895\ \ \ \ \ \}}
+\DoxyCodeLine{00896\ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00897\ \}}
+\DoxyCodeLine{00898\ }
+\DoxyCodeLine{00899\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00900\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_scape_goat_tree_a353a8b23b287c2c22c05436c457ef243}{ScapeGoatTree<T>::updateSize}}(\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\&\ node)\ \{}
+\DoxyCodeLine{00901\ \ \ \ \ \textcolor{keywordflow}{if}\ (node\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00902\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00903\ }
+\DoxyCodeLine{00904\ \ \ \ \ \textcolor{comment}{//\ Find\ the\ size\ of\ left\ and\ right}}
+\DoxyCodeLine{00905\ \ \ \ \ \textcolor{comment}{//\ subtree.}}
+\DoxyCodeLine{00906\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ left\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a353a8b23b287c2c22c05436c457ef243}{updateSize}}(node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}});}
+\DoxyCodeLine{00907\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ right\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a353a8b23b287c2c22c05436c457ef243}{updateSize}}(node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}});}
+\DoxyCodeLine{00908\ }
+\DoxyCodeLine{00909\ \ \ \ \ \textcolor{comment}{//\ \ the\ size\ of\ curr\ subtree.}}
+\DoxyCodeLine{00910\ \ \ \ \ node-\/>\doxymbox{\hyperlink{class_node_a6993bad98a83cdf991cf851aacceb187}{size}}\ =\ left+right+1;}
+\DoxyCodeLine{00911\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>\doxymbox{\hyperlink{class_node_a6993bad98a83cdf991cf851aacceb187}{size}};}
+\DoxyCodeLine{00912\ \}}
+\DoxyCodeLine{00913\ }
+\DoxyCodeLine{00914\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00915\ std::pair<ScapeGoatTree<T>,\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree<T>}}\ >\ \doxymbox{\hyperlink{class_scape_goat_tree_a7b73103f3312fc6c5832542eb6caa328}{ScapeGoatTree<T>::split}}(T\ value)\ \{}
+\DoxyCodeLine{00916\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ node\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_aab92879a495e4402076f25cc5073734a}{search}}(value);}
+\DoxyCodeLine{00917\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\textcolor{keywordflow}{return}\ \{\doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\{\},\ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\{\}\};}
+\DoxyCodeLine{00918\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\ tree1;}
+\DoxyCodeLine{00919\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{ScapeGoatTree}}\ tree2;}
+\DoxyCodeLine{00920\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{TreeNode}}*\ parent\ =\ node-\/>\doxymbox{\hyperlink{class_node_a28eff2e37cf969f59ca88cfe4c464cf3}{parent}})\ \{}
+\DoxyCodeLine{00921\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parent-\/>left\ ==\ node)\ parent-\/>left\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00922\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parent-\/>right\ ==\ node)\ parent-\/>right\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00923\ \ \ \ \ \}}
+\DoxyCodeLine{00924\ \ \ \ \ tree1.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ node-\/>\doxymbox{\hyperlink{class_node_a6596c7ac17ecafff5522310c0da3a828}{left}};}
+\DoxyCodeLine{00925\ \ \ \ \ tree2.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ node-\/>\doxymbox{\hyperlink{class_node_a4009a1138f2f04372037fbec63406f11}{right}};}
+\DoxyCodeLine{00926\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a353a8b23b287c2c22c05436c457ef243}{updateSize}}(tree1.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00927\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a353a8b23b287c2c22c05436c457ef243}{updateSize}}(tree2.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}});}
+\DoxyCodeLine{00928\ \ \ \ \ \textcolor{keywordtype}{int}\ size1\ =\ tree1.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ ?\ tree1.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}-\/>\doxymbox{\hyperlink{class_node_a6993bad98a83cdf991cf851aacceb187}{size}}\ :\ 0;}
+\DoxyCodeLine{00929\ \ \ \ \ \textcolor{keywordtype}{int}\ size2\ =\ tree2.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ ?\ tree2.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}-\/>\doxymbox{\hyperlink{class_node_a6993bad98a83cdf991cf851aacceb187}{size}}\ :\ 0;}
+\DoxyCodeLine{00930\ }
+\DoxyCodeLine{00931\ \ \ \ \ T*\ array1\ =\ size1\ ?\ \textcolor{keyword}{new}\ T[size1]\ :\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00932\ \ \ \ \ T*\ array2\ =\ size2\ ?\ \textcolor{keyword}{new}\ T[size2]\ :\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00933\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0,\ j\ =0;}
+\DoxyCodeLine{00934\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a16b202af1e6fe5d1810ea896a504d96f}{inorderTraversal}}(tree1.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},i,array1);}
+\DoxyCodeLine{00935\ \ \ \ \ tree1.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}=\ \doxymbox{\hyperlink{class_scape_goat_tree_a3cc7f0a0e24e01447d0233f55ef83c00}{rebuildTree}}(0,\ i-\/1,\textcolor{keyword}{nullptr},array1);}
+\DoxyCodeLine{00936\ }
+\DoxyCodeLine{00937\ \ \ \ \ \doxymbox{\hyperlink{class_scape_goat_tree_a16b202af1e6fe5d1810ea896a504d96f}{inorderTraversal}}(tree2.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}},j,array2);}
+\DoxyCodeLine{00938\ \ \ \ \ tree2.\doxymbox{\hyperlink{class_scape_goat_tree_aa10d7d604b724dcf6bc245b859431951}{root}}\ =\ \doxymbox{\hyperlink{class_scape_goat_tree_a3cc7f0a0e24e01447d0233f55ef83c00}{rebuildTree}}(0,\ j-\/1,\textcolor{keyword}{nullptr},array2);}
+\DoxyCodeLine{00939\ \ \ \ \ \textcolor{keyword}{delete}[]\ array1;}
+\DoxyCodeLine{00940\ \ \ \ \ \textcolor{keyword}{delete}[]\ array2;}
+\DoxyCodeLine{00941\ \ \ \ \ \textcolor{keywordflow}{return}\ \{tree1,tree2\};}
+\DoxyCodeLine{00942\ \}}
+\DoxyCodeLine{00943\ }
+\DoxyCodeLine{00944\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TREE\_SCAPEGOATTREE\_TPP}}
+
+\end{DoxyCode}
