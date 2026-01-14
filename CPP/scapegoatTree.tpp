@@ -126,9 +126,8 @@ void ScapeGoatTree<T>::insert(T value) {
     nNodes++;
     if (nNodes > max_nodes) max_nodes = nNodes;
 
-    if (depth + 1 > getThreshold()) {
-        restructure_subtree(newNode);
-    }
+    if (depth + 1 <= getThreshold()) return;
+    restructure_subtree(newNode);
 }
 /**
  * Inserts multiple values from a Vector into the tree.
@@ -699,6 +698,19 @@ bool ScapeGoatTree<T>::search(const T& key) const {
     return false;
 }
 
+template<typename T>
+ScapeGoatTree<T>::TreeNode *ScapeGoatTree<T>::search(T &key) const {
+    TreeNode* current = root;
+    while (current != nullptr) {
+        if (key == current->value) return current;
+        if (key < current->value) current = current->left;
+
+        else if (key > current->value) current = current->right;
+
+    }
+    return nullptr;
+}
+
 /**
  * Removes all nodes from the tree and resets its state.
  */
@@ -878,5 +890,48 @@ template<typename T>
     return p;
 }
 
+template<typename T>
+int ScapeGoatTree<T>::updateSize(TreeNode*& node) {
+    if (node == nullptr)
+        return 0;
+
+    // Find the size of left and right
+    // subtree.
+    const int left = updateSize(node->left);
+    const int right = updateSize(node->right);
+
+    //  the size of curr subtree.
+    node->size = left+right+1;
+    return node->size;
+}
+
+template<typename T>
+std::pair<ScapeGoatTree<T>, ScapeGoatTree<T> > ScapeGoatTree<T>::split(T value) {
+    TreeNode* node = search(value);
+    if (!node)return {ScapeGoatTree{}, ScapeGoatTree{}};
+    ScapeGoatTree tree1;
+    ScapeGoatTree tree2;
+    if (node->left)node->left->parent = nullptr;
+   if (node->right) node->right->parent = nullptr;
+    tree1.root = node->left;
+    tree2.root = node->right;
+    updateSize(tree1.root);
+    updateSize(tree2.root);
+    int size1 = tree1.root ? tree1.root->size : 0;
+    int size2 = tree2.root ? tree2.root->size : 0;
+
+    T* array1 = size1 ? new T[size1] : nullptr;
+    T* array2 = size2 ? new T[size2] : nullptr;
+    int i = 0, j =0;
+    inorderTraversal(tree1.root,i,array1);
+    tree1.root= rebuildTree(0, i-1,nullptr,array1);
+
+    inorderTraversal(tree2.root,j,array2);
+    tree2.root = rebuildTree(0, j-1,nullptr,array2);
+    delete[] array1;
+    delete[] array2;
+    delete node;
+    return {tree1,tree2};
+}
 
 #endif //TREE_SCAPEGOATTREE_TPP

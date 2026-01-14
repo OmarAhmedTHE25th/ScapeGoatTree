@@ -463,7 +463,7 @@ class ScapeGoatGUI:
 
     def update_speed(self, val):
         """Update animation speed"""
-        self.animator.animation_speed = int(val)
+        self.animator.animation_speed = 1100 - int(val)
 
     def get_active_tree(self):
         return self.treeA if self.selected_tree_var.get() == "A" else self.treeB

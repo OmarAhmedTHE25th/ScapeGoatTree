@@ -189,6 +189,7 @@ public:
      * Searches for a specific value in the tree.
      */
     [[nodiscard]] bool search(const T & key) const;
+    TreeNode* search(T& key) const;
 
     /**
      * Removes all nodes from the tree and resets its state.
@@ -202,7 +203,8 @@ public:
     Vector<T> valuesInRange(T min,T max);
     T getSuccessor(T value) const;
     T kthSmallest(int k) const;
-
+    std::pair<ScapeGoatTree, ScapeGoatTree> split(T value);
+    int updateSize(TreeNode*& node);
 
     /**
      * Returns a string report indicating if the tree is currently balanced.
