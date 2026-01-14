@@ -123,6 +123,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8cbea8620cd09e7265904dd741e3a107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab92879a495e4402076f25cc5073734a" id="r_aab92879a495e4402076f25cc5073734a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#aab92879a495e4402076f25cc5073734a">search</a> (const T &amp;key) const</td></tr>
 <tr class="separator:aab92879a495e4402076f25cc5073734a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7831a5d291e252f70e1ddd5cafc2ae4" id="r_ab7831a5d291e252f70e1ddd5cafc2ae4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#ab7831a5d291e252f70e1ddd5cafc2ae4">search</a> (T &amp;key) const</td></tr>
+<tr class="separator:ab7831a5d291e252f70e1ddd5cafc2ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72ae50cdc7fd189b8bf69cdc105d1e42" id="r_a72ae50cdc7fd189b8bf69cdc105d1e42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#a72ae50cdc7fd189b8bf69cdc105d1e42">clear</a> ()</td></tr>
 <tr class="separator:a72ae50cdc7fd189b8bf69cdc105d1e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a693ee93867d1092ca56b98becfddb21d" id="r_a693ee93867d1092ca56b98becfddb21d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#a693ee93867d1092ca56b98becfddb21d">undo</a> ()</td></tr>
@@ -141,6 +143,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a860d6d999f3f0e9d85134ccc9812bc1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a321ca8990bc74819a98ee1779bab5671" id="r_a321ca8990bc74819a98ee1779bab5671"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#a321ca8990bc74819a98ee1779bab5671">kthSmallest</a> (int k) const</td></tr>
 <tr class="separator:a321ca8990bc74819a98ee1779bab5671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1251f5818a9bf8b8770e819ab48812a4" id="r_a1251f5818a9bf8b8770e819ab48812a4"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classScapeGoatTree.html">ScapeGoatTree</a>, <a class="el" href="classScapeGoatTree.html">ScapeGoatTree</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#a1251f5818a9bf8b8770e819ab48812a4">split</a> (T value)</td></tr>
+<tr class="separator:a1251f5818a9bf8b8770e819ab48812a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a353a8b23b287c2c22c05436c457ef243" id="r_a353a8b23b287c2c22c05436c457ef243"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#a353a8b23b287c2c22c05436c457ef243">updateSize</a> (<a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *&amp;node)</td></tr>
+<tr class="separator:a353a8b23b287c2c22c05436c457ef243"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a862c0af243dd64556a0a2520fd7cb450" id="r_a862c0af243dd64556a0a2520fd7cb450"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#a862c0af243dd64556a0a2520fd7cb450">isBalanced</a> () const</td></tr>
 <tr class="separator:a862c0af243dd64556a0a2520fd7cb450"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a890d46d97a8768e79c4635782eeab94f" id="r_a890d46d97a8768e79c4635782eeab94f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html#a890d46d97a8768e79c4635782eeab94f">getRoot</a> ()</td></tr>
@@ -1597,7 +1603,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="aab92879a495e4402076f25cc5073734a" name="aab92879a495e4402076f25cc5073734a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab92879a495e4402076f25cc5073734a">&#9670;&#160;</a></span>search()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aab92879a495e4402076f25cc5073734a">&#9670;&#160;</a></span>search() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1614,6 +1620,46 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Searches for a specific value in the tree. </p>
+
+</div>
+</div>
+<a id="ab7831a5d291e252f70e1ddd5cafc2ae4" name="ab7831a5d291e252f70e1ddd5cafc2ae4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7831a5d291e252f70e1ddd5cafc2ae4">&#9670;&#160;</a></span>search() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> * <a class="el" href="classScapeGoatTree.html">ScapeGoatTree</a>&lt; T &gt;::search </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1251f5818a9bf8b8770e819ab48812a4" name="a1251f5818a9bf8b8770e819ab48812a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1251f5818a9bf8b8770e819ab48812a4">&#9670;&#160;</a></span>split()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; <a class="el" href="classScapeGoatTree.html">ScapeGoatTree</a>, <a class="el" href="classScapeGoatTree.html">ScapeGoatTree</a> &gt; <a class="el" href="classScapeGoatTree.html">ScapeGoatTree</a>&lt; T &gt;::split </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1703,6 +1749,26 @@ template&lt;typename T &gt; </div>
           <td class="memname">void <a class="el" href="classScapeGoatTree.html">ScapeGoatTree</a>&lt; T &gt;::undo </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a353a8b23b287c2c22c05436c457ef243" name="a353a8b23b287c2c22c05436c457ef243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a353a8b23b287c2c22c05436c457ef243">&#9670;&#160;</a></span>updateSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classScapeGoatTree.html">ScapeGoatTree</a>&lt; T &gt;::updateSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254">TreeNode</a> *&amp;&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
