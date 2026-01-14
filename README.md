@@ -43,7 +43,7 @@ Complete API reference with:
 * ✅ **Get minimum / maximum** — retrieve the smallest or largest element in the tree  
 * ✅ Batch operations for efficiency  
 * ✅ Undo/Redo system  
-* ✅ Tree merging with duplicate handling  
+* ✅ Tree merging and splitting  
 * ✅ Operator overloading for intuitive syntax  
 
 ### Custom Data Structures
@@ -55,7 +55,7 @@ Complete API reference with:
 ### User Interfaces
 
 * 🖥️ Terminal UI (TUI) with color-coded menus  
-* 🎨 Python Tkinter GUI with animations
+* 🎨 Python Tkinter GUI with animations and collapsible sidebar
 * 🎮 DirectX 11 + ImGui GUI (Windows only)  
 
 ### Advanced Usage
@@ -183,6 +183,9 @@ values = tree.ValuesInRange(5, 20)
 tree2 = sgt.ScapeGoatTree()
 tree2.insert_batch([25, 35])
 merged = tree + tree2
+
+# Split tree
+left_tree, right_tree = tree.Split(15)
 ```
 
 ### C++ Interface
@@ -204,6 +207,9 @@ tree.insertBatch({10, 20, 30});
 // Undo/Redo
 tree.undo();
 tree.redo();
+
+// Split tree
+auto [left, right] = tree.split(50);
 
 // Range queries
 int sum = tree.sumInRange(10, 50);
