@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['func_0',['func',['../struct_menu_item.html#a18ca45a28eec77780bfac992c1cd3889',1,'MenuItem']]]
+  ['head_0',['head',['../class_queue.html#adbabab2ce50185a0ce1828c9eaa06c6e',1,'Queue']]]
 ];

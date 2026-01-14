@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['name_0',['name',['../struct_menu_item.html#a50f3f29f3f401f68e39b8ed97fad7171',1,'MenuItem']]],
-  ['nelements_1',['nElements',['../class_vector.html#a562a1e4730448413c8061310a755d3fe',1,'Vector']]],
-  ['next_2',['next',['../class_q_node.html#af2fa4048dcb4810318ca76fcc9a6ff02',1,'QNode']]],
-  ['nnodes_3',['nNodes',['../class_queue.html#a7aedf6d9a3feb07f564b9e6d0a4391c9',1,'Queue::nNodes'],['../class_scape_goat_tree.html#a7f64246bafbf7b413859d5059cde45c4',1,'ScapeGoatTree::nNodes']]]
+  ['rebuildcount_0',['rebuildCount',['../class_scape_goat_tree.html#a134b09d057d18e54c028658c2170f9fa',1,'ScapeGoatTree']]],
+  ['redostack_1',['redoStack',['../class_scape_goat_tree.html#a39698cf2674b3a6e908ee7bbda1c78ba',1,'ScapeGoatTree']]],
+  ['right_2',['right',['../class_node.html#a4009a1138f2f04372037fbec63406f11',1,'Node']]],
+  ['root_3',['root',['../class_scape_goat_tree.html#aa10d7d604b724dcf6bc245b859431951',1,'ScapeGoatTree']]]
 ];

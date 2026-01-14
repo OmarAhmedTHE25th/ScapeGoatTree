@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['runtui_2ecpp_1',['RunTUI.cpp',['../_run_t_u_i_8cpp.html',1,'']]]
+  ['scapegoattree_2ehpp_0',['ScapeGoatTree.hpp',['../_scape_goat_tree_8hpp.html',1,'']]],
+  ['scapegoattree_2etpp_1',['scapegoatTree.tpp',['../scapegoat_tree_8tpp.html',1,'']]],
+  ['stack_2ehpp_2',['stack.hpp',['../stack_8hpp.html',1,'']]]
 ];
