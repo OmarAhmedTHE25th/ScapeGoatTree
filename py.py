@@ -464,7 +464,6 @@ class ScapeGoatGUI:
         tk.Button(self.adv_frame, text="Compare A == B", command=self.cmd_compare, width=15).pack(pady=2)
         tk.Button(self.adv_frame, text="Is Empty?", command=self.cmd_isempty, width=15).pack(pady=2)
         tk.Button(self.adv_frame, text="Show Logs/Console", command=lambda: self.log_win.show(), width=15).pack(pady=2)
-
         # Speed control
         speed_frame = tk.Frame(self.adv_frame)
         speed_frame.pack(pady=5)
@@ -473,6 +472,15 @@ class ScapeGoatGUI:
                                     command=self.update_speed, length=100)
         self.speed_scale.set(500)
         self.speed_scale.pack(side=tk.LEFT)
+ #Section D: alpha
+        self.adv_frame = tk.LabelFrame(self.control_frame, text="Alpha Control", padx=10, pady=10)
+        self.adv_frame.grid(row=0, column=3, sticky="nsw", padx=10, pady=10)
+
+        tk.Label(self.adv_frame, text="Alpha (α) Strictness:").pack()
+        self.alpha_scale = tk.Scale(self.adv_frame, from_=0.5, to=0.9,resolution=0.01, orient=tk.HORIZONTAL, command=self.update_alpha)
+        self.alpha_scale.set(0.66) # Default 2/3
+        self.alpha_scale.pack()
+
 
         self.log_win = LogWindow(self.root)
         self.log_win.log("Welcome! 🎬 Animation-enabled ScapeGoat Tree")
@@ -764,6 +772,9 @@ class ScapeGoatGUI:
             self.animator.animate_split(val, handle_split_logic)
         else:
             handle_split_logic()
+    def update_alpha(self, val):
+            self.get_active_tree().setAlpha(float(val))
+            self.log(f"Alpha updated to {val}. The goat is now {'stricter' if float(val) < 0.7 else 'lazier'}! 🐐")
     # ============================================
         # DRAWING ENGINE
     # ============================================
