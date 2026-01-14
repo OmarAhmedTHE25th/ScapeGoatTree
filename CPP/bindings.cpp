@@ -33,7 +33,13 @@ PYBIND11_MODULE(scapegoat_tree_py, m) {
             self.deleteBatch(customVec);
         }, py::arg("values"))
         .def("delete_value", &ScapeGoatTree<Type>::deleteValue)
-        .def("search", &ScapeGoatTree<Type>::search)
+        .def("search_node", [](const ScapeGoatTree<Type>& t, Type val) -> Node<Type>* {
+return t.search(val);   // call the Node* version
+})
+        .def("search_bool", [](const ScapeGoatTree<Type>& t, Type val) -> bool {
+return t.search(val);   // call the bool version
+})
+
         .def("get_root", &ScapeGoatTree<Type>::getRoot, py::return_value_policy::reference_internal)
         .def("clear", &ScapeGoatTree<Type>::clear)
         .def("undo", &ScapeGoatTree<Type>::undo)
@@ -44,6 +50,7 @@ PYBIND11_MODULE(scapegoat_tree_py, m) {
         .def("GetSuccessor", &ScapeGoatTree<Type>::getSuccessor)
         .def("GetMin", &ScapeGoatTree<Type>::getMin)
         .def("GetMax", &ScapeGoatTree<Type>::getMax)
+
         .def(py::self + py::self)
         .def(py::self == py::self)
 

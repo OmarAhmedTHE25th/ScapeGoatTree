@@ -153,7 +153,7 @@ class ScapeGoatTree {
     T sumHelper(TreeNode* node,T min,T max);
     void rangeHelper(TreeNode* node,T min,T max,Vector<T>& range);
     T kthSmallestHelper(TreeNode *node, int k) const;
-  static TreeNode* getSuccessor(TreeNode* node);
+  static TreeNode* findSuccessor(TreeNode* node);
 
 
 

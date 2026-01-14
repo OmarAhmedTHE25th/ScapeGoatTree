@@ -85,8 +85,6 @@ public:
           push_back(other.data[i]);
       }
     }
-    Vector& operator=(const Vector&) = delete;
-    Vector(Vector&&) = delete;
-    Vector& operator=(Vector&&) = delete;
+
 };
 #endif

@@ -828,7 +828,7 @@ template<typename T>
 Vector<T> ScapeGoatTree<T>::valuesInRange(T min, T max) {
     Vector<T>range;
     rangeHelper(root,min,max,range);
-    return range;
+    return  std::move(range);;
 }
 //leftmost in the right subtree.
 template<typename T>
@@ -873,7 +873,7 @@ template<typename T>
  }
 
 template<typename T>
- ScapeGoatTree<T>::TreeNode *ScapeGoatTree<T>::getSuccessor(TreeNode *node) {
+ ScapeGoatTree<T>::TreeNode *ScapeGoatTree<T>::findSuccessor(TreeNode *node) {
     if (!node)return nullptr;
 
     if (node->right) {
