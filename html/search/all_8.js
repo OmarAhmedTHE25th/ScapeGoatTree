@@ -10,10 +10,11 @@ var searchData=
   ['handleoperatorcompare_7',['handleOperatorCompare',['../class_i_tree.html#a7e2087ddd305237aa7da44097b5a8eba',1,'ITree']]],
   ['handleoperatorempty_8',['handleOperatorEmpty',['../class_i_tree.html#a33b9fa40706213d348e2be8795c3ecc6',1,'ITree']]],
   ['handleoperatormerge_9',['handleOperatorMerge',['../class_i_tree.html#aa985fe8b82032b4bf268532844831ede',1,'ITree']]],
-  ['handlesucessor_10',['handleSucessor',['../class_i_tree.html#a6a95fbe5f40a349d90503be8e6f1b6af',1,'ITree']]],
-  ['handlesuminrange_11',['handleSuminRange',['../class_i_tree.html#a38a1854f05ff708458e386a35d4e6dd7',1,'ITree']]],
-  ['handleundoredo_12',['handleUndoRedo',['../class_i_tree.html#a077e3978accea9212146621f6363d59e',1,'ITree']]],
-  ['handlevaluesinrange_13',['handleValuesinRange',['../class_i_tree.html#accddd94da8dc323e8103e66133670bb6',1,'ITree']]],
-  ['hanleminmax_14',['hanleMinMax',['../class_i_tree.html#a481b8da9a0f640603c1c02b22f6fe85e',1,'ITree']]],
-  ['head_15',['head',['../class_queue.html#adbabab2ce50185a0ce1828c9eaa06c6e',1,'Queue']]]
+  ['handlesplit_10',['handleSplit',['../class_i_tree.html#a2271e988fb87a84f078d914fd4563dd6',1,'ITree']]],
+  ['handlesucessor_11',['handleSucessor',['../class_i_tree.html#a6a95fbe5f40a349d90503be8e6f1b6af',1,'ITree']]],
+  ['handlesuminrange_12',['handleSuminRange',['../class_i_tree.html#a38a1854f05ff708458e386a35d4e6dd7',1,'ITree']]],
+  ['handleundoredo_13',['handleUndoRedo',['../class_i_tree.html#a077e3978accea9212146621f6363d59e',1,'ITree']]],
+  ['handlevaluesinrange_14',['handleValuesinRange',['../class_i_tree.html#accddd94da8dc323e8103e66133670bb6',1,'ITree']]],
+  ['hanleminmax_15',['hanleMinMax',['../class_i_tree.html#a481b8da9a0f640603c1c02b22f6fe85e',1,'ITree']]],
+  ['head_16',['head',['../class_queue.html#adbabab2ce50185a0ce1828c9eaa06c6e',1,'Queue']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['max_5fnodes_0',['max_nodes',['../class_scape_goat_tree.html#a6f38e7d6f5ef89e8f3c460cf8c4273d3',1,'ScapeGoatTree']]]
+  ['left_0',['left',['../class_node.html#a6596c7ac17ecafff5522310c0da3a828',1,'Node']]]
 ];

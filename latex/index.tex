@@ -38,8 +38,8 @@ Complete API reference with:\+
 
 \item ✅ {\bfseries{Values in range}} — retrieve all elements within a specified range ~\newline
 
-\item ✅ {\bfseries{Kth smallest element}} — find the element at a specific order in sorted sequence ~\newline
-
+\item ✅ {\bfseries{Kth smallest element}} — find the element at a specific order in sorted sequence
+\item ✅ {\bfseries{Forward iterator}} support — fully compatible with C++ range-\/based for loops (for(auto x :\+ tree))
 \item ✅ {\bfseries{Get successor}} — find the next higher element in the tree ~\newline
 
 \item ✅ {\bfseries{Get minimum /\+ maximum}} — retrieve the smallest or largest element in the tree ~\newline
@@ -48,7 +48,7 @@ Complete API reference with:\+
 
 \item ✅ Undo/\+\+Redo system ~\newline
 
-\item ✅ Tree merging with duplicate handling ~\newline
+\item ✅ Tree merging and splitting ~\newline
 
 \item ✅ Operator overloading for intuitive syntax ~\newline
 
@@ -66,7 +66,7 @@ Complete API reference with:\+
 \begin{DoxyItemize}
 \item 🖥️ Terminal UI (TUI) with color-\/coded menus ~\newline
 
-\item 🎨 Python Tkinter GUI with animations
+\item 🎨 Python Tkinter GUI with animations and collapsible sidebar
 \item 🎮 DirectX 11 + Im\+Gui GUI (Windows only) ~\newline
 
 \end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{Advanced Usage}{Advanced Usage}}\label{index_autotoc_md9}
@@ -205,6 +205,9 @@ Traversal  &O(n)  &O(n) for level-\/order  \\
 \DoxyCodeLine{tree2\ =\ sgt.ScapeGoatTree()}
 \DoxyCodeLine{tree2.insert\_batch([25,\ 35])}
 \DoxyCodeLine{merged\ =\ tree\ +\ tree2}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{\#\ Split\ tree}}
+\DoxyCodeLine{left\_tree,\ right\_tree\ =\ tree.Split(15)}
 
 \end{DoxyCode}
 \hypertarget{index_autotoc_md29}{}\doxysubsection{\texorpdfstring{C++ Interface}{C++ Interface}}\label{index_autotoc_md29}
@@ -227,6 +230,9 @@ Traversal  &O(n)  &O(n) for level-\/order  \\
 \DoxyCodeLine{\textcolor{comment}{//\ Undo/Redo}}
 \DoxyCodeLine{tree.\doxymbox{\hyperlink{class_scape_goat_tree_a693ee93867d1092ca56b98becfddb21d}{undo}}();}
 \DoxyCodeLine{tree.\doxymbox{\hyperlink{class_scape_goat_tree_aaa4bf81af689fa0a95ebc65eb20af91d}{redo}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Split\ tree}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ [left,\ right]\ =\ tree.\doxymbox{\hyperlink{class_scape_goat_tree_a1251f5818a9bf8b8770e819ab48812a4}{split}}(50);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ Range\ queries}}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ sum\ =\ tree.\doxymbox{\hyperlink{class_scape_goat_tree_a5e7459a77ee4685e0c81026c4a7faf12}{sumInRange}}(10,\ 50);}

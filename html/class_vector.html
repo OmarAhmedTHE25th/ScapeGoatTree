@@ -106,9 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8fc2e5d2a6f8e1cabb451e97dbccadeb" id="r_a8fc2e5d2a6f8e1cabb451e97dbccadeb"><td class="memItemLeft">T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8fc2e5d2a6f8e1cabb451e97dbccadeb">operator[]</a> (unsigned int index)</td></tr>
 <tr class="memitem:a3e6c5d82fa83b139b2f9da3b8574b182" id="r_a3e6c5d82fa83b139b2f9da3b8574b182"><td class="memItemLeft">const T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3e6c5d82fa83b139b2f9da3b8574b182">operator[]</a> (unsigned int index) const</td></tr>
 <tr class="memitem:a940f94b7c4a1c15a65a1ab6e13859dfe" id="r_a940f94b7c4a1c15a65a1ab6e13859dfe"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a940f94b7c4a1c15a65a1ab6e13859dfe">Vector</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;other)</td></tr>
-<tr class="memitem:abf0b69759f2c9c3a94f0107e4db4fdb6" id="r_abf0b69759f2c9c3a94f0107e4db4fdb6"><td class="memItemLeft"><a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abf0b69759f2c9c3a94f0107e4db4fdb6">operator=</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;)=delete</td></tr>
-<tr class="memitem:a3b1c243ee12512045d0565917f6da4f1" id="r_a3b1c243ee12512045d0565917f6da4f1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3b1c243ee12512045d0565917f6da4f1">Vector</a> (<a class="el" href="class_vector.html">Vector</a> &amp;&amp;)=delete</td></tr>
-<tr class="memitem:aa89ca406277be3246611b73d159ac08e" id="r_aa89ca406277be3246611b73d159ac08e"><td class="memItemLeft"><a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa89ca406277be3246611b73d159ac08e">operator=</a> (<a class="el" href="class_vector.html">Vector</a> &amp;&amp;)=delete</td></tr>
+<tr class="memitem:a2fe37b54a47d28015829196cb5abec05" id="r_a2fe37b54a47d28015829196cb5abec05"><td class="memItemLeft"><a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2fe37b54a47d28015829196cb5abec05">operator=</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;other)</td></tr>
+<tr class="memitem:a5ed9bb7852ccee071f8418d10182927f" id="r_a5ed9bb7852ccee071f8418d10182927f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5ed9bb7852ccee071f8418d10182927f">Vector</a> (<a class="el" href="class_vector.html">Vector</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memitem:ac7a5d1c7410208d7ce8f13497e31dd87" id="r_ac7a5d1c7410208d7ce8f13497e31dd87"><td class="memItemLeft"><a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac7a5d1c7410208d7ce8f13497e31dd87">operator=</a> (<a class="el" href="class_vector.html">Vector</a> &amp;&amp;other) noexcept</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -207,8 +207,8 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a3b1c243ee12512045d0565917f6da4f1" name="a3b1c243ee12512045d0565917f6da4f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b1c243ee12512045d0565917f6da4f1">&#9670;&#160;</a></span>Vector() <span class="overload">[3/3]</span></h2>
+<a id="a5ed9bb7852ccee071f8418d10182927f" name="a5ed9bb7852ccee071f8418d10182927f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ed9bb7852ccee071f8418d10182927f">&#9670;&#160;</a></span>Vector() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,13 +221,13 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::Vector </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -289,8 +289,8 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="abf0b69759f2c9c3a94f0107e4db4fdb6" name="abf0b69759f2c9c3a94f0107e4db4fdb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf0b69759f2c9c3a94f0107e4db4fdb6">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a2fe37b54a47d28015829196cb5abec05" name="a2fe37b54a47d28015829196cb5abec05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fe37b54a47d28015829196cb5abec05">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,21 +303,21 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_vector.html">Vector</a> &amp; <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aa89ca406277be3246611b73d159ac08e" name="aa89ca406277be3246611b73d159ac08e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa89ca406277be3246611b73d159ac08e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="ac7a5d1c7410208d7ce8f13497e31dd87" name="ac7a5d1c7410208d7ce8f13497e31dd87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7a5d1c7410208d7ce8f13497e31dd87">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,13 +330,13 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_vector.html">Vector</a> &amp; <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

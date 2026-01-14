@@ -30,12 +30,10 @@
   \usepackage{graphicx}
   \iftutex
     \usepackage{fontspec}
-  \setmainfont{Segoe UI Emoji}   % or any emoji-supporting font on your system
-  \defaultfontfeatures{Ligatures={TeX}}
+    \defaultfontfeatures{Ligatures={TeX}}
     \usepackage{unicode-math}
-
   \else
-
+    \usepackage[utf8]{inputenc}
   \fi
   \usepackage{makeidx}
   \PassOptionsToPackage{warn}{textcomp}
@@ -188,8 +186,7 @@
   \usepackage{caption}
   \captionsetup{labelsep=space,justification=centering,font={bf},singlelinecheck=off,skip=4pt,position=top}
   % in page table of contents
-  \IfFormatAtLeastTF{2023/05/01}{\usepackage[deeplevels]{etoc}}{\usepackage[deeplevels]{etoc_doxygen}
-  \usepackage{luacode}}
+  \IfFormatAtLeastTF{2023/05/01}{\usepackage[deeplevels]{etoc}}{\usepackage[deeplevels]{etoc_doxygen}}
   \etocsettocstyle{\doxytocparskip}{\doxynormalparskip}
   \etocsetlevel{subsubsubsection}{4}
   \etocsetlevel{subsubsubsubsection}{5}

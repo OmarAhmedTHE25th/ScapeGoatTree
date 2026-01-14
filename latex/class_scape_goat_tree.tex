@@ -14,6 +14,8 @@ class \doxymbox{\hyperlink{class_scape_goat_tree_1_1iterator}{iterator}}
 \item 
 \doxymbox{\hyperlink{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}{Scape\+Goat\+Tree}} ()
 \item 
+\doxymbox{\hyperlink{class_scape_goat_tree_aba977e7d7720532ba59c52b4949daa74}{Scape\+Goat\+Tree}} (double alpha)
+\item 
 void \doxymbox{\hyperlink{class_scape_goat_tree_ae0c57e0e8e419e1dc2bb01ea32d12f4b}{insert}} (T value)
 \item 
 void \doxymbox{\hyperlink{class_scape_goat_tree_a6bd78764375cfb22fa23166905bbd336}{insert\+Batch}} (const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&values)
@@ -23,6 +25,8 @@ bool \doxymbox{\hyperlink{class_scape_goat_tree_ad69b1a69c57ea4c80edf99628117132
 void \doxymbox{\hyperlink{class_scape_goat_tree_a8cbea8620cd09e7265904dd741e3a107}{delete\+Batch}} (const \doxymbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&values)
 \item 
 bool \doxymbox{\hyperlink{class_scape_goat_tree_aab92879a495e4402076f25cc5073734a}{search}} (const T \&key) const
+\item 
+\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree_ab7831a5d291e252f70e1ddd5cafc2ae4}{search}} (T \&key) const
 \item 
 void \doxymbox{\hyperlink{class_scape_goat_tree_a72ae50cdc7fd189b8bf69cdc105d1e42}{clear}} ()
 \item 
@@ -41,6 +45,12 @@ T \doxymbox{\hyperlink{class_scape_goat_tree_ab973a00d9840d4030491575805b234ad}{
 T \doxymbox{\hyperlink{class_scape_goat_tree_a860d6d999f3f0e9d85134ccc9812bc1f}{get\+Successor}} (T value) const
 \item 
 T \doxymbox{\hyperlink{class_scape_goat_tree_a321ca8990bc74819a98ee1779bab5671}{kth\+Smallest}} (int k) const
+\item 
+std::\+pair$<$ \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}, \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}} $>$ \doxymbox{\hyperlink{class_scape_goat_tree_a1251f5818a9bf8b8770e819ab48812a4}{split}} (T value)
+\item 
+int \doxymbox{\hyperlink{class_scape_goat_tree_a353a8b23b287c2c22c05436c457ef243}{update\+Size}} (\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}\&node)
+\item 
+void \doxymbox{\hyperlink{class_scape_goat_tree_a299502cd0fc5e0fe1316872140593120}{change\+Alpha}} (const double alpha)
 \item 
 std::\+string \doxymbox{\hyperlink{class_scape_goat_tree_a862c0af243dd64556a0a2520fd7cb450}{is\+Balanced}} () const
 \item 
@@ -99,6 +109,8 @@ using \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e2
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree_a1df46aa6ed84d442b7054706c7b6dda5}{find\+Traitor}} (\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
 \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree_a0643f7900ee1e6ae41b2481d80cd60c2}{rebuild\+Tree}} (int start, int \doxymbox{\hyperlink{class_scape_goat_tree_a8b1cac8bf771be540a77d22cade31bcc}{end}}, \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}parent\+\_\+node, T \texorpdfstring{$\ast$}{*}array)
 \item 
 void \doxymbox{\hyperlink{class_scape_goat_tree_a16b202af1e6fe5d1810ea896a504d96f}{inorder\+Traversal}} (const \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node, int \&i, T \texorpdfstring{$\ast$}{*}\&array) const
@@ -132,11 +144,9 @@ static int \doxymbox{\hyperlink{class_scape_goat_tree_a782133b48a6bd3ce3a005b802
 \item 
 static unsigned int \doxymbox{\hyperlink{class_scape_goat_tree_ad72e869e60dc11de5a030c71ea7284f9}{countN}} (const \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
 \item 
-static \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree_a12b0cf485978e4e6af7f6662874c569b}{find\+Traitor}} (\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
-\item 
 static void \doxymbox{\hyperlink{class_scape_goat_tree_a5dd3005987294a82a472eec572fb0f49}{postorder\+Traversal}} (const \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
 \item 
-static \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree_aa9b68cd169e9d3812066f9f4a821bd1c}{get\+Successor}} (\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+static \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree_a8ed9ab2125b733469dd71fa8357f29e1}{find\+Successor}} (\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -154,6 +164,8 @@ int \doxymbox{\hyperlink{class_scape_goat_tree_a134b09d057d18e54c028658c2170f9fa
 bool \doxymbox{\hyperlink{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}{is\+Undoing}} = false
 \item 
 int \doxymbox{\hyperlink{class_scape_goat_tree_a6f38e7d6f5ef89e8f3c460cf8c4273d3}{max\+\_\+nodes}} = 0
+\item 
+double \doxymbox{\hyperlink{class_scape_goat_tree_a7c1333963530cb80530f112b07eb9a90}{ALPHA}} = 2.\+0/\+3.\+0
 \end{DoxyCompactItemize}
 
 
@@ -174,21 +186,28 @@ using \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!ScapeGoatTree@{ScapeGoatTree}}
 \index{ScapeGoatTree@{ScapeGoatTree}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{ScapeGoatTree()}{ScapeGoatTree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\doxysubsubsection{\texorpdfstring{ScapeGoatTree()}{ScapeGoatTree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily \label{class_scape_goat_tree_a8886cd0154be07a62ba8915f60412089} 
 template$<$typename T$>$ \\
 \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+\+Scape\+Goat\+Tree (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-Default constructor for an empty Scapegoat Tree. \Hypertarget{class_scape_goat_tree_a91232a4f673e05743fc4cf2d9fa58758}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!ScapeGoatTree@{ScapeGoatTree}}
+Default constructor for an empty Scapegoat Tree. \Hypertarget{class_scape_goat_tree_aba977e7d7720532ba59c52b4949daa74}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!ScapeGoatTree@{ScapeGoatTree}}
 \index{ScapeGoatTree@{ScapeGoatTree}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{ScapeGoatTree()}{ScapeGoatTree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+\doxysubsubsection{\texorpdfstring{ScapeGoatTree()}{ScapeGoatTree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_scape_goat_tree_aba977e7d7720532ba59c52b4949daa74} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+\+Scape\+Goat\+Tree (\begin{DoxyParamCaption}\item[{double}]{alpha}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_scape_goat_tree_a91232a4f673e05743fc4cf2d9fa58758}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!ScapeGoatTree@{ScapeGoatTree}}
+\index{ScapeGoatTree@{ScapeGoatTree}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ScapeGoatTree()}{ScapeGoatTree()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily \label{class_scape_goat_tree_a91232a4f673e05743fc4cf2d9fa58758} 
 template$<$typename T$>$ \\
 \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+\+Scape\+Goat\+Tree (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$ \&}]{Otree}{}\end{DoxyParamCaption})}
 
 Copy constructor for deep copying another \doxylink{class_scape_goat_tree}{Scape\+Goat\+Tree}. \Hypertarget{class_scape_goat_tree_a4becc5f2153ab4c906deaff38d38ee63}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!ScapeGoatTree@{ScapeGoatTree}}
 \index{ScapeGoatTree@{ScapeGoatTree}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{ScapeGoatTree()}{ScapeGoatTree()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+\doxysubsubsection{\texorpdfstring{ScapeGoatTree()}{ScapeGoatTree()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
 {\footnotesize\ttfamily \label{class_scape_goat_tree_a4becc5f2153ab4c906deaff38d38ee63} 
 template$<$typename T$>$ \\
 \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+\+Scape\+Goat\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
@@ -218,6 +237,13 @@ Compares two subtrees for structural and value equality. \Hypertarget{class_scap
 {\footnotesize\ttfamily \label{class_scape_goat_tree_a4c5348d4369d8ee408d594ba099d22f6} 
 template$<$typename T$>$ \\
 \doxymbox{\hyperlink{class_scape_goat_tree_1_1iterator}{iterator}} \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_scape_goat_tree_a299502cd0fc5e0fe1316872140593120}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!changeAlpha@{changeAlpha}}
+\index{changeAlpha@{changeAlpha}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{changeAlpha()}{changeAlpha()}}
+{\footnotesize\ttfamily \label{class_scape_goat_tree_a299502cd0fc5e0fe1316872140593120} 
+template$<$typename T$>$ \\
+void \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+change\+Alpha (\begin{DoxyParamCaption}\item[{const double}]{alpha}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{class_scape_goat_tree_a72ae50cdc7fd189b8bf69cdc105d1e42}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!clear@{clear}}
 \index{clear@{clear}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
@@ -317,12 +343,19 @@ template$<$typename T$>$ \\
 template$<$typename T$>$ \\
 int \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+findH (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
-Calculates the height of a given node in the tree. \Hypertarget{class_scape_goat_tree_a12b0cf485978e4e6af7f6662874c569b}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!findTraitor@{findTraitor}}
+Calculates the height of a given node in the tree. \Hypertarget{class_scape_goat_tree_a8ed9ab2125b733469dd71fa8357f29e1}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!findSuccessor@{findSuccessor}}
+\index{findSuccessor@{findSuccessor}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findSuccessor()}{findSuccessor()}}
+{\footnotesize\ttfamily \label{class_scape_goat_tree_a8ed9ab2125b733469dd71fa8357f29e1} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+find\+Successor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_scape_goat_tree_a1df46aa6ed84d442b7054706c7b6dda5}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!findTraitor@{findTraitor}}
 \index{findTraitor@{findTraitor}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{findTraitor()}{findTraitor()}}
-{\footnotesize\ttfamily \label{class_scape_goat_tree_a12b0cf485978e4e6af7f6662874c569b} 
+{\footnotesize\ttfamily \label{class_scape_goat_tree_a1df46aa6ed84d442b7054706c7b6dda5} 
 template$<$typename T$>$ \\
-\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+find\+Traitor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+find\+Traitor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 Finds the highest node that violates the alpha-\/weight-\/balance property. \Hypertarget{class_scape_goat_tree_ab973a00d9840d4030491575805b234ad}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!getMax@{getMax}}
 \index{getMax@{getMax}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
@@ -347,17 +380,10 @@ const \doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e2
 
 Returns a pointer to the root node of the tree. \Hypertarget{class_scape_goat_tree_a860d6d999f3f0e9d85134ccc9812bc1f}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!getSuccessor@{getSuccessor}}
 \index{getSuccessor@{getSuccessor}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{getSuccessor()}{getSuccessor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{getSuccessor()}{getSuccessor()}}
 {\footnotesize\ttfamily \label{class_scape_goat_tree_a860d6d999f3f0e9d85134ccc9812bc1f} 
 template$<$typename T$>$ \\
 T \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+get\+Successor (\begin{DoxyParamCaption}\item[{T}]{value}{}\end{DoxyParamCaption}) const}
-
-\Hypertarget{class_scape_goat_tree_aa9b68cd169e9d3812066f9f4a821bd1c}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!getSuccessor@{getSuccessor}}
-\index{getSuccessor@{getSuccessor}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{getSuccessor()}{getSuccessor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{class_scape_goat_tree_aa9b68cd169e9d3812066f9f4a821bd1c} 
-template$<$typename T$>$ \\
-\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+get\+Successor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 \Hypertarget{class_scape_goat_tree_a3c806f03d92710ac84cda07d32fa09d7}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!getThreshold@{getThreshold}}
 \index{getThreshold@{getThreshold}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
@@ -536,12 +562,26 @@ void \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\
 
 Initiates a subtree rebuild starting from the scapegoat node. \Hypertarget{class_scape_goat_tree_aab92879a495e4402076f25cc5073734a}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!search@{search}}
 \index{search@{search}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{search()}{search()}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{class_scape_goat_tree_aab92879a495e4402076f25cc5073734a} 
 template$<$typename T$>$ \\
 bool \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+search (\begin{DoxyParamCaption}\item[{const T \&}]{key}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
 
-Searches for a specific value in the tree. \Hypertarget{class_scape_goat_tree_a02cfe4be0ba3451189766cdaa7f3cebb}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!sumHelper@{sumHelper}}
+Searches for a specific value in the tree. \Hypertarget{class_scape_goat_tree_ab7831a5d291e252f70e1ddd5cafc2ae4}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!search@{search}}
+\index{search@{search}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_scape_goat_tree_ab7831a5d291e252f70e1ddd5cafc2ae4} 
+template$<$typename T$>$ \\
+\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+search (\begin{DoxyParamCaption}\item[{T \&}]{key}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_scape_goat_tree_a1251f5818a9bf8b8770e819ab48812a4}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!split@{split}}
+\index{split@{split}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily \label{class_scape_goat_tree_a1251f5818a9bf8b8770e819ab48812a4} 
+template$<$typename T$>$ \\
+std::\+pair$<$ \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}, \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}} $>$ \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+split (\begin{DoxyParamCaption}\item[{T}]{value}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_scape_goat_tree_a02cfe4be0ba3451189766cdaa7f3cebb}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!sumHelper@{sumHelper}}
 \index{sumHelper@{sumHelper}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{sumHelper()}{sumHelper()}}
 {\footnotesize\ttfamily \label{class_scape_goat_tree_a02cfe4be0ba3451189766cdaa7f3cebb} 
@@ -562,6 +602,13 @@ T \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+su
 template$<$typename T$>$ \\
 void \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+undo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+\Hypertarget{class_scape_goat_tree_a353a8b23b287c2c22c05436c457ef243}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!updateSize@{updateSize}}
+\index{updateSize@{updateSize}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{updateSize()}{updateSize()}}
+{\footnotesize\ttfamily \label{class_scape_goat_tree_a353a8b23b287c2c22c05436c457ef243} 
+template$<$typename T$>$ \\
+int \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+update\+Size (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_scape_goat_tree_a8b76d07f341fc9953a411adf08a6e254}{Tree\+Node}} \texorpdfstring{$\ast$}{*}\&}]{node}{}\end{DoxyParamCaption})}
+
 \Hypertarget{class_scape_goat_tree_a6a1850d6bcb416d7e3ed03f2c22b8ad6}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!valuesInRange@{valuesInRange}}
 \index{valuesInRange@{valuesInRange}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{valuesInRange()}{valuesInRange()}}
@@ -574,6 +621,13 @@ template$<$typename T$>$ \\
 \label{doc-variable-members}
 \Hypertarget{class_scape_goat_tree_doc-variable-members}
 \doxysubsection{Member Data Documentation}
+\Hypertarget{class_scape_goat_tree_a7c1333963530cb80530f112b07eb9a90}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!ALPHA@{ALPHA}}
+\index{ALPHA@{ALPHA}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ALPHA}{ALPHA}}
+{\footnotesize\ttfamily \label{class_scape_goat_tree_a7c1333963530cb80530f112b07eb9a90} 
+template$<$typename T$>$ \\
+double \doxymbox{\hyperlink{class_scape_goat_tree}{Scape\+Goat\+Tree}}$<$ T $>$::\+\+ALPHA = 2.\+0/\+3.\+0\hspace{0.3cm}{\ttfamily [private]}}
+
 \Hypertarget{class_scape_goat_tree_a08e19df46389972e729ceac454c7ab09}\index{ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}!isUndoing@{isUndoing}}
 \index{isUndoing@{isUndoing}!ScapeGoatTree$<$ T $>$@{ScapeGoatTree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{isUndoing}{isUndoing}}
