@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['node_0',['Node',['../classNode.html',1,'']]]
+  ['qnode_0',['QNode',['../classQNode.html',1,'']]],
+  ['queue_1',['Queue',['../classQueue.html',1,'']]]
 ];

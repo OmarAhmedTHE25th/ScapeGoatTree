@@ -109,16 +109,16 @@ $(document).ready(function(){initNavTree('stack_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classStack.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="classStack.html">Stack</a> {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classStack.html#a1176225c4473f0495e089d22ff80d6ec">   12</a></span>    <a class="code hl_class" href="classVector.html">Vector&lt;T&gt;</a> <a class="code hl_variable" href="classStack.html#a1176225c4473f0495e089d22ff80d6ec">data</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classStack.html#a1176225c4473f0495e089d22ff80d6ec">   12</a></span>    <a class="code hl_class" href="classQNode.html">Vector&lt;T&gt;</a> <a class="code hl_variable" href="classStack.html#a1176225c4473f0495e089d22ff80d6ec">data</a>;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classStack.html#a7b0f0506fd1cd7ec5756bb2b51ff908d">   17</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classStack.html#a7b0f0506fd1cd7ec5756bb2b51ff908d">push</a>(<span class="keyword">const</span> T&amp; value) {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classStack.html#a7b0f0506fd1cd7ec5756bb2b51ff908d">   17</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classStack.html#a7b0f0506fd1cd7ec5756bb2b51ff908d">push</a>(<span class="keyword">const</span> <a class="code hl_class" href="classQNode.html">T</a>&amp; value) {</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_variable" href="classStack.html#a1176225c4473f0495e089d22ff80d6ec">data</a>.push_back(value);</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
 </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classStack.html#aa2ea0e8c3293648589dd734d52487408">   25</a></span>    T <a class="code hl_function" href="classStack.html#aa2ea0e8c3293648589dd734d52487408">pop</a>() {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classStack.html#aa2ea0e8c3293648589dd734d52487408">   25</a></span>    <a class="code hl_class" href="classQNode.html">T</a> <a class="code hl_function" href="classStack.html#aa2ea0e8c3293648589dd734d52487408">pop</a>() {</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classStack.html#a1176225c4473f0495e089d22ff80d6ec">data</a>.size() == 0) {</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;pop on empty Stack&quot;</span>);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        }</div>
@@ -126,19 +126,19 @@ $(document).ready(function(){initNavTree('stack_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    }</div>
 </div>
 <div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classStack.html#ad461f6de40c8672dbf743068f4515061">   31</a></span>    T <a class="code hl_function" href="classStack.html#ad461f6de40c8672dbf743068f4515061">top</a>() {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classStack.html#ad461f6de40c8672dbf743068f4515061">   31</a></span>    <a class="code hl_class" href="classQNode.html">T</a> <a class="code hl_function" href="classStack.html#ad461f6de40c8672dbf743068f4515061">top</a>() {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classStack.html#a1176225c4473f0495e089d22ff80d6ec">data</a>.data[0];</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
 </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classStack.html#a9fc04e1ddc725589f28249adf4cd31d7">   38</a></span>    [[nodiscard]] <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classStack.html#a9fc04e1ddc725589f28249adf4cd31d7">size</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classStack.html#a9fc04e1ddc725589f28249adf4cd31d7">   38</a></span>    [[<a class="code hl_class" href="classQNode.html">nodiscard</a>]] <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classStack.html#a9fc04e1ddc725589f28249adf4cd31d7">size</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classStack.html#a1176225c4473f0495e089d22ff80d6ec">data</a>.size();</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
 </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classStack.html#a01e885dfcc4ee3282ce581e178354310">   45</a></span>    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classStack.html#a01e885dfcc4ee3282ce581e178354310">isEmpty</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classStack.html#a01e885dfcc4ee3282ce581e178354310">   45</a></span>    [[<a class="code hl_class" href="classQNode.html">nodiscard</a>]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classStack.html#a01e885dfcc4ee3282ce581e178354310">isEmpty</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classStack.html#a1176225c4473f0495e089d22ff80d6ec">data</a>.size() == 0;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
 </div>
@@ -147,6 +147,7 @@ $(document).ready(function(){initNavTree('stack_8hpp_source.html',''); initResiz
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#endif </span><span class="comment">//SCAPEGOATPROJECT_STACK_HPP</span></div>
+<div class="ttc" id="aclassQNode_html"><div class="ttname"><a href="classQNode.html">QNode</a></div><div class="ttdef"><b>Definition</b> queue.hpp:9</div></div>
 <div class="ttc" id="aclassStack_html"><div class="ttname"><a href="classStack.html">Stack</a></div><div class="ttdef"><b>Definition</b> stack.hpp:11</div></div>
 <div class="ttc" id="aclassStack_html_a01e885dfcc4ee3282ce581e178354310"><div class="ttname"><a href="classStack.html#a01e885dfcc4ee3282ce581e178354310">Stack::isEmpty</a></div><div class="ttdeci">bool isEmpty() const</div><div class="ttdef"><b>Definition</b> stack.hpp:45</div></div>
 <div class="ttc" id="aclassStack_html_a1176225c4473f0495e089d22ff80d6ec"><div class="ttname"><a href="classStack.html#a1176225c4473f0495e089d22ff80d6ec">Stack::data</a></div><div class="ttdeci">Vector&lt; T &gt; data</div><div class="ttdef"><b>Definition</b> stack.hpp:12</div></div>
@@ -154,7 +155,6 @@ $(document).ready(function(){initNavTree('stack_8hpp_source.html',''); initResiz
 <div class="ttc" id="aclassStack_html_a9fc04e1ddc725589f28249adf4cd31d7"><div class="ttname"><a href="classStack.html#a9fc04e1ddc725589f28249adf4cd31d7">Stack::size</a></div><div class="ttdeci">unsigned int size() const</div><div class="ttdef"><b>Definition</b> stack.hpp:38</div></div>
 <div class="ttc" id="aclassStack_html_aa2ea0e8c3293648589dd734d52487408"><div class="ttname"><a href="classStack.html#aa2ea0e8c3293648589dd734d52487408">Stack::pop</a></div><div class="ttdeci">T pop()</div><div class="ttdef"><b>Definition</b> stack.hpp:25</div></div>
 <div class="ttc" id="aclassStack_html_ad461f6de40c8672dbf743068f4515061"><div class="ttname"><a href="classStack.html#ad461f6de40c8672dbf743068f4515061">Stack::top</a></div><div class="ttdeci">T top()</div><div class="ttdef"><b>Definition</b> stack.hpp:31</div></div>
-<div class="ttc" id="aclassVector_html"><div class="ttname"><a href="classVector.html">Vector</a></div><div class="ttdef"><b>Definition</b> vector.hpp:6</div></div>
 <div class="ttc" id="avector_8hpp_html"><div class="ttname"><a href="vector_8hpp.html">vector.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

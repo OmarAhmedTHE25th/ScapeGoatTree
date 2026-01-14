@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isundoing_0',['isUndoing',['../classScapeGoatTree.html#a08e19df46389972e729ceac454c7ab09',1,'ScapeGoatTree']]]
+  ['max_5fnodes_0',['max_nodes',['../classScapeGoatTree.html#a6f38e7d6f5ef89e8f3c460cf8c4273d3',1,'ScapeGoatTree']]]
 ];

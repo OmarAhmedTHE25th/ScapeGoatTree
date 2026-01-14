@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['left_0',['left',['../classNode.html#a6596c7ac17ecafff5522310c0da3a828',1,'Node']]]
+  ['nelements_0',['nElements',['../classVector.html#a562a1e4730448413c8061310a755d3fe',1,'Vector']]],
+  ['next_1',['next',['../classQNode.html#af2fa4048dcb4810318ca76fcc9a6ff02',1,'QNode']]],
+  ['nnodes_2',['nnodes',['../classQueue.html#a7aedf6d9a3feb07f564b9e6d0a4391c9',1,'Queue::nNodes'],['../classScapeGoatTree.html#a7f64246bafbf7b413859d5059cde45c4',1,'ScapeGoatTree::nNodes']]]
 ];

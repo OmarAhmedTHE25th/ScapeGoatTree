@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['long_0',['Long',['../iTree_8cpp.html#aecb03d8527063407fc348ced1d1f193f',1,'iTree.cpp']]]
+  ['treenode_0',['TreeNode',['../classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254',1,'ScapeGoatTree']]]
 ];
