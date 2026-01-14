@@ -135,7 +135,7 @@ Core Tree Features</h2>
 </li>
 <li>✅ Undo/Redo system <br  />
 </li>
-<li>✅ Tree merging with duplicate handling <br  />
+<li>✅ Tree merging and splitting <br  />
 </li>
 <li>✅ Operator overloading for intuitive syntax <br  />
 </li>
@@ -155,7 +155,7 @@ User Interfaces</h2>
 <ul>
 <li>🖥️ Terminal UI (TUI) with color-coded menus <br  />
 </li>
-<li>🎨 Python Tkinter GUI with animations</li>
+<li>🎨 Python Tkinter GUI with animations and collapsible sidebar</li>
 <li>🎮 DirectX 11 + ImGui GUI (Windows only) <br  />
 </li>
 </ul>
@@ -278,6 +278,9 @@ Python Interface</h2>
 <div class="line">tree2 = sgt.ScapeGoatTree()</div>
 <div class="line">tree2.insert_batch([25, 35])</div>
 <div class="line">merged = tree + tree2</div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># Split tree</span></div>
+<div class="line">left_tree, right_tree = tree.Split(15)</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md29"></a>
 C++ Interface</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ScapeGoatTree_8hpp.html">ScapeGoatTree.hpp</a>&quot;</span></div>
@@ -298,11 +301,15 @@ C++ Interface</h2>
 <div class="line">tree.<a class="code hl_function" href="classScapeGoatTree.html#a693ee93867d1092ca56b98becfddb21d">undo</a>();</div>
 <div class="line">tree.<a class="code hl_function" href="classScapeGoatTree.html#aaa4bf81af689fa0a95ebc65eb20af91d">redo</a>();</div>
 <div class="line"> </div>
+<div class="line"><span class="comment">// Split tree</span></div>
+<div class="line"><span class="keyword">auto</span> [left, right] = tree.<a class="code hl_function" href="classScapeGoatTree.html#a1251f5818a9bf8b8770e819ab48812a4">split</a>(50);</div>
+<div class="line"> </div>
 <div class="line"><span class="comment">// Range queries</span></div>
 <div class="line"><span class="keywordtype">int</span> sum = tree.<a class="code hl_function" href="classScapeGoatTree.html#a5e7459a77ee4685e0c81026c4a7faf12">sumInRange</a>(10, 50);</div>
 <div class="line"><a class="code hl_class" href="classVector.html">Vector&lt;int&gt;</a> values = tree.<a class="code hl_function" href="classScapeGoatTree.html#a6a1850d6bcb416d7e3ed03f2c22b8ad6">valuesInRange</a>(10, 50);</div>
 <div class="ttc" id="aScapeGoatTree_8hpp_html"><div class="ttname"><a href="ScapeGoatTree_8hpp.html">ScapeGoatTree.hpp</a></div></div>
 <div class="ttc" id="aclassScapeGoatTree_html"><div class="ttname"><a href="classScapeGoatTree.html">ScapeGoatTree</a></div><div class="ttdef"><b>Definition</b> ScapeGoatTree.hpp:49</div></div>
+<div class="ttc" id="aclassScapeGoatTree_html_a1251f5818a9bf8b8770e819ab48812a4"><div class="ttname"><a href="classScapeGoatTree.html#a1251f5818a9bf8b8770e819ab48812a4">ScapeGoatTree::split</a></div><div class="ttdeci">std::pair&lt; ScapeGoatTree, ScapeGoatTree &gt; split(T value)</div></div>
 <div class="ttc" id="aclassScapeGoatTree_html_a5e7459a77ee4685e0c81026c4a7faf12"><div class="ttname"><a href="classScapeGoatTree.html#a5e7459a77ee4685e0c81026c4a7faf12">ScapeGoatTree::sumInRange</a></div><div class="ttdeci">T sumInRange(T min, T max)</div></div>
 <div class="ttc" id="aclassScapeGoatTree_html_a693ee93867d1092ca56b98becfddb21d"><div class="ttname"><a href="classScapeGoatTree.html#a693ee93867d1092ca56b98becfddb21d">ScapeGoatTree::undo</a></div><div class="ttdeci">void undo()</div></div>
 <div class="ttc" id="aclassScapeGoatTree_html_a6a1850d6bcb416d7e3ed03f2c22b8ad6"><div class="ttname"><a href="classScapeGoatTree.html#a6a1850d6bcb416d7e3ed03f2c22b8ad6">ScapeGoatTree::valuesInRange</a></div><div class="ttdeci">Vector&lt; T &gt; valuesInRange(T min, T max)</div></div>
