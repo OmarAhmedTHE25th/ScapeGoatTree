@@ -79,7 +79,7 @@ class ScapeGoatTree {
 
         // pre-increment
         iterator& operator++() {
-            curr = getSuccessor(curr);
+            curr = findSuccessor(curr);
             return *this;
         }
 

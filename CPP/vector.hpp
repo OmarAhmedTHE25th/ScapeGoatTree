@@ -81,9 +81,51 @@ public:
     friend class ScapeGoatTree;
 
     Vector(const Vector& other) {
-      for (int i =0; i<other.nElements;i++) {
-          push_back(other.data[i]);
-      }
+        nElements = other.nElements;
+        _size = other._size;
+        data = new T[_size];
+        for (int i = 0; i < nElements; i++) {
+            data[i] = other.data[i];
+        }
+    }
+
+    // Copy assignment operator
+    Vector& operator=(const Vector& other) {
+        if (this == &other) return *this; // self-assignment check
+
+        delete[] data; // free old memory
+
+        nElements = other.nElements;
+        _size = other._size;
+        data = new T[_size];
+        for (int i = 0; i < nElements; i++) {
+            data[i] = other.data[i];
+        }
+        return *this;
+    }
+    // Move constructor
+    Vector(Vector&& other) noexcept {
+        data = other.data;
+        nElements = other.nElements;
+        _size = other._size;
+
+        other.data = nullptr;
+        other.nElements = 0;
+        other._size = 0;
+    }
+    Vector& operator=(Vector&& other) noexcept {
+        if (this != &other) {
+            delete[] data;        // free old memory
+
+            data = other.data;
+            nElements = other.nElements;
+            _size = other._size;
+
+            other.data = nullptr;
+            other.nElements = 0;
+            other._size = 0;
+        }
+        return *this;
     }
 
 };

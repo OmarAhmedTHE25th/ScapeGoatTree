@@ -50,7 +50,7 @@ return t.search(val);   // call the bool version
         .def("GetSuccessor", &ScapeGoatTree<Type>::getSuccessor)
         .def("GetMin", &ScapeGoatTree<Type>::getMin)
         .def("GetMax", &ScapeGoatTree<Type>::getMax)
-
+        .def("Split",&ScapeGoatTree<Type>::split)
         .def(py::self + py::self)
         .def(py::self == py::self)
 

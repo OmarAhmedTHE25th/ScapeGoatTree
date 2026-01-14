@@ -181,7 +181,24 @@ class AnimationManager:
             self.gui.root.after(self.animation_speed, lambda: delete_step(index + 1))
 
         delete_step(0)
+    def animate_split(self, value, callback=None):
+        """Animate the splitting of a tree at a value"""
+        if self.is_animating:
+            return
 
+        self.is_animating = True
+        # Highlight the 'pivot' node that will be sacrificed for the split
+        self.gui.draw_tree(highlight_val=value, highlight_color="#ee82ee")
+        self.gui.log(f"Splitting tree at value {value}...")
+
+        def perform_split():
+            # This callback will handle the actual C++ call and GUI refresh
+            if callback:
+                callback()
+            self.is_animating = False
+
+        # Short delay so the user sees the 'pivot' before it splits
+        self.gui.root.after(1000, perform_split)
     def animate_batch_operation(self, values, operation="insert"):
         """Animate a batch of insertions or deletions"""
         if self.is_animating or not values:
@@ -442,6 +459,8 @@ class ScapeGoatGUI:
         self.adv_frame.grid(row=0, column=2, sticky="nsw", padx=10, pady=10)
 
         tk.Button(self.adv_frame, text="Merge A+B -> A", command=self.cmd_merge, width=15, bg="lightblue").pack(pady=2)
+        tk.Button(self.adv_frame, text="✂️ Split Active", command=self.cmd_split,
+          width=15, bg="plum").pack(pady=2)
         tk.Button(self.adv_frame, text="Compare A == B", command=self.cmd_compare, width=15).pack(pady=2)
         tk.Button(self.adv_frame, text="Is Empty?", command=self.cmd_isempty, width=15).pack(pady=2)
         tk.Button(self.adv_frame, text="Show Logs/Console", command=lambda: self.log_win.show(), width=15).pack(pady=2)
@@ -719,6 +738,32 @@ class ScapeGoatGUI:
             self.draw_tree(highlight_val=res, highlight_color="#da70d6")
         except Exception as e:
             self.log(f"❌ Error: {e}")
+    def cmd_split(self):
+        val = self.get_val()
+        if val is None:
+            self.log("❌ Error: Enter a value to split at.")
+            return
+
+        def handle_split_logic():
+            try:
+                # Assuming your C++ binding returns a tuple (leftTree, rightTree)
+                # and you are splitting the currently active tree
+                active_tree = self.get_active_tree()
+                tree_left, tree_right = active_tree.Split(val)
+
+                # Update our Python references
+                self.treeA = tree_left
+                self.treeB = tree_right
+
+                self.log(f"✂️ Split complete! Tree A = elements < {val}, Tree B = elements > {val}")
+                self.draw_tree()
+            except Exception as e:
+                self.log(f"❌ Split Error: {e}")
+
+        if self.animation_enabled.get():
+            self.animator.animate_split(val, handle_split_logic)
+        else:
+            handle_split_logic()
     # ============================================
         # DRAWING ENGINE
     # ============================================

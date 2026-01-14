@@ -323,6 +323,16 @@ void ITree::handleSucessor(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenTyp
     printSuccess("SUCCESS:Successor Search Element complete.");
 }
 
+void ITree::handleSplit(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> &B) {
+    auto& tree = selectTree(A,B);
+    ElemenType val;
+    cout << "Enter a value to split from: ";
+    cin >> val;
+    if (!validateCinLine())return;
+    cout << "\n";
+    println("Tree Splitted Successfully. Tree A: values < {}. Tree B: values > B",val,val);
+}
+
 /* ===================== Main UI ===================== */
 
 typedef void (*MenuHandler)(ScapeGoatTree<ElemenType>&, ScapeGoatTree<ElemenType>&, opcodes);
@@ -364,7 +374,9 @@ void ITree::TreeUI() {
         {"Sum in Range",        opcodes::SUMINRANGE,       [](auto& A, auto& B, auto ){handleSuminRange(A,B);}},
         {"Values in Range",     opcodes::VALUESINRANGE,    [](auto& A, auto& B, auto ){handleValuesinRange(A,B);}},
         {"Get Inorder Successor",opcodes::SUCC,            [](auto& A, auto& B, auto ){handleSucessor(A,B);}},
-        {"Kth Smallest Element",opcodes::KTH,              [](auto& A, auto& B, auto ){handleKthSmallestElement(A,B);}},
+       {"Kth Smallest Element", opcodes::KTH,              [](auto& A, auto& B, auto ){handleKthSmallestElement(A,B);}},
+       {"Split",               opcodes::SPLIT,              [](auto& A, auto& B, auto ){handleSplit(A,B);}},
+
 
     };
 

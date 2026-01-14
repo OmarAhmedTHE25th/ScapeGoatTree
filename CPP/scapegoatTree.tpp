@@ -828,7 +828,7 @@ template<typename T>
 Vector<T> ScapeGoatTree<T>::valuesInRange(T min, T max) {
     Vector<T>range;
     rangeHelper(root,min,max,range);
-    return  std::move(range);;
+    return  std::move(range);
 }
 //leftmost in the right subtree.
 template<typename T>
@@ -911,8 +911,10 @@ std::pair<ScapeGoatTree<T>, ScapeGoatTree<T> > ScapeGoatTree<T>::split(T value) 
     if (!node)return {ScapeGoatTree{}, ScapeGoatTree{}};
     ScapeGoatTree tree1;
     ScapeGoatTree tree2;
-    if (node->left)node->left->parent = nullptr;
-   if (node->right) node->right->parent = nullptr;
+    if (TreeNode* parent = node->parent) {
+        if (parent->left == node) parent->left = nullptr;
+        if (parent->right == node) parent->right = nullptr;
+    }
     tree1.root = node->left;
     tree2.root = node->right;
     updateSize(tree1.root);
@@ -930,7 +932,6 @@ std::pair<ScapeGoatTree<T>, ScapeGoatTree<T> > ScapeGoatTree<T>::split(T value) 
     tree2.root = rebuildTree(0, j-1,nullptr,array2);
     delete[] array1;
     delete[] array2;
-    delete node;
     return {tree1,tree2};
 }
 
