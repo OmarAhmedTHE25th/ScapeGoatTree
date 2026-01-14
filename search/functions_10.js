@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scapegoattree_0',['scapegoattree',['../classScapeGoatTree.html#a8886cd0154be07a62ba8915f60412089',1,'ScapeGoatTree::ScapeGoatTree()'],['../classScapeGoatTree.html#a91232a4f673e05743fc4cf2d9fa58758',1,'ScapeGoatTree::ScapeGoatTree(const ScapeGoatTree &amp;Otree)'],['../classScapeGoatTree.html#a4becc5f2153ab4c906deaff38d38ee63',1,'ScapeGoatTree::ScapeGoatTree(ScapeGoatTree &amp;&amp;other) noexcept']]],
+  ['scapegoattree_0',['scapegoattree',['../classScapeGoatTree.html#a8886cd0154be07a62ba8915f60412089',1,'ScapeGoatTree::ScapeGoatTree()'],['../classScapeGoatTree.html#aba977e7d7720532ba59c52b4949daa74',1,'ScapeGoatTree::ScapeGoatTree(double alpha)'],['../classScapeGoatTree.html#a91232a4f673e05743fc4cf2d9fa58758',1,'ScapeGoatTree::ScapeGoatTree(const ScapeGoatTree &amp;Otree)'],['../classScapeGoatTree.html#a4becc5f2153ab4c906deaff38d38ee63',1,'ScapeGoatTree::ScapeGoatTree(ScapeGoatTree &amp;&amp;other) noexcept']]],
   ['search_1',['search',['../classScapeGoatTree.html#aab92879a495e4402076f25cc5073734a',1,'ScapeGoatTree::search(const T &amp;key) const'],['../classScapeGoatTree.html#ab7831a5d291e252f70e1ddd5cafc2ae4',1,'ScapeGoatTree::search(T &amp;key) const']]],
   ['selecttree_2',['selectTree',['../classITree.html#a00555367ee0e45792007d5ba0bd83d9c',1,'ITree']]],
   ['size_3',['size',['../classQueue.html#a504eb9d0777fb73f99d87a19b7c25c2a',1,'Queue::size()'],['../classStack.html#a9fc04e1ddc725589f28249adf4cd31d7',1,'Stack::size()'],['../classVector.html#a5214a382564aedc712b609416aa3b7b1',1,'Vector::size()']]],

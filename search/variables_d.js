@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['size_0',['size',['../classNode.html#a6993bad98a83cdf991cf851aacceb187',1,'Node']]]
+  ['rebuildcount_0',['rebuildCount',['../classScapeGoatTree.html#a134b09d057d18e54c028658c2170f9fa',1,'ScapeGoatTree']]],
+  ['red_1',['RED',['../iTree_8cpp.html#ab84a8b06714421dcae7acf288a7b61a0',1,'iTree.cpp']]],
+  ['redostack_2',['redoStack',['../classScapeGoatTree.html#a39698cf2674b3a6e908ee7bbda1c78ba',1,'ScapeGoatTree']]],
+  ['reset_3',['RESET',['../iTree_8cpp.html#a9a31596d4859c8ad599295239748e3dc',1,'iTree.cpp']]],
+  ['right_4',['right',['../classNode.html#a4009a1138f2f04372037fbec63406f11',1,'Node']]],
+  ['root_5',['root',['../classScapeGoatTree.html#aa10d7d604b724dcf6bc245b859431951',1,'ScapeGoatTree']]]
 ];
