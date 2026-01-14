@@ -2540,6 +2540,8 @@ EXPAND_AS_DEFINED      =
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
 SKIP_FUNCTION_MACROS   = YES
+FILE_PATTERNS = *.hpp *.tpp
+EXTENSION_MAPPING = tpp=C++
 
 #---------------------------------------------------------------------------
 # Configuration options related to external references
