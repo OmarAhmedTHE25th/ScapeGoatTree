@@ -25,6 +25,7 @@ var iTree_8hpp =
       [ "MIN", "iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aace31e2a082d17e038fcc6e3006166653", null ],
       [ "MAX", "iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aa26a4b44a837bf97b972628509912b4a5", null ],
       [ "KTH", "iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aa50912fdb4fb2b474efac57853b674bfa", null ],
-      [ "SUCC", "iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aa32b7aa62940d5edc65dbaf8a58418558", null ]
+      [ "SUCC", "iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aa32b7aa62940d5edc65dbaf8a58418558", null ],
+      [ "SPLIT", "iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aa913bcc607ae0d97776698d9ed424be6a", null ]
     ] ]
 ];

@@ -10,9 +10,10 @@ var searchData=
   ['handleoperatorcompare_7',['handleOperatorCompare',['../classITree.html#a7e2087ddd305237aa7da44097b5a8eba',1,'ITree']]],
   ['handleoperatorempty_8',['handleOperatorEmpty',['../classITree.html#a33b9fa40706213d348e2be8795c3ecc6',1,'ITree']]],
   ['handleoperatormerge_9',['handleOperatorMerge',['../classITree.html#aa985fe8b82032b4bf268532844831ede',1,'ITree']]],
-  ['handlesucessor_10',['handleSucessor',['../classITree.html#a6a95fbe5f40a349d90503be8e6f1b6af',1,'ITree']]],
-  ['handlesuminrange_11',['handleSuminRange',['../classITree.html#a38a1854f05ff708458e386a35d4e6dd7',1,'ITree']]],
-  ['handleundoredo_12',['handleUndoRedo',['../classITree.html#a077e3978accea9212146621f6363d59e',1,'ITree']]],
-  ['handlevaluesinrange_13',['handleValuesinRange',['../classITree.html#accddd94da8dc323e8103e66133670bb6',1,'ITree']]],
-  ['hanleminmax_14',['hanleMinMax',['../classITree.html#a481b8da9a0f640603c1c02b22f6fe85e',1,'ITree']]]
+  ['handlesplit_10',['handleSplit',['../classITree.html#a2271e988fb87a84f078d914fd4563dd6',1,'ITree']]],
+  ['handlesucessor_11',['handleSucessor',['../classITree.html#a6a95fbe5f40a349d90503be8e6f1b6af',1,'ITree']]],
+  ['handlesuminrange_12',['handleSuminRange',['../classITree.html#a38a1854f05ff708458e386a35d4e6dd7',1,'ITree']]],
+  ['handleundoredo_13',['handleUndoRedo',['../classITree.html#a077e3978accea9212146621f6363d59e',1,'ITree']]],
+  ['handlevaluesinrange_14',['handleValuesinRange',['../classITree.html#accddd94da8dc323e8103e66133670bb6',1,'ITree']]],
+  ['hanleminmax_15',['hanleMinMax',['../classITree.html#a481b8da9a0f640603c1c02b22f6fe85e',1,'ITree']]]
 ];
