@@ -1,6 +1,8 @@
-//
-// Created by DELL on 10/25/2025.
-//
+/**
+* @file
+ * @brief [Scapegoat Tree](https://en.wikipedia.org/wiki/Scapegoat_tree) implementation.
+ * @details ... DoxyFile
+ */
 /**
  * ScapeGoat Tree Implementation
  *
@@ -22,7 +24,6 @@
 #define SCAPEGOATTREE_SCAPEGOATTREE_HPP
 
 #include <string>
-#include "Node.hpp"
 #include <cmath>
 #include "vector.hpp"
 #include "stack.hpp"

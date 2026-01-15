@@ -223,7 +223,7 @@ void testUandR() {
 void testNewMethods() {
     std::cout << "Testing New Query Methods (Min, Max, Successor, Kth, Range)..." << std::endl;
     ScapeGoatTree<Type> tree;
-    std::vector<int> values = {10, 5, 15, 3, 7, 12, 18};
+    std::vector values = {10, 5, 15, 3, 7, 12, 18};
     for (int v : values) tree.insert(v);
 
     // Min/Max
@@ -281,10 +281,10 @@ void stressTest() {
         }
     }
 
-    // Final sanity check: Total count
+
     std::cout << "Stress Test: Rebuilding verification..." << std::endl;
     Vector<Type> inorder_vals;
-    // (You'd need a way to get all values, for now we verify via kthSmallest)
+
     assert(tree.kthSmallest(1) == *reference_set.begin());
     assert(tree.kthSmallest(reference_set.size()) == *reference_set.rbegin());
 
@@ -299,7 +299,6 @@ void testOrderedInsertion() {
         tree.insert(i);
     }
 
-    // Verify all are there and the tree is balanced
     assert(tree.getMin() == 1);
     assert(tree.getMax() == N);
     assert(tree.isBalanced().find("NOT balanced") == std::string::npos);
@@ -327,20 +326,20 @@ int main() {
     try {
         testBasicInsertion();
         testDeletion();
-        testNewMethods(); // New!
-        testOrderedInsertion(); // New!
+        testNewMethods();
+        testOrderedInsertion();
         testRebuilding();
         testOperators();
         testBatchOperations();
         testCopyAndMove();
         testUandR();
-        stressTest(); // New!
+        stressTest();
         testIterator();
         std::cout << "\n=======================================" << std::endl;
-        std::cout << "🏆 ALL EXTREME TESTS PASSED SUCCESSFULLY!" << std::endl;
+        std::cout << " ALL EXTREME TESTS PASSED SUCCESSFULLY!" << std::endl;
         std::cout << "=======================================" << std::endl;
     } catch (const std::exception& e) {
-        std::cerr << "❌ Test failed with exception: " << e.what() << std::endl;
+        std::cerr << "Test failed with exception: " << e.what() << std::endl;
         return 1;
     }
     return 0;
