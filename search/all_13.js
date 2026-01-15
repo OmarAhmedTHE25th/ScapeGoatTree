@@ -10,7 +10,7 @@ var searchData=
   ['tree_20features_7',['Core Tree Features',['../index.html#autotoc_md6',1,'']]],
   ['tree_20implementation_8',['🌳 Scapegoat Tree Implementation',['../index.html',1,'']]],
   ['tree_5fqueue_5ftpp_9',['TREE_QUEUE_TPP',['../queue_8tpp.html#a199e2b1e32fe3beff142e16e4a53fb7f',1,'queue.tpp']]],
-  ['tree_5fscapegoattree_5ftpp_10',['TREE_SCAPEGOATTREE_TPP',['../scapegoatTree_8tpp.html#a00cce2b959d332ad26e9243f84b9cf66',1,'scapegoatTree.tpp']]],
+  ['tree_5fscapegoattree_5ftpp_10',['TREE_SCAPEGOATTREE_TPP',['../scapegoat__tree_8tpp.html#a00cce2b959d332ad26e9243f84b9cf66',1,'scapegoat_tree.tpp']]],
   ['treenode_11',['TreeNode',['../classScapeGoatTree.html#a8b76d07f341fc9953a411adf08a6e254',1,'ScapeGoatTree']]],
   ['treeui_12',['TreeUI',['../classITree.html#a500e5d17843cf50e5bc4ee2790848f6c',1,'ITree']]],
   ['type_13',['type',['../structCommand.html#a08549615d7f7499b6194733c14479dfe',1,'Command']]]

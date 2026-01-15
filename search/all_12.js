@@ -1,9 +1,9 @@
 var searchData=
 [
   ['scapegoat_20tree_20implementation_0',['🌳 Scapegoat Tree Implementation',['../index.html',1,'']]],
-  ['scapegoattree_1',['scapegoattree',['../classScapeGoatTree.html',1,'ScapeGoatTree&lt; T &gt;'],['../classScapeGoatTree.html#a4becc5f2153ab4c906deaff38d38ee63',1,'ScapeGoatTree::ScapeGoatTree(ScapeGoatTree &amp;&amp;other) noexcept'],['../classScapeGoatTree.html#a91232a4f673e05743fc4cf2d9fa58758',1,'ScapeGoatTree::ScapeGoatTree(const ScapeGoatTree &amp;Otree)'],['../classScapeGoatTree.html#aba977e7d7720532ba59c52b4949daa74',1,'ScapeGoatTree::ScapeGoatTree(double alpha)'],['../classScapeGoatTree.html#a8886cd0154be07a62ba8915f60412089',1,'ScapeGoatTree::ScapeGoatTree()'],['../classVector.html#ad52df95674bffa6af89034cede8d90a2',1,'Vector::ScapeGoatTree'],['../classNode.html#ad52df95674bffa6af89034cede8d90a2',1,'Node::ScapeGoatTree']]],
-  ['scapegoattree_2ehpp_2',['ScapeGoatTree.hpp',['../ScapeGoatTree_8hpp.html',1,'']]],
-  ['scapegoattree_2etpp_3',['scapegoatTree.tpp',['../scapegoatTree_8tpp.html',1,'']]],
+  ['scapegoat_5ftree_2ehpp_1',['scapegoat_tree.hpp',['../scapegoat__tree_8hpp.html',1,'']]],
+  ['scapegoat_5ftree_2etpp_2',['scapegoat_tree.tpp',['../scapegoat__tree_8tpp.html',1,'']]],
+  ['scapegoattree_3',['scapegoattree',['../classScapeGoatTree.html',1,'ScapeGoatTree&lt; T &gt;'],['../classScapeGoatTree.html#a4becc5f2153ab4c906deaff38d38ee63',1,'ScapeGoatTree::ScapeGoatTree(ScapeGoatTree &amp;&amp;other) noexcept'],['../classScapeGoatTree.html#a91232a4f673e05743fc4cf2d9fa58758',1,'ScapeGoatTree::ScapeGoatTree(const ScapeGoatTree &amp;Otree)'],['../classScapeGoatTree.html#aba977e7d7720532ba59c52b4949daa74',1,'ScapeGoatTree::ScapeGoatTree(double alpha)'],['../classScapeGoatTree.html#a8886cd0154be07a62ba8915f60412089',1,'ScapeGoatTree::ScapeGoatTree()'],['../classVector.html#ad52df95674bffa6af89034cede8d90a2',1,'Vector::ScapeGoatTree'],['../classNode.html#ad52df95674bffa6af89034cede8d90a2',1,'Node::ScapeGoatTree']]],
   ['search_4',['search',['../classScapeGoatTree.html#aab92879a495e4402076f25cc5073734a',1,'ScapeGoatTree::search()'],['../iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aa0f544d682c3a664870f025f48c4b04b5',1,'SEARCH:&#160;iTree.hpp']]],
   ['selecttree_5',['selectTree',['../classITree.html#ac4cb5232b38852166795e45b34b7cf71',1,'ITree']]],
   ['self_20balancing_20bst_20with_20multi_20platform_20support_6',['A Self-Balancing BST with Multi-Platform Support',['../index.html#autotoc_md1',1,'']]],

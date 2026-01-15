@@ -2,7 +2,7 @@ var searchData=
 [
   ['data_0',['data',['../classVector.html#a536da87a916c8bdf2565fa6d808337f2',1,'Vector::data'],['../classStack.html#a1176225c4473f0495e089d22ff80d6ec',1,'Stack::data']]],
   ['data_20structures_1',['Custom Data Structures',['../index.html#autotoc_md7',1,'']]],
-  ['delete_2',['Delete',['../ScapeGoatTree_8hpp.html#aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18',1,'ScapeGoatTree.hpp']]],
+  ['delete_2',['Delete',['../scapegoat__tree_8hpp.html#aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18',1,'scapegoat_tree.hpp']]],
   ['deletebatch_3',['deleteBatch',['../classScapeGoatTree.html#a8cbea8620cd09e7265904dd741e3a107',1,'ScapeGoatTree']]],
   ['deleteop_4',['DELETEOP',['../iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aaeb02f403b83bbaf99d27386e2c889562',1,'iTree.hpp']]],
   ['deletevalue_5',['deleteValue',['../classScapeGoatTree.html#ad69b1a69c57ea4c80edf99628117132a',1,'ScapeGoatTree']]],

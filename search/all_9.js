@@ -2,7 +2,7 @@ var searchData=
 [
   ['implementation_0',['🌳 Scapegoat Tree Implementation',['../index.html',1,'']]],
   ['inordertraversal_1',['inorderTraversal',['../classScapeGoatTree.html#a16b202af1e6fe5d1810ea896a504d96f',1,'ScapeGoatTree']]],
-  ['insert_2',['insert',['../classScapeGoatTree.html#ae0c57e0e8e419e1dc2bb01ea32d12f4b',1,'ScapeGoatTree::insert()'],['../iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aa61ee777e7f71dc466c3b2c685d8d313b',1,'INSERT:&#160;iTree.hpp'],['../ScapeGoatTree_8hpp.html#aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0',1,'Insert:&#160;ScapeGoatTree.hpp']]],
+  ['insert_2',['insert',['../classScapeGoatTree.html#ae0c57e0e8e419e1dc2bb01ea32d12f4b',1,'ScapeGoatTree::insert()'],['../iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aa61ee777e7f71dc466c3b2c685d8d313b',1,'INSERT:&#160;iTree.hpp'],['../scapegoat__tree_8hpp.html#aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0',1,'Insert:&#160;scapegoat_tree.hpp']]],
   ['insertbatch_3',['insertBatch',['../classScapeGoatTree.html#a6bd78764375cfb22fa23166905bbd336',1,'ScapeGoatTree']]],
   ['installation_4',['💻 Installation',['../index.html#autotoc_md23',1,'']]],
   ['interface_5',['interface',['../index.html#autotoc_md29',1,'C++ Interface'],['../index.html#autotoc_md28',1,'Python Interface']]],
