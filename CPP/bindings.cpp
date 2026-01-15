@@ -1,7 +1,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/operators.h> // <--- NEEDED FOR + and ==
 #include <pybind11/stl.h>
-#include "ScapeGoatTree.hpp"
+#include "scapegoat_tree.hpp"
 
 namespace py = pybind11;
 typedef long long Type;

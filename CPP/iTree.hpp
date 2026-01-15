@@ -4,7 +4,7 @@
 
 #ifndef TREE_ITREE_HPP
 #define TREE_ITREE_HPP
-#include "ScapeGoatTree.hpp"
+#include "scapegoat_tree.hpp"
 using namespace std;
 typedef int ElemenType;
 

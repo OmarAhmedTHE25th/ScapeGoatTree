@@ -4,7 +4,7 @@
 #include <random>
 #include <algorithm>
 #include <set>
-#include "ScapeGoatTree.hpp"
+#include "scapegoat_tree.hpp"
 typedef int Type;
 // Helper function to check if the tree contains all values in a vector
 template<typename T>

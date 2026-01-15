@@ -29,6 +29,24 @@
 /**
  * Represents the type of operation performed on the tree for undo/redo purposes.
  */
+template<typename T>
+class Node {
+public:
+    T value{};     // stored value
+    Node* left{};    // left child pointer
+    Node* right{};   // right child pointer
+    Node* parent{};  // parent pointer
+    unsigned int size=1;      // subtree size
+
+    /**
+     * Initializes a node with a value and an optional parent pointer.
+     */
+    explicit Node(const T& v, Node* parentPtr = nullptr)
+    : value(v), parent(parentPtr){}
+    template<typename>
+    friend class ScapeGoatTree;
+};
+
 enum class OpType {
     Insert,     // Insertion of a single value
     Delete,     // Deletion of a single value
@@ -319,6 +337,6 @@ ScapeGoatTree(double alpha);
 
 
 };
-#include "scapegoatTree.tpp"
+#include "scapegoat_tree.tpp"
 
 #endif //SCAPEGOATTREE_SCAPEGOATTREE_HPP
