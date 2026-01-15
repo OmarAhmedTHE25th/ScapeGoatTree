@@ -913,7 +913,7 @@ int ScapeGoatTree<T>::updateSize(TreeNode*& node) {
 
 template<typename T>
 std::pair<ScapeGoatTree<T>, ScapeGoatTree<T> > ScapeGoatTree<T>::split(T value) {
-    TreeNode* node = search(value);
+    TreeNode* node = find_node(value);
     if (!node)return {ScapeGoatTree{}, ScapeGoatTree{}};
     ScapeGoatTree tree1;
     ScapeGoatTree tree2;
