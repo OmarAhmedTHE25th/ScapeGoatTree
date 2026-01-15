@@ -15,7 +15,7 @@ void benchmark_sequential_ops() {
 
     // Sequential Search
     start = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < N; ++i) sgt.search(i);
+    for (int i = 0; i < N; ++i) sgt.find_node(i);
     end = std::chrono::high_resolution_clock::now();
     auto sgt_search = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 

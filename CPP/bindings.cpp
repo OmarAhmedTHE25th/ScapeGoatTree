@@ -34,7 +34,7 @@ PYBIND11_MODULE(scapegoat_tree_py, m) {
         }, py::arg("values"))
         .def("delete_value", &ScapeGoatTree<Type>::deleteValue)
         .def("search_node", [](const ScapeGoatTree<Type>& t, Type val) -> Node<Type>* {
-return t.search(val);   // call the Node* version
+return t.find_node(val);   // call the Node* version
 })
         .def("search_bool", [](const ScapeGoatTree<Type>& t, Type val) -> bool {
 return t.search(val);   // call the bool version

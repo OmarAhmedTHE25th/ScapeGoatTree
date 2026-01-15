@@ -14,15 +14,13 @@ public:
     Node* parent{};  // parent pointer
     unsigned int size=1;      // subtree size
 
-
     /**
      * Initializes a node with a value and an optional parent pointer.
      */
     explicit Node(const T& v, Node* parentPtr = nullptr)
-        : value(v), parent(parentPtr){}
+    : value(v), parent(parentPtr){}
     template<typename>
     friend class ScapeGoatTree;
 };
-
 
 #endif //SCAPEGOATTREE_NODE_HPP

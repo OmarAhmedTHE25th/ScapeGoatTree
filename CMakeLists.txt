@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 project(ScapeGoatProject)
 
 set(CMAKE_CXX_STANDARD 26)
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
 # 1. Find Python and pybind11
 find_package(Python COMPONENTS Interpreter Development REQUIRED)
 

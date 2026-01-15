@@ -190,7 +190,7 @@ ScapeGoatTree(double alpha);
      * Searches for a specific value in the tree.
      */
     [[nodiscard]] bool search(const T & key) const;
-    TreeNode* search(T& key) const;
+    TreeNode* find_node(T& key) const;
 
     /**
      * Removes all nodes from the tree and resets its state.

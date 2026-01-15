@@ -705,7 +705,7 @@ bool ScapeGoatTree<T>::search(const T& key) const {
 }
 
 template<typename T>
-ScapeGoatTree<T>::TreeNode *ScapeGoatTree<T>::search(T &key) const {
+ScapeGoatTree<T>::TreeNode *ScapeGoatTree<T>::find_node(T &key) const {
     TreeNode* current = root;
     while (current != nullptr) {
         if (key == current->value) return current;

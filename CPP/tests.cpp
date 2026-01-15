@@ -71,7 +71,7 @@ void testRebuilding() {
     // After 10 insertions, it should have triggered some rebuilds
     // Scapegoat tree with alpha = 2/3 should be relatively balanced
     for (int i = 1; i <= 10; ++i) {
-        assert(tree.search(i));
+        assert(tree.find_node(i));
     }
 
     std::string balancedStatus = tree.isBalanced();
@@ -127,12 +127,12 @@ void testBatchOperations() {
 
     tree.insertBatch(values);
     for (int i = 1; i <= 5; ++i) {
-        assert(tree.search(i));
+        assert(tree.find_node(i));
     }
 
     tree.deleteBatch(values);
     for (int i = 1; i <= 5; ++i) {
-        assert(!tree.search(i));
+        assert(!tree.find_node(i));
     }
 
     std::cout << "Batch Operations Passed!" << std::endl;
@@ -267,7 +267,7 @@ void stressTest() {
             tree.deleteValue(val);
             reference_set.erase(val);
         } else { // Search
-            assert(tree.search(val) == (reference_set.contains(val)));
+            assert(tree.search(val) == reference_set.contains(val));
         }
 
         // Periodically check balance and order statistics
@@ -323,6 +323,7 @@ void testIterator() {
     std::cout << "Iterator passed"<<std::endl;
 }
 int main() {
+
     try {
         testBasicInsertion();
         testDeletion();

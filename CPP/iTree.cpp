@@ -115,7 +115,7 @@ void ITree::handleOperations(ScapeGoatTree<ElemenType>& A, ScapeGoatTree<ElemenT
         }
             break;
         case opcodes::SEARCH: {
-            if (tree.search(value))
+            if (tree.find_node(value))
                 printSuccess("RESULT: FOUND");
             else
                 printError("RESULT: NOT FOUND");
