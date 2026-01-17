@@ -1,7 +1,7 @@
 #include "iTree.hpp"
 #include <limits>
 #include <iostream>
-#include "print"
+#include <format>
 using namespace std;
 
 /* ===================== ANSI Colors ===================== */
@@ -268,7 +268,7 @@ void ITree::handleSuminRange(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenT
     cin >> max;
     if (!validateCinLine())return;
     cout << "\n";
-    println("Sum between {} and {} is {}",min,max,tree.sumInRange(min,max));
+    cout << format("Sum between {} and {} is {}",min,max,tree.sumInRange(min,max))<<endl;
     printSuccess("SUCCESS: Sum in Range complete.");
 }
 
@@ -294,7 +294,7 @@ void ITree::handleValuesinRange(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<Elem
     if (!validateCinLine())return;
     cout << "\n";
    auto result = tree.valuesInRange(min,max);
-    print("Values between {} and {} are",min,max);
+    cout<<format("Values between {} and {} are",min,max);
     for (const auto& v : result) {
         cout << v << " ";
     }
@@ -308,7 +308,7 @@ void ITree::handleKthSmallestElement(ScapeGoatTree<ElemenType> &A, ScapeGoatTree
     cin >> k;
     if (!validateCinLine())return;
     cout << "\n";
-    println("The {}th smallest element is {}" ,k,tree.kthSmallest(k));
+    cout << format("The {}th smallest element is {}" ,k,tree.kthSmallest(k)) << endl;
     printSuccess("SUCCESS: Kth smallest Element complete.");
 }
 
@@ -319,7 +319,7 @@ void ITree::handleSucessor(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenTyp
     cin >> val;
     if (!validateCinLine())return;
     cout << "\n";
-    println("the inorder successor of {} is {}" ,val,tree.getSuccessor(val));
+    cout << format("the inorder successor of {} is {}" ,val,tree.getSuccessor(val)) << endl;
     printSuccess("SUCCESS:Successor Search Element complete.");
 }
 
@@ -330,7 +330,7 @@ void ITree::handleSplit(ScapeGoatTree<ElemenType> &A, ScapeGoatTree<ElemenType> 
     cin >> val;
     if (!validateCinLine())return;
     cout << "\n";
-    println("Tree Splitted Successfully. Tree A: values < {}. Tree B: values > B",val,val);
+    cout << format("Tree Splitted Successfully. Tree A: values < {}. Tree B: values > B",val,val)<<endl;
 }
 
 /* ===================== Main UI ===================== */

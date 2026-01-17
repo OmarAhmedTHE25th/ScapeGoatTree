@@ -809,7 +809,7 @@ T ScapeGoatTree<T>::sumInRange(T min, T max) {
 
 template<typename T>
 T ScapeGoatTree<T>::getMin() {
-    if (!root)throw std::exception("Tree is Empty");
+    if (!root)throw std::runtime_error("Tree is Empty");
     TreeNode* current = root;
     while (current->left) current =current->left;
     return current->value;

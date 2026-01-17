@@ -1,7 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <set>
-#include "ScapeGoatTree.hpp"
+#include "scapegoat_tree.hpp"
 
 void benchmark_sequential_ops() {
     constexpr int N = 50000;  // ✅ Size that works
@@ -18,12 +18,16 @@ void benchmark_sequential_ops() {
     for (int i = 0; i < N; ++i) sgt.find_node(i);
     end = std::chrono::high_resolution_clock::now();
     auto sgt_search = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-
     // Range Query (unique to your tree!)
     start = std::chrono::high_resolution_clock::now();
     int sum = sgt.sumInRange(0, N);
     end = std::chrono::high_resolution_clock::now();
     auto sgt_range = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+     //Sequential Delete
+     start = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < N; ++i) sgt.deleteValue(i);
+    end = std::chrono::high_resolution_clock::now();
+    auto sgt_delete = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 
     // std::set comparison
     start = std::chrono::high_resolution_clock::now();
@@ -36,6 +40,10 @@ void benchmark_sequential_ops() {
     for (int i = 0; i < N; ++i) stdset.find(i);
     end = std::chrono::high_resolution_clock::now();
     auto set_search = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    start = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < N; ++i) stdset.erase(i);
+    end = std::chrono::high_resolution_clock::now();
+    auto set_delete= std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 
     std::cout << "=== Performance Benchmark (50K operations) ===\n\n";
     std::cout << "Insert:\n";
@@ -47,7 +55,10 @@ void benchmark_sequential_ops() {
     std::cout << "  std::set:      " << set_search.count() << " ms\n\n";
 
     std::cout << "Range Sum (ScapeGoat unique feature):\n";
-    std::cout << "  Result: " << sum << " in " << sgt_range.count() << " μs\n";
+    std::cout << "  Result: " << sum << " in " << sgt_range.count() << " μs\n\n";
+    std::cout << "Delete:\n";
+    std::cout << "  ScapeGoatTree: " << sgt_delete.count() << " ms\n";
+    std::cout << "  std::set:      " << set_delete.count() << " ms\n\n";
 }
 
 int main() {
