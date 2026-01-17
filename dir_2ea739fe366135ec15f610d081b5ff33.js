@@ -1,7 +1,7 @@
 var dir_2ea739fe366135ec15f610d081b5ff33 =
 [
     [ "iTree.hpp", "iTree_8hpp.html", "iTree_8hpp" ],
-    [ "Node.hpp", "Node_8hpp.html", null ],
+    [ "Node.hpp", "Node_8hpp.html", "Node_8hpp" ],
     [ "queue.hpp", "queue_8hpp.html", "queue_8hpp" ],
     [ "queue.tpp", "queue_8tpp.html", "queue_8tpp" ],
     [ "scapegoat_tree.hpp", "scapegoat__tree_8hpp.html", "scapegoat__tree_8hpp" ],

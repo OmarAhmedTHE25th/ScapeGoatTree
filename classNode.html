@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('classNode.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="scapegoat__tree_8hpp_source.html">scapegoat_tree.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="Node_8hpp_source.html">Node.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -124,22 +124,7 @@ Friends</h2></td></tr>
 <tr class="memitem:ad52df95674bffa6af89034cede8d90a2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classQNode.html">class</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNode.html#ad52df95674bffa6af89034cede8d90a2">ScapeGoatTree</a></td></tr>
 <tr class="separator:ad52df95674bffa6af89034cede8d90a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="classQNode.html">typename</a> <a class="el" href="classQNode.html">T</a>&gt;<br />
-class Node&lt; T &gt;</div><p>ScapeGoat Tree Implementation</p>
-<p>A self-balancing BST that maintains balance through periodic rebuilding.</p>
-<p>Key Properties:</p><ul>
-<li>α-weight-balanced: No node's subtree is heavier than α × parent's subtree</li>
-<li>α = 2/3 for this implementation</li>
-<li>Height bound: h ≤ <a class="el" href="classQNode.html#ac2f676367dc9d44aed65e831799b78e2">log₁.₅(n)</a> where n = number of nodes</li>
-</ul>
-<p>Time Complexity:</p><ul>
-<li>Insert: O(log n) amortized, O(n) worst case during rebuild</li>
-<li>Delete: O(log n) amortized, O(n) worst case during rebuild</li>
-<li>Search: O(log n) worst case (tree stays balanced)</li>
-</ul>
-<p>Space Complexity: O(n) for tree + O(n) temporary array during rebuild Represents the type of operation performed on the tree for undo/redo purposes. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae20f1c489909cf89a165b23ef56a1ba6" name="ae20f1c489909cf89a165b23ef56a1ba6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae20f1c489909cf89a165b23ef56a1ba6">&#9670;&#160;</a></span>Node()</h2>
 
@@ -288,7 +273,7 @@ template&lt;<a class="el" href="classQNode.html">typename</a> <a class="el" href
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>CPP/<a class="el" href="scapegoat__tree_8hpp_source.html">scapegoat_tree.hpp</a></li>
+<li>CPP/<a class="el" href="Node_8hpp_source.html">Node.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

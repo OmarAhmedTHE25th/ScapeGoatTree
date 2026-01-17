@@ -1,6 +1,5 @@
 var scapegoat__tree_8hpp =
 [
-    [ "Node< T >", "classNode.html", "classNode" ],
     [ "Command< T >", "structCommand.html", "structCommand" ],
     [ "ScapeGoatTree< T >", "classScapeGoatTree.html", "classScapeGoatTree" ],
     [ "ScapeGoatTree< T >::iterator", "classScapeGoatTree_1_1iterator.html", "classScapeGoatTree_1_1iterator" ],

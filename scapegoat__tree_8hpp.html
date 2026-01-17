@@ -102,14 +102,13 @@ $(document).ready(function(){initNavTree('scapegoat__tree_8hpp.html',''); initRe
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &quot;<a class="el" href="vector_8hpp_source.html">vector.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="stack_8hpp_source.html">stack.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Node_8hpp_source.html">Node.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="scapegoat__tree_8tpp_source.html">scapegoat_tree.tpp</a>&quot;</code><br />
 </div>
 <p><a href="scapegoat__tree_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode.html">Node&lt; T &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCommand.html">Command&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScapeGoatTree.html">ScapeGoatTree&lt; T &gt;</a></td></tr>
@@ -149,6 +148,19 @@ Enumerations</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>ScapeGoat Tree Implementation</p>
+<p>A self-balancing BST that maintains balance through periodic rebuilding.</p>
+<p>Key Properties:</p><ul>
+<li>α-weight-balanced: No node's subtree is heavier than α × parent's subtree</li>
+<li>α = 2/3 for this implementation</li>
+<li>Height bound: h ≤ <a class="el" href="classQNode.html#ac2f676367dc9d44aed65e831799b78e2">log₁.₅(n)</a> where n = number of nodes</li>
+</ul>
+<p>Time Complexity:</p><ul>
+<li>Insert: O(log n) amortized, O(n) worst case during rebuild</li>
+<li>Delete: O(log n) amortized, O(n) worst case during rebuild</li>
+<li>Search: O(log n) worst case (tree stays balanced)</li>
+</ul>
+<p>Space Complexity: O(n) for tree + O(n) temporary array during rebuild Represents the type of operation performed on the tree for undo/redo purposes. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0" name="aa1aa1c6a8f3bbed5b167bc2d4511b969aa458be0f08b7e4ff3c0f633c100176c0"></a>Insert&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18" name="aa1aa1c6a8f3bbed5b167bc2d4511b969af2a6c498fb90ee345d997f888fce3b18"></a>Delete&#160;</td><td class="fielddoc"></td></tr>
