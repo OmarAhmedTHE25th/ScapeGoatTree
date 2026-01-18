@@ -2,12 +2,10 @@ import sys
 import tkinter as tk
 from pathlib import Path
 
+
 # ============================================
 # ROBUST PATH RESOLUTION
 # ============================================
-
-from pathlib import Path
-import sys
 
 def find_project_root(start_path: Path):
     """
