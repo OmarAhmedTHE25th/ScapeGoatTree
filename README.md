@@ -1,4 +1,4 @@
-# 🌳 Scapegoat Tree Implementation
+#  Scapegoat Tree Implementation
 
 [![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://omarahmedthe25th.github.io/ScapeGoatTree/)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
@@ -16,7 +16,7 @@
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 **[→ View Full API Documentation](https://omarahmedthe25th.github.io/ScapeGoatTree/)**
 
@@ -28,7 +28,7 @@ Complete API reference with:
 
 ---
 
-## ✨ Features
+##  Features
 
 ### Core Tree Features
 
@@ -54,19 +54,19 @@ Complete API reference with:
 
 ### User Interfaces
 
-* 🖥️ Terminal UI (TUI) with color-coded menus  
-* 🎨 Python Tkinter GUI with animations and collapsible sidebar
-* 🎮 DirectX 11 + ImGui GUI (Windows only)  
+*   Terminal UI (TUI) with color-coded menus  
+*   Python Tkinter GUI with animations and collapsible sidebar
+*   DirectX 11 + ImGui GUI (Windows only)  
 
 ### Advanced Usage
 
-* 🐍 Cross-language Python bindings via pybind11  
-* ⚙️ Custom α parameter for tree balancing  
-* 📊 Detailed balance checking and traversal outputs  
+*  Cross-language Python bindings via pybind11  
+*  Custom α parameter for tree balancing  
+*  Detailed balance checking and traversal outputs  
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Running the Python GUI (Cross-Platform)
 ```bash
@@ -96,7 +96,7 @@ docker run -it --rm scapegoat
 
 ---
 
-## 📖 Algorithm Overview
+##  Algorithm Overview
 
 A Scapegoat Tree is a self-balancing BST that maintains balance through periodic rebuilding:
 
@@ -122,7 +122,7 @@ A Scapegoat Tree is a self-balancing BST that maintains balance through periodic
 
 ---
 
-## 🛠️ Prerequisites
+## ️ Prerequisites
 
 ### Required
 
@@ -139,7 +139,7 @@ A Scapegoat Tree is a self-balancing BST that maintains balance through periodic
 
 ---
 
-## 💻 Installation
+##  Installation
 
 ### Windows
 ```bash
@@ -161,7 +161,7 @@ make
 
 ---
 
-## 📝 Usage Examples
+##  Usage Examples
 
 ### Python Interface
 ```python
@@ -218,7 +218,7 @@ Vector<int> values = tree.valuesInRange(10, 50);
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ### Run Unit Tests
 ```bash
@@ -237,7 +237,7 @@ Comprehensive test suite includes:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 ```
 ScapeGoatTree/
 ├── .github/
@@ -264,7 +264,7 @@ ScapeGoatTree/
 
 ---
 
-## 🎓 Learning Resources
+##  Learning Resources
 
 For more information about Scapegoat Trees:
 - [Original Paper (1993)](https://people.csail.mit.edu/rivest/pubs/GR93.pdf) by Galperin & Rivest
@@ -272,13 +272,13 @@ For more information about Scapegoat Trees:
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License** - see [LICENSE.md](LICENSE.md) for details.
 
 ---
 
-## 👤 Author
+##  Author
 
 **Omar Ahmed Abdel Hameed**
 
@@ -287,7 +287,7 @@ This project is licensed under the **MIT License** - see [LICENSE.md](LICENSE.md
 
 ---
 
-## 🌟 Acknowledgments
+##  Acknowledgments
 
 - Course: Data Structures  
 - Inspiration: Self-balancing tree algorithms
