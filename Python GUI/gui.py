@@ -6,42 +6,52 @@ from pathlib import Path
 # ROBUST PATH RESOLUTION
 # ============================================
 
+from pathlib import Path
+import sys
+
+def find_project_root(start_path: Path):
+    """
+    Walk upward from start_path until we find a folder that looks like
+    the ScapeGoatTree project root (has CMakeLists.txt).
+    """
+    for parent in [start_path, *start_path.parents]:
+        if (parent / "CMakeLists.txt").exists():
+            return parent
+    return None
+
+
 def find_cpp_module():
     """
-    Searches for the compiled C++ module in common build locations.
+    Searches for the compiled C++ module starting from the project root.
     Returns the path if found, None otherwise.
     """
     script_dir = Path(__file__).parent.resolve()
 
-    # Common build directory patterns
-    search_paths = [
-        script_dir / "cmake-build-debug",
-        script_dir / "cmake-build-release",
-        script_dir / "build",
-        script_dir / "cmake-build-relwithdebinfo",
-        script_dir / "out" / "build",
-        script_dir / "build" / "Debug",
-        script_dir / "build" / "Release",
-        ]
+    project_root = find_project_root(script_dir)
+    if not project_root:
+        return None
 
-    # Also check if we're already in a build directory
-    if "build" in str(script_dir).lower():
-        search_paths.insert(0, script_dir)
+    search_paths = [
+        project_root / "cmake-build-debug",
+        project_root / "cmake-build-release",
+        project_root / "cmake-build-relwithdebinfo",
+        project_root / "build",
+        project_root / "build" / "Debug",
+        project_root / "build" / "Release",
+        project_root / "out" / "build",
+        ]
 
     for search_path in search_paths:
         if not search_path.exists():
             continue
 
-
-
-        # Look for any file starting with scapegoat_tree_py
         for file in search_path.iterdir():
             if file.is_file() and file.name.startswith("scapegoat_tree_py"):
-                # Check if it's a Python extension module
-                if file.suffix in ['.pyd', '.so'] or '.so' in file.name:
+                if file.suffix in [".pyd", ".so"] or ".so" in file.name:
                     return str(search_path)
 
     return None
+
 
 # Try to find and add the module path
 module_path = find_cpp_module()
@@ -52,15 +62,8 @@ else:
     print("=" * 60)
     print("ERROR: Could not find scapegoat_tree_py module!")
     print("=" * 60)
-    print("\nSearched in:")
-    script_dir = Path(__file__).parent.resolve()
-    for p in [script_dir / "cmake-build-debug", script_dir / "cmake-build-release", script_dir / "build"]:
-        print(f"  • {p}")
-        if p.exists():
-            print(f"    Contents: {[f.name for f in p.iterdir() if f.is_file()][:5]}")
-    print("\nPlease build the project first:")
-    print("  mkdir build && cd build")
-    print("  cmake .. && cmake --build .")
+    print("\nCould not auto-detect project root.")
+    print("Make sure you're running this from inside the ScapeGoatTree project.")
     print("=" * 60)
     sys.exit(1)
 

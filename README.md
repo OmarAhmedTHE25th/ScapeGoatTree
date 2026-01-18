@@ -75,7 +75,7 @@ mkdir build && cd build
 cmake .. && make
 
 # 2. Run the animated visualizer
-python ../py.py
+python ../gui.py
 ```
 
 ![GUI Demo](https://img.shields.io/badge/GUI-Animated-ff69b4)
