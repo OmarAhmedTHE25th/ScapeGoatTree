@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['features_0',['features',['../index.html#autotoc_md5',1,'✨ Features'],['../index.html#autotoc_md6',1,'Core Tree Features']]],
+  ['features_0',['features',['../index.html#autotoc_md6',1,'Core Tree Features'],['../index.html#autotoc_md5',1,'Features']]],
   ['find_5fnode_1',['find_node',['../classScapeGoatTree.html#a9ab7fd085bf443a3235eb91ef6d4ab11',1,'ScapeGoatTree']]],
   ['findh_2',['findH',['../classScapeGoatTree.html#ade7915ec9566392558f90918bd798283',1,'ScapeGoatTree']]],
   ['findsuccessor_3',['findSuccessor',['../classScapeGoatTree.html#a8490db2489c7785ae0b563fef3d91916',1,'ScapeGoatTree']]],

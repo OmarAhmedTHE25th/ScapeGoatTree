@@ -4,5 +4,5 @@ var searchData=
   ['queue_1',['queue',['../classQueue.html',1,'Queue&lt; T &gt;'],['../classQNode.html#a76db68f71f6e65aa4083615ee111ab59',1,'QNode::Queue']]],
   ['queue_2ehpp_2',['queue.hpp',['../queue_8hpp.html',1,'']]],
   ['queue_2etpp_3',['queue.tpp',['../queue_8tpp.html',1,'']]],
-  ['quick_20start_4',['🚀 Quick Start',['../index.html#autotoc_md11',1,'']]]
+  ['quick_20start_4',['Quick Start',['../index.html#autotoc_md11',1,'']]]
 ];

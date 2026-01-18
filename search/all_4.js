@@ -16,5 +16,5 @@ var searchData=
   ['displaypostorder_13',['displaypostorder',['../classScapeGoatTree.html#abd156e4055354b0295f5ad2cc1ce353b',1,'ScapeGoatTree::displayPostOrder()'],['../classScapeGoatTree.html#a4220aaf5884a222057379757c7db0704',1,'ScapeGoatTree::displayPostOrder(const TreeNode *node, std::ostream &amp;os)']]],
   ['displaypreorder_14',['displaypreorder',['../classScapeGoatTree.html#a95cbe48e5a67f3cd09fef08515ad6b55',1,'ScapeGoatTree::displayPreOrder(const TreeNode *node, std::ostream &amp;os)'],['../classScapeGoatTree.html#ac495cff539e458cb6b22e3d3eb3632c5',1,'ScapeGoatTree::displayPreOrder()']]],
   ['docker_15',['Running via Docker',['../index.html#autotoc_md14',1,'']]],
-  ['documentation_16',['📚 Documentation',['../index.html#autotoc_md3',1,'']]]
+  ['documentation_16',['Documentation',['../index.html#autotoc_md3',1,'']]]
 ];

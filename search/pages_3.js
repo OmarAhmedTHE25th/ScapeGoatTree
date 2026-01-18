@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['🌳_20scapegoat_20tree_20implementation_0',['🌳 Scapegoat Tree Implementation',['../index.html',1,'']]]
+  ['data_20structures_0',['Custom Data Structures',['../index.html#autotoc_md7',1,'']]],
+  ['docker_1',['Running via Docker',['../index.html#autotoc_md14',1,'']]],
+  ['documentation_2',['📚 Documentation',['../index.html#autotoc_md3',1,'']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scapegoat_20tree_20implementation_0',['🌳 Scapegoat Tree Implementation',['../index.html',1,'']]],
+  ['scapegoat_20tree_20implementation_0',['Scapegoat Tree Implementation',['../index.html',1,'']]],
   ['scapegoat_5ftree_2ehpp_1',['scapegoat_tree.hpp',['../scapegoat__tree_8hpp.html',1,'']]],
   ['scapegoat_5ftree_2etpp_2',['scapegoat_tree.tpp',['../scapegoat__tree_8tpp.html',1,'']]],
   ['scapegoattree_3',['scapegoattree',['../classScapeGoatTree.html',1,'ScapeGoatTree&lt; T &gt;'],['../classScapeGoatTree.html#a4becc5f2153ab4c906deaff38d38ee63',1,'ScapeGoatTree::ScapeGoatTree(ScapeGoatTree &amp;&amp;other) noexcept'],['../classScapeGoatTree.html#a91232a4f673e05743fc4cf2d9fa58758',1,'ScapeGoatTree::ScapeGoatTree(const ScapeGoatTree &amp;Otree)'],['../classScapeGoatTree.html#aba977e7d7720532ba59c52b4949daa74',1,'ScapeGoatTree::ScapeGoatTree(double alpha)'],['../classScapeGoatTree.html#a8886cd0154be07a62ba8915f60412089',1,'ScapeGoatTree::ScapeGoatTree()'],['../classVector.html#ad52df95674bffa6af89034cede8d90a2',1,'Vector::ScapeGoatTree'],['../classNode.html#ad52df95674bffa6af89034cede8d90a2',1,'Node::ScapeGoatTree']]],
@@ -12,8 +12,8 @@ var searchData=
   ['stack_9',['stack',['../classStack.html',1,'Stack&lt; T &gt;'],['../classVector.html#a2132310955c0d3dd3d8aa1e665553003',1,'Vector::Stack']]],
   ['stack_2ehpp_10',['stack.hpp',['../stack_8hpp.html',1,'']]],
   ['stack_3c_20command_3c_20t_20_3e_20_3e_11',['Stack&lt; Command&lt; T &gt; &gt;',['../classStack.html',1,'']]],
-  ['start_12',['🚀 Quick Start',['../index.html#autotoc_md11',1,'']]],
-  ['structure_13',['📁 Project Structure',['../index.html#autotoc_md34',1,'']]],
+  ['start_12',['Quick Start',['../index.html#autotoc_md11',1,'']]],
+  ['structure_13',['Project Structure',['../index.html#autotoc_md34',1,'']]],
   ['structures_14',['Custom Data Structures',['../index.html#autotoc_md7',1,'']]],
   ['succ_15',['SUCC',['../iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aa32b7aa62940d5edc65dbaf8a58418558',1,'iTree.hpp']]],
   ['sumhelper_16',['sumHelper',['../classScapeGoatTree.html#a02cfe4be0ba3451189766cdaa7f3cebb',1,'ScapeGoatTree']]],

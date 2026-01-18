@@ -14,5 +14,5 @@ var searchData=
   ['operator_5b_5d_11',['operator[]',['../classScapeGoatTree.html#a4f2f674c767976c345b976f92bd5e28d',1,'ScapeGoatTree::operator[]()'],['../classVector.html#a8fc2e5d2a6f8e1cabb451e97dbccadeb',1,'Vector::operator[](unsigned int index)'],['../classVector.html#a3e6c5d82fa83b139b2f9da3b8574b182',1,'Vector::operator[](unsigned int index) const']]],
   ['optional_12',['Optional',['../index.html#autotoc_md21',1,'']]],
   ['optype_13',['OpType',['../scapegoat__tree_8hpp.html#aa1aa1c6a8f3bbed5b167bc2d4511b969',1,'scapegoat_tree.hpp']]],
-  ['overview_14',['📖 Algorithm Overview',['../index.html#autotoc_md16',1,'']]]
+  ['overview_14',['Algorithm Overview',['../index.html#autotoc_md16',1,'']]]
 ];

@@ -7,7 +7,7 @@ var searchData=
   ['redo_4',['redo',['../classScapeGoatTree.html#aaa4bf81af689fa0a95ebc65eb20af91d',1,'ScapeGoatTree::redo()'],['../iTree_8hpp.html#a44c68a04cafe3d38456832196c7bf22aac07bf946a7da4553f9f2776656e0d60f',1,'REDO:&#160;iTree.hpp']]],
   ['redostack_5',['redoStack',['../classScapeGoatTree.html#a39698cf2674b3a6e908ee7bbda1c78ba',1,'ScapeGoatTree']]],
   ['required_6',['Required',['../index.html#autotoc_md20',1,'']]],
-  ['resources_7',['🎓 Learning Resources',['../index.html#autotoc_md36',1,'']]],
+  ['resources_7',['Learning Resources',['../index.html#autotoc_md36',1,'']]],
   ['restructure_5fsubtree_8',['restructure_subtree',['../classScapeGoatTree.html#a84eb0e2095f9542731d173237081050a',1,'ScapeGoatTree']]],
   ['right_9',['right',['../classNode.html#a4009a1138f2f04372037fbec63406f11',1,'Node']]],
   ['root_10',['root',['../classScapeGoatTree.html#aa10d7d604b724dcf6bc245b859431951',1,'ScapeGoatTree']]],

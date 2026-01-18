@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "ScapeGoatTree", "index.html", [
-    [ "🌳 Scapegoat Tree Implementation", "index.html", "index" ],
+    [ "Scapegoat Tree Implementation", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

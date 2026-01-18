@@ -6,6 +6,6 @@ var searchData=
   ['unit_20tests_3',['Run Unit Tests',['../index.html#autotoc_md32',1,'']]],
   ['updatesize_4',['updateSize',['../classScapeGoatTree.html#a353a8b23b287c2c22c05436c457ef243',1,'ScapeGoatTree']]],
   ['usage_5',['Advanced Usage',['../index.html#autotoc_md9',1,'']]],
-  ['usage_20examples_6',['📝 Usage Examples',['../index.html#autotoc_md27',1,'']]],
+  ['usage_20examples_6',['Usage Examples',['../index.html#autotoc_md27',1,'']]],
   ['user_20interfaces_7',['User Interfaces',['../index.html#autotoc_md8',1,'']]]
 ];
